@@ -1,0 +1,43 @@
+# Compositional data
+
+## Introduction to Compositional Data in Archaeology
+
+* **Understanding Compositional Data**  
+  * Definition and examples of compositional data in archaeology (e.g., proportions of different materials, chemical compositions).  
+  * Example: Typical archaeological datasets that include compositional data.  
+* **Challenges in Analysing Compositional Data**  
+  * Issues with relative proportions and the "closed" nature of compositional data.  
+  * Example: Limitations of traditional statistical methods on compositional data.
+
+## Basic Concepts in Compositional Data Analysis
+
+* **Overview of methods in Multivariate statistics**   
+* **Log-Ratio Transformations**  
+  * Introduction to log-ratio transformations (CLR, ILR, ALR) for compositional data.  
+  * Example: Applying a centred log-ratio (CLR) transformation in R (e.g. `nexus::transform_clr`).  
+* **Visualizing Compositional Data**  
+  * Techniques for visualizing compositional data (ternary plots, bar charts).  
+  * Example: Creating a ternary plot using the `isopleuros::ternary_plot` and `ggtern`.
+
+## Exploratory Data Analysis
+
+* **Principal Component Analysis (PCA)**  
+  * Introduction to PCA tailored for compositional data.  
+  * Example: Performing PCA on compositional data using `tesselle::nexus::pca`.  
+  * Biplots and screeplots  
+  * Example: Plotting PCA results as a biplot and add visualisation aids using `tesselle::dimensio` functions.  
+* **Cluster Analysis**  
+  * Overview of clustering techniques for exploring groupings in compositional data.  
+  * Example: Applying hierarchical clustering on transformed compositional data using `tesselle`.  
+  * `ggplot2`: dendrograms with `ggraph`  
+* **Correspondence Analysis**  
+  * Correspondence Analysis for compositional data.  
+  * Example: Performing Correspondence Analysis using `tesselle::ca`.
+
+## Hands-on Practice
+
+* **Case Study: Analysis of Compositional Data from Archaeological Sites**  
+  * Step-by-step walkthrough of an exploratory analysis of compositional data.  
+  * Example: Analysing chemical compositions of ceramics or soils using `tesselle`.  
+* **Q\&A and Troubleshooting**  
+  * Addressing challenges in visualizing and analyzing compositional data in archaeological research.

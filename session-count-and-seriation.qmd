@@ -1,0 +1,50 @@
+# Count data and seriation
+
+## Introduction to Count Data in Archaeology
+
+* **Understanding Count Data**  
+  * Definition and significance of count data in archaeological contexts (e.g., artifact counts, feature frequencies).  
+  * Example: Overview of typical archaeological datasets involving count data.  
+* **Challenges in Analysing Count Data**  
+  * Issues with skewness, overdispersion, and zero inflation.  
+  * Example: Common problems encountered in archaeological count data analysis.
+
+## Basic Statistical Methods for Count Data
+
+* **Poisson and Negative Binomial Distributions**  
+  * Introduction to Poisson distribution and its application to count data.  
+  * Example: Fitting a Poisson model using `glm` in R.  
+  * Introduction to the Negative Binomial distribution for overdispersed data.  
+  * Example: Fitting a Negative Binomial model using `MASS::glm.nb`.  
+* **Goodness-of-Fit Testing**  
+  * Assessing the fit of count data models.  
+  * Example: Performing a chi-square goodness-of-fit test in R.
+
+## Introduction to Seriation
+
+* **What is Seriation?**  
+  * Overview of seriation techniques and their importance in archaeology for ordering artefacts or sites chronologically.  
+  * Example: Historical applications of seriation in archaeology.  
+* **Seriation Techniques**  
+  * Introduction to different seriation methods (e.g., frequency seriation, contextual seriation).  
+  * Example: Basic seriation using traditional methods.
+
+## Using the `tesselle` Package for Seriation
+
+* **Introduction to `tesselle`**  
+  * Overview of the `tesselle` package and its tools for seriation.  
+  * Example: Installation and loading of `tesselle`.  
+* **Practical Seriation in R**  
+  * Performing seriation.  
+  * Example: Applying seriation to an archaeological dataset (e.g., pottery styles, stratigraphic data).  
+* **Visualizing Seriation Results**  
+  * Creating visual representations of seriation results.  
+  * Example: Plotting seriation outputs.
+
+## Hands-on Practice
+
+* **Case Study: Seriation of Archaeological Artefacts**  
+  * Step-by-step walkthrough of a seriation analysis using count data.  
+  * Example: Seriation of pottery fragments or lithic tools using `tesselle`.  
+* **Q\&A and Troubleshooting**  
+  * Addressing common issues in count data analysis and seriation in archaeological contexts.

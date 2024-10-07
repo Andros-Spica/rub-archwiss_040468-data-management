@@ -1,0 +1,72 @@
+# Databases (I)
+
+## Introduction to Databases in Archaeology
+
+* **What is a Database?**  
+  * Definition and importance of databases in archaeology (data storage, retrieval, and management).  
+  * Example: Common uses of databases for managing archaeological data (e.g., artifacts, excavation records).  
+* **Types of Databases**  
+  * Overview of relational vs. non-relational databases.  
+  * Example: Advantages of relational databases for structured archaeological data.
+
+## Relational Database Concepts
+
+* **Basic Concepts**  
+  * Introduction to tables, records, fields, primary and foreign keys.  
+  * Example: Organizing excavation data in relational tables (e.g., site locations, stratigraphy, finds).  
+* **Normalization**  
+  * Introduction to database normalization (avoiding redundancy, ensuring data integrity).  
+  * Example: Structuring artifact data into normalized tables (e.g., artifact type, material, condition).  
+* **Entity-Relationship (ER) Models**  
+  * Creating ER models to visualize relationships between archaeological datasets.  
+  * Example: Designing an ER diagram for an archaeological database (e.g., site, context, finds).
+
+## Introduction to SQL (Structured Query Language)
+
+* **Basic SQL Commands**  
+  * Overview of SQL syntax and common commands (e.g., `CREATE`, `INSERT`, `SELECT`, `UPDATE`).  
+  * Example: Creating tables for archaeological data and inserting records.  
+* **Creating a Database with SQL**  
+  * Step-by-step process of building an archaeological database using SQL.  
+  * Example: Creating an artifact catalogue with fields such as artifact ID, type, material, and context.  
+* **Indexing and Keys**  
+  * Explanation of primary keys, foreign keys, and indexing for optimizing database performance.  
+  * Example: Defining keys to link excavation sites to finds in different tables.  
+* **Basic Querying with SQL**  
+  * Writing basic queries to retrieve data from a database.  
+  * Example: Using `SELECT` statements to extract information about finds or excavation layers.  
+* **Filtering and Sorting Data**  
+  * Using `WHERE`, `ORDER BY`, and `GROUP BY` clauses to filter and sort data.  
+  * Example: Querying artifacts by material type or sorting excavation records by date.  
+* **Joining Tables**  
+  * Using `JOIN` statements to combine related tables (e.g., linking artifact data with stratigraphy).  
+  * Example: Writing queries to retrieve artifacts based on their excavation context.
+
+## Database Tools for Archaeology
+
+* **Accessing Databases from R**  
+  * Introduction to R packages (`DBI`, `RSQLite`, `RPostgres`) for interacting with databases.  
+  * Example: Connecting to an SQLite or PostgreSQL database from R for archaeological data analysis.  
+* **SQLite for small projects**  
+  * Introduction to SQLite as a lightweight database solution for archaeological projects.  
+  * Example: Creating a simple SQLite database for site data using R (RSQLite, e.g. https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html) or Python.  
+* **PostgreSQL for larger projects**  
+  * Overview of PostgreSQL for larger archaeological datasets.  
+  * Example: Setting up a PostgreSQL database in R for managing excavation records.  
+* **Querying Databases in R**  
+  * Writing SQL queries in R and retrieving data for further analysis.  
+  * Example: Querying an excavation database from R and visualizing the results with `ggplot2`.  
+* **Data Wrangling and Cleaning**  
+  * Using R to clean and manipulate database data for analysis.  
+  * Example: Using `dplyr` in R to filter and transform queried data.
+
+## Hands-on Practice
+
+* **Building a Small Archaeological Database**  
+  * Step-by-step walkthrough of creating a database schema for a hypothetical excavation project (using RSQLite).  
+  * Example: Creating tables for stratigraphy, finds, and context.  
+* **Inserting and Managing Data**  
+  * Practical examples of adding and managing archaeological data.  
+  * Example: Inserting excavation records into the database using SQL.  
+* **Q\&A and Troubleshooting**  
+  * Addressing challenges in database design and SQL queries.

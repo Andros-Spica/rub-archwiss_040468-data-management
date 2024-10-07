@@ -1,0 +1,24 @@
+# Databases (II)
+
+## Using GIS Databases for Archaeology
+
+* **Introduction to Spatial Databases**  
+  * Overview of spatial databases and their use in archaeology (e.g., storing geospatial excavation data).  
+  * Example: Introduction to PostGIS for spatial data management in PostgreSQL.  
+* **Linking GIS Data to Databases**  
+  * Using databases to manage spatial data for archaeological analysis.  
+  * Example: Storing site coordinates and linking them to excavation records in a spatial database.  
+* **Querying Spatial Data**  
+  * Writing spatial queries to retrieve geospatial data from a database.  
+  * Example: Querying sites within a specific radius or extracting artifact distributions across layers.
+
+## Hands-on Practice
+
+* **Querying and Analyzing Archaeological Data**  
+  * Walkthrough of writing SQL queries to extract meaningful insights from archaeological data.  
+  * Example: Retrieving and analyzing artifact distributions based on context and stratigraphy.  
+* **Combining Database and Spatial Data**  
+  * Practical examples of integrating database queries with GIS data for archaeological site analysis.  
+  * Example: Using a database to visualize the spatial distribution of artifacts across an excavation site.  
+* **Q\&A and Troubleshooting**  
+  * Addressing challenges in querying and analyzing archaeological databases.

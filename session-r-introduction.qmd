@@ -1,0 +1,93 @@
+# Introduction to R
+
+## Preparation
+
+* Installing R and RStudio.  
+* Overview of RStudio interface.
+
+## R syntax and workflow
+
+* Basic R syntax: variables and data types.  
+* Writing and executing R scripts.  
+* Arithmetic operations, logical operations in R.  
+* Algorithm structures: `if`, `else`, `while`, `function`   
+* Packages. Mention the most important packages used later, including `tidyverse` and `tesselle.`
+
+## Basic Data Structures in R
+
+* Vectors, matrices, data frames, lists.  
+* Basic operations on data structures (indexing, subsetting, adding/removing elements).
+
+## Data Manipulation in R
+
+* Importing data: reading data from CSV files, using canonical datasets (`iris`, `archdata::DartPoints`).  
+* Basic data manipulation using base R (`subset`, `merge`, `apply` functions).  
+* Introduction to `dplyr` package for data manipulation (filtering, selecting, mutating data).
+
+## Data Visualization
+
+* Introduction to plots: histograms, bar plots, scatter plots.  
+* Creating plots in R with base R graphics.  
+* Creating multiple plot figures with `layout`.  
+* Creating plots in `ggplot2`.  
+* Creating multiple plot figures with `gridExtra::grid.arrange`.  
+* Base R graphics and `ggplot2`: comparative  
+* Saving plots: open and closing graphic devices in R.
+
+## (EXTRA)Interactive Visualizations
+
+* Introduction to creating interactive visualizations.  
+* Example: Building an interactive plot using `plotly` and `knitr`.
+
+## Hands-on Practice
+
+* Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).  
+* Create a data.frame named “stone\_tools\_data” directly in R with the following characteristics (based on Carlson 2017, p. 26):  
+  * Set of six stone tools with inventory number  
+  * Recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.  
+  * Data per object:  
+    * LN15:  
+      * Length: 18  
+      * Breadth: 9  
+      * Thickness: 3  
+      * Material type: chert  
+      * Material provenance: local  
+    * LN17:  
+      * Length: 14  
+      * Breadth: 7  
+      * Thickness: 2  
+      * Material type: chert  
+      * Material provenance: local  
+    * LN18:  
+      * Length: 21  
+      * Breadth: 10  
+      * Thickness: 3  
+      * Material type: obsidian  
+      * Material provenance: local  
+    * LN21:  
+      * Length: 14  
+      * Breadth: 7  
+      * Thickness: 3  
+      * Material type: chert  
+      * Material provenance: non-local  
+    * LN23:  
+      * Length: 17  
+      * Breadth: 8  
+      * Thickness: 3  
+      * Material type: obsidian  
+      * Material provenance: local  
+    * LN24:  
+      * Length: 16  
+      * Breadth: 8  
+      * Thickness: 2  
+      * Material type: obsidian  
+      * Material provenance: non-local  
+* Check that the data and data types are coherent with the specifications. Save it as a CSV file and load it back as a new R object (e.g. “stone\_tools\_data2”). Compare.  
+* Create a plot showing the counts of objects made of chert and obsidian. Save it as a PNG file.  
+* Create a new variable (“type\_and\_provenance”) that combines type and provenance and create a plot showing the counts in each category. Save it as a PNG file.  
+* Create a single figure displaying the variable distribution of the three dimensions measured. Save it as both a PNG and a SVG file.  
+* Create a plot displaying the relationship between length and breadth. Save it as a PNG file.  
+* Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type\_and\_provenance”. Save it as both a PNG and a EPS file.  
+* (EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?  
+* Commit all changes and push to the remote using RStudio.  
+* Q\&A and troubleshooting.

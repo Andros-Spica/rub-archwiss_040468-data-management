@@ -1,0 +1,5 @@
+# GIS (I)
+
+(Basic concepts, installation and setting up, loading files)
+
+> Cool archive video about ARCInfo (1988): https://youtu.be/7xqNyUOIRCs?si=FulmlUVzaThGE9BU

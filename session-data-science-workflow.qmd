@@ -1,0 +1,70 @@
+# Data Science Workflow
+
+## Introduction to Data Science Workflow
+
+* Overview of the data science process: data collection, cleaning, exploration, modelling, and communication.  
+* Example: Walk through of a simple data science project in R.
+
+## Data Import and Preparation
+
+* **Importing Data**  
+  * Reading data from various sources (CSV, Excel, databases).  
+  * Example: Using `read.csv`, `read_excel`, and `DBI` package for data import.  
+* **Data Cleaning**  
+  * Handling missing values, duplicates, and inconsistent data.  
+  * Example: Using `tidyr` and `dplyr` for cleaning data (e.g., `fill`, `drop_na`, `distinct, separate`).  
+* **Data Transformation**  
+  * Filtering, selecting, and transforming variables.  
+  * Example: Using `dplyr` functions (`filter`, `select`, `mutate,pivot_longer,pivot_wider`) for data manipulation.
+
+## Exploratory Data Analysis
+
+* **Univariate statistics**  
+  * Creating basic plots to explore distribution in a single variable.  
+  * Example: Using `ggplot2` for histograms.  
+  * Finding the range of a variable distribution  
+  * Calculating central tendency and dispersal measurements: mean, median, mode, variance, standard deviation.  
+  * Example: Using `summary`, `mean`, `sd`, and `quantile` functions in R.  
+  * Example: Plotting a histogram and marking the mean of the distribution.  
+* **Bivariate statistics**  
+  * Creating basic plots to explore bivariate data relationships.  
+  * Example: Using `ggplot2` for scatter plots, box plots, and bar plots.  
+  * Contingency in two categorical variables: using `table, mosaicplot`  
+  * Correlation coefficient and linear regression.  
+  * Example: Example: Fitting a simple linear regression model using `lm`, projecting it on a scatter plot using base R and `ggplot2,`and interpreting the results.  
+  * Example: Calculating and visualizing correlations with `cor` and `corrplot`.  
+  * Introduction to hypothesis testing: t-tests, Chi-Square tests,  ANOVA and Fisher test.  
+  * Example: Conducting a t-test using `t.test` and a chi-square test using `chisq.test`.  
+  * Creating faceted plots to explore multivariate data relationships  
+  * Example: Using `ggplot2` to create a grid of scatter plots separated by category.  
+* **(EXTRA)Classification**  
+  * Introduction to basic classification methods (e.g., logistic regression).  
+  * Example: Building a logistic regression model using `glm`.
+
+## (EXTRA)Basic Machine Learning Concepts
+
+* **Introduction to Machine Learning**  
+  * Overview of supervised and unsupervised learning.  
+  * Example: Differentiating between regression and classification tasks.  
+* **K-Nearest Neighbors (KNN)**  
+  * Understanding KNN for classification.  
+  * Example: Implementing KNN using `class` package.  
+* **Clustering**  
+  * Introduction to clustering techniques (e.g., k-means clustering).  
+  * Example: Performing k-means clustering with `kmeans` and visualizing clusters.
+
+## (EXTRA)Model Evaluation
+
+* **Train/Test Split**  
+  * Splitting data into training and testing sets.  
+  * Example: Using `caret` package to split data and train models.  
+* **Model Performance Metrics**  
+  * Evaluating model performance: accuracy, confusion matrix, ROC curve.  
+  * Example: Calculating and interpreting metrics using `caret` and `pROC`.
+
+## Hands-on Practice
+
+* **Building a Simple Data Science Workflow**  
+  * End-to-end example: data import, cleaning, exploration (modelling, and evaluation).  
+* **Q\&A and Troubleshooting**  
+  * Addressing challenges in implementing basic data science methods in R.

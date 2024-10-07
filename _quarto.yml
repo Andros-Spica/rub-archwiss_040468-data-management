@@ -1,0 +1,60 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Data Management and Digital Archaeology"
+  author: # vgl. https://quarto.org/docs/journals/authors.html
+  - name: Andreas Angourakis
+    orcid: 0000-0002-9946-8142
+    email: Andreas.Angourakis@ruhr-uni-bochum.de
+    affiliation: 
+      - name: Institut für Archäologische Wissenschaften, Ruhr-Universität Bochum
+        url: https://www.ruhr-uni-bochum.de/archaeologie
+    attributes:
+      corresponding: true
+      equal-contributor: true
+  - name: Tim Klingenberg
+    email: tim.klingenberg@rub.de
+    affiliation: 
+      - name: Institut für Archäologische Wissenschaften, Ruhr-Universität Bochum
+        url: https://www.ruhr-uni-bochum.de/archaeologie
+    attributes:
+      corresponding: true
+      equal-contributor: true
+  date: today
+  date-format: DD MMMM, YYYY
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - part: "Getting started"
+      chapters: 
+        - session-rdm.qmd
+        - session-git.qmd
+    - part: "Programming in R"
+      chapters:
+      - session-r-introduction.qmd
+      - session-r-programming.qmd
+    - part: "Data Science in R"
+      chapters:
+        - session-count-and-seriation.qmd
+        - session-compositional-data.qmd
+    - part: "Databases"
+      chapters:
+        - session-database-1.qmd
+        - session-database-2.qmd
+    - part: "GIS"
+      chapters:
+        - session-gis-1.qmd
+        - session-gis-2.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: lumen
+    fig-format: svg
+    css: styles.css
+  pdf:
+    documentclass: scrreprt

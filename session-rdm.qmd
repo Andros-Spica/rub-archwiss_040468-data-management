@@ -1,0 +1,74 @@
+# Data and research data management
+
+## Introduction to Research Data
+
+### What is data? What is it for?
+
+Data refers to factual information, often in quantitative or qualitative form, used as a basis for reasoning, discussion, or calculation. It serves as the foundational element for analysis and supports decision-making across diverse fields. In research, data helps to generate new insights, verify hypotheses, and contribute to the overall body of knowledge in a specific area.
+
+### Archaeological Data: Particularities
+
+In archaeology, data encompasses various types such as field notes, artifacts, images, geospatial coordinates, and more. By systematically collecting, organizing, and analyzing this data, researchers can reconstruct past human behaviors, understand environmental contexts, and explore cultural practices.
+
+Archaeological data is unique due to its diverse formats and the complexity of its collection. It often includes material remains like pottery, bones, tools, and structures, as well as environmental data like pollen samples and soil types. Since archaeological data often comes from excavation sites, it is usually non-renewable; once excavated, a site cannot be restored to its original state.
+
+Archaeologists rely heavily on careful documentation to preserve as much information as possible for future study. Furthermore, the context in which artifacts are found is crucial, as it helps interpret their use, significance, and the broader cultural setting.
+
+### Open Science
+
+Open Science promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, this can involve sharing excavation reports, datasets, and analysis methods to facilitate wider understanding and scrutiny of findings.
+
+### FAIR Principles
+
+FAIR stands for Findable, Accessible, Interoperable, and Reusable. These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others. Applying FAIR principles in archaeology involves creating well-documented, open-access datasets that other researchers can readily use.
+
+### Open Source
+
+Open Source refers to software and tools that are freely available for anyone to use, modify, and distribute. For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and data management, promoting a more inclusive research environment.
+
+### Reproducibility
+
+Reproducibility refers to the ability to replicate the results of a study using the original author's assets or following their methodology. It ensures that findings can be independently verified under similar conditions, reinforcing the reliability of scientific research.
+
+In scientific research, reproducibility is crucial for confirming the validity of experimental findings and building upon existing knowledge. It enhances transparency and trustworthiness in scientific practices, promoting better peer review and collaboration.
+
+Most research in archaeology does not necessarily involve controlled experiments and archaeological survey and excavation are destructive, thus unrepeatable. However, the reproducibility of data collection, processing and analysis is not a trivial concern.
+
+Making research reproducible must be considered as a spectrum of practices, in which researchers should thrive for doing better, despite the challenges [@marwick_open_2017].
+
+```{=html}
+<iframe src="https://mfr.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2F9bru3%2F%3Fdirect%26mode%3Drender" width="100%" scrolling="yes" height="300px" marginheight="0" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
+<a href="https://doi.org/10.17605/OSF.IO/3D6XX" target="_blank">Ben Marwick, CC-By Attribution 4.0 International, available at OSF</a>
+```
+
+### The lay of the land: Organizations, Institutions, and Where to Find Tools and Datasets
+
+Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets:
+
+- Research Organizations:
+
+  - [OpenAIRE](https://www.openaire.eu/): OpenAIRE AMKE is a non-profit organization with a mission to promote open scholarship and improve discoverability, accessibility, shareability, reusability, reproducibility, and monitoring of data-driven research results, globally [@iatropoulou_openaire_nodate]. 
+  - [Go FAIR Initiative](https://www.go-fair.org/): Provides guidelines on implementing FAIR principles, with resources tailored for researchers in various fields, including archaeology [@noauthor_fair_nodate].
+
+- Data Repositories and Tools:  
+  - [Zenodo](https://zenodo.org/): A repository where researchers can deposit datasets, software, and publications.  
+  - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
+  - [Archaeology Data Service (ADS)](https://archaeologydataservice.ac.uk/): An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.  
+  - [Open Context](https://opencontext.org/): A platform offering access to archaeological data from various global sources, adhering to FAIR principles [noauthor_open_nodate-1].
+  - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
+
+- Open Source Tools:  
+  - [Markdown](https://www.markdownguide.org/): Markdown is a lightweight markup language designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate].  
+  - [R](https://www.r-project.org/) and [Python](https://www.python.org/): Programming languages with extensive libraries for data analysis, which are widely used in archaeology for statistical analysis and modeling [@r_core_team_r_2024, noauthor_welcome_2024].  
+  - [Git](https://git-scm.com/): Git is a distributed version control system designed for tracking changes in source code during software development.
+  - [Zotero](https://www.zotero.org/): Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.  
+  - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].
+  
+By utilizing these resources, archaeologists can ensure that their research aligns with Open Science, FAIR, and Open Source principles, ultimately enhancing the transparency, accessibility, and longevity of their work.
+
+## Introduction to Programming for Research
+
+* What is programming?  
+* Importance of learning programming.  
+* Overview of common programming languages.  
+* Concept of Research Software: tools and scripts

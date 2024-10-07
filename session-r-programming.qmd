@@ -1,0 +1,74 @@
+# Best practices in programming
+
+## Code Organisation
+
+* **Modular Programming**  
+  * Importance of modularity: breaking down code into functions and modules.  
+  * Example: Creating in-script custom functions.   
+  * Example: Creating and importing custom R scripts.  
+* **Code Structuring**  
+  * Structuring a data science project: folder organization, separating code, data, and outputs.  
+  * Example: Setting up a basic project structure in R and RStudio.
+
+## Writing Clean and Readable Code
+
+* **Naming Conventions**  
+  * Using meaningful and consistent names for variables, functions, and files.  
+  * Example: Best practices in naming conventions in R ([tidyverse style guide](https://style.tidyverse.org/index.html)).  
+* **Commenting and Documentation**  
+  * Importance of comments and inline documentation.  
+  * Example: Writing using `roxygen2` in R for documenting functions.  
+* **Avoiding Magic Numbers and Hardcoding**  
+  * Use of constants and configuration files.  
+  * Example: Using constants in R.
+
+## Writing Efficient and Scalable Code
+
+* **Vectorization**  
+  * Avoiding loops by using vectorized operations for efficiency.  
+  * Example: Implementing vectorized operations in R (base R, `dplyr`).  
+* **Memory Management**  
+  * Managing memory usage and avoiding memory leaks.  
+  * Example: Best practices for handling large datasets in R (using `data.table`).
+
+## (EXTRA)Testing and Validation
+
+* **Writing Unit Tests**  
+  * Importance of testing: ensuring code correctness.  
+  * Example: Writing basic unit tests in Python (`unittest` or `pytest`) and R (`testthat`).  
+* **Data Validation**  
+  * Validating data inputs and outputs, ensuring data integrity.  
+  * Example: Implementing data validation checks in data processing scripts.
+
+## (EXTRA)Error Handling and Debugging
+
+* **Error Handling Techniques**  
+  * Using tryCatch in R.  
+  * Writing meaningful error messages.   
+  * Example: Implementing error handling in a data processing script.  
+* **Debugging Tools**  
+  * Introduction to debugging tools: `browser` in R.  
+  * Example: Walkthrough of a debugging session in R.
+
+## (EXTRA)Code Reusability and Sharing
+
+* **Creating Reusable Code**  
+  * Writing functions and libraries for reuse across projects.  
+  * Example: Creating a simple R package.  
+* **Sharing Code**  
+  * Sharing code with others: publishing packages, sharing notebooks.  
+  * Example: Publishing an R package on CRAN/GitHub.
+
+## Hands-on Practice
+
+* **Refactoring Code (30min)**  
+  * First attempt: Refactoring a sample script to follow best practices (clean code, modularity, documentation).  
+  * Second attempt: try using a Large Language Model (LLM) to refactor.  
+* **Collaborative Exercise (40min)**  
+  * Simulating a collaborative workflow with Git: making and reviewing pull requests.  
+  * Groups of two or three  
+  * Re-use one of the repositories created in GitHub (Session 2\) and populated by R code and output files (Session 3).  
+  * Mutual reviews and change suggestions.  
+  * Discussion, accepting/rejecting changes, and merge decision  
+* **Open discussion (10min)**  
+  * Addressing common challenges in applying best practices to real-world projects.
