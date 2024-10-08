@@ -28,10 +28,11 @@ book:
   date: today
   date-format: DD MMMM, YYYY
   search: true
-  repo-url: https://github.com/jjallaire/hopr/
+  repo-url: https://github.com/Andros-Spica/rub-archwiss_040468-data-management/
   repo-actions: [edit]
   downloads: [pdf, epub]
   sharing: [twitter, facebook]
+  site-url: https://andros-spica.github.io/rub-archwiss_040468-data-management/
   page-navigation: true
   cover-image: assets/images/Default_Research_data_and_digital_archaeology_uncover_a_world_2_961a18f6-54d2-4ade-b16e-c6348b3f60e6_0.png
   chapters:
@@ -67,6 +68,6 @@ format:
   html:
     theme: lumen
     fig-format: svg
-    css: styles.css
+    css: assets/styles.css
   pdf:
     documentclass: scrreprt
