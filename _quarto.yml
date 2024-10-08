@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+execute:
+  freeze: auto
+  
 book:
   title: "Data Management and Digital Archaeology"
   author: # vgl. https://quarto.org/docs/journals/authors.html

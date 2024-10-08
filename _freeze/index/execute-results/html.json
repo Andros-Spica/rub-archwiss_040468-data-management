@@ -1,0 +1,15 @@
+{
+  "hash": "98a9822d63858990c3908390c7d89c75",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Course overview {.unnumbered}\n\n\n::: {.cell}\n\n:::\n\n\n040468 Datenmanagement und digitale Archäologie (ÜB, unterrichtet in Englisch) Übungen (3 CP)\n\n**Time slot** / **_Zeitfenster_**: Fr 14-16 Uhr c.t.\n\n**Place** / **_Ort_**: Raum 2\n\n**Course instructors** / **_Kursleiter_**: Andreas Angourakis / Tim Klingenberg\n\n**Support** / **_Unterstützung_**: Thomas Rose\n\n## **Course schedule**/**_Kursplan_**:\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\n|   |    Date    |       Block       |Topic                             |\n|:--|:----------:|:-----------------:|:---------------------------------|\n|1  | 2024.10.18 |  Getting started  |Data and research data management |\n|2  | 2024.10.25 |  Getting started  |Git and GitHub                    |\n|3  | 2024.11.08 | Programming in R  |Introduction to R                 |\n|4  | 2024.11.15 | Programming in R  |Best practices in programming     |\n|5  | 2024.11.22 | Data Science in R |Data Science Workflow             |\n|6  | 2024.11.29 | Data Science in R |Count data and seriation          |\n|7  | 2024.12.06 | Data Science in R |Compositional data                |\n|8  | 2024.12.13 |     Databases     |Databases (I)                     |\n|9  | 2024.12.20 |     Databases     |Databases (II)                    |\n|10 | 2025.01.10 |        GIS        |GIS (I)                           |\n|11 | 2025.01.17 |        GIS        |GIS (II)                          |\n\n\n:::\n:::\n\n\n## **Evaluation** / **_Kursbewertung_**\n\n(Attendance and final examination)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
