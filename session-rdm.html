@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Management and Digital Archaeology - 1&nbsp; Data and research data management</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./session-git.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-rdm.html">Getting started</a></li><li class="breadcrumb-item"><a href="./session-rdm.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management and Digital Archaeology</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/jjallaire/hopr/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Management-and-Digital-Archaeology.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Management-and-Digital-Archaeology.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Getting started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-rdm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Programming in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-r-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-r-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Best practices in programming</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Data Science in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-count-and-seriation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Count data and seriation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-compositional-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Compositional data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Databases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-database-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Databases (I)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-database-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (II)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">GIS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-gis-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">GIS (I)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./session-gis-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GIS (II)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-research-data" id="toc-introduction-to-research-data" class="nav-link active" data-scroll-target="#introduction-to-research-data"><span class="header-section-number">1.1</span> Introduction to Research Data</a>
+  <ul class="collapse">
+  <li><a href="#what-is-data-what-is-it-for" id="toc-what-is-data-what-is-it-for" class="nav-link" data-scroll-target="#what-is-data-what-is-it-for"><span class="header-section-number">1.1.1</span> What is data? What is it for?</a></li>
+  <li><a href="#archaeological-data-particularities" id="toc-archaeological-data-particularities" class="nav-link" data-scroll-target="#archaeological-data-particularities"><span class="header-section-number">1.1.2</span> Archaeological Data: Particularities</a></li>
+  <li><a href="#open-science" id="toc-open-science" class="nav-link" data-scroll-target="#open-science"><span class="header-section-number">1.1.3</span> Open Science</a></li>
+  <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles"><span class="header-section-number">1.1.4</span> FAIR Principles</a></li>
+  <li><a href="#open-source" id="toc-open-source" class="nav-link" data-scroll-target="#open-source"><span class="header-section-number">1.1.5</span> Open Source</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">1.1.6</span> Reproducibility</a></li>
+  <li><a href="#the-lay-of-the-land-organizations-institutions-and-where-to-find-tools-and-datasets" id="toc-the-lay-of-the-land-organizations-institutions-and-where-to-find-tools-and-datasets" class="nav-link" data-scroll-target="#the-lay-of-the-land-organizations-institutions-and-where-to-find-tools-and-datasets"><span class="header-section-number">1.1.7</span> The lay of the land: Organizations, Institutions, and Where to Find Tools and Datasets</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-programming-for-research" id="toc-introduction-to-programming-for-research" class="nav-link" data-scroll-target="#introduction-to-programming-for-research"><span class="header-section-number">1.2</span> Introduction to Programming for Research</a>
+  <ul class="collapse">
+  <li><a href="#what-is-programming" id="toc-what-is-programming" class="nav-link" data-scroll-target="#what-is-programming"><span class="header-section-number">1.2.1</span> What is Programming?</a></li>
+  <li><a href="#importance-of-learning-programming" id="toc-importance-of-learning-programming" class="nav-link" data-scroll-target="#importance-of-learning-programming"><span class="header-section-number">1.2.2</span> Importance of Learning Programming</a></li>
+  <li><a href="#overview-of-common-programming-languages" id="toc-overview-of-common-programming-languages" class="nav-link" data-scroll-target="#overview-of-common-programming-languages"><span class="header-section-number">1.2.3</span> Overview of Common Programming Languages</a></li>
+  <li><a href="#concept-of-research-software-tools-and-scripts" id="toc-concept-of-research-software-tools-and-scripts" class="nav-link" data-scroll-target="#concept-of-research-software-tools-and-scripts"><span class="header-section-number">1.2.4</span> Concept of Research Software: Tools and Scripts</a></li>
+  <li><a href="#where-to-learn-and-keep-learning" id="toc-where-to-learn-and-keep-learning" class="nav-link" data-scroll-target="#where-to-learn-and-keep-learning"><span class="header-section-number">1.2.5</span> Where to learn (and keep learning)</a></li>
+  </ul></li>
+  <li><a href="#hands-on-practice" id="toc-hands-on-practice" class="nav-link" data-scroll-target="#hands-on-practice"><span class="header-section-number">1.3</span> Hands-on Practice</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jjallaire/hopr/edit/main/session-rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-rdm.html">Getting started</a></li><li class="breadcrumb-item"><a href="./session-rdm.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-to-research-data" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction-to-research-data"><span class="header-section-number">1.1</span> Introduction to Research Data</h2>
+<section id="what-is-data-what-is-it-for" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="what-is-data-what-is-it-for"><span class="header-section-number">1.1.1</span> What is data? What is it for?</h3>
+<p>Data refers to factual information, often in quantitative or qualitative form, used as a basis for reasoning, discussion, or calculation. It serves as the foundational element for analysis and supports decision-making across diverse fields. In research, data helps to generate new insights, verify hypotheses, and contribute to the overall body of knowledge in a specific area.</p>
+</section>
+<section id="archaeological-data-particularities" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="archaeological-data-particularities"><span class="header-section-number">1.1.2</span> Archaeological Data: Particularities</h3>
+<p>In archaeology, data encompasses various types such as field notes, artefacts, images, geospatial coordinates, and more. By systematically collecting, organizing, and analysing this data, researchers can reconstruct past human behaviours, understand environmental contexts, and explore cultural practices.</p>
+<p>Archaeological data is unique due to its diverse formats and the complexity of its collection. It often includes material remains like pottery, bones, tools, and structures, as well as environmental data like pollen samples and soil types. Since archaeological data often comes from excavation sites, it is usually non-renewable; once excavated, a site cannot be restored to its original state.</p>
+<p>Archaeologists rely heavily on careful documentation to preserve as much information as possible for future study. Furthermore, the context in which artefacts are found is crucial, as it helps interpret their use, significance, and the broader cultural setting.</p>
+</section>
+<section id="open-science" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="open-science"><span class="header-section-number">1.1.3</span> Open Science</h3>
+<p>Open Science promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, this can involve sharing excavation reports, datasets, and analysis methods to facilitate wider understanding and scrutiny of findings.</p>
+</section>
+<section id="fair-principles" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="fair-principles"><span class="header-section-number">1.1.4</span> FAIR Principles</h3>
+<p>FAIR stands for Findable, Accessible, Interoperable, and Reusable. These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others. Applying FAIR principles in archaeology involves creating well-documented, open-access datasets that other researchers can readily use.</p>
+</section>
+<section id="open-source" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="open-source"><span class="header-section-number">1.1.5</span> Open Source</h3>
+<p>Open Source refers to software and tools that are freely available for anyone to use, modify, and distribute. For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and data management, promoting a more inclusive research environment.</p>
+</section>
+<section id="reproducibility" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">1.1.6</span> Reproducibility</h3>
+<p>Reproducibility refers to the ability to replicate the results of a study using the original author’s assets or following their methodology. It ensures that findings can be independently verified under similar conditions, reinforcing the reliability of scientific research <span class="citation" data-cites="national_academies_of_sciences_understanding_2019">(<a href="references.html#ref-national_academies_of_sciences_understanding_2019" role="doc-biblioref">National Academies of Sciences et al. 2019</a>)</span>.</p>
+<p>In scientific research, reproducibility is crucial for confirming the validity of experimental findings and building upon existing knowledge. It enhances transparency and trustworthiness in scientific practices, promoting better peer review and collaboration <span class="citation" data-cites="baker_1500_2016"><span>“<span>GRN</span> · <span>German</span> <span>Reproducibility</span> <span>Network</span>”</span> (<a href="references.html#ref-noauthor_grn_nodate" role="doc-biblioref">n.d.</a>)</span>.</p>
+<p>Most research in archaeology does not necessarily involve controlled experiments and archaeological survey and excavation are destructive, thus unrepeatable. However, the reproducibility of data collection, processing and analysis is not a trivial concern.</p>
+<p>Making research reproducible must be considered as a spectrum of practices, in which researchers should thrive for doing better, despite the challenges <span class="citation" data-cites="marwick_open_2017">(<a href="references.html#ref-marwick_open_2017" role="doc-biblioref">Marwick 2017</a>)</span>.</p>
+<iframe src="https://mfr.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2F9bru3%2F%3Fdirect%26mode%3Drender" width="100%" scrolling="yes" height="300px" marginheight="0" frameborder="0" allowfullscreen="" webkitallowfullscreen=""></iframe>
+<a href="https://doi.org/10.17605/OSF.IO/3D6XX" target="_blank">Ben Marwick, CC-By Attribution 4.0 International, available at OSF</a>
+</section>
+<section id="the-lay-of-the-land-organizations-institutions-and-where-to-find-tools-and-datasets" class="level3" data-number="1.1.7">
+<h3 data-number="1.1.7" class="anchored" data-anchor-id="the-lay-of-the-land-organizations-institutions-and-where-to-find-tools-and-datasets"><span class="header-section-number">1.1.7</span> The lay of the land: Organizations, Institutions, and Where to Find Tools and Datasets</h3>
+<p>Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets:</p>
+<ul>
+<li><p>Research Organizations:</p>
+<ul>
+<li><a href="https://www.openaire.eu/">OpenAIRE</a>: OpenAIRE AMKE is a non-profit organization with a mission to promote open scholarship and improve discoverability, accessibility, shareability, reusability, reproducibility, and monitoring of data-driven research results, globally <span class="citation" data-cites="iatropoulou_openaire_nodate">(<a href="references.html#ref-iatropoulou_openaire_nodate" role="doc-biblioref">Iatropoulou n.d.</a>)</span>.</li>
+<li><a href="https://www.go-fair.org/">Go FAIR Initiative</a>: Provides guidelines on implementing FAIR principles, with resources tailored for researchers in various fields, including archaeology <span class="citation" data-cites="noauthor_fair_nodate">(<a href="references.html#ref-noauthor_fair_nodate" role="doc-biblioref"><span>“<span>FAIR</span> <span>Principles</span>”</span> n.d.</a>)</span>.</li>
+<li><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a>: collaborative writing of an online handbook <span class="citation" data-cites="community_turing_2022">(<a href="references.html#ref-community_turing_2022" role="doc-biblioref">Community 2022</a>)</span>.</li>
+</ul></li>
+<li><p>Data Repositories and Tools:</p>
+<ul>
+<li><a href="https://zenodo.org/">Zenodo</a>: A repository where researchers can deposit datasets, software, and publications.<br>
+</li>
+<li><a href="https://osf.io/">Open Science Foundation</a>: OSF is a free, open platform to support your research and enable collaboration.</li>
+<li><a href="https://archaeologydataservice.ac.uk/">Archaeology Data Service (ADS)</a>: An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.<br>
+</li>
+<li><a href="https://opencontext.org/">Open Context</a>: A platform offering access to archaeological data from various global sources, adhering to FAIR principles [noauthor_open_nodate-1].</li>
+<li><a href="https://github.com/">GitHub</a>: GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.</li>
+</ul></li>
+<li><p>Open Source Tools:</p>
+<ul>
+<li><a href="https://www.markdownguide.org/">Markdown</a>: Markdown is a lightweight markup language designed for creating formatted text using a plain-text editor <span class="citation" data-cites="noauthor_markdown_nodate">(<a href="references.html#ref-noauthor_markdown_nodate" role="doc-biblioref"><span>“Markdown <span>Guide</span>”</span> n.d.</a>)</span>.<br>
+</li>
+<li><a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a>: Programming languages with extensive libraries for data analysis, which are widely used in archaeology for statistical analysis and modeling <span class="citation" data-cites="r_core_team_r_2024">(<a href="references.html#ref-r_core_team_r_2024" role="doc-biblioref">R Core Team 2024</a>, noauthor_welcome_2024)</span>. See more about these and other programming languages below.<br>
+</li>
+<li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a>: RStudio IDE is an integrated development environment for R, a programming language for statistical computing and graphics.</li>
+<li><a href="https://quarto.org/">Quarto</a>: An open-source scientific and technical publishing system.</li>
+<li><a href="https://git-scm.com/">Git</a>: Git is a distributed version control system designed for tracking changes in source code during software development.</li>
+<li><a href="https://www.zotero.org/">Zotero</a>: Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.<br>
+</li>
+<li><a href="https://qgis.org/">QGIS</a>: A free, open-source GIS tool useful for mapping and spatial analysis in archaeology <span class="citation" data-cites="noauthor_spatial_nodate">(<a href="references.html#ref-noauthor_spatial_nodate" role="doc-biblioref"><span>“Spatial Without <span>Compromise</span> · <span>QGIS</span> <span>Web</span> <span>Site</span>”</span> n.d.</a>)</span>.</li>
+</ul></li>
+</ul>
+<p>By utilizing these resources, archaeologists can ensure that their research aligns with Open Science, FAIR, and Open Source principles, ultimately enhancing the transparency, accessibility, and longevity of their work.</p>
+</section>
+</section>
+<section id="introduction-to-programming-for-research" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="introduction-to-programming-for-research"><span class="header-section-number">1.2</span> Introduction to Programming for Research</h2>
+<section id="what-is-programming" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="what-is-programming"><span class="header-section-number">1.2.1</span> What is Programming?</h3>
+<p>Programming is the process of designing and implementing instructions that a computer can follow to perform specific tasks. It involves writing code in various programming languages that communicate with the computer’s hardware and software to solve problems, process data, and automate repetitive tasks. At its core, programming is about creating a sequence of steps, known as algorithms, which help achieve a desired outcome <span class="citation" data-cites="noauthor_what_2024">(<a href="references.html#ref-noauthor_what_2024" role="doc-biblioref"><span>“What <span>Is</span> <span>Programming</span>? <span>And</span> <span>How</span> <span>To</span> <span>Get</span> <span>Started</span>”</span> 2024</a>)</span>.</p>
+</section>
+<section id="importance-of-learning-programming" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="importance-of-learning-programming"><span class="header-section-number">1.2.2</span> Importance of Learning Programming</h3>
+<p>For researchers, learning programming offers several significant advantages:</p>
+<ul>
+<li><p><em>Efficiency and Automation</em>: Programming can help automate data collection, processing, and analysis, saving time and reducing human error. It also enables researchers to handle large datasets and complex calculations with ease.</p></li>
+<li><p><em>Reproducibility</em>: Writing scripts to perform analysis allows other researchers to replicate experiments, thus ensuring results can be verified and reproduced, a fundamental aspect of scientific research.</p></li>
+<li><p><em>Access to Powerful Tools</em>: With programming skills, researchers can access a wide range of tools for data visualization, statistical analysis, machine learning, and simulation. These tools can enhance the scope and quality of research projects.</p></li>
+</ul>
+</section>
+<section id="overview-of-common-programming-languages" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="overview-of-common-programming-languages"><span class="header-section-number">1.2.3</span> Overview of Common Programming Languages</h3>
+<p>Several programming languages are popular in research due to their specific features and libraries<span class="citation" data-cites="noauthor_introduction_2018">(<a href="references.html#ref-noauthor_introduction_2018" role="doc-biblioref"><span>“Introduction to <span>Programming</span> <span>Languages</span>”</span> 2018</a>)</span>:</p>
+<ul>
+<li><p><em>Python</em>: Known for its readability and versatility, Python is widely used for data analysis, machine learning, and automation. It has extensive libraries such as NumPy, pandas, and matplotlib, which are particularly useful for data-intensive research.</p></li>
+<li><p><em>R</em>: A language specifically developed for statistical computing and graphics, R is preferred in data science, bioinformatics, and fields requiring extensive statistical analysis. The Comprehensive R Archive Network (CRAN) offers thousands of packages that can handle a range of analytical tasks.</p></li>
+<li><p><em>MATLAB</em>: Commonly used in engineering and scientific research, MATLAB excels at numerical computing, simulation, and algorithm development. It is particularly popular in fields like physics, engineering, and finance.</p></li>
+<li><p><em>JavaScript</em>: While primarily a web development language, JavaScript is also used in research for developing interactive data visualizations and web-based applications.</p></li>
+</ul>
+</section>
+<section id="concept-of-research-software-tools-and-scripts" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="concept-of-research-software-tools-and-scripts"><span class="header-section-number">1.2.4</span> Concept of Research Software: Tools and Scripts</h3>
+<p>Research software comprises tools, libraries, and scripts that aid in conducting and managing research activities. It can range from simple scripts for data cleaning and preprocessing to complex software packages for statistical analysis and simulation. Although any software used in research could be considered as research software, advance training focus on programming or scripting skills, not on graphical user interface operations (e.g., creating a plot in R or Python rather than in Microsoft Excel).</p>
+<ul>
+<li><p><em>Tools</em>: Research software tools like <a href="https://jupyter.org/">Jupyter Notebooks</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>, <a href="https://code.visualstudio.com/download">Visual Studio Code</a>, etc., offer integrated development environments (IDEs) tailored to a specific range of languages, enhancing productivity and facilitating code sharing and version control.</p></li>
+<li><p><em>Scripts</em>: Scripts are text files encoding programs written to perform specific tasks. In research, scripts are often used for data cleaning, model training, and result visualization. Scripts can be used even to generate and format an entire dataset (have a peek on how the <a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/blob/main/index.qmd">course schedule has been built with R code</a>). These scripts can be shared among researchers to ensure that analyses are reproducible and consistent.</p></li>
+</ul>
+<p>Learning programming for research allows scientists to leverage these tools and scripts effectively, making research more efficient, reproducible, and insightful.</p>
+</section>
+<section id="where-to-learn-and-keep-learning" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="where-to-learn-and-keep-learning"><span class="header-section-number">1.2.5</span> Where to learn (and keep learning)</h3>
+<ul>
+<li><a href="https://www.datacamp.com">Datacamp</a> <span class="citation" data-cites="noauthor_learn_nodate">(<a href="references.html#ref-noauthor_learn_nodate" role="doc-biblioref"><span>“Learn <span>R</span>, <span>Python</span> &amp; <span>Data</span> <span>Science</span> <span>Online</span>”</span> n.d.</a>)</span></li>
+<li><a href="https://www.udemy.com/">Udemy</a> <span class="citation" data-cites="noauthor_online_nodate">(<a href="references.html#ref-noauthor_online_nodate" role="doc-biblioref"><span>“Online <span>Courses</span> - <span>Learn</span> <span>Anything</span>, <span>On</span> <span>Your</span> <span>Schedule</span> <span></span> <span>Udemy</span>”</span> n.d.</a>)</span></li>
+<li><a href="https://www.coursera.org/">Coursera</a> <span class="citation" data-cites="noauthor_coursera_nodate">(<a href="references.html#ref-noauthor_coursera_nodate" role="doc-biblioref"><span>“Coursera <span></span> <span>Degrees</span>, <span>Certificates</span>, &amp; <span>Free</span> <span>Online</span> <span>Courses</span>”</span> n.d.</a>)</span></li>
+<li>Courses and workshops by high education institutions (e.g,, <a href="https://www.research-school.rub.de/">RUB Research School</a>)</li>
+</ul>
+</section>
+</section>
+<section id="hands-on-practice" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="hands-on-practice"><span class="header-section-number">1.3</span> Hands-on Practice</h2>
+<ul>
+<li>Task 1: register yourself as user at:
+<ul>
+<li><a href="https://github.com/">GitHub</a><br>
+</li>
+<li><a href="https://zenodo.org/">Zenodo</a><br>
+</li>
+<li><a href="https://www.zotero.org/">Zotero</a> (optional)<br>
+</li>
+</ul></li>
+<li>Task 2: installations:
+<ul>
+<li><a href="https://git-scm.com/">Git</a><br>
+</li>
+<li><a href="https://desktop.github.com/download/">GitHub Desktop</a><br>
+</li>
+<li><a href="https://www.r-project.org/">R</a></li>
+<li><a href="https://posit.co/download/rstudio-desktop/">RStudio</a></li>
+<li><a href="https://qgis.org/">QGIS</a></li>
+</ul></li>
+<li>Task 3: explore datasets at <a href="https://opencontext.org/">Open Context</a></li>
+<li>Task 4: have a go with writing in markdown at <a href="https://markdownlivepreview.com/">Markdown Live Preview</a>.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-baker_1500_2016" class="csl-entry" role="listitem">
+Baker, Monya. 2016. <span>“1,500 Scientists Lift the Lid on Reproducibility.”</span> <em>Nature</em> 533 (7604): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
+</div>
+<div id="ref-community_turing_2022" class="csl-entry" role="listitem">
+Community, The Turing Way. 2022. <span>“The <span>Turing</span> <span>Way</span>: <span>A</span> Handbook for Reproducible, Ethical and Collaborative Research.”</span> Zenodo. <a href="https://doi.org/10.5281/ZENODO.3233853">https://doi.org/10.5281/ZENODO.3233853</a>.
+</div>
+<div id="ref-noauthor_coursera_nodate" class="csl-entry" role="listitem">
+<span>“Coursera <span></span> <span>Degrees</span>, <span>Certificates</span>, &amp; <span>Free</span> <span>Online</span> <span>Courses</span>.”</span> n.d. Accessed October 8, 2024. <a href="https://www.coursera.org/">https://www.coursera.org/</a>.
+</div>
+<div id="ref-noauthor_fair_nodate" class="csl-entry" role="listitem">
+<span>“<span>FAIR</span> <span>Principles</span>.”</span> n.d. <em>GO FAIR</em>. Accessed October 7, 2024. <a href="https://www.go-fair.org/fair-principles/">https://www.go-fair.org/fair-principles/</a>.
+</div>
+<div id="ref-noauthor_grn_nodate" class="csl-entry" role="listitem">
+<span>“<span>GRN</span> · <span>German</span> <span>Reproducibility</span> <span>Network</span>.”</span> n.d. Accessed October 7, 2024. <a href="https://reproducibilitynetwork.de/">https://reproducibilitynetwork.de/</a>.
+</div>
+<div id="ref-iatropoulou_openaire_nodate" class="csl-entry" role="listitem">
+Iatropoulou, Katerina. n.d. <span>“<span>OpenAIRE</span>.”</span> <em>OpenAIRE</em>. Accessed October 7, 2024. <a href="https://www.openaire.eu/">https://www.openaire.eu/</a>.
+</div>
+<div id="ref-noauthor_introduction_2018" class="csl-entry" role="listitem">
+<span>“Introduction to <span>Programming</span> <span>Languages</span>.”</span> 2018. <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/introduction-to-programming-languages/">https://www.geeksforgeeks.org/introduction-to-programming-languages/</a>.
+</div>
+<div id="ref-noauthor_learn_nodate" class="csl-entry" role="listitem">
+<span>“Learn <span>R</span>, <span>Python</span> &amp; <span>Data</span> <span>Science</span> <span>Online</span>.”</span> n.d. Accessed October 8, 2024. <a href="https://www.datacamp.com">https://www.datacamp.com</a>.
+</div>
+<div id="ref-noauthor_markdown_nodate" class="csl-entry" role="listitem">
+<span>“Markdown <span>Guide</span>.”</span> n.d. Accessed October 7, 2024. <a href="https://www.markdownguide.org/">https://www.markdownguide.org/</a>.
+</div>
+<div id="ref-marwick_open_2017" class="csl-entry" role="listitem">
+Marwick, Ben. 2017. <span>“Open <span>Science</span> in <span>Archaeology</span>,”</span> January. <a href="https://doi.org/10.17605/OSF.IO/3D6XX">https://doi.org/10.17605/OSF.IO/3D6XX</a>.
+</div>
+<div id="ref-national_academies_of_sciences_understanding_2019" class="csl-entry" role="listitem">
+National Academies of Sciences, Engineering, Policy and Global Affairs, Engineering Committee on Science, Board on Research Data Information, Division on Engineering and Physical and Sciences, Committee on Applied and Theoretical Statistics, Board on Mathematical Sciences Analytics, et al. 2019. <span>“Understanding <span>Reproducibility</span> and <span>Replicability</span>.”</span> In <em>Reproducibility and <span>Replicability</span> in <span>Science</span></em>. National Academies Press (US). <a href="https://www.ncbi.nlm.nih.gov/books/NBK547546/">https://www.ncbi.nlm.nih.gov/books/NBK547546/</a>.
+</div>
+<div id="ref-noauthor_online_nodate" class="csl-entry" role="listitem">
+<span>“Online <span>Courses</span> - <span>Learn</span> <span>Anything</span>, <span>On</span> <span>Your</span> <span>Schedule</span> <span></span> <span>Udemy</span>.”</span> n.d. Accessed October 8, 2024. <a href="https://www.udemy.com/">https://www.udemy.com/</a>.
+</div>
+<div id="ref-r_core_team_r_2024" class="csl-entry" role="listitem">
+R Core Team. 2024. <em>R: <span>A</span> <span>Language</span> and <span>Environment</span> for <span>Statistical</span> <span>Computing</span></em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-noauthor_spatial_nodate" class="csl-entry" role="listitem">
+<span>“Spatial Without <span>Compromise</span> · <span>QGIS</span> <span>Web</span> <span>Site</span>.”</span> n.d. Accessed October 7, 2024. <a href="https://qgis.org/">https://qgis.org/</a>.
+</div>
+<div id="ref-noauthor_what_2024" class="csl-entry" role="listitem">
+<span>“What <span>Is</span> <span>Programming</span>? <span>And</span> <span>How</span> <span>To</span> <span>Get</span> <span>Started</span>.”</span> 2024. <em>Coursera</em>. <a href="https://www.coursera.org/articles/what-is-programming">https://www.coursera.org/articles/what-is-programming</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Course overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Course overview</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./session-git.html" class="pagination-link" aria-label="Git and GitHub">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jjallaire/hopr/edit/main/session-rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
