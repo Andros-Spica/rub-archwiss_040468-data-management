@@ -22,9 +22,6 @@ session_data <- cbind.data.frame(
 )
 ```
 
-
-## Details
-
 040468 Datenmanagement und digitale Archäologie (ÜB, unterrichtet in Englisch) Übungen (3 CP)
 
 **Time slot** / **_Zeitfenster_**: Fr 14-16 Uhr c.t.

@@ -24,7 +24,13 @@ book:
       equal-contributor: true
   date: today
   date-format: DD MMMM, YYYY
+  search: true
+  repo-url: https://github.com/jjallaire/hopr/
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
   page-navigation: true
+  cover-image: assets/images/Default_Research_data_and_digital_archaeology_uncover_a_world_2_961a18f6-54d2-4ade-b16e-c6348b3f60e6_0.png
   chapters:
     - index.qmd
     - part: "Getting started"
@@ -51,6 +57,9 @@ book:
 
 bibliography: references.bib
 
+comments:
+  hypothesis: true
+  
 format:
   html:
     theme: lumen
