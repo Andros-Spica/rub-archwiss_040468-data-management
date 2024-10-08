@@ -31,7 +31,9 @@ session_data <- cbind.data.frame(
 
 **Place** / **_Ort_**: Raum 2
 
-**Course instructors** / **_Kursleiter_**: Angourakis / Klingenberg
+**Course instructors** / **_Kursleiter_**: Andreas Angourakis / Tim Klingenberg
+
+**Support** / **_Unterstützung_**: Thomas Rose
 
 ## **Course schedule**/**_Kursplan_**:
 
