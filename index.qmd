@@ -2,23 +2,23 @@
 
 ```{r, echo=FALSE}
 session_data <- cbind.data.frame(
-  dates = c("2024.10.18", "2024.10.25", 
-             "2024.11.08", "2024.11.15", "2024.11.22", "2024.11.29",
-             "2024.12.06", "2024.12.13", "2024.12.20",
-             "2025.01.10", "2025.01.17"),
-  topics = c("Data and research data management",
-              "Git and GitHub",
-              "Introduction to R",
-              "Best practices in programming",
-              "Data Science Workflow",
-              "Count data and seriation",
-              "Compositional data",
-              "Databases (I)",
-              "Databases (II)",
-              "GIS (I)",
-              "GIS (II)"),
-  parts = c(rep("Getting started", 2), rep("Programming in R", 2), 
-             rep("Data Science in R", 3), rep("Databases", 2), rep("GIS", 2))
+  Date = c("2024.10.18", "2024.10.25", 
+           "2024.11.08", "2024.11.15", "2024.11.22", "2024.11.29",
+           "2024.12.06", "2024.12.13", "2024.12.20",
+           "2025.01.10", "2025.01.17"),
+  Block = c(rep("Getting started", 2), rep("Programming in R", 2), 
+            rep("Data Science in R", 3), rep("Databases", 2), rep("GIS", 2)),
+  Topic = c("Data and research data management",
+            "Git and GitHub",
+            "Introduction to R",
+            "Best practices in programming",
+            "Data Science Workflow",
+            "Count data and seriation",
+            "Compositional data",
+            "Databases (I)",
+            "Databases (II)",
+            "GIS (I)",
+            "GIS (II)")
 )
 ```
 
@@ -36,18 +36,8 @@ session_data <- cbind.data.frame(
 ## **Course schedule**/**_Kursplan_**:
 
 ```{r, echo=FALSE}
-knitr::kable(session_data, row.names = TRUE)
+knitr::kable(session_data, row.names = TRUE, align = c("c", "c", "l"))
 ```
-
-
-| Index | Date       | Block | Topics                                                                |
-| ----: | :--------: | :---: | :-------------------------------------------------------------------- |
-| 1     | 2024.10.18 | Getting started | Data and research data management |
-| 2     | 2024.10.25 |                 | Git and GitHub                                                        |
-| 3     | 2024.11.08 | Introduction to R                                                     |
-| 4     | 2024.11.15 | Best practices in programming                                         |
-| 5     | 2024.11.22 | Data Science Workflow                                         |
-
 
 ## **Evaluation** / **_Kursbewertung_**
 
