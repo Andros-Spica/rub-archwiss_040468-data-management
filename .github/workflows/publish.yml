@@ -14,6 +14,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install and activate renv
+        run: |
+          install.packages("renv")
+          renv::activate()
+          renv::restore()
+        shell: Rscript {0}
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
@@ -22,4 +29,4 @@ jobs:
         with:
           target: gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}# This is a basic workflow to help you get started with Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
