@@ -44,7 +44,7 @@ session_data$Block <- factor(session_data$Block, unique(session_data$Block))
 
 ```{r, echo=FALSE}
 schedule_table <- knitr::kable(session_data[,c("Date", "Topic")], row.names = TRUE)
-schedule_table <- kableExtra::pack_rows(schedule_table, index = table(session_data$Block), background = "darkgrey")
+schedule_table <- kableExtra::pack_rows(schedule_table, index = table(session_data$Block), background = "#a9a9a9")
 schedule_table
 ```
 
