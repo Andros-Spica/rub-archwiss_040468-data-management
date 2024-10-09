@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -287,9 +321,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#version-control-and-git" id="toc-version-control-and-git" class="nav-link active" data-scroll-target="#version-control-and-git"><span class="header-section-number">2.1</span> Version-control and Git</a></li>
-  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">2.2</span> GitHub</a></li>
-  <li><a href="#hands-on-practice" id="toc-hands-on-practice" class="nav-link" data-scroll-target="#hands-on-practice"><span class="header-section-number">2.3</span> Hands-on Practice</a></li>
+  <li><a href="#version-control-and-git" id="toc-version-control-and-git" class="nav-link active" data-scroll-target="#version-control-and-git"><span class="header-section-number">2.1</span> Version-control and Git</a>
+  <ul class="collapse">
+  <li><a href="#version-control-general-concept-and-its-usefulness" id="toc-version-control-general-concept-and-its-usefulness" class="nav-link" data-scroll-target="#version-control-general-concept-and-its-usefulness"><span class="header-section-number">2.1.1</span> Version control: general concept and its usefulness</a></li>
+  <li><a href="#benefits-of-version-control" id="toc-benefits-of-version-control" class="nav-link" data-scroll-target="#benefits-of-version-control"><span class="header-section-number">2.1.2</span> Benefits of Version Control</a></li>
+  </ul></li>
+  <li><a href="#git-terminology" id="toc-git-terminology" class="nav-link" data-scroll-target="#git-terminology"><span class="header-section-number">2.2</span> Git terminology</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">2.3</span> GitHub</a>
+  <ul class="collapse">
+  <li><a href="#what-is-github" id="toc-what-is-github" class="nav-link" data-scroll-target="#what-is-github"><span class="header-section-number">2.3.1</span> What is GitHub?</a></li>
+  <li><a href="#working-with-github" id="toc-working-with-github" class="nav-link" data-scroll-target="#working-with-github"><span class="header-section-number">2.3.2</span> Working with GitHub</a></li>
+  <li><a href="#markdown-github-flavoured" id="toc-markdown-github-flavoured" class="nav-link" data-scroll-target="#markdown-github-flavoured"><span class="header-section-number">2.3.3</span> Markdown (GitHub-flavoured)</a></li>
+  <li><a href="#how-to-organise-repositories" id="toc-how-to-organise-repositories" class="nav-link" data-scroll-target="#how-to-organise-repositories"><span class="header-section-number">2.3.4</span> How to organise repositories</a></li>
+  <li><a href="#conventional-files" id="toc-conventional-files" class="nav-link" data-scroll-target="#conventional-files"><span class="header-section-number">2.3.5</span> Conventional files</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-git.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -317,32 +362,214 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="version-control-and-git" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="version-control-and-git"><span class="header-section-number">2.1</span> Version-control and Git</h2>
+<section id="version-control-general-concept-and-its-usefulness" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="version-control-general-concept-and-its-usefulness"><span class="header-section-number">2.1.1</span> Version control: general concept and its usefulness</h3>
+<p>Version control is a system that helps track and manage changes to files over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes, allowing users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.</p>
+<p>There are two main types of version control: centralized and distributed. Centralized version control systems, such as Subversion (SVN), store files in a central repository. Users check out files, make changes, and then commit them back to the central repository. While effective, centralized systems can be vulnerable if the central server fails. Distributed version control systems, like Git, address this by allowing every user to have a complete copy of the repository on their local machine. This setup enhances collaboration and provides redundancy, as users can work offline and synchronize changes with others when connected.</p>
+</section>
+<section id="benefits-of-version-control" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="benefits-of-version-control"><span class="header-section-number">2.1.2</span> Benefits of Version Control</h3>
 <ul>
-<li>Version control: general concept and its usefulness<br>
-</li>
-<li>Git software (installation check, but preferably done before)</li>
+<li><p>Collaboration: Version control systems make collaboration easier and more efficient by allowing multiple users to work on the same project simultaneously. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be merged into the main project seamlessly. This enables teams to work independently and minimize conflicts.</p></li>
+<li><p>Historical Tracking: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when they were made, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
+<li><p>Backup and Redundancy: In distributed systems, each user’s local copy serves as a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
+<li><p>Version Management: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
+<li><p>Enhanced Workflow: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</p></li>
+</ul>
+<p>Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.</p>
+<p>Get a short introduction on Git by watching the official Git Documentation videos <a href="https://git-scm.com/videos">here</a>.</p>
+</section>
+</section>
+<section id="git-terminology" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="git-terminology"><span class="header-section-number">2.2</span> Git terminology</h2>
+<p>Here are some essential Git terms to know:</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[2,1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: flex-start;">
+<ul>
+<li><p><strong>Repository</strong>: A storage space for your project files and their history. Repositories can be local (on your computer) or remote (on platforms like GitHub).</p></li>
+<li><p><strong>Commit</strong>: A snapshot of changes in the repository. Each commit has a unique ID, allowing you to track and revert changes as needed [<a href="https://git-scm.com/docs/gitglossary">1</a>].</p></li>
+<li><p><strong>Branch</strong>: A separate line of development. The default branch is usually called <code>main</code> or <code>master</code>. Branches allow you to work on features independently before merging them into the main project [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
+<li><p><strong>Merge</strong>: The process of integrating changes from one branch into another. Typically, this involves merging a feature branch into the main branch.</p></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><a title="Cmglee, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Git_data_flow_simplified.svg"><img width="256" alt="Git data flow simplified" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Git_data_flow_simplified.svg/256px-Git_data_flow_simplified.svg.png?20120710215449"></a></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>Pull</strong>: A command that fetches changes from a remote repository and merges them into your local branch, ensuring your local work is up-to-date with the remote [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
+<li><p><strong>Push</strong>: Uploads your commits from the local branch to the remote repository, making your changes available to others.</p></li>
+</ul>
+<p>Understanding these terms is crucial for effective Git usage and collaboration in any project.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CHECK: Git software installation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To verify if Git is installed on your machine, follow these steps:</p>
+<ol type="1">
+<li><strong>Open Command Prompt</strong> (Windows 10 or 11)
+<ul>
+<li>Press <code>Win + R</code>, type <code>cmd</code>, and hit Enter.</li>
+<li>Alternatively, you can search for “Command Prompt” in the Start menu and select it.</li>
+</ul></li>
+<li><strong>Check for Git</strong>
+<ul>
+<li><p>In the Command Prompt window, type the following command and press Enter:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>If Git is installed, you will see the installed version, e.g., <code>git version 2.34.1</code>.</p></li>
+<li><p>If Git is not installed, you will receive an error message or see that the command is unrecognized. You can download the installer from <a href="https://git-scm.com">git-scm.com</a> and follow the installation instructions.</p></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="github" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="github"><span class="header-section-number">2.3</span> GitHub</h2>
+<section id="what-is-github" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="what-is-github"><span class="header-section-number">2.3.1</span> What is GitHub?</h3>
+<p>GitHub is a cloud-based platform that enables developers to store, manage, and collaborate on code repositories. It builds on Git, a version control system, by adding collaborative features like pull requests, issue tracking, and discussions, which make it easier for teams to work together on software projects.</p>
+<p>GitHub also offers hosting for open-source projects, allowing anyone to contribute or review code. With integrations for CI/CD, project management tools, and documentation, GitHub is a popular choice for developers worldwide to manage both personal and professional projects.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CHECK: GitHub user and GitHub Desktop installation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="check-github-desktop-installation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="check-github-desktop-installation">Check GitHub Desktop Installation</h3>
+<p>To verify that GitHub Desktop is installed:</p>
+<ul>
+<li>On <strong>Windows</strong>: Go to the Start menu, search for “GitHub Desktop,” and open the app. If it launches successfully, GitHub Desktop is installed.</li>
+<li>On <strong>macOS</strong>: Use Spotlight Search (<code>Cmd + Space</code>), type “GitHub Desktop,” and press Enter. If the app opens, it is installed.</li>
+</ul>
+<p>If you don’t have GitHub Desktop, you can download it from <a href="https://desktop.github.com">desktop.github.com</a> and follow the installation instructions [<a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop">1</a>][<a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop">2</a>].</p>
+</section>
+<section id="verify-github-user" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="verify-github-user">Verify GitHub User</h3>
+<p>To check if you are signed in as a GitHub user:</p>
+<ul>
+<li>Open <strong>GitHub Desktop</strong>.</li>
+<li>Go to <strong>File &gt; Options</strong> (on Windows) or <strong>GitHub Desktop &gt; Preferences</strong> (on macOS).</li>
+<li>Under the <strong>Accounts</strong> tab, you should see your GitHub username and avatar if you are signed in. If not, you can sign in with your GitHub credentials here.</li>
 </ul>
 </section>
-<section id="github" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="github"><span class="header-section-number">2.2</span> GitHub</h2>
-<ul>
-<li>GitHub: creating a user<br>
-</li>
-<li>Introduction to workflows: local and on web browser<br>
-</li>
-<li>Introduction to Markdown (GitHub-flavoured)<br>
-</li>
-<li>Best practices and conventional files:
+<section id="bookmark-your-github-user-profile-page" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="bookmark-your-github-user-profile-page">Bookmark your GitHub user profile page</h3>
+<p>In your Internet browser, make sure that your own GitHub user profile page is saved in Bookmarks for easy access later.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="working-with-github" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="working-with-github"><span class="header-section-number">2.3.2</span> Working with GitHub</h3>
+<p>GitHub offers various workflows to manage repositories. Here are three common methods:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Local with GitHub Desktop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For those who prefer a graphical user interface (GUI):</p>
+<p><strong>Cloning a Repository</strong> Open GitHub Desktop. Go to File &gt; Clone Repository. Select the repository and click “Clone.”</p>
+<p><strong>Creating a New Branch</strong> Click on the “Current Branch” dropdown. Select “New Branch,” name it, and click “Create Branch.”</p>
+<p><strong>Making Changes</strong> Edit files in your editor.</p>
+<p><strong>Committing Changes</strong> Return to GitHub Desktop. Write a summary of changes and click “Commit to new-branch.”</p>
+<p><strong>Pushing Changes</strong> Click “Push origin” to upload your changes.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remote with Web Browser
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can also work directly on GitHub.com:</p>
+<p><strong>Cloning a Repository</strong> Go to the repository page. Click the green “Code” button and copy the link.</p>
+<p><strong>Creating a New Branch</strong> Click the branch dropdown on the main page. Type a new branch name and click “Create branch.”</p>
+<p><strong>Making Changes</strong> Navigate to the file you want to edit. Click the pencil icon to edit. Make your changes and scroll down to the “Commit changes” section.</p>
+<p><strong>Committing Changes</strong> Enter a commit message and choose “Commit directly to the new branch.”</p>
+<p><strong>Pushing Changes</strong> No push is needed as changes are automatically saved to GitHub.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Local with Console Commands (advanced users)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To work with Git via the command line:</p>
+<p><strong>Navigate to the directory to hold the local copy</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/local/directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Cloning a Repository</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/repository.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Creating a New Branch</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Making Changes</strong> Edit files in your favorite text editor or IDE.</p>
+<p><strong>Committing Changes</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Describe your changes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Pushing Changes</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin new-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>These workflows enable flexibility in how you manage your projects on GitHub.</p>
+</section>
+<section id="markdown-github-flavoured" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="markdown-github-flavoured"><span class="header-section-number">2.3.3</span> Markdown (GitHub-flavoured)</h3>
+<p>When Markdown files (.md) are placed in a GitHub repository, they will be automatically rendered within GitHub web interface by default, while the raw code can still be seen and edited in Markdown.</p>
+<p>There are some particularities about how Markdown files will be rendered in GitHub through Internet browsers. Consult <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub Docs</a> for knowing more about them.</p>
+</section>
+<section id="how-to-organise-repositories" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="how-to-organise-repositories"><span class="header-section-number">2.3.4</span> How to organise repositories</h3>
 <ul>
 <li>Folders:
 <ul>
 <li><code>source</code> or <code>src</code> (source code)<br>
 </li>
-<li><code>doc</code> or <code>docs</code> (documentation)<br>
-</li>
+<li><code>doc</code> or <code>docs</code> (documentation)</li>
 </ul></li>
-<li>Version tags<br>
-</li>
+<li>Version tags</li>
+</ul>
+</section>
+<section id="conventional-files" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="conventional-files"><span class="header-section-number">2.3.5</span> Conventional files</h3>
+<ul>
 <li>Files:
 <ul>
 <li>README.md: Provides an overview of the project, including what it does, how to set it up, and how to contribute. A few sections examples are:
@@ -351,7 +578,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>Authors and/or contributors<br>
 </li>
-<li>Acknowledgments<br>
+<li>Acknowledgements<br>
 </li>
 <li>Funding<br>
 </li>
@@ -371,23 +598,36 @@ ul.task-list li input[type="checkbox"] {
 <li>References.bib: one or more files containing references cited within the markdown files of the repository.<br>
 </li>
 </ul></li>
-</ul></li>
 <li>Releases and GitHub-Zenodo connection</li>
 </ul>
-</section>
-<section id="hands-on-practice" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="hands-on-practice"><span class="header-section-number">2.3</span> Hands-on Practice</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hands-on Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Task 1: create your own repository in GitHub. Add files, change files, commit (online). Edit your README file and create other conventional files.<br>
+<li>Task 1: start creating
+<ul>
+<li>Create a profile repository with a README file following <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github">GitHub Docs: Quickstart for writing on GitHub</a>.</li>
+<li>Create another repository in GitHub, which will hold your work throughout the course. Make it public and initialise it with a README, .gitignore (template for R), and a license of you choice (in this case, we recommend CC0-1.0 or MIT; see <a href="https://choosealicense.com/">https://choosealicense.com/</a> and <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub Docs</a>). Add all other conventional files mentioned above, even if they remain empty for now. Edit your README file and commit/push your changes.<br>
 </li>
+</ul></li>
 <li>Task 2: fork our repository, clone, modify, commit, pull request back to ours (online)<br>
 </li>
 <li>Task 3: Set up a local workflow and clone your fork. Modify a file and commit. Push into your fork in GitHub. Create a pull request to merge it with ours.<br>
 </li>
 <li>Task 4: Setting up the GitHub-Zenodo connection. Publishing your repository and updating it with its DOI.</li>
 </ul>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
