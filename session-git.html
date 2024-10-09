@@ -370,11 +370,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="benefits-of-version-control" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="benefits-of-version-control"><span class="header-section-number">2.1.2</span> Benefits of Version Control</h3>
 <ul>
-<li><p>Collaboration: Version control systems make collaboration easier and more efficient by allowing multiple users to work on the same project simultaneously. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be merged into the main project seamlessly. This enables teams to work independently and minimize conflicts.</p></li>
-<li><p>Historical Tracking: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when they were made, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
-<li><p>Backup and Redundancy: In distributed systems, each user’s local copy serves as a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
-<li><p>Version Management: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
-<li><p>Enhanced Workflow: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</p></li>
+<li><p><em>Collaboration</em>: Version control systems make collaboration easier and more efficient by allowing multiple users to work on the same project simultaneously. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be merged into the main project seamlessly. This enables teams to work independently and minimize conflicts.</p></li>
+<li><p><em>Historical Tracking</em>: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when they were made, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
+<li><p><em>Backup and Redundancy</em>: In distributed systems, each user’s local copy serves as a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
+<li><p><em>Version Management</em>: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
+<li><p><em>Enhanced Workflow</em>: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</p></li>
 </ul>
 <p>Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.</p>
 <p>Get a short introduction on Git by watching the official Git Documentation videos <a href="https://git-scm.com/videos">here</a>.</p>
@@ -391,9 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: flex-start;">
 <ul>
 <li><p><strong>Repository</strong>: A storage space for your project files and their history. Repositories can be local (on your computer) or remote (on platforms like GitHub).</p></li>
-<li><p><strong>Commit</strong>: A snapshot of changes in the repository. Each commit has a unique ID, allowing you to track and revert changes as needed [<a href="https://git-scm.com/docs/gitglossary">1</a>].</p></li>
-<li><p><strong>Branch</strong>: A separate line of development. The default branch is usually called <code>main</code> or <code>master</code>. Branches allow you to work on features independently before merging them into the main project [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
-<li><p><strong>Merge</strong>: The process of integrating changes from one branch into another. Typically, this involves merging a feature branch into the main branch.</p></li>
+<li><p><strong>Initialise</strong>: configure a specific local directory as a working directory as a local repository by creating all necessary files for Git to work.</p></li>
+<li><p><strong>Add</strong>/<strong>Stage</strong>: adds a change in the working directory to the staging area, telling Git to include updates to a particular file in the next commit. However, adding or staging doesn’t really affect the repository since changes are not actually recorded until they are committed (see below).</p></li>
 </ul>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
@@ -402,6 +401,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
+<li><p><strong>Commit</strong>: A snapshot of changes in the repository. Each commit has a unique ID, allowing you to track and revert changes as needed [<a href="https://git-scm.com/docs/gitglossary">1</a>].</p></li>
+<li><p><strong>Branch</strong>: A separate line of development. The default branch is usually called <code>main</code> or <code>master</code>. Branches allow you to work on features independently before merging them into the main project [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
+<li><p><strong>Merge</strong>: The process of integrating changes from one branch into another. Typically, this involves merging a feature branch into the main branch.</p></li>
 <li><p><strong>Pull</strong>: A command that fetches changes from a remote repository and merges them into your local branch, ensuring your local work is up-to-date with the remote [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
 <li><p><strong>Push</strong>: Uploads your commits from the local branch to the remote repository, making your changes available to others.</p></li>
 </ul>
@@ -491,11 +493,36 @@ Local with GitHub Desktop
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For those who prefer a graphical user interface (GUI):</p>
-<p><strong>Cloning a Repository</strong> Open GitHub Desktop. Go to File &gt; Clone Repository. Select the repository and click “Clone.”</p>
-<p><strong>Creating a New Branch</strong> Click on the “Current Branch” dropdown. Select “New Branch,” name it, and click “Create Branch.”</p>
-<p><strong>Making Changes</strong> Edit files in your editor.</p>
-<p><strong>Committing Changes</strong> Return to GitHub Desktop. Write a summary of changes and click “Commit to new-branch.”</p>
-<p><strong>Pushing Changes</strong> Click “Push origin” to upload your changes.</p>
+<p><strong>Cloning a Repository</strong></p>
+<ul>
+<li>Open GitHub Desktop.<br>
+</li>
+<li>Go to File &gt; Clone Repository.<br>
+</li>
+<li>Select the repository and click “Clone.”</li>
+</ul>
+<p><strong>Creating a New Branch</strong></p>
+<ul>
+<li>Click on the “Current Branch” dropdown.<br>
+</li>
+<li>Select “New Branch,” name it, and click “Create Branch.”</li>
+</ul>
+<p><strong>Making Changes</strong></p>
+<ul>
+<li>Edit files in your editor.</li>
+</ul>
+<p><strong>Committing Changes</strong></p>
+<ul>
+<li>Return to GitHub Desktop.<br>
+</li>
+<li>Stage changed files by ticking the boxes.<br>
+</li>
+<li>Write a summary of changes and click “Commit to new-branch.”</li>
+</ul>
+<p><strong>Pushing Changes</strong></p>
+<ul>
+<li>Click “Push origin” to upload your changes.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -512,11 +539,34 @@ Remote with Web Browser
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can also work directly on GitHub.com:</p>
-<p><strong>Cloning a Repository</strong> Go to the repository page. Click the green “Code” button and copy the link.</p>
-<p><strong>Creating a New Branch</strong> Click the branch dropdown on the main page. Type a new branch name and click “Create branch.”</p>
-<p><strong>Making Changes</strong> Navigate to the file you want to edit. Click the pencil icon to edit. Make your changes and scroll down to the “Commit changes” section.</p>
-<p><strong>Committing Changes</strong> Enter a commit message and choose “Commit directly to the new branch.”</p>
-<p><strong>Pushing Changes</strong> No push is needed as changes are automatically saved to GitHub.</p>
+<p><strong>Cloning a Repository</strong></p>
+<ul>
+<li>Go to the repository page.<br>
+</li>
+<li>Click the green “Code” button and copy the link.</li>
+</ul>
+<p><strong>Creating a New Branch</strong></p>
+<ul>
+<li>Click the branch dropdown on the main page.<br>
+</li>
+<li>Type a new branch name and click “Create branch.”</li>
+</ul>
+<p><strong>Making Changes</strong></p>
+<ul>
+<li>Navigate to the file (and branch) you want to edit.<br>
+</li>
+<li>Click the pencil icon to edit.<br>
+</li>
+<li>Make your changes and scroll down to the “Commit changes” section.</li>
+</ul>
+<p><strong>Committing Changes</strong></p>
+<ul>
+<li>Enter a commit message.<br>
+</li>
+<li>Choose whether to “commit to directly to main” or “Commit to a new branch…”.</li>
+</ul>
+<p><strong>Pushing Changes</strong></p>
+<p>(No push is needed as changes are automatically saved to GitHub.)</p>
 </div>
 </div>
 </div>
@@ -613,15 +663,30 @@ Hands-on Practice
 <ul>
 <li>Task 1: start creating
 <ul>
-<li>Create a profile repository with a README file following <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github">GitHub Docs: Quickstart for writing on GitHub</a>.</li>
-<li>Create another repository in GitHub, which will hold your work throughout the course. Make it public and initialise it with a README, .gitignore (template for R), and a license of you choice (in this case, we recommend CC0-1.0 or MIT; see <a href="https://choosealicense.com/">https://choosealicense.com/</a> and <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub Docs</a>). Add all other conventional files mentioned above, even if they remain empty for now. Edit your README file and commit/push your changes.<br>
+<li>Create a profile repository with a README file following <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github">GitHub Docs: Quickstart for writing on GitHub</a>.<br>
 </li>
+<li>Create another repository in GitHub, which will hold your work throughout the course. Make it public and initialise it with a README, .gitignore (template for R), and a license of you choice (in this case, we recommend CC0-1.0 or MIT; see <a href="https://choosealicense.com/">https://choosealicense.com/</a> and <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub Docs</a>). Add all other conventional files mentioned above, even if they remain empty for now. Edit your README file and commit/push your changes.</li>
 </ul></li>
-<li>Task 2: fork our repository, clone, modify, commit, pull request back to ours (online)<br>
+<li>Task 2: making others’ repositories your own’s
+<ul>
+<li>Fork the Course Book repository.<br>
 </li>
-<li>Task 3: Set up a local workflow and clone your fork. Modify a file and commit. Push into your fork in GitHub. Create a pull request to merge it with ours.<br>
+<li>Clone your fork to a local directory.<br>
 </li>
-<li>Task 4: Setting up the GitHub-Zenodo connection. Publishing your repository and updating it with its DOI.</li>
+<li>Modify or add a <code>.qmd</code> file and commit (one or more times).<br>
+</li>
+<li>Push committed changes to your fork.<br>
+</li>
+<li>Create a pull request back to the original repository.</li>
+</ul></li>
+<li>Task 3:
+<ul>
+<li>Set up the GitHub-Zenodo connection.<br>
+</li>
+<li>Publish your repository.<br>
+</li>
+<li>Update README with the new Zenodo DOI (badge).</li>
+</ul></li>
 </ul>
 </div>
 </div>
