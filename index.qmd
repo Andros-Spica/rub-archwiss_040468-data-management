@@ -1,11 +1,18 @@
 # Course overview {.unnumbered}
 
 ```{r, echo=FALSE}
+library(kableExtra)
+```
+
+
+```{r, echo=FALSE}
 session_data <- cbind.data.frame(
-  Date = c("2024.10.18", "2024.10.25", 
+  Date = as.Date(
+    c("2024.10.18", "2024.10.25", 
            "2024.11.08", "2024.11.15", "2024.11.22", "2024.11.29",
            "2024.12.06", "2024.12.13", "2024.12.20",
            "2025.01.10", "2025.01.17"),
+    "%Y.%m.%d"),
   Block = c(rep("Getting started", 2), rep("Programming in R", 2), 
             rep("Data Science in R", 3), rep("Databases", 2), rep("GIS", 2)),
   Topic = c("Data and research data management",
@@ -20,6 +27,7 @@ session_data <- cbind.data.frame(
             "GIS (I)",
             "GIS (II)")
 )
+session_data$Block <- factor(session_data$Block, unique(session_data$Block))
 ```
 
 040468 Datenmanagement und digitale Archäologie (ÜB, unterrichtet in Englisch) Übungen (3 CP)
@@ -35,9 +43,21 @@ session_data <- cbind.data.frame(
 ## **Course schedule**/**_Kursplan_**:
 
 ```{r, echo=FALSE}
-knitr::kable(session_data, row.names = TRUE, align = c("c", "c", "l"))
+schedule_table <- knitr::kable(session_data[,c("Date", "Topic")], row.names = TRUE)
+schedule_table <- kableExtra::pack_rows(schedule_table, index = table(session_data$Block), background = "darkgrey")
+schedule_table
 ```
 
 ## **Evaluation** / **_Kursbewertung_**
 
 (Attendance and final examination)
+
+## Acknowledgements
+
+The conception of the course structure, as well as the short summaries, exercises, and images shown in each chapter, greatly benefited from [Large Language Models](https://en.wikipedia.org/wiki/Large_language_model) used as companion writer and programmer. As such, we own greatly to the current richness of reference information freely available on Internet.
+
+The models and services used are:
+
+- [ChatGPT](https://chatgpt.com/) (basic free version) by OpenAI for brainstorming, text and code writing suggestions, collection and articulation of references.
+- [WebChatGPT](https://tools.zmo.ai/webchatgpt), a free browser extension that enhances ChatGPT by providing Internet access directly within the chat interface, used to aid Internet search.
+- [Leonardo.ai](https://app.leonardo.ai/) (user tokens) for generating purely aesthetic visual assets.

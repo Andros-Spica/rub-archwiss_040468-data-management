@@ -41,15 +41,16 @@ Making research reproducible must be considered as a spectrum of practices, in w
 <a href="https://doi.org/10.17605/OSF.IO/3D6XX" target="_blank">Ben Marwick, CC-By Attribution 4.0 International, available at OSF</a>
 ```
 
-### The lay of the land: Organizations, Institutions, and Where to Find Tools and Datasets
+### The lay of the land: Organizations, tools, data repositories and where to find them
 
 Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets:
 
-- Research Organizations:
+- Organizations:
 
   - [OpenAIRE](https://www.openaire.eu/): OpenAIRE AMKE is a non-profit organization with a mission to promote open scholarship and improve discoverability, accessibility, shareability, reusability, reproducibility, and monitoring of data-driven research results, globally [@iatropoulou_openaire_nodate]. 
   - [Go FAIR Initiative](https://www.go-fair.org/): Provides guidelines on implementing FAIR principles, with resources tailored for researchers in various fields, including archaeology [@noauthor_fair_nodate].
   - [The Turing Way](https://github.com/the-turing-way/the-turing-way): collaborative writing of an online handbook [@community_turing_2022].
+  - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
 
 - Data Repositories and Tools:  
   - [Zenodo](https://zenodo.org/): A repository where researchers can deposit datasets, software, and publications.  
@@ -113,17 +114,19 @@ Learning programming for research allows scientists to leverage these tools and 
 * [Coursera](https://www.coursera.org/) [@noauthor_coursera_nodate]
 * Courses and workshops by high education institutions (e.g,, [RUB Research School](https://www.research-school.rub.de/))
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * Task 1: register yourself as user at:  
   * [GitHub](https://github.com/)  
   * [Zenodo](https://zenodo.org/)  
   * [Zotero](https://www.zotero.org/) (optional)  
 * Task 2: installations:  
-  * [Git](https://git-scm.com/)  
+  * [Git](https://git-scm.com/). Follow general instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) ([de](https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren)) or a video step-by-step tutorial like [this](https://youtu.be/iYkLrXobBbA?si=zDjSLzlRFQzEfdsr)) or [this (de)](https://youtu.be/Df_d46YDkEc?si=Q9sQU4kbmudbziy0), among many available online. 
   * [GitHub Desktop](https://desktop.github.com/download/)  
   * [R](https://www.r-project.org/)
   * [RStudio](https://posit.co/download/rstudio-desktop/)
   * [QGIS](https://qgis.org/)
 * Task 3: explore datasets at [Open Context](https://opencontext.org/)
-* Task 4: have a go with writing in markdown at [Markdown Live Preview](https://markdownlivepreview.com/). 
+* Task 4: try writing a short document in markdown at [Markdown Live Preview](https://markdownlivepreview.com/). 
+:::
