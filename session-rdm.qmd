@@ -53,11 +53,11 @@ Several organizations and platforms support Open Science and the use of FAIR and
   - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
 
 - Data Repositories and Tools:  
+  - [ORCID](https://orcid.org/): ORCID, which stands for Open Researcher and Contributor ID, is a unique alphanumeric code used to identify researchers and contributors in scholarly activities.  
   - [Zenodo](https://zenodo.org/): A repository where researchers can deposit datasets, software, and publications.  
   - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
   - [Archaeology Data Service (ADS)](https://archaeologydataservice.ac.uk/): An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.  
   - [Open Context](https://opencontext.org/): A platform offering access to archaeological data from various global sources, adhering to FAIR principles [noauthor_open_nodate-1].
-  - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
 
 - Open Source Tools:  
   - [Markdown](https://www.markdownguide.org/): Markdown is a lightweight markup language designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate].  
@@ -65,6 +65,7 @@ Several organizations and platforms support Open Science and the use of FAIR and
   - [RStudio](https://posit.co/download/rstudio-desktop/): RStudio IDE is an integrated development environment for R, a programming language for statistical computing and graphics.
   - [Quarto](https://quarto.org/): An open-source scientific and technical publishing system.
   - [Git](https://git-scm.com/): Git is a distributed version control system designed for tracking changes in source code during software development.
+  - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
   - [Zotero](https://www.zotero.org/): Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.  
   - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].
   
@@ -147,6 +148,7 @@ The simplicity of this language might feel unnecessary, or even annoying, but it
 ## Hands-on Practice {.unnumbered}
 
 * Task 1: register yourself as user at:  
+  * [ORCID](https://orcid.org/)  
   * [GitHub](https://github.com/)  
   * [Zenodo](https://zenodo.org/)  
   * [Zotero](https://www.zotero.org/) (optional)  
