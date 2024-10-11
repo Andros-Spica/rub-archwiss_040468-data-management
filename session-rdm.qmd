@@ -1,4 +1,4 @@
-# Data and research data management
+# Data and research data management {#sec-rdm}
 
 ## Introduction to Research Data
 
@@ -107,12 +107,41 @@ Research software comprises tools, libraries, and scripts that aid in conducting
 
 Learning programming for research allows scientists to leverage these tools and scripts effectively, making research more efficient, reproducible, and insightful.
 
+### Markdown: a language in between
+
+As already mentioned, [Markdown](https://www.markdownguide.org/) is a markup language with minimal syntax, designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate]. For us, humans, Markdown is easily readable and editable as text. However, it is technically a programming language, as it holds machine-readable instructions (i.e. program) which, once compiled (or rendered) by the right software, produces the desired output in form of a formatted text. A advanced text editor, such as Microsoft Word, allow you to do exactly the same (and more), but only through a sequence of interactions with the graphic user interface (GUI).
+
+Writing in Markdown or "writing Markdown code" is straightforward and will only require some getting use to, especially if you costumed to advanced text editors. For example, instead of marking a fragment of text in bold font through the usual steps, we would do it by typing \*\* (two asterisks) before and after the fragment.
+
+To illustrate this, consider the rendering and source code of a markdown text:
+
+"**Live** *as if* you were to **_die tomorrow_**. **Learn** *as if* you were to **_live forever_**." - Mahatma Gandhi, Source: [BrainyQuote](https://www.brainyquote.com/citation/quotes/mahatma_gandhi_133995)
+
+```markdown
+"**Live** *as if* you were to **_die tomorrow_**. **Learn** as if you were to **_live forever_**."
+
+Mahatma Gandhi, Source: [BrainyQuote](https://www.brainyquote.com/citation/quotes/mahatma_gandhi_133995)
+```
+
+The simplicity of this language might feel unnecessary, or even annoying, but it is actually the trait that opens a great range of potential applications. Markdown is today indispensable for all practices related to open science and can offer a good entry point for other, more complex programming languages. 
+
+::: {.callout-note collapse="true"}
+#### See also
+
+- @obregon_what_2024  
+- @noauthor_what_2021   
+- @noauthor_functional_2017 
+- @noauthor_basic_nodate-1  
+:::
+
 ### Where to learn (and keep learning)
 
 * [Datacamp](https://www.datacamp.com) [@noauthor_learn_nodate]
 * [Udemy](https://www.udemy.com/) [@noauthor_online_nodate]
 * [Coursera](https://www.coursera.org/) [@noauthor_coursera_nodate]
 * Courses and workshops by high education institutions (e.g,, [RUB Research School](https://www.research-school.rub.de/))
+
+---
 
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}

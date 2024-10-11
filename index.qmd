@@ -58,6 +58,6 @@ The conception of the course structure, as well as the short summaries, exercise
 
 The models and services used are:
 
-- [ChatGPT](https://chatgpt.com/) (basic free version) by OpenAI for brainstorming, text and code writing suggestions, collection and articulation of references.
+- [ChatGPT](https://chatgpt.com/) (GPT-4o) by OpenAI for brainstorming, text and code writing suggestions, collection and articulation of references.
 - [WebChatGPT](https://tools.zmo.ai/webchatgpt), a free browser extension that enhances ChatGPT by providing Internet access directly within the chat interface, used to aid Internet search.
 - [Leonardo.ai](https://app.leonardo.ai/) (user tokens) for generating purely aesthetic visual assets.

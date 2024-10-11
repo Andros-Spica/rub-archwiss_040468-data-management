@@ -1,4 +1,4 @@
-# Introduction to R
+# Introduction to R {#sec-r-introduction}
 
 ## Preparation
 
@@ -39,7 +39,8 @@
 * Introduction to creating interactive visualizations.  
 * Example: Building an interactive plot using `plotly` and `knitr`.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).  
 * Create a data.frame named “stone\_tools\_data” directly in R with the following characteristics (based on Carlson 2017, p. 26):  
@@ -91,3 +92,5 @@
 * (EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?  
 * Commit all changes and push to the remote using RStudio.  
 * Q\&A and troubleshooting.
+
+:::

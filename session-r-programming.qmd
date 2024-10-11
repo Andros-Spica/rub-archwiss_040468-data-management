@@ -1,4 +1,4 @@
-# Best practices in programming
+# Best practices in programming {#sec-r-programming}
 
 ## Code Organisation
 
@@ -59,7 +59,8 @@
   * Sharing code with others: publishing packages, sharing notebooks.  
   * Example: Publishing an R package on CRAN/GitHub.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * **Refactoring Code (30min)**  
   * First attempt: Refactoring a sample script to follow best practices (clean code, modularity, documentation).  
@@ -72,3 +73,5 @@
   * Discussion, accepting/rejecting changes, and merge decision  
 * **Open discussion (10min)**  
   * Addressing common challenges in applying best practices to real-world projects.
+
+:::

@@ -1,3 +1,8 @@
-# GIS (II)
+# GIS (II) {#sec-gis-2}
 
 (get a map image displaying data from shape and raster files)
+
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
+
+:::

@@ -1,4 +1,4 @@
-# Count data and seriation
+# Count data and seriation {#sec-count-and-seriation}
 
 ## Introduction to Count Data in Archaeology
 
@@ -41,10 +41,13 @@
   * Creating visual representations of seriation results.  
   * Example: Plotting seriation outputs.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * **Case Study: Seriation of Archaeological Artefacts**  
   * Step-by-step walkthrough of a seriation analysis using count data.  
   * Example: Seriation of pottery fragments or lithic tools using `tesselle`.  
 * **Q\&A and Troubleshooting**  
   * Addressing common issues in count data analysis and seriation in archaeological contexts.
+
+:::

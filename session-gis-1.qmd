@@ -1,7 +1,12 @@
-# GIS (I)
+# GIS (I) {#sec-gis-1}
 
 (Basic concepts, installation and setting up, loading files)
 
 > Cool archive video about ARCInfo (1988): https://youtu.be/7xqNyUOIRCs?si=FulmlUVzaThGE9BU
 
 [@dooley_casa0005_nodate]
+
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
+
+:::

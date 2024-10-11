@@ -1,4 +1,4 @@
-# Git and GitHub
+# Git and GitHub {#sec-git}
 
 ## Version-control and Git
 
@@ -7,6 +7,11 @@
 Version control is a system that helps track and manage changes to files over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes, allowing users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.
 
 There are two main types of version control: centralized and distributed. Centralized version control systems, such as Subversion (SVN), store files in a central repository. Users check out files, make changes, and then commit them back to the central repository. While effective, centralized systems can be vulnerable if the central server fails. Distributed version control systems, like Git, address this by allowing every user to have a complete copy of the repository on their local machine. This setup enhances collaboration and provides redundancy, as users can work offline and synchronize changes with others when connected.
+
+<figure>
+<a title="Jason Long, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Git_icon.svg"><img width="64" alt="Git icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/64px-Git_icon.svg.png?20220905010122"></a>
+<fig-caption>Git icon</fig-caption>
+</figure>
 
 ### Benefits of Version Control
 
@@ -52,7 +57,15 @@ Here are some essential Git terms to know:
 
 Understanding these terms is crucial for effective Git usage and collaboration in any project.
 
-::: {.callout-caution}
+::: {.callout-note collapse="true"}
+#### See also
+
+- @noauthor_git_nodate-1  
+- @noauthor_git_nodate-2  
+
+:::
+
+::: {.callout-caution  collapse="true"}
 ## CHECK: Git software installation {.unnumbered}
 
 To verify if Git is installed on your machine, follow these steps:
@@ -79,7 +92,12 @@ GitHub is a cloud-based platform that enables developers to store, manage, and c
 
 GitHub also offers hosting for open-source projects, allowing anyone to contribute or review code. With integrations for CI/CD, project management tools, and documentation, GitHub is a popular choice for developers worldwide to manage both personal and professional projects.
 
-::: {.callout-caution}
+<figure>
+<a title="GitHub Inc., MIT &lt;http://opensource.org/licenses/mit-license.php&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg"><img width="64" alt="Octicons-mark-github" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/512px-Octicons-mark-github.svg.png?20180806170715"></a>
+<fig-caption>GitHub icon</fig-caption>
+</figure>
+
+::: {.callout-caution  collapse="true"}
 ## CHECK: GitHub user and GitHub Desktop installation {.unnumbered}
 
 ### Check GitHub Desktop Installation {.unnumbered}
@@ -215,44 +233,142 @@ There are some particularities about how Markdown files will be rendered in GitH
 
 ### How to organise repositories
 
-* Folders:   
-    * `source` or `src` (source code)  
-    * `doc` or `docs` (documentation)  
+When structuring your repositories, it's helpful to follow some common conventions for organizing files in subdirectories. This makes projects more readable and easier for others to navigate. Here are some commonly used subdirectories:
 
-* Version tags  
+When software development is a significant part:  
+* `source/` or `src/`: Contains the main source code for the project.  
+* `documentation/`, `docs/`, or `doc/`: Stores documentation, such as guides or API references.  
+* `tests/`: Includes test scripts to ensure code functionality.
+* `bin/`: Holds executable scripts or binaries.
+* `config/`: Contains configuration files, like YAML or JSON.
+
+When rendering an interface for users, such as an website, web app or video game:  
+* `assets`: to hold files and subdirectories with closed content and functionality files.
+  * `assets/images/`, `assets/media/`, etc.: Holds all images or other media files generated externally (not by the repository's source code).
+  * `assets/styles.css` or `assets/css/`: all CSS code for formatting HTML objects.
+  * `assets/js/`: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present. 
+
+These folder structures are conventions and not strict rules. You can adapt or modify them based on your project's needs. 
+
+::: {.callout-note collapse="true"}
+#### See also
+
+- @jimmy_how_2022  
+- @zestyclose-low-6403_how_2023  
+- @danijar_can_2019 
+- @suhail_structuring_2024   
+- @cioara_how_2018
+:::
 
 ### Conventional files
 
-  * Files:  
-    * README.md: Provides an overview of the project, including what it does, how to set it up, and how to contribute. A few sections examples are:  
-      * General description  
-      * Authors and/or contributors  
-      * Acknowledgements  
-      * Funding  
-      * Installation or use instructions  
-      * Contributing  
-    * LICENSE: Specifies the terms under which the code can be used, modified, and distributed.  
-    * CITATION.cff: human- and machine-readable citation information for software (and datasets). See example [here](https://citation-file-format.github.io/#:~:text=cff%20file%3F-,CITATION.,to%20correctly%20cite%20their%20software.).  
-    * .gitignore: Lists files and directories that Git should ignore, such as build outputs and temporary files.  
-    * CHANGELOG.md: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.  
-    * References.bib: one or more files containing references cited within the markdown files of the repository.  
-* Releases and GitHub-Zenodo connection
+  * `README.md`: Provides an overview of the project, including what it does, how to set it up, and how to contribute. A few sections examples are:  
+    * General description  
+    * Authors and/or contributors  
+    * Acknowledgements  
+    * Funding  
+    * Installation or use instructions  
+    * Contributing  
+  * `LICENSE`: Specifies the terms under which the content of the repository can be used, modified, and distributed. There are many licenses, varying in *permissiveness* and *type of content*. Generally, for projects involving both code and other kinds of content, we recommend CC0-1.0 or MIT. See [https://choosealicense.com/](https://choosealicense.com/) and [GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)). 
+  * `CITATION.cff`: human- and machine-readable citation information for software (and datasets). See example [here](https://citation-file-format.github.io/#:~:text=cff%20file%3F-,CITATION.,to%20correctly%20cite%20their%20software.).  
+  * `.gitignore`: Lists files and directories that Git should ignore, such as build outputs and temporary files.  
+  * `CHANGELOG.md`: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.  
+  * `references.bib`: a file containing references in BibTex format, which can be cited within the markdown files of the repository.  
+
+### Version Tags and Releases on GitHub
+
+To manage different versions of your project, GitHub allows you to create **tags** and **releases**:
+
+1. **Create a Tag**:
+   - Open your repository on GitHub and navigate to the **Releases** section.
+   - Click **Draft a new release**.
+   - In the **Tag version** field, type a version number (e.g., `v1.0.0`) to create a new tag (see more in the note below).
+   - Specify the target branch or commit for this tag.
+
+2. **Create a Release**:
+   - After tagging, enter details such as the release **title** and **description**.
+   - Optionally, add **release notes** to summarize changes or new features [[1](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)].
+   - Click **Publish release** to make it public.
+
+Releases are tied to tags and provide a stable reference for each version, making it easy for users to download specific versions of your project [[2](https://stackoverflow.com/questions/19727632/how-to-handle-releases-of-markdown-document-on-github)].
+
+::: {.callout-note collapse="true"}
+#### About versioning {.unnumbered}
+
+If unfamiliar with the logic behind versioning, consult the reference to [Semantic Versioning](https://semver.org/) which can also be found on the right of the "Create a new release" page in GitHub. Their summary states:
+
+> Given a version number MAJOR.MINOR.PATCH, increment the:
+> 1. MAJOR version when you make incompatible API changes
+> 2. MINOR version when you add functionality in a backward compatible manner
+> 3. PATCH version when you make backward compatible bug fixes
+
+However, if your repository is not about creating software products and services, we can do well by simply obeying a few general conventions:
+
+* Add a PATCH version **discretionally** when correcting bugs, typos, tuning aesthetics, etc, or *refactoring* code (explained in @sec-r-programming).
+* Add a MINOR version when expanding code functionality or adding new content (text sections, images)
+* Add a new PATCH or MINOR version every time the repository reaches a natural stable point (i.e., there are no changes planned any time soon).
+* Make sure that every new MAJOR version is released (GitHub) and published (Zenodo, see below).  
+
+:::
+
+::: {.callout-note collapse="true"}
+#### See also
+
+- @noauthor_creating_2024 
+- @noauthor_automatically_nodate  
+- @signell_how_2013  
+:::
+
+### Establishing a GitHub-Zenodo Connection
+
+To link your GitHub repository with Zenodo and enable citation via DOI:
+
+1. **Login to Zenodo**: Go to [Zenodo](https://zenodo.org) and sign in or create an account.
+2. **Authorize GitHub Access**:
+   - Click on your profile in Zenodo and select **Linked accounts**.
+   - Choose **Connect** next to GitHub.
+   - You will be redirected to GitHub to authorize Zenodo’s access. Approve the request to complete the connection.
+3. **Select Repository for DOI Generation**:
+   - In Zenodo, navigate to **GitHub** in the **Linked Accounts** section.
+   - Enable DOI generation for the desired repository. Zenodo will automatically mint DOIs for any new release you publish.
+
+This connection allows you to generate and manage DOIs for GitHub repositories, enhancing your project’s citation and research accessibility.
+
+::: {.callout-note collapse="true"}
+#### See also
+
+- @noauthor_referencing_nodate  
+- @noauthor_zenodo_nodate  
+- @noauthor_created_nodate  
+- @noauthor_module-5-open-research-software-and-open-sourcecontent_developmenttask_2md_nodate  
+- @noauthor_issue_nodate  
+:::
+
+---
 
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}
 
-* Task 1: start creating  
-  * Create a profile repository with a README file following [GitHub Docs: Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github).  
-  * Create another repository in GitHub, which will hold your work throughout the course. Make it public and initialise it with a README, .gitignore (template for R), and a license of you choice (in this case, we recommend CC0-1.0 or MIT; see [https://choosealicense.com/](https://choosealicense.com/) and [GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)). Add all other conventional files mentioned above, even if they remain empty for now. Edit your README file and commit/push your changes.   
+* Task 1: Create a profile repository with a README file following [GitHub Docs: Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github).  
 
-* Task 2: making others' repositories your own's
-  * Fork the Course Book repository.  
-  * Clone your fork to a local directory.  
-  * Modify or add a `.qmd` file and commit (one or more times).  
-  * Push committed changes to your fork.  
-  * Create a pull request back to the original repository.
+* Task 2: Making others' repositories your own's
+  1. Fork the [Course Book repository](https://github.com/Andros-Spica/rub-archwiss_040468-data-management).  
+  2. Clone your fork to a local directory.  
+  3. Modify or add a `.qmd` file in your local directory.
+  4. Commit to you local repository (one or more times).  
+  4. Push the changed local repository to your remote repository (i.e. your fork).  
+  5. Create a pull request back to the original repository.
+  
+* Task 3: Create a personal project repository
+  1. Create a GitHub repository under your user. Named it `rub-archwiss_` followed by your surname (no special characters). Initialise with the following properties:
+    a. Public
+    b. With a README file
+    c. with .gitignore (template for R)
+    d. With a license of you choice.
+  2. Add all other conventional files mentioned above, even if they remain empty for now. 
+  3. Edit your README file and commit/push your changes.   
 
-* Task 3:  
+* Task 4:  
   * Set up the GitHub-Zenodo connection.  
   * Publish your repository.  
   * Update README with the new Zenodo DOI (badge).

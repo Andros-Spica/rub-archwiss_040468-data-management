@@ -1,4 +1,4 @@
-# Databases (I)
+# Databases (I) {#sec-database-1}
 
 ## Introduction to Databases in Archaeology
 
@@ -60,7 +60,8 @@
   * Using R to clean and manipulate database data for analysis.  
   * Example: Using `dplyr` in R to filter and transform queried data.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * **Building a Small Archaeological Database**  
   * Step-by-step walkthrough of creating a database schema for a hypothetical excavation project (using RSQLite).  
@@ -70,3 +71,5 @@
   * Example: Inserting excavation records into the database using SQL.  
 * **Q\&A and Troubleshooting**  
   * Addressing challenges in database design and SQL queries.
+
+:::

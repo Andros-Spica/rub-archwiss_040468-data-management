@@ -1,4 +1,4 @@
-# Compositional data
+# Compositional data {#sec-compositional-data}
 
 ## Introduction to Compositional Data in Archaeology
 
@@ -34,10 +34,13 @@
   * Correspondence Analysis for compositional data.  
   * Example: Performing Correspondence Analysis using `tesselle::ca`.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * **Case Study: Analysis of Compositional Data from Archaeological Sites**  
   * Step-by-step walkthrough of an exploratory analysis of compositional data.  
   * Example: Analysing chemical compositions of ceramics or soils using `tesselle`.  
 * **Q\&A and Troubleshooting**  
   * Addressing challenges in visualizing and analyzing compositional data in archaeological research.
+
+:::

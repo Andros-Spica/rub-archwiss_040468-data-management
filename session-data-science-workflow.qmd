@@ -1,4 +1,4 @@
-# Data Science Workflow
+# Data Science Workflow {#sec-data-science-workflow}
 
 ## Introduction to Data Science Workflow
 
@@ -62,9 +62,12 @@
   * Evaluating model performance: accuracy, confusion matrix, ROC curve.  
   * Example: Calculating and interpreting metrics using `caret` and `pROC`.
 
-## Hands-on Practice
+::: {.callout-note icon=false}
+## Hands-on Practice {.unnumbered}
 
 * **Building a Simple Data Science Workflow**  
   * End-to-end example: data import, cleaning, exploration (modelling, and evaluation).  
 * **Q\&A and Troubleshooting**  
   * Addressing challenges in implementing basic data science methods in R.
+
+:::
