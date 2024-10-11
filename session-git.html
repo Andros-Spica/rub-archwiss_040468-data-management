@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -334,6 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#markdown-github-flavoured" id="toc-markdown-github-flavoured" class="nav-link" data-scroll-target="#markdown-github-flavoured"><span class="header-section-number">2.3.3</span> Markdown (GitHub-flavoured)</a></li>
   <li><a href="#how-to-organise-repositories" id="toc-how-to-organise-repositories" class="nav-link" data-scroll-target="#how-to-organise-repositories"><span class="header-section-number">2.3.4</span> How to organise repositories</a></li>
   <li><a href="#conventional-files" id="toc-conventional-files" class="nav-link" data-scroll-target="#conventional-files"><span class="header-section-number">2.3.5</span> Conventional files</a></li>
+  <li><a href="#version-tags-and-releases-on-github" id="toc-version-tags-and-releases-on-github" class="nav-link" data-scroll-target="#version-tags-and-releases-on-github"><span class="header-section-number">2.3.6</span> Version Tags and Releases on GitHub</a></li>
+  <li><a href="#establishing-a-github-zenodo-connection" id="toc-establishing-a-github-zenodo-connection" class="nav-link" data-scroll-target="#establishing-a-github-zenodo-connection"><span class="header-section-number">2.3.7</span> Establishing a GitHub-Zenodo Connection</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-git.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -343,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-rdm.html">Getting started</a></li><li class="breadcrumb-item"><a href="./session-git.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></h1>
+<h1 class="title"><span id="sec-git" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></h1>
 </div>
 
 
@@ -366,6 +388,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="version-control-general-concept-and-its-usefulness"><span class="header-section-number">2.1.1</span> Version control: general concept and its usefulness</h3>
 <p>Version control is a system that helps track and manage changes to files over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes, allowing users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.</p>
 <p>There are two main types of version control: centralized and distributed. Centralized version control systems, such as Subversion (SVN), store files in a central repository. Users check out files, make changes, and then commit them back to the central repository. While effective, centralized systems can be vulnerable if the central server fails. Distributed version control systems, like Git, address this by allowing every user to have a complete copy of the repository on their local machine. This setup enhances collaboration and provides redundancy, as users can work offline and synchronize changes with others when connected.</p>
+<figure class="figure">
+<a title="Jason Long, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Git_icon.svg"><img width="64" alt="Git icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/64px-Git_icon.svg.png?20220905010122" class="figure-img"></a> <fig-caption>Git icon</fig-caption>
+</figure>
 </section>
 <section id="benefits-of-version-control" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="benefits-of-version-control"><span class="header-section-number">2.1.2</span> Benefits of Version Control</h3>
@@ -408,15 +433,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Push</strong>: Uploads your commits from the local branch to the remote repository, making your changes available to others.</p></li>
 </ul>
 <p>Understanding these terms is crucial for effective Git usage and collaboration in any project.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_git_nodate-1"><span>“Git - Gitglossary <span>Documentation</span>”</span> (<a href="references.html#ref-noauthor_git_nodate-1" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_git_nodate-2"><span>“Git <span>Definitions</span> and <span>Terminology</span> <span>Cheat</span> <span>Sheet</span>”</span> (<a href="references.html#ref-noauthor_git_nodate-2" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 CHECK: Git software installation
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To verify if Git is installed on your machine, follow these steps:</p>
 <ol type="1">
@@ -435,6 +482,7 @@ CHECK: Git software installation
 </ol>
 </div>
 </div>
+</div>
 </section>
 <section id="github" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="github"><span class="header-section-number">2.3</span> GitHub</h2>
@@ -442,15 +490,20 @@ CHECK: Git software installation
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="what-is-github"><span class="header-section-number">2.3.1</span> What is GitHub?</h3>
 <p>GitHub is a cloud-based platform that enables developers to store, manage, and collaborate on code repositories. It builds on Git, a version control system, by adding collaborative features like pull requests, issue tracking, and discussions, which make it easier for teams to work together on software projects.</p>
 <p>GitHub also offers hosting for open-source projects, allowing anyone to contribute or review code. With integrations for CI/CD, project management tools, and documentation, GitHub is a popular choice for developers worldwide to manage both personal and professional projects.</p>
+<figure class="figure">
+<a title="GitHub Inc., MIT <http://opensource.org/licenses/mit-license.php>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg"><img width="64" alt="Octicons-mark-github" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/512px-Octicons-mark-github.svg.png?20180806170715" class="figure-img"></a> <fig-caption>GitHub icon</fig-caption>
+</figure>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 CHECK: GitHub user and GitHub Desktop installation
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="check-github-desktop-installation" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="check-github-desktop-installation">Check GitHub Desktop Installation</h3>
@@ -476,12 +529,13 @@ CHECK: GitHub user and GitHub Desktop installation
 </section>
 </div>
 </div>
+</div>
 </section>
 <section id="working-with-github" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="working-with-github"><span class="header-section-number">2.3.2</span> Working with GitHub</h3>
 <p>GitHub offers various workflows to manage repositories. Here are three common methods:</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -490,7 +544,7 @@ Local with GitHub Desktop
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For those who prefer a graphical user interface (GUI):</p>
 <p><strong>Cloning a Repository</strong></p>
@@ -527,7 +581,7 @@ Local with GitHub Desktop
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -536,7 +590,7 @@ Remote with Web Browser
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can also work directly on GitHub.com:</p>
 <p><strong>Cloning a Repository</strong></p>
@@ -571,7 +625,7 @@ Remote with Web Browser
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -580,7 +634,7 @@ Local with Console Commands (advanced users)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To work with Git via the command line:</p>
 <p><strong>Navigate to the directory to hold the local copy</strong></p>
@@ -607,22 +661,44 @@ Local with Console Commands (advanced users)
 </section>
 <section id="how-to-organise-repositories" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="how-to-organise-repositories"><span class="header-section-number">2.3.4</span> How to organise repositories</h3>
+<p>When structuring your repositories, it’s helpful to follow some common conventions for organizing files in subdirectories. This makes projects more readable and easier for others to navigate. Here are some commonly used subdirectories:</p>
+<p>When software development is a significant part:<br>
+* <code>source/</code> or <code>src/</code>: Contains the main source code for the project.<br>
+* <code>documentation/</code>, <code>docs/</code>, or <code>doc/</code>: Stores documentation, such as guides or API references.<br>
+* <code>tests/</code>: Includes test scripts to ensure code functionality. * <code>bin/</code>: Holds executable scripts or binaries. * <code>config/</code>: Contains configuration files, like YAML or JSON.</p>
+<p>When rendering an interface for users, such as an website, web app or video game:<br>
+* <code>assets</code>: to hold files and subdirectories with closed content and functionality files. * <code>assets/images/</code>, <code>assets/media/</code>, etc.: Holds all images or other media files generated externally (not by the repository’s source code). * <code>assets/styles.css</code> or <code>assets/css/</code>: all CSS code for formatting HTML objects. * <code>assets/js/</code>: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present.</p>
+<p>These folder structures are conventions and not strict rules. You can adapt or modify them based on your project’s needs.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li>Folders:
-<ul>
-<li><code>source</code> or <code>src</code> (source code)<br>
+<li><span class="citation" data-cites="jimmy_how_2022">jimmy (<a href="references.html#ref-jimmy_how_2022" role="doc-biblioref">2022</a>)</span><br>
 </li>
-<li><code>doc</code> or <code>docs</code> (documentation)</li>
-</ul></li>
-<li>Version tags</li>
+<li><span class="citation" data-cites="zestyclose-low-6403_how_2023">Zestyclose-Low-6403 (<a href="references.html#ref-zestyclose-low-6403_how_2023" role="doc-biblioref">2023</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="danijar_can_2019">danijar (<a href="references.html#ref-danijar_can_2019" role="doc-biblioref">2019</a>)</span></li>
+<li><span class="citation" data-cites="suhail_structuring_2024">Suhail (<a href="references.html#ref-suhail_structuring_2024" role="doc-biblioref">2024</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="cioara_how_2018">Cioara (<a href="references.html#ref-cioara_how_2018" role="doc-biblioref">2018</a>)</span></li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="conventional-files" class="level3" data-number="2.3.5">
 <h3 data-number="2.3.5" class="anchored" data-anchor-id="conventional-files"><span class="header-section-number">2.3.5</span> Conventional files</h3>
 <ul>
-<li>Files:
-<ul>
-<li>README.md: Provides an overview of the project, including what it does, how to set it up, and how to contribute. A few sections examples are:
+<li><code>README.md</code>: Provides an overview of the project, including what it does, how to set it up, and how to contribute. A few sections examples are:
 <ul>
 <li>General description<br>
 </li>
@@ -637,19 +713,130 @@ Local with Console Commands (advanced users)
 <li>Contributing<br>
 </li>
 </ul></li>
-<li>LICENSE: Specifies the terms under which the code can be used, modified, and distributed.<br>
+<li><code>LICENSE</code>: Specifies the terms under which the content of the repository can be used, modified, and distributed. There are many licenses, varying in <em>permissiveness</em> and <em>type of content</em>. Generally, for projects involving both code and other kinds of content, we recommend CC0-1.0 or MIT. See <a href="https://choosealicense.com/">https://choosealicense.com/</a> and <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub Docs</a>).</li>
+<li><code>CITATION.cff</code>: human- and machine-readable citation information for software (and datasets). See example <a href="https://citation-file-format.github.io/#:~:text=cff%20file%3F-,CITATION.,to%20correctly%20cite%20their%20software.">here</a>.<br>
 </li>
-<li>CITATION.cff: human- and machine-readable citation information for software (and datasets). See example <a href="https://citation-file-format.github.io/#:~:text=cff%20file%3F-,CITATION.,to%20correctly%20cite%20their%20software.">here</a>.<br>
+<li><code>.gitignore</code>: Lists files and directories that Git should ignore, such as build outputs and temporary files.<br>
 </li>
-<li>.gitignore: Lists files and directories that Git should ignore, such as build outputs and temporary files.<br>
+<li><code>CHANGELOG.md</code>: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.<br>
 </li>
-<li>CHANGELOG.md: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.<br>
-</li>
-<li>References.bib: one or more files containing references cited within the markdown files of the repository.<br>
-</li>
-</ul></li>
-<li>Releases and GitHub-Zenodo connection</li>
+<li><code>references.bib</code>: a file containing references in BibTex format, which can be cited within the markdown files of the repository.</li>
 </ul>
+</section>
+<section id="version-tags-and-releases-on-github" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="version-tags-and-releases-on-github"><span class="header-section-number">2.3.6</span> Version Tags and Releases on GitHub</h3>
+<p>To manage different versions of your project, GitHub allows you to create <strong>tags</strong> and <strong>releases</strong>:</p>
+<ol type="1">
+<li><strong>Create a Tag</strong>:
+<ul>
+<li>Open your repository on GitHub and navigate to the <strong>Releases</strong> section.</li>
+<li>Click <strong>Draft a new release</strong>.</li>
+<li>In the <strong>Tag version</strong> field, type a version number (e.g., <code>v1.0.0</code>) to create a new tag (see more in the note below).</li>
+<li>Specify the target branch or commit for this tag.</li>
+</ul></li>
+<li><strong>Create a Release</strong>:
+<ul>
+<li>After tagging, enter details such as the release <strong>title</strong> and <strong>description</strong>.</li>
+<li>Optionally, add <strong>release notes</strong> to summarize changes or new features [<a href="https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes">1</a>].</li>
+<li>Click <strong>Publish release</strong> to make it public.</li>
+</ul></li>
+</ol>
+<p>Releases are tied to tags and provide a stable reference for each version, making it easy for users to download specific versions of your project [<a href="https://stackoverflow.com/questions/19727632/how-to-handle-releases-of-markdown-document-on-github">2</a>].</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+About versioning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If unfamiliar with the logic behind versioning, consult the reference to <a href="https://semver.org/">Semantic Versioning</a> which can also be found on the right of the “Create a new release” page in GitHub. Their summary states:</p>
+<blockquote class="blockquote">
+<p>Given a version number MAJOR.MINOR.PATCH, increment the: 1. MAJOR version when you make incompatible API changes 2. MINOR version when you add functionality in a backward compatible manner 3. PATCH version when you make backward compatible bug fixes</p>
+</blockquote>
+<p>However, if your repository is not about creating software products and services, we can do well by simply obeying a few general conventions:</p>
+<ul>
+<li>Add a PATCH version <strong>discretionally</strong> when correcting bugs, typos, tuning aesthetics, etc, or <em>refactoring</em> code (explained in <a href="session-r-programming.html" class="quarto-xref"><span>Chapter 4</span></a>).</li>
+<li>Add a MINOR version when expanding code functionality or adding new content (text sections, images)</li>
+<li>Add a new PATCH or MINOR version every time the repository reaches a natural stable point (i.e., there are no changes planned any time soon).</li>
+<li>Make sure that every new MAJOR version is released (GitHub) and published (Zenodo, see below).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_creating_2024"><span>“Creating <span>GitHub</span> <span>Releases</span> Automatically on Tags”</span> (<a href="references.html#ref-noauthor_creating_2024" role="doc-biblioref">2024</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_automatically_nodate"><span>“Automatically Generated Release Notes”</span> (<a href="references.html#ref-noauthor_automatically_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="signell_how_2013">Signell (<a href="references.html#ref-signell_how_2013" role="doc-biblioref">2013</a>)</span><br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="establishing-a-github-zenodo-connection" class="level3" data-number="2.3.7">
+<h3 data-number="2.3.7" class="anchored" data-anchor-id="establishing-a-github-zenodo-connection"><span class="header-section-number">2.3.7</span> Establishing a GitHub-Zenodo Connection</h3>
+<p>To link your GitHub repository with Zenodo and enable citation via DOI:</p>
+<ol type="1">
+<li><strong>Login to Zenodo</strong>: Go to <a href="https://zenodo.org">Zenodo</a> and sign in or create an account.</li>
+<li><strong>Authorize GitHub Access</strong>:
+<ul>
+<li>Click on your profile in Zenodo and select <strong>Linked accounts</strong>.</li>
+<li>Choose <strong>Connect</strong> next to GitHub.</li>
+<li>You will be redirected to GitHub to authorize Zenodo’s access. Approve the request to complete the connection.</li>
+</ul></li>
+<li><strong>Select Repository for DOI Generation</strong>:
+<ul>
+<li>In Zenodo, navigate to <strong>GitHub</strong> in the <strong>Linked Accounts</strong> section.</li>
+<li>Enable DOI generation for the desired repository. Zenodo will automatically mint DOIs for any new release you publish.</li>
+</ul></li>
+</ol>
+<p>This connection allows you to generate and manage DOIs for GitHub repositories, enhancing your project’s citation and research accessibility.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_referencing_nodate"><span>“Referencing and Citing Content”</span> (<a href="references.html#ref-noauthor_referencing_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_zenodo_nodate"><span>“Zenodo - <span>Research</span>. <span>Shared</span>.”</span> (<a href="references.html#ref-noauthor_zenodo_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_created_nodate"><span>“Created New Organization in <span>GitHub</span> and <span>Zenodo</span> Did Not Send a Request for Accessing It · <span>Issue</span> #1596 · Zenodo/Zenodo”</span> (<a href="references.html#ref-noauthor_created_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_module-5-open-research-software-and-open-sourcecontent_developmenttask_2md_nodate"><span>“Module-5-<span>Open</span>-<span>Research</span>-<span>Software</span>-and-<span>Open</span>-<span>Source</span>/Content_development/<span>Task</span>_2.md at Master · <span>OpenScienceMOOC</span>/<span>Module</span>-5-<span>Open</span>-<span>Research</span>-<span>Software</span>-and-<span>Open</span>-<span>Source</span>”</span> (<a href="references.html#ref-noauthor_module-5-open-research-software-and-open-sourcecontent_developmenttask_2md_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_issue_nodate"><span>“Issue a Doi with <span>Zenodo</span>”</span> (<a href="references.html#ref-noauthor_issue_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -661,25 +848,35 @@ Hands-on Practice
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Task 1: start creating
-<ul>
-<li>Create a profile repository with a README file following <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github">GitHub Docs: Quickstart for writing on GitHub</a>.<br>
-</li>
-<li>Create another repository in GitHub, which will hold your work throughout the course. Make it public and initialise it with a README, .gitignore (template for R), and a license of you choice (in this case, we recommend CC0-1.0 or MIT; see <a href="https://choosealicense.com/">https://choosealicense.com/</a> and <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub Docs</a>). Add all other conventional files mentioned above, even if they remain empty for now. Edit your README file and commit/push your changes.</li>
-</ul></li>
-<li>Task 2: making others’ repositories your own’s
-<ul>
-<li>Fork the Course Book repository.<br>
+<li><p>Task 1: Create a profile repository with a README file following <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github">GitHub Docs: Quickstart for writing on GitHub</a>.</p></li>
+<li><p>Task 2: Making others’ repositories your own’s</p>
+<ol type="1">
+<li>Fork the <a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management">Course Book repository</a>.<br>
 </li>
 <li>Clone your fork to a local directory.<br>
 </li>
-<li>Modify or add a <code>.qmd</code> file and commit (one or more times).<br>
+<li>Modify or add a <code>.qmd</code> file in your local directory.</li>
+<li>Commit to you local repository (one or more times).<br>
 </li>
-<li>Push committed changes to your fork.<br>
+<li>Push the changed local repository to your remote repository (i.e.&nbsp;your fork).<br>
 </li>
 <li>Create a pull request back to the original repository.</li>
-</ul></li>
-<li>Task 3:
+</ol></li>
+<li><p>Task 3: Create a personal project repository</p>
+<ol type="1">
+<li>Create a GitHub repository under your user. Named it <code>rub-archwiss_</code> followed by your surname (no special characters). Initialise with the following properties:</li>
+</ol>
+<ol type="a">
+<li>Public</li>
+<li>With a README file</li>
+<li>with .gitignore (template for R)</li>
+<li>With a license of you choice.</li>
+</ol>
+<ol start="2" type="1">
+<li>Add all other conventional files mentioned above, even if they remain empty for now.</li>
+<li>Edit your README file and commit/push your changes.</li>
+</ol></li>
+<li><p>Task 4:</p>
 <ul>
 <li>Set up the GitHub-Zenodo connection.<br>
 </li>
@@ -692,6 +889,53 @@ Hands-on Practice
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-noauthor_automatically_nodate" class="csl-entry" role="listitem">
+<span>“Automatically Generated Release Notes.”</span> n.d. <em>GitHub Docs</em>. Accessed October 11, 2024. <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes">https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes</a>.
+</div>
+<div id="ref-cioara_how_2018" class="csl-entry" role="listitem">
+Cioara, Andrei. 2018. <span>“How <span>I</span> <span>Organize</span> My <span>GitHub</span> <span>Repositories</span>.”</span> <em>Medium</em>. <a href="https://andreicioara.com/how-i-organize-my-github-repositories-ce877db2e8b6">https://andreicioara.com/how-i-organize-my-github-repositories-ce877db2e8b6</a>.
+</div>
+<div id="ref-noauthor_created_nodate" class="csl-entry" role="listitem">
+<span>“Created New Organization in <span>GitHub</span> and <span>Zenodo</span> Did Not Send a Request for Accessing It · <span>Issue</span> #1596 · Zenodo/Zenodo.”</span> n.d. <em>GitHub</em>. Accessed October 11, 2024. <a href="https://github.com/zenodo/zenodo/issues/1596">https://github.com/zenodo/zenodo/issues/1596</a>.
+</div>
+<div id="ref-noauthor_creating_2024" class="csl-entry" role="listitem">
+<span>“Creating <span>GitHub</span> <span>Releases</span> Automatically on Tags.”</span> 2024. <a href="https://jacobtomlinson.dev/posts/2024/creating-github-releases-automatically-on-tags/">https://jacobtomlinson.dev/posts/2024/creating-github-releases-automatically-on-tags/</a>.
+</div>
+<div id="ref-danijar_can_2019" class="csl-entry" role="listitem">
+danijar. 2019. <span>“Can <span>I</span> Arrange Repositories into Folders on <span>Github</span>?”</span> Forum post. <em>Stack Overflow</em>. <a href="https://stackoverflow.com/q/11852982/6199967">https://stackoverflow.com/q/11852982/6199967</a>.
+</div>
+<div id="ref-noauthor_git_nodate-1" class="csl-entry" role="listitem">
+<span>“Git - Gitglossary <span>Documentation</span>.”</span> n.d. Accessed October 11, 2024. <a href="https://git-scm.com/docs/gitglossary">https://git-scm.com/docs/gitglossary</a>.
+</div>
+<div id="ref-noauthor_git_nodate-2" class="csl-entry" role="listitem">
+<span>“Git <span>Definitions</span> and <span>Terminology</span> <span>Cheat</span> <span>Sheet</span>.”</span> n.d. Accessed October 11, 2024. <a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">https://www.pluralsight.com/resources/blog/cloud/git-terms-explained</a>.
+</div>
+<div id="ref-noauthor_issue_nodate" class="csl-entry" role="listitem">
+<span>“Issue a Doi with <span>Zenodo</span>.”</span> n.d. <em>Github for Collaborative Documentation</em>. Accessed October 11, 2024. <a href="https://cassgvp.github.io/github-for-collaborative-documentation/docs/tut/6-Zenodo-integration.html">https://cassgvp.github.io/github-for-collaborative-documentation/docs/tut/6-Zenodo-integration.html</a>.
+</div>
+<div id="ref-jimmy_how_2022" class="csl-entry" role="listitem">
+jimmy. 2022. <span>“How to <span>Organize</span> <span>GitHub</span> <span>Repositories</span>.”</span> <em>Backrightup</em>. <a href="https://backrightup.com/blog/how-to-organize-github-repositories/">https://backrightup.com/blog/how-to-organize-github-repositories/</a>.
+</div>
+<div id="ref-noauthor_module-5-open-research-software-and-open-sourcecontent_developmenttask_2md_nodate" class="csl-entry" role="listitem">
+<span>“Module-5-<span>Open</span>-<span>Research</span>-<span>Software</span>-and-<span>Open</span>-<span>Source</span>/Content_development/<span>Task</span>_2.md at Master · <span>OpenScienceMOOC</span>/<span>Module</span>-5-<span>Open</span>-<span>Research</span>-<span>Software</span>-and-<span>Open</span>-<span>Source</span>.”</span> n.d. <em>GitHub</em>. Accessed October 11, 2024. <a href="https://github.com/OpenScienceMOOC/Module-5-Open-Research-Software-and-Open-Source/blob/master/content_development/Task_2.md">https://github.com/OpenScienceMOOC/Module-5-Open-Research-Software-and-Open-Source/blob/master/content_development/Task_2.md</a>.
+</div>
+<div id="ref-noauthor_referencing_nodate" class="csl-entry" role="listitem">
+<span>“Referencing and Citing Content.”</span> n.d. <em>GitHub Docs</em>. Accessed October 11, 2024. <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content</a>.
+</div>
+<div id="ref-signell_how_2013" class="csl-entry" role="listitem">
+Signell, Rich. 2013. <span>“How to Handle Releases of Markdown Document on Github.”</span> Forum post. <em>Stack Overflow</em>. <a href="https://stackoverflow.com/q/19727632/6199967">https://stackoverflow.com/q/19727632/6199967</a>.
+</div>
+<div id="ref-suhail_structuring_2024" class="csl-entry" role="listitem">
+Suhail, Muhammad Ahmed. 2024. <span>“Structuring and <span>Organizing</span> My <span>Github</span>: <span>A</span> <span>Developer</span>’s <span>Guide</span>.”</span> <em>Medium</em>. <a href="https://medium.com/@muhammadahmedsuhail007/structuring-and-organizing-my-github-a-developers-guide-7353610f04fd">https://medium.com/@muhammadahmedsuhail007/structuring-and-organizing-my-github-a-developers-guide-7353610f04fd</a>.
+</div>
+<div id="ref-noauthor_zenodo_nodate" class="csl-entry" role="listitem">
+<span>“Zenodo - <span>Research</span>. <span>Shared</span>.”</span> n.d. Accessed October 11, 2024. <a href="https://help.zenodo.org/docs/profile/linking-accounts/">https://help.zenodo.org/docs/profile/linking-accounts/</a>.
+</div>
+<div id="ref-zestyclose-low-6403_how_2023" class="csl-entry" role="listitem">
+Zestyclose-Low-6403. 2023. <span>“How to Organize Repos Within an ’Organization’?”</span> Reddit {Post}. <em>R/Github</em>. <a href="https://www.reddit.com/r/github/comments/188d324/how_to_organize_repos_within_an_organization/">www.reddit.com/r/github/comments/188d324/how_to_organize_repos_within_an_organization/</a>.
+</div>
+</div>
 </section>
 </section>
 

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -323,7 +357,8 @@ div.csl-indent {
   <li><a href="#importance-of-learning-programming" id="toc-importance-of-learning-programming" class="nav-link" data-scroll-target="#importance-of-learning-programming"><span class="header-section-number">1.2.2</span> Importance of Learning Programming</a></li>
   <li><a href="#overview-of-common-programming-languages" id="toc-overview-of-common-programming-languages" class="nav-link" data-scroll-target="#overview-of-common-programming-languages"><span class="header-section-number">1.2.3</span> Overview of Common Programming Languages</a></li>
   <li><a href="#concept-of-research-software-tools-and-scripts" id="toc-concept-of-research-software-tools-and-scripts" class="nav-link" data-scroll-target="#concept-of-research-software-tools-and-scripts"><span class="header-section-number">1.2.4</span> Concept of Research Software: Tools and Scripts</a></li>
-  <li><a href="#where-to-learn-and-keep-learning" id="toc-where-to-learn-and-keep-learning" class="nav-link" data-scroll-target="#where-to-learn-and-keep-learning"><span class="header-section-number">1.2.5</span> Where to learn (and keep learning)</a></li>
+  <li><a href="#markdown-a-language-in-between" id="toc-markdown-a-language-in-between" class="nav-link" data-scroll-target="#markdown-a-language-in-between"><span class="header-section-number">1.2.5</span> Markdown: a language in between</a></li>
+  <li><a href="#where-to-learn-and-keep-learning" id="toc-where-to-learn-and-keep-learning" class="nav-link" data-scroll-target="#where-to-learn-and-keep-learning"><span class="header-section-number">1.2.6</span> Where to learn (and keep learning)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -333,7 +368,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-rdm.html">Getting started</a></li><li class="breadcrumb-item"><a href="./session-rdm.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></h1>
+<h1 class="title"><span id="sec-rdm" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data and research data management</span></span></h1>
 </div>
 
 
@@ -455,14 +490,50 @@ div.csl-indent {
 </ul>
 <p>Learning programming for research allows scientists to leverage these tools and scripts effectively, making research more efficient, reproducible, and insightful.</p>
 </section>
-<section id="where-to-learn-and-keep-learning" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="where-to-learn-and-keep-learning"><span class="header-section-number">1.2.5</span> Where to learn (and keep learning)</h3>
+<section id="markdown-a-language-in-between" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="markdown-a-language-in-between"><span class="header-section-number">1.2.5</span> Markdown: a language in between</h3>
+<p>As already mentioned, <a href="https://www.markdownguide.org/">Markdown</a> is a markup language with minimal syntax, designed for creating formatted text using a plain-text editor <span class="citation" data-cites="noauthor_markdown_nodate">(<a href="references.html#ref-noauthor_markdown_nodate" role="doc-biblioref"><span>“Markdown <span>Guide</span>”</span> n.d.</a>)</span>. For us, humans, Markdown is easily readable and editable as text. However, it is technically a programming language, as it holds machine-readable instructions (i.e.&nbsp;program) which, once compiled (or rendered) by the right software, produces the desired output in form of a formatted text. A advanced text editor, such as Microsoft Word, allow you to do exactly the same (and more), but only through a sequence of interactions with the graphic user interface (GUI).</p>
+<p>Writing in Markdown or “writing Markdown code” is straightforward and will only require some getting use to, especially if you costumed to advanced text editors. For example, instead of marking a fragment of text in bold font through the usual steps, we would do it by typing ** (two asterisks) before and after the fragment.</p>
+<p>To illustrate this, consider the rendering and source code of a markdown text:</p>
+<p>“<strong>Live</strong> <em>as if</em> you were to <strong><em>die tomorrow</em></strong>. <strong>Learn</strong> <em>as if</em> you were to <strong><em>live forever</em></strong>.” - Mahatma Gandhi, Source: <a href="https://www.brainyquote.com/citation/quotes/mahatma_gandhi_133995">BrainyQuote</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>"**Live** *as if* you were to **_die tomorrow_**. **Learn** as if you were to **_live forever_**."</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Mahatma Gandhi, Source: <span class="co">[</span><span class="ot">BrainyQuote</span><span class="co">](https://www.brainyquote.com/citation/quotes/mahatma_gandhi_133995)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The simplicity of this language might feel unnecessary, or even annoying, but it is actually the trait that opens a great range of potential applications. Markdown is today indispensable for all practices related to open science and can offer a good entry point for other, more complex programming languages.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="obregon_what_2024">Obregon (<a href="references.html#ref-obregon_what_2024" role="doc-biblioref">2024</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_what_2021"><span>“What Is <span>Markdown</span>? <span>Syntax</span>, <span>Examples</span>, <span>Usage</span>, <span>Best</span> <span>Practices</span>”</span> (<a href="references.html#ref-noauthor_what_2021" role="doc-biblioref">2021</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_functional_2017"><span>“Functional Documentation with Markdown and Version Control”</span> (<a href="references.html#ref-noauthor_functional_2017" role="doc-biblioref">2017</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_basic_nodate-1"><span>“Basic <span>Syntax</span> <span></span> <span>Markdown</span> <span>Guide</span>”</span> (<a href="references.html#ref-noauthor_basic_nodate-1" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="where-to-learn-and-keep-learning" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="where-to-learn-and-keep-learning"><span class="header-section-number">1.2.6</span> Where to learn (and keep learning)</h3>
 <ul>
 <li><a href="https://www.datacamp.com">Datacamp</a> <span class="citation" data-cites="noauthor_learn_nodate">(<a href="references.html#ref-noauthor_learn_nodate" role="doc-biblioref"><span>“Learn <span>R</span>, <span>Python</span> &amp; <span>Data</span> <span>Science</span> <span>Online</span>”</span> n.d.</a>)</span></li>
 <li><a href="https://www.udemy.com/">Udemy</a> <span class="citation" data-cites="noauthor_online_nodate">(<a href="references.html#ref-noauthor_online_nodate" role="doc-biblioref"><span>“Online <span>Courses</span> - <span>Learn</span> <span>Anything</span>, <span>On</span> <span>Your</span> <span>Schedule</span> <span></span> <span>Udemy</span>”</span> n.d.</a>)</span></li>
 <li><a href="https://www.coursera.org/">Coursera</a> <span class="citation" data-cites="noauthor_coursera_nodate">(<a href="references.html#ref-noauthor_coursera_nodate" role="doc-biblioref"><span>“Coursera <span></span> <span>Degrees</span>, <span>Certificates</span>, &amp; <span>Free</span> <span>Online</span> <span>Courses</span>”</span> n.d.</a>)</span></li>
 <li>Courses and workshops by high education institutions (e.g,, <a href="https://www.research-school.rub.de/">RUB Research School</a>)</li>
 </ul>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -503,6 +574,9 @@ Hands-on Practice
 <div id="ref-baker_1500_2016" class="csl-entry" role="listitem">
 Baker, Monya. 2016. <span>“1,500 Scientists Lift the Lid on Reproducibility.”</span> <em>Nature</em> 533 (7604): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
 </div>
+<div id="ref-noauthor_basic_nodate-1" class="csl-entry" role="listitem">
+<span>“Basic <span>Syntax</span> <span></span> <span>Markdown</span> <span>Guide</span>.”</span> n.d. Accessed October 11, 2024. <a href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a>.
+</div>
 <div id="ref-community_turing_2022" class="csl-entry" role="listitem">
 Community, The Turing Way. 2022. <span>“The <span>Turing</span> <span>Way</span>: <span>A</span> Handbook for Reproducible, Ethical and Collaborative Research.”</span> Zenodo. <a href="https://doi.org/10.5281/ZENODO.3233853">https://doi.org/10.5281/ZENODO.3233853</a>.
 </div>
@@ -511,6 +585,9 @@ Community, The Turing Way. 2022. <span>“The <span>Turing</span> <span>Way</spa
 </div>
 <div id="ref-noauthor_fair_nodate" class="csl-entry" role="listitem">
 <span>“<span>FAIR</span> <span>Principles</span>.”</span> n.d. <em>GO FAIR</em>. Accessed October 7, 2024. <a href="https://www.go-fair.org/fair-principles/">https://www.go-fair.org/fair-principles/</a>.
+</div>
+<div id="ref-noauthor_functional_2017" class="csl-entry" role="listitem">
+<span>“Functional Documentation with Markdown and Version Control.”</span> 2017. <em>Leon Hassan</em>. <a href="https://blog.leonhassan.co.uk/functional-documentation-with-markdown-and-version-control/">https://blog.leonhassan.co.uk/functional-documentation-with-markdown-and-version-control/</a>.
 </div>
 <div id="ref-noauthor_grn_nodate" class="csl-entry" role="listitem">
 <span>“<span>GRN</span> · <span>German</span> <span>Reproducibility</span> <span>Network</span>.”</span> n.d. Accessed October 7, 2024. <a href="https://reproducibilitynetwork.de/">https://reproducibilitynetwork.de/</a>.
@@ -533,6 +610,9 @@ Marwick, Ben. 2017. <span>“Open <span>Science</span> in <span>Archaeology</spa
 <div id="ref-national_academies_of_sciences_understanding_2019" class="csl-entry" role="listitem">
 National Academies of Sciences, Engineering, Policy and Global Affairs, Engineering Committee on Science, Board on Research Data Information, Division on Engineering and Physical and Sciences, Committee on Applied and Theoretical Statistics, Board on Mathematical Sciences Analytics, et al. 2019. <span>“Understanding <span>Reproducibility</span> and <span>Replicability</span>.”</span> In <em>Reproducibility and <span>Replicability</span> in <span>Science</span></em>. National Academies Press (US). <a href="https://www.ncbi.nlm.nih.gov/books/NBK547546/">https://www.ncbi.nlm.nih.gov/books/NBK547546/</a>.
 </div>
+<div id="ref-obregon_what_2024" class="csl-entry" role="listitem">
+Obregon, Alexander. 2024. <span>“What <span>Is</span> <span>Markdown</span>? <span>Uses</span> and <span>Benefits</span> <span>Explained</span>.”</span> <em>Medium</em>. <a href="https://medium.com/@AlexanderObregon/what-is-markdown-uses-and-benefits-explained-947300e1f955">https://medium.com/@AlexanderObregon/what-is-markdown-uses-and-benefits-explained-947300e1f955</a>.
+</div>
 <div id="ref-noauthor_online_nodate" class="csl-entry" role="listitem">
 <span>“Online <span>Courses</span> - <span>Learn</span> <span>Anything</span>, <span>On</span> <span>Your</span> <span>Schedule</span> <span></span> <span>Udemy</span>.”</span> n.d. Accessed October 8, 2024. <a href="https://www.udemy.com/">https://www.udemy.com/</a>.
 </div>
@@ -541,6 +621,9 @@ R Core Team. 2024. <em>R: <span>A</span> <span>Language</span> and <span>Environ
 </div>
 <div id="ref-noauthor_spatial_nodate" class="csl-entry" role="listitem">
 <span>“Spatial Without <span>Compromise</span> · <span>QGIS</span> <span>Web</span> <span>Site</span>.”</span> n.d. Accessed October 7, 2024. <a href="https://qgis.org/">https://qgis.org/</a>.
+</div>
+<div id="ref-noauthor_what_2021" class="csl-entry" role="listitem">
+<span>“What Is <span>Markdown</span>? <span>Syntax</span>, <span>Examples</span>, <span>Usage</span>, <span>Best</span> <span>Practices</span>.”</span> 2021. <a href="https://www.knowledgehut.com/blog/web-development/what-is-markdown">https://www.knowledgehut.com/blog/web-development/what-is-markdown</a>.
 </div>
 <div id="ref-noauthor_what_2024" class="csl-entry" role="listitem">
 <span>“What <span>Is</span> <span>Programming</span>? <span>And</span> <span>How</span> <span>To</span> <span>Get</span> <span>Started</span>.”</span> 2024. <em>Coursera</em>. <a href="https://www.coursera.org/articles/what-is-programming">https://www.coursera.org/articles/what-is-programming</a>.
