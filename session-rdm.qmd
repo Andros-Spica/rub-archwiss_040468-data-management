@@ -97,6 +97,8 @@ Here is a list of those that will be most useful during this course:
 
   - [OpenAIRE](https://www.openaire.eu/): OpenAIRE AMKE is a non-profit organization with a mission to promote open scholarship and improve discoverability, accessibility, shareability, reusability, reproducibility, and monitoring of data-driven research results, globally [@iatropoulou_openaire_nodate]. 
   - [Go FAIR Initiative](https://www.go-fair.org/): Provides guidelines on implementing FAIR principles, with resources tailored for researchers in various fields, including archaeology [@noauthor_fair_nodate].
+  - [ARIADNE](https://www.ariadne-research-infrastructure.eu/): A research infrastructure that integrates existing archaeological datasets across Europe [@noauthor_ariadne_nodate].  
+  - [CIDOC-CRM](https://www.cidoc-crm.org/): a theoretical and practical tool for information integration in the field of cultural heritage [@noauthor_home_nodate].  
   - [The Turing Way](https://github.com/the-turing-way/the-turing-way): collaborative writing of an online handbook [@community_turing_2022].
   - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
 
