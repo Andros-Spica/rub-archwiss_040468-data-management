@@ -2,16 +2,264 @@
 
 ## Preparation
 
-* Installing R and RStudio.  
-* Overview of RStudio interface.
+Before learning more about R, make sure that everything is set up properly and that you understand the basics in RStudio GUI. 
+
+::: {.callout-caution  collapse="true"}
+## CHECK: R and RStudio installation {.unnumbered}
+
+To ensure that both R and RStudio have been installed correctly, follow these steps:
+
+1. Launch RStudio by searching for it in your applications menu.  
+2. When it opens, you should see an interface with multiple panels, including the Console in the left or bottom left panel.    
+3. In the RStudio Console, type version and press Enter. You should see details about the R version currently running, which confirms that both R and RStudio are correctly installed and linked.
+
+If any of these steps fail, consider reinstalling R and RStudio, ensuring they are compatible with your operating system.
+
+:::
+
+### RStudio interface (GUI)
+
+The RStudio interface, or Graphical User Interface (GUI), is designed to help you work efficiently with R. By default, it consists of four main panes or panels, each potentially containing multiple tabs:
+
+1. **Console/Terminal/Background Jobs**: This is where you can type and run R commands directly. It displays output from your code and any error messages.  
+2. **Environment/History/Connections/Build/Git**: In the top-right, the Environment tab shows all active variables and data loaded into your session, while the History tab keeps a log of previously executed commands.  
+3. **Files/Plots/Packages/Help/...**: The bottom-right panel has several tabs for navigating your files, viewing plots and other graphical outputs, managing installed packages, and accessing R documentation.  
+4. **Source or Script Editor**: Located in the top-left, here is where you can write, edit, and save R scripts. You can run selected code from this editor directly in the Console. *This panel will be absent whenever there are no script files open in RStudio.*  
+
+![RStudio GUI default structure; from @noauthor_rstudio_2024](https://docs.posit.co/ide/user/ide/guide/ui/images/rstudio-panes-labeled.jpeg)
+
+Many of the various elements of RStudio GUI are self-explanatory or further explained by pop-up texts and windows. Still, beginners and occasional users can be assured that most elements can be ignored. 
+
+### Global Settings
+
+To customize RStudio, go to Tools > Global Options (or RStudio > Preferences on macOS). Here, you can adjust various settings, including:
+
+* General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify startup options.  
+* Code: Configuring code formatting, autocompletion, and syntax highlighting settings.
+* Appearance: Change the editor theme, font size, and other visual preferences.  
+* Pane Layout: Changing the default pane structure (not recommended).
+
+### RStudio Projects
+
+RStudio Projects help organize your work by keeping all related files, scripts, data, and outputs in one place. Each project has its own working directory, which helps to manage dependencies and maintain reproducibility. Projects are especially useful for keeping different analyses or projects separate from one another.
+
+To create a new project in RStudio, follow these steps:
+
+1. Go to File > New Project.
+2. You’ll see three options:
+  - New Directory: Create a project from scratch within a new folder. This is useful when starting a new analysis or project.  
+  - Existing Directory: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts.  
+  - Version Control: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.  
+3. Select the appropriate option based on your needs. For example, if you choose New Directory, you can then select New Project, enter a project name, and specify the location to save it. Alternatively, if you are working with a GitHub repository, you could select Version Control to clone it directly into RStudio, creating a fully synchronized project environment.  
+4. Click Create Project. RStudio will open a new R session within the project’s directory.  
+
+### R Scripts and Rmarkdown notebooks
+
+In RStudio, both R scripts and Rmarkdown notebooks (or rendered notebooks) are used to write and execute R code, but they serve different purposes and have distinct features:
+
+#### Scripts (.R files) {.unnumbered}
+* Plain Text Format: Scripts are simple text files where you can write and save R code. They are best suited for running sequential code and writing reusable functions.  
+* Execution: You can run code line-by-line or in chunks directly in the Console. Scripts are ideal for production workflows or larger projects where maintaining clear, reproducible code is a priority.  
+* Comments: You can add comments for documentation, but scripts do not natively support rich formatting like Markdown.
+
+```{r}
+# Calculate the mean of a numeric vector
+numbers <- c(1, 2, 3, 4, 5)
+mean_value <- mean(numbers)
+print(mean_value)
+```
+
+In this script, we define a vector, calculate its mean, and print the result. The focus is on the code itself, without additional formatting or documentation.
+
+#### Notebooks/Rendered notebooks (.Rmd/.qmd files) {.unnumbered}
+* Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.  
+* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it, which is useful for exploratory data analysis and iterative workflows.  
+* Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  
+
+```{r, echo=FALSE}
+cat("
+## Calculate the Mean of a Vector
+
+In this analysis, we calculate the mean of a simple numeric vector.
+
+\```{r}
+# Define the numeric vector
+numbers <- c(1, 2, 3, 4, 5)
+
+# Calculate the mean
+mean_value <- mean(numbers)
+mean_value
+\```
+
+The mean of the vector is `r mean_value`.
+")
+```
+
+In this notebook, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format.
+
+Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file.
+
+### Creating or editing Other files
+
+In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports creating and editing various other file types, making it a versatile environment for different types of content and workflows. To create a new file, go to File > New File and select the desired file type.
+
+Some examples of files you can create and edit in RStudio include:
+
+* Plain Text Files (.txt): Useful for notes, raw data, or configuration files.
+* HTML Files (.html): For creating and editing web pages, especially useful for generating custom reports.
+* Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment.
+* SQL Files (.sql): You can write and run SQL queries directly in RStudio when working with databases.
+
+To create a file with an extension not listed in RStudio, simply create a .txt file, modify its name and add the desired extension.
+This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+For more information about RStudio, consult: 
+
+- @noauthor_rstudio_2024
+- @noauthor_rstudio_nodate
+
+:::
 
 ## R syntax and workflow
 
-* Basic R syntax: variables and data types.  
-* Writing and executing R scripts.  
-* Arithmetic operations, logical operations in R.  
-* Algorithm structures: `if`, `else`, `while`, `function`   
-* Packages. Mention the most important packages used later, including `tidyverse` and `tesselle.`
+### Basic R syntax: variables and data types
+
+In R, variables are created by assigning values using the <- operator. R supports various data types, including:
+
+* Numeric: Numbers, e.g., x <- 10.5
+* Integer: Whole numbers, declared with L, e.g., y <- 3L
+* Character: Text, surrounded by quotes, e.g., name <- "Alice"
+* Logical: Boolean values, TRUE or FALSE, e.g., is_true <- TRUE
+* Factor: Categorical data, useful for storing distinct categories, e.g., factor_var <- factor(c("Yes", "No", "Yes"))
+
+Variables store data for manipulation and analysis, forming the building blocks of R programming.
+
+### Arithmetic operations, logical operations in R.  
+
+R supports a range of arithmetic and logical operations:
+
+* Arithmetic Operations: Perform basic math on numbers.
+  * Addition: `5 + 3`
+  * Subtraction: `5 - 3`
+  * Multiplication: `5 * 3`
+  * Division: `5 / 3`
+  * Exponentiation: `5 ^ 3`
+  * Modulus: `5 %% 3` (remainder)
+
+* Logical Operations: Compare values, returning TRUE or FALSE.
+  * Equal to: `5 == 3`
+  * Not equal to: `5 != 3`
+  * Greater than: `5 > 3`
+  * Less than: `5 < 3`
+  * Logical **AND**: `TRUE & FALSE`
+  * Logical **OR**: `TRUE | FALSE`
+
+### Algorithm structures
+
+R provides basic control structures for implementing algorithms:
+
+* `if` and `else`: Execute code based on a condition.
+```{r}
+x <- 10
+if (x > 5) {
+  print("x is greater than 5")
+} else {
+  print("x is not greater than 5")
+}
+```
+* `while` loop: Repeat code while a condition is true.
+```{r}
+count <- 1
+while (count <= 5) {
+  print(count)
+  count <- count + 1
+}
+```
+* `funtion`: Encapsulate code into reusable blocks.
+```{r}
+add_numbers <- function(a, b) {
+  return(a + b)
+}
+
+result <- add_numbers(3, 5)
+print(result)
+```
+
+### Writing and executing R scripts 
+
+To create and run an R script:
+
+1. Go to File > New File > R Script in RStudio.
+
+2. Write your code in the editor. For example:
+
+```{r, eval=FALSE}
+# Simple R Script
+x <- 5
+y <- 10
+sum <- x + y
+print(sum)
+```
+
+3. Highlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.
+
+### Using packages
+
+Packages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.
+
+#### Installing and loading packages {.unnumbered}
+To install a package, use the install.packages() function. For example, to install the ggplot2 package:
+
+```{r, eval=FALSE}
+#| eval: false
+install.packages("ggplot2")
+```
+
+Alternatively, you may use the GUI Wizard in Tools > Install Packages..., where an autocomplete feature will help selecting packages exact names.
+
+Once installed, load the package with the `library()` function:
+```{r, eval=FALSE}
+library(ggplot2)
+```
+
+Now you can access the functions within `ggplot2` and any other loaded package. You only need to install a package once, but you must load it in each new session.
+
+#### Package collection: `tidyverse` and `tesselle` {.unnumbered}
+
+The [`tidyverse`](https://www.tidyverse.org/) is a collection of R packages designed for data science, making data manipulation, visualization, and analysis easier and more intuitive [@wickham_welcome_2019; @noauthor_tidyverse_nodate]. It includes:
+
+* `ggplot2`: For creating data visualizations using a layered approach.
+* `dplyr`: For data manipulation, including filtering, summarizing, and arranging data.
+* `tidyr`: For reshaping and tidying data.
+* `readr`: For reading data files into R quickly.
+* `purrr`: For functional programming, allowing you to work with lists and vectors more effectively.
+* `tibble`: A modern version of data frames with enhanced printing and subsetting.
+
+The installation and use of the entire tidyverse works as a single package:
+
+```{r, eval=FALSE}
+#| eval: false
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+The tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e. other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.
+
+#### Package collection: `tesselle` {.unnumbered}
+
+The [`tesselle`](https://www.tesselle.org/) collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data [@frerebeau_tesselle_2023; @noauthor_tesselle_nodate].
+
+Install the complete suite with:
+
+```{r, eval=FALSE}
+#| eval: false
+install.packages("tesselle")
+```
+
+We will look into more details about this collection in @sec-compositional-data and @sec-count-and-seriation.
 
 ## Basic Data Structures in R
 
@@ -43,6 +291,8 @@
 ## Hands-on Practice {.unnumbered}
 
 * Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).  
+* Create a Rmarkdown document or Notebook and give it a title, e.g. "Introduction to R: an exercise".
+* In this document, create a R code chunk to start working and create new chunks and markdown commentaries at every computation step, as you see fit.
 * Create a data.frame named “stone\_tools\_data” directly in R with the following characteristics (based on Carlson 2017, p. 26):  
   * Set of six stone tools with inventory number  
   * Recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.  
@@ -90,6 +340,7 @@
 * Create a plot displaying the relationship between length and breadth. Save it as a PNG file.  
 * Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type\_and\_provenance”. Save it as both a PNG and a EPS file.  
 * (EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?  
+* (EXTRA) Duplicate the Rmarkdown document, repeating the steps using `tidyverse` functions.
 * Commit all changes and push to the remote using RStudio.  
 * Q\&A and troubleshooting.
 
