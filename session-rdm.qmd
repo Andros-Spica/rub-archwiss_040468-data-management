@@ -68,9 +68,25 @@ These principles aim to enhance the usefulness of digital assets by ensuring the
 
 ![A summary breakdown of the FAIR data principles (reproduction from @lien-talks_how_2024, Figure 1)](https://storage.googleapis.com/jnl-up-j-jcaa-files/journals/1/articles/154/665701dcda4a5.png)
 
-### Open Source
+### CARE Principles
 
-Open Source refers to software and tools that are freely available for anyone to use, modify, and distribute. For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and data management, promoting a more inclusive research environment.
+The CARE Principles for Indigenous Data Governance, defined more recently [@carroll_care_2020], emphasize ethical and responsible use of data:
+
+* **Collective Benefit**: Data should benefit Indigenous communities collectively.  
+* **Authority to Control**: Indigenous communities should have control over how their data is collected, used, and shared.  
+* **Responsibility**: Data practices must uphold the well-being and interests of Indigenous peoples.  
+* **Ethics**: Data use must be guided by ethical considerations, respecting cultural protocols and privacy.  
+
+These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Applying the CARE principles in archaeological research will strongly depend on whether and how the *indigenous peoples* associated to the material culture research are identified and defined by researchers.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_care_2024  
+- @noauthor_care_nodate  
+- @noauthor_care_2022
+
+:::
 
 ### Reproducibility
 
@@ -87,6 +103,22 @@ Making research reproducible must be considered as a spectrum of practices, in w
 <a href="https://doi.org/10.17605/OSF.IO/3D6XX" target="_blank">Ben Marwick, CC-By Attribution 4.0 International, available at OSF</a>
 ```
 
+### Open Source
+
+Open Source refers to software and tools that are freely available for anyone to use, modify, and distribute [@noauthor_open_2024; @noauthor_open_nodate-2].
+
+Key criteria include:
+
+* **Access to Source Code**: Users have access to the software's source code.  
+* **Free Redistribution**: The software can be freely redistributed.  
+* **Modifications and Derived Works**: Users can modify the software and create derived works based on it.  
+* **Integrity of the Author's Source Code**: License terms ensure modifications do not restrict access to the original code.  
+* **No Discrimination Against Persons or Groups**: The license must not discriminate against any person or group.  
+* **No Discrimination Against Fields of Endeavor**: The license must apply to all fields of use.  
+* **Distribution of License**: The rights attached to the software must apply to all who receive it without needing to acquire additional licenses.
+
+For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and data management, promoting a more inclusive research environment. Additionally, there is a growing community of archaeological software engineers that identify entirely with the open source principles [@batist_open_2024; noauthor_open_2015].
+
 ### The lay of the land: Organizations, tools, data repositories and where to find them
 
 Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets.
@@ -95,14 +127,17 @@ Here is a list of those that will be most useful during this course:
 
 - Organizations:
 
+  - [Wikimedia Foundation](https://wikimediafoundation.org/): A nonprofit organization focused on promoting the growth, development, and dissemination of free, multilingual content. It supports projects like Wikipedia, which provide free access to knowledge globally.  
   - [OpenAIRE](https://www.openaire.eu/): OpenAIRE AMKE is a non-profit organization with a mission to promote open scholarship and improve discoverability, accessibility, shareability, reusability, reproducibility, and monitoring of data-driven research results, globally [@iatropoulou_openaire_nodate]. 
   - [Go FAIR Initiative](https://www.go-fair.org/): Provides guidelines on implementing FAIR principles, with resources tailored for researchers in various fields, including archaeology [@noauthor_fair_nodate].
   - [ARIADNE](https://www.ariadne-research-infrastructure.eu/): A research infrastructure that integrates existing archaeological datasets across Europe [@noauthor_ariadne_nodate].  
   - [CIDOC-CRM](https://www.cidoc-crm.org/): a theoretical and practical tool for information integration in the field of cultural heritage [@noauthor_home_nodate].  
   - [The Turing Way](https://github.com/the-turing-way/the-turing-way): collaborative writing of an online handbook [@community_turing_2022].
   - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
+  - [CAA Special Interest Group on Scientific Scripting Languages in Archaeology](https://sslarch.github.io/): group within the CAA that focusses on the application of Scripting Languages in archaeological research [@noauthor_home_nodate-2].
+  - [Coalition for Archaeological Synthesis](https://www.archsynth.org/): an alliance of Partner organizations and individual Associates who are committed to fostering synthesis in archaeology to expand knowledge and benefit society [@noauthor_coalition_2024].
 
-- Data Repositories and Tools:  
+- Data Repositories and Data Management Tools:  
   - [ORCID](https://orcid.org/): ORCID, which stands for Open Researcher and Contributor ID, is a unique alphanumeric code used to identify researchers and contributors in scholarly activities.  
   - [Zenodo](https://zenodo.org/): A repository where researchers can deposit datasets, software, and publications.  
   - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
@@ -118,7 +153,10 @@ Here is a list of those that will be most useful during this course:
   - [Git](https://git-scm.com/): Git is a distributed version control system designed for tracking changes in source code during software development.
   - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
   - [Zotero](https://www.zotero.org/): Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.  
-  - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].
+  - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].  
+  - [Arches](https://www.archesproject.org/): Arches is an open source software platform freely available for cultural heritage organizations to independently deploy to help them manage their cultural heritage data [@noauthor_arches_2015].
+  - [OpenAtlas](https://openatlas.eu/): an open source database software developed especially to acquire, edit and manage research data from various fields of humanities like history, archaeology and cultural heritage as well as related scientific data [@noauthor_openatlas_nodate].  
+  - [open-archaeo](https://open-archaeo.info/): An extensive list of open source archaeological software and resources [@noauthor_open-archaeo_nodate].  
   
 By utilizing these resources, archaeologists can ensure that their research aligns with Open Science, FAIR, and Open Source principles, ultimately enhancing the transparency, accessibility, and longevity of their work.
 

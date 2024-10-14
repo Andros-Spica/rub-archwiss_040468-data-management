@@ -30,7 +30,7 @@ session_data <- cbind.data.frame(
 session_data$Block <- factor(session_data$Block, unique(session_data$Block))
 ```
 
-040468 Datenmanagement und digitale Archäologie (ÜB, unterrichtet in Englisch) Übungen (3 CP)
+[040468 Datenmanagement und digitale Archäologie](https://vvz.ruhr-uni-bochum.de/campus/all/event.asp?gguid=0xE2AAF8DAB10F4972B8854C6EDC49A4DD&from=&tabID=1&tguid=0x5980070F0C7A42899012ACFE7660AC4B&objgguid=NEW&lang=de) (ÜB, unterrichtet in Englisch) Übungen (3 CP)
 
 **Time slot** / **_Zeitfenster_**: Fr 14-16 Uhr c.t.
 
