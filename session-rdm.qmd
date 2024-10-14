@@ -20,7 +20,53 @@ Open Science promotes transparency and collaboration in research by making metho
 
 ### FAIR Principles
 
-FAIR stands for Findable, Accessible, Interoperable, and Reusable. These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others. Applying FAIR principles in archaeology involves creating well-documented, open-access datasets that other researchers can readily use.
+FAIR stands for Findable, Accessible, Interoperable, and Reusable [@noauthor_what_nodate] and applies to data, *metadata*, and supporting infrastructure to ensure data is systematically organized and readily available for ongoing use and analysis.
+
+::: {.callout-note collapse="true"}
+#### What is *metadata*? {.unnumbered}
+
+Metadata refers to data that provides information about other data, rather than the content of the data itself. It describes various attributes such as the structure, format, location, and context of the data  [@noauthor_metadata_2024;@editor_metadata_nodate]. Examples include creation dates, file sizes, authorship details, and keywords, which help in organizing, understanding, and retrieving the associated data [@noauthor_what_nodate-1].
+
+> *Example:*
+
+> - **Data**: identification number, site of origin, and dates of items of a museum exhibition.  
+> - **Metadata**: title and description of this data, author(s), date of last update, criteria for fixing site of origin, method(s) for establishing dates.
+
+> Notice that, in this case, we could also choose to specify the information about dating method into the dataset, as long as we want or can specify this information for each item independently.
+
+:::
+
+A short breakdown of the concepts behind FAIR:
+
+* **Findable**: Data should be easy to locate for humans and machines. This includes having:
+
+  * A unique and persistent identifier.
+  * Descriptive metadata.
+  * Metadata containing data identifiers.
+  * Registration in searchable resources.
+
+* **Accessible**: Once found, data should be easy to access. This includes:
+
+  * Retrieval via a standardized, open protocol.
+  * Support for authentication and authorization when necessary.
+  * Availability of metadata even if data itself is no longer available.
+  
+* **Interoperable**: Data should integrate with other data and tools. This requires:
+
+  * Using a standardized, accessible language for data representation.
+  * Using FAIR-aligned vocabularies.
+  * Including references to related data.
+
+* **Reusable**: Data should be well-described for reuse and replication in various contexts. This involves:
+
+  * Detailed, relevant metadata.
+  * Clear data usage licensing.
+  * Documentation of data provenance.
+  * Conformance to community standards.
+
+These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others [@lamprecht_towards_2020; @wilkinson_fair_2016]. Applying FAIR principles in archaeology involves creating well-documented, open-access datasets that other researchers can readily use [@hiebel_fair_2021;@lien-talks_how_2024;@nicholson_will_2023].
+
+![A summary breakdown of the FAIR data principles (reproduction from @lien-talks_how_2024, Figure 1)](https://storage.googleapis.com/jnl-up-j-jcaa-files/journals/1/articles/154/665701dcda4a5.png)
 
 ### Open Source
 
@@ -43,7 +89,9 @@ Making research reproducible must be considered as a spectrum of practices, in w
 
 ### The lay of the land: Organizations, tools, data repositories and where to find them
 
-Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets:
+Several organizations and platforms support Open Science and the use of FAIR and Open Source principles, providing archaeologists with access to valuable tools and datasets.
+
+Here is a list of those that will be most useful during this course:
 
 - Organizations:
 
@@ -58,6 +106,7 @@ Several organizations and platforms support Open Science and the use of FAIR and
   - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
   - [Archaeology Data Service (ADS)](https://archaeologydataservice.ac.uk/): An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.  
   - [Open Context](https://opencontext.org/): A platform offering access to archaeological data from various global sources, adhering to FAIR principles [noauthor_open_nodate-1].
+  - [Hypothes.is](https://web.hypothes.is/): an open-source platform designed to facilitate collaborative annotation of web content. Is used as a browser extension or plug-in.
 
 - Open Source Tools:  
   - [Markdown](https://www.markdownguide.org/): Markdown is a lightweight markup language designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate].  
@@ -127,7 +176,7 @@ Mahatma Gandhi, Source: [BrainyQuote](https://www.brainyquote.com/citation/quote
 The simplicity of this language might feel unnecessary, or even annoying, but it is actually the trait that opens a great range of potential applications. Markdown is today indispensable for all practices related to open science and can offer a good entry point for other, more complex programming languages. 
 
 ::: {.callout-note collapse="true"}
-#### See also
+#### See also {.unnumbered}
 
 - @obregon_what_2024  
 - @noauthor_what_2021   
@@ -152,6 +201,7 @@ The simplicity of this language might feel unnecessary, or even annoying, but it
   * [GitHub](https://github.com/)  
   * [Zenodo](https://zenodo.org/)  
   * [Zotero](https://www.zotero.org/) (optional)  
+  * [Hypothes.is](https://web.hypothes.is/) (optional) 
 * Task 2: installations:  
   * [Git](https://git-scm.com/). Follow general instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) ([de](https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren)) or a video step-by-step tutorial like [this](https://youtu.be/iYkLrXobBbA?si=zDjSLzlRFQzEfdsr)) or [this (de)](https://youtu.be/Df_d46YDkEc?si=Q9sQU4kbmudbziy0), among many available online. 
   * [GitHub Desktop](https://desktop.github.com/download/)  
