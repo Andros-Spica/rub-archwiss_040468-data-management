@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -287,8 +341,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation"><span class="header-section-number">3.1</span> Preparation</a></li>
-  <li><a href="#r-syntax-and-workflow" id="toc-r-syntax-and-workflow" class="nav-link" data-scroll-target="#r-syntax-and-workflow"><span class="header-section-number">3.2</span> R syntax and workflow</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation"><span class="header-section-number">3.1</span> Preparation</a>
+  <ul class="collapse">
+  <li><a href="#rstudio-interface-gui" id="toc-rstudio-interface-gui" class="nav-link" data-scroll-target="#rstudio-interface-gui"><span class="header-section-number">3.1.1</span> RStudio interface (GUI)</a></li>
+  <li><a href="#global-settings" id="toc-global-settings" class="nav-link" data-scroll-target="#global-settings"><span class="header-section-number">3.1.2</span> Global Settings</a></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">3.1.3</span> RStudio Projects</a></li>
+  <li><a href="#r-scripts-and-rmarkdown-notebooks" id="toc-r-scripts-and-rmarkdown-notebooks" class="nav-link" data-scroll-target="#r-scripts-and-rmarkdown-notebooks"><span class="header-section-number">3.1.4</span> R Scripts and Rmarkdown notebooks</a></li>
+  <li><a href="#creating-or-editing-other-files" id="toc-creating-or-editing-other-files" class="nav-link" data-scroll-target="#creating-or-editing-other-files"><span class="header-section-number">3.1.5</span> Creating or editing Other files</a></li>
+  </ul></li>
+  <li><a href="#r-syntax-and-workflow" id="toc-r-syntax-and-workflow" class="nav-link" data-scroll-target="#r-syntax-and-workflow"><span class="header-section-number">3.2</span> R syntax and workflow</a>
+  <ul class="collapse">
+  <li><a href="#basic-r-syntax-variables-and-data-types" id="toc-basic-r-syntax-variables-and-data-types" class="nav-link" data-scroll-target="#basic-r-syntax-variables-and-data-types"><span class="header-section-number">3.2.1</span> Basic R syntax: variables and data types</a></li>
+  <li><a href="#arithmetic-operations-logical-operations-in-r." id="toc-arithmetic-operations-logical-operations-in-r." class="nav-link" data-scroll-target="#arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.2</span> Arithmetic operations, logical operations in R.</a></li>
+  <li><a href="#algorithm-structures" id="toc-algorithm-structures" class="nav-link" data-scroll-target="#algorithm-structures"><span class="header-section-number">3.2.3</span> Algorithm structures</a></li>
+  <li><a href="#writing-and-executing-r-scripts" id="toc-writing-and-executing-r-scripts" class="nav-link" data-scroll-target="#writing-and-executing-r-scripts"><span class="header-section-number">3.2.4</span> Writing and executing R scripts</a></li>
+  <li><a href="#using-packages" id="toc-using-packages" class="nav-link" data-scroll-target="#using-packages"><span class="header-section-number">3.2.5</span> Using packages</a></li>
+  </ul></li>
   <li><a href="#basic-data-structures-in-r" id="toc-basic-data-structures-in-r" class="nav-link" data-scroll-target="#basic-data-structures-in-r"><span class="header-section-number">3.3</span> Basic Data Structures in R</a></li>
   <li><a href="#data-manipulation-in-r" id="toc-data-manipulation-in-r" class="nav-link" data-scroll-target="#data-manipulation-in-r"><span class="header-section-number">3.4</span> Data Manipulation in R</a></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">3.5</span> Data Visualization</a></li>
@@ -320,25 +388,322 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="preparation" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">3.1</span> Preparation</h2>
-<ul>
-<li>Installing R and RStudio.<br>
+<p>Before learning more about R, make sure that everything is set up properly and that you understand the basics in RStudio GUI.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CHECK: R and RStudio installation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To ensure that both R and RStudio have been installed correctly, follow these steps:</p>
+<ol type="1">
+<li>Launch RStudio by searching for it in your applications menu.<br>
 </li>
-<li>Overview of RStudio interface.</li>
+<li>When it opens, you should see an interface with multiple panels, including the Console in the left or bottom left panel.<br>
+</li>
+<li>In the RStudio Console, type version and press Enter. You should see details about the R version currently running, which confirms that both R and RStudio are correctly installed and linked.</li>
+</ol>
+<p>If any of these steps fail, consider reinstalling R and RStudio, ensuring they are compatible with your operating system.</p>
+</div>
+</div>
+</div>
+<section id="rstudio-interface-gui" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="rstudio-interface-gui"><span class="header-section-number">3.1.1</span> RStudio interface (GUI)</h3>
+<p>The RStudio interface, or Graphical User Interface (GUI), is designed to help you work efficiently with R. By default, it consists of four main panes or panels, each potentially containing multiple tabs:</p>
+<ol type="1">
+<li><strong>Console/Terminal/Background Jobs</strong>: This is where you can type and run R commands directly. It displays output from your code and any error messages.<br>
+</li>
+<li><strong>Environment/History/Connections/Build/Git</strong>: In the top-right, the Environment tab shows all active variables and data loaded into your session, while the History tab keeps a log of previously executed commands.<br>
+</li>
+<li><strong>Files/Plots/Packages/Help/…</strong>: The bottom-right panel has several tabs for navigating your files, viewing plots and other graphical outputs, managing installed packages, and accessing R documentation.<br>
+</li>
+<li><strong>Source or Script Editor</strong>: Located in the top-left, here is where you can write, edit, and save R scripts. You can run selected code from this editor directly in the Console. <em>This panel will be absent whenever there are no script files open in RStudio.</em></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://docs.posit.co/ide/user/ide/guide/ui/images/rstudio-panes-labeled.jpeg" class="img-fluid figure-img"></p>
+<figcaption>RStudio GUI default structure; from <span class="citation" data-cites="noauthor_rstudio_2024"><span>“<span>RStudio</span> <span>User</span> <span>Guide</span> - <span>RStudio</span> <span>IDE</span> <span>User</span> <span>Guide</span>”</span> (<a href="references.html#ref-noauthor_rstudio_2024" role="doc-biblioref">2024</a>)</span></figcaption>
+</figure>
+</div>
+<p>Many of the various elements of RStudio GUI are self-explanatory or further explained by pop-up texts and windows. Still, beginners and occasional users can be assured that most elements can be ignored.</p>
+</section>
+<section id="global-settings" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="global-settings"><span class="header-section-number">3.1.2</span> Global Settings</h3>
+<p>To customize RStudio, go to Tools &gt; Global Options (or RStudio &gt; Preferences on macOS). Here, you can adjust various settings, including:</p>
+<ul>
+<li>General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify startup options.<br>
+</li>
+<li>Code: Configuring code formatting, autocompletion, and syntax highlighting settings.</li>
+<li>Appearance: Change the editor theme, font size, and other visual preferences.<br>
+</li>
+<li>Pane Layout: Changing the default pane structure (not recommended).</li>
 </ul>
+</section>
+<section id="rstudio-projects" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="rstudio-projects"><span class="header-section-number">3.1.3</span> RStudio Projects</h3>
+<p>RStudio Projects help organize your work by keeping all related files, scripts, data, and outputs in one place. Each project has its own working directory, which helps to manage dependencies and maintain reproducibility. Projects are especially useful for keeping different analyses or projects separate from one another.</p>
+<p>To create a new project in RStudio, follow these steps:</p>
+<ol type="1">
+<li>Go to File &gt; New Project.</li>
+<li>You’ll see three options:</li>
+</ol>
+<ul>
+<li>New Directory: Create a project from scratch within a new folder. This is useful when starting a new analysis or project.<br>
+</li>
+<li>Existing Directory: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts.<br>
+</li>
+<li>Version Control: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.<br>
+</li>
+</ul>
+<ol start="3" type="1">
+<li>Select the appropriate option based on your needs. For example, if you choose New Directory, you can then select New Project, enter a project name, and specify the location to save it. Alternatively, if you are working with a GitHub repository, you could select Version Control to clone it directly into RStudio, creating a fully synchronized project environment.<br>
+</li>
+<li>Click Create Project. RStudio will open a new R session within the project’s directory.</li>
+</ol>
+</section>
+<section id="r-scripts-and-rmarkdown-notebooks" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="r-scripts-and-rmarkdown-notebooks"><span class="header-section-number">3.1.4</span> R Scripts and Rmarkdown notebooks</h3>
+<p>In RStudio, both R scripts and Rmarkdown notebooks (or rendered notebooks) are used to write and execute R code, but they serve different purposes and have distinct features:</p>
+<section id="scripts-.r-files" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="scripts-.r-files">Scripts (.R files)</h4>
+<ul>
+<li>Plain Text Format: Scripts are simple text files where you can write and save R code. They are best suited for running sequential code and writing reusable functions.<br>
+</li>
+<li>Execution: You can run code line-by-line or in chunks directly in the Console. Scripts are ideal for production workflows or larger projects where maintaining clear, reproducible code is a priority.<br>
+</li>
+<li>Comments: You can add comments for documentation, but scripts do not natively support rich formatting like Markdown.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of a numeric vector</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(numbers)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>In this script, we define a vector, calculate its mean, and print the result. The focus is on the code itself, without additional formatting or documentation.</p>
+</section>
+<section id="notebooksrendered-notebooks-.rmd.qmd-files" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="notebooksrendered-notebooks-.rmd.qmd-files">Notebooks/Rendered notebooks (.Rmd/.qmd files)</h4>
+<ul>
+<li>Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.<br>
+</li>
+<li>Interactive Execution: Notebooks support interactive, cell-based execution, similar to <a href="https://jupyter.org/">Jupyter notebooks</a>. Each code cell outputs results directly below it, which is useful for exploratory data analysis and iterative workflows.<br>
+</li>
+<li>Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Calculate the Mean of a Vector
+
+In this analysis, we calculate the mean of a simple numeric vector.
+
+```{r}
+# Define the numeric vector
+numbers &lt;- c(1, 2, 3, 4, 5)
+
+# Calculate the mean
+mean_value &lt;- mean(numbers)
+mean_value
+```
+
+The mean of the vector is `r mean_value`.</code></pre>
+</div>
+</div>
+<p>In this notebook, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format.</p>
+<p>Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file.</p>
+</section>
+</section>
+<section id="creating-or-editing-other-files" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="creating-or-editing-other-files"><span class="header-section-number">3.1.5</span> Creating or editing Other files</h3>
+<p>In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports creating and editing various other file types, making it a versatile environment for different types of content and workflows. To create a new file, go to File &gt; New File and select the desired file type.</p>
+<p>Some examples of files you can create and edit in RStudio include:</p>
+<ul>
+<li>Plain Text Files (.txt): Useful for notes, raw data, or configuration files.</li>
+<li>HTML Files (.html): For creating and editing web pages, especially useful for generating custom reports.</li>
+<li>Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment.</li>
+<li>SQL Files (.sql): You can write and run SQL queries directly in RStudio when working with databases.</li>
+</ul>
+<p>To create a file with an extension not listed in RStudio, simply create a .txt file, modify its name and add the desired extension. This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For more information about RStudio, consult:</p>
+<ul>
+<li><span class="citation" data-cites="noauthor_rstudio_2024"><span>“<span>RStudio</span> <span>User</span> <span>Guide</span> - <span>RStudio</span> <span>IDE</span> <span>User</span> <span>Guide</span>”</span> (<a href="references.html#ref-noauthor_rstudio_2024" role="doc-biblioref">2024</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_rstudio_nodate"><span>“<span>RStudio</span> <span>IDE</span> :: <span>Cheatsheet</span>”</span> (<a href="references.html#ref-noauthor_rstudio_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="r-syntax-and-workflow" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="r-syntax-and-workflow"><span class="header-section-number">3.2</span> R syntax and workflow</h2>
+<section id="basic-r-syntax-variables-and-data-types" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="basic-r-syntax-variables-and-data-types"><span class="header-section-number">3.2.1</span> Basic R syntax: variables and data types</h3>
+<p>In R, variables are created by assigning values using the &lt;- operator. R supports various data types, including:</p>
 <ul>
-<li>Basic R syntax: variables and data types.<br>
-</li>
-<li>Writing and executing R scripts.<br>
-</li>
-<li>Arithmetic operations, logical operations in R.<br>
-</li>
-<li>Algorithm structures: <code>if</code>, <code>else</code>, <code>while</code>, <code>function</code><br>
-</li>
-<li>Packages. Mention the most important packages used later, including <code>tidyverse</code> and <code>tesselle.</code></li>
+<li>Numeric: Numbers, e.g., x &lt;- 10.5</li>
+<li>Integer: Whole numbers, declared with L, e.g., y &lt;- 3L</li>
+<li>Character: Text, surrounded by quotes, e.g., name &lt;- “Alice”</li>
+<li>Logical: Boolean values, TRUE or FALSE, e.g., is_true &lt;- TRUE</li>
+<li>Factor: Categorical data, useful for storing distinct categories, e.g., factor_var &lt;- factor(c(“Yes”, “No”, “Yes”))</li>
 </ul>
+<p>Variables store data for manipulation and analysis, forming the building blocks of R programming.</p>
+</section>
+<section id="arithmetic-operations-logical-operations-in-r." class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.2</span> Arithmetic operations, logical operations in R.</h3>
+<p>R supports a range of arithmetic and logical operations:</p>
+<ul>
+<li>Arithmetic Operations: Perform basic math on numbers.
+<ul>
+<li>Addition: <code>5 + 3</code></li>
+<li>Subtraction: <code>5 - 3</code></li>
+<li>Multiplication: <code>5 * 3</code></li>
+<li>Division: <code>5 / 3</code></li>
+<li>Exponentiation: <code>5 ^ 3</code></li>
+<li>Modulus: <code>5 %% 3</code> (remainder)</li>
+</ul></li>
+<li>Logical Operations: Compare values, returning TRUE or FALSE.
+<ul>
+<li>Equal to: <code>5 == 3</code></li>
+<li>Not equal to: <code>5 != 3</code></li>
+<li>Greater than: <code>5 &gt; 3</code></li>
+<li>Less than: <code>5 &lt; 3</code></li>
+<li>Logical <strong>AND</strong>: <code>TRUE &amp; FALSE</code></li>
+<li>Logical <strong>OR</strong>: <code>TRUE | FALSE</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="algorithm-structures" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="algorithm-structures"><span class="header-section-number">3.2.3</span> Algorithm structures</h3>
+<p>R provides basic control structures for implementing algorithms:</p>
+<ul>
+<li><code>if</code> and <code>else</code>: Execute code based on a condition.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is greater than 5"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is not greater than 5"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "x is greater than 5"</code></pre>
+</div>
+</div>
+<ul>
+<li><code>while</code> loop: Repeat code while a condition is true.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+</div>
+</div>
+<ul>
+<li><code>funtion</code>: Encapsulate code into reusable blocks.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">add_numbers</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section id="writing-and-executing-r-scripts" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="writing-and-executing-r-scripts"><span class="header-section-number">3.2.4</span> Writing and executing R scripts</h3>
+<p>To create and run an R script:</p>
+<ol type="1">
+<li><p>Go to File &gt; New File &gt; R Script in RStudio.</p></li>
+<li><p>Write your code in the editor. For example:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple R Script</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Highlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.</li>
+</ol>
+</section>
+<section id="using-packages" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="using-packages"><span class="header-section-number">3.2.5</span> Using packages</h3>
+<p>Packages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.</p>
+<section id="installing-and-loading-packages" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="installing-and-loading-packages">Installing and loading packages</h4>
+<p>To install a package, use the install.packages() function. For example, to install the ggplot2 package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you may use the GUI Wizard in Tools &gt; Install Packages…, where an autocomplete feature will help selecting packages exact names.</p>
+<p>Once installed, load the package with the <code>library()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you can access the functions within <code>ggplot2</code> and any other loaded package. You only need to install a package once, but you must load it in each new session.</p>
+</section>
+<section id="package-collection-tidyverse-and-tesselle" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="package-collection-tidyverse-and-tesselle">Package collection: <code>tidyverse</code> and <code>tesselle</code></h4>
+<p>The <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> is a collection of R packages designed for data science, making data manipulation, visualization, and analysis easier and more intuitive <span class="citation" data-cites="wickham_welcome_2019 noauthor_tidyverse_nodate">(<a href="references.html#ref-wickham_welcome_2019" role="doc-biblioref">Wickham et al. 2019</a>; <a href="references.html#ref-noauthor_tidyverse_nodate" role="doc-biblioref"><span>“Tidyverse”</span> n.d.</a>)</span>. It includes:</p>
+<ul>
+<li><code>ggplot2</code>: For creating data visualizations using a layered approach.</li>
+<li><code>dplyr</code>: For data manipulation, including filtering, summarizing, and arranging data.</li>
+<li><code>tidyr</code>: For reshaping and tidying data.</li>
+<li><code>readr</code>: For reading data files into R quickly.</li>
+<li><code>purrr</code>: For functional programming, allowing you to work with lists and vectors more effectively.</li>
+<li><code>tibble</code>: A modern version of data frames with enhanced printing and subsetting.</li>
+</ul>
+<p>The installation and use of the entire tidyverse works as a single package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e.&nbsp;other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.</p>
+</section>
+<section id="package-collection-tesselle" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="package-collection-tesselle">Package collection: <code>tesselle</code></h4>
+<p>The <a href="https://www.tesselle.org/"><code>tesselle</code></a> collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data <span class="citation" data-cites="frerebeau_tesselle_2023 noauthor_tesselle_nodate">(<a href="references.html#ref-frerebeau_tesselle_2023" role="doc-biblioref">Frerebeau 2023</a>; <a href="references.html#ref-noauthor_tesselle_nodate" role="doc-biblioref"><span>“Tesselle: <span>R</span> <span>Packages</span> &amp; <span>Archaeology</span>”</span> n.d.</a>)</span>.</p>
+<p>Install the complete suite with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will look into more details about this collection in <a href="session-compositional-data.html" class="quarto-xref"><span>Chapter 6</span></a> and <a href="session-count-and-seriation.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+</section>
+</section>
 </section>
 <section id="basic-data-structures-in-r" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="basic-data-structures-in-r"><span class="header-section-number">3.3</span> Basic Data Structures in R</h2>
@@ -396,6 +761,8 @@ Hands-on Practice
 <ul>
 <li>Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).<br>
 </li>
+<li>Create a Rmarkdown document or Notebook and give it a title, e.g.&nbsp;“Introduction to R: an exercise”.</li>
+<li>In this document, create a R code chunk to start working and create new chunks and markdown commentaries at every computation step, as you see fit.</li>
 <li>Create a data.frame named “stone_tools_data” directly in R with the following characteristics (based on Carlson 2017, p.&nbsp;26):
 <ul>
 <li>Set of six stone tools with inventory number<br>
@@ -498,6 +865,7 @@ Hands-on Practice
 </li>
 <li>(EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?<br>
 </li>
+<li>(EXTRA) Duplicate the Rmarkdown document, repeating the steps using <code>tidyverse</code> functions.</li>
 <li>Commit all changes and push to the remote using RStudio.<br>
 </li>
 <li>Q&amp;A and troubleshooting.</li>
@@ -506,6 +874,26 @@ Hands-on Practice
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-frerebeau_tesselle_2023" class="csl-entry" role="listitem">
+Frerebeau, Nicolas. 2023. <em>Tesselle: <span>Easily</span> <span>Install</span> and <span>Load</span> ’Tesselle’ <span>Packages</span></em>. Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.6500491">https://doi.org/10.5281/zenodo.6500491</a>.
+</div>
+<div id="ref-noauthor_rstudio_nodate" class="csl-entry" role="listitem">
+<span>“<span>RStudio</span> <span>IDE</span> :: <span>Cheatsheet</span>.”</span> n.d. Accessed October 14, 2024. <a href="https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.">https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.</a>
+</div>
+<div id="ref-noauthor_rstudio_2024" class="csl-entry" role="listitem">
+<span>“<span>RStudio</span> <span>User</span> <span>Guide</span> - <span>RStudio</span> <span>IDE</span> <span>User</span> <span>Guide</span>.”</span> 2024. <em>RStudio User Guide</em>. <a href="https://docs.posit.co/ide/user/">https://docs.posit.co/ide/user/</a>.
+</div>
+<div id="ref-noauthor_tesselle_nodate" class="csl-entry" role="listitem">
+<span>“Tesselle: <span>R</span> <span>Packages</span> &amp; <span>Archaeology</span>.”</span> n.d. <em>Tesselle</em>. Accessed October 14, 2024. <a href="https://www.tesselle.org/">https://www.tesselle.org/</a>.
+</div>
+<div id="ref-noauthor_tidyverse_nodate" class="csl-entry" role="listitem">
+<span>“Tidyverse.”</span> n.d. Accessed October 14, 2024. <a href="https://www.tidyverse.org/">https://www.tidyverse.org/</a>.
+</div>
+<div id="ref-wickham_welcome_2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the Tidyverse.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
