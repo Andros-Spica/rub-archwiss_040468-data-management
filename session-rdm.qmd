@@ -4,11 +4,11 @@
 
 ### What is data? What is it for?
 
-Data refers to factual information, often in quantitative or qualitative form, used as a basis for reasoning, discussion, or calculation. It serves as the foundational element for analysis and supports decision-making across diverse fields. In research, data helps to generate new insights, verify hypotheses, and contribute to the overall body of knowledge in a specific area.
+Data refers to factual information, often quantitative or qualitative, used as a basis for reasoning, discussion, or calculation. It is the foundational analysis element and supports decision-making across diverse fields. In research, data helps to generate new insights, verify hypotheses, and contribute to the overall body of knowledge in a specific area.
 
 ### Archaeological Data: Particularities
 
-In archaeology, data encompasses various types such as field notes, artefacts, images, geospatial coordinates, and more. By systematically collecting, organizing, and analysing this data, researchers can reconstruct past human behaviours, understand environmental contexts, and explore cultural practices.
+In archaeology, data encompasses various types, such as field notes, artefacts, images, geospatial coordinates, etc. By systematically collecting, organizing, and analysing this data, researchers can reconstruct past human behaviours, understand environmental contexts, and explore cultural practices.
 
 Archaeological data is unique due to its diverse formats and the complexity of its collection. It often includes material remains like pottery, bones, tools, and structures, as well as environmental data like pollen samples and soil types. Since archaeological data often comes from excavation sites, it is usually non-renewable; once excavated, a site cannot be restored to its original state.
 
@@ -16,7 +16,7 @@ Archaeologists rely heavily on careful documentation to preserve as much informa
 
 ### Open Science
 
-Open Science promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, this can involve sharing excavation reports, datasets, and analysis methods to facilitate wider understanding and scrutiny of findings.
+Open Science promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, this can involve sharing excavation reports, datasets, and analysis methods to facilitate broader understanding and scrutiny of findings.
 
 ### FAIR Principles
 
@@ -25,27 +25,27 @@ FAIR stands for Findable, Accessible, Interoperable, and Reusable [@noauthor_wha
 ::: {.callout-note collapse="true"}
 #### What is *metadata*? {.unnumbered}
 
-Metadata refers to data that provides information about other data, rather than the content of the data itself. It describes various attributes such as the structure, format, location, and context of the data  [@noauthor_metadata_2024;@editor_metadata_nodate]. Examples include creation dates, file sizes, authorship details, and keywords, which help in organizing, understanding, and retrieving the associated data [@noauthor_what_nodate-1].
+Metadata refers to data that provides information about other data rather than the content of the data itself. It describes various attributes such as the data's structure, format, location, and context [@noauthor_metadata_2024;@editor_metadata_nodate]. Examples include creation dates, file sizes, authorship details, and keywords, which help organize, understand, and retrieve the associated data [@noauthor_what_nodate-1].
 
 > *Example:*
 
 > - **Data**: identification number, site of origin, and dates of items of a museum exhibition.  
 > - **Metadata**: title and description of this data, author(s), date of last update, criteria for fixing site of origin, method(s) for establishing dates.
 
-> Notice that, in this case, we could also choose to specify the information about dating method into the dataset, as long as we want or can specify this information for each item independently.
+> Notice that, in this case, we could also choose to specify the information about the dating method in the dataset, as long as we want or can specify this information for each item independently.
 
 :::
 
 A short breakdown of the concepts behind FAIR:
 
-* **Findable**: Data should be easy to locate for humans and machines. This includes having:
+* **Findable**: Data should be easy for humans and machines to locate. This includes having:
 
   * A unique and persistent identifier.
   * Descriptive metadata.
   * Metadata containing data identifiers.
   * Registration in searchable resources.
 
-* **Accessible**: Once found, data should be easy to access. This includes:
+* **Accessible**: Data should be easy to access once found. This includes:
 
   * Retrieval via a standardized, open protocol.
   * Support for authentication and authorization when necessary.
@@ -70,14 +70,14 @@ These principles aim to enhance the usefulness of digital assets by ensuring the
 
 ### CARE Principles
 
-The CARE Principles for Indigenous Data Governance, defined more recently [@carroll_care_2020], emphasize ethical and responsible use of data:
+The CARE Principles for Indigenous Data Governance defined more recently [@carroll_care_2020], emphasize ethical and responsible use of data:
 
 * **Collective Benefit**: Data should benefit Indigenous communities collectively.  
 * **Authority to Control**: Indigenous communities should have control over how their data is collected, used, and shared.  
 * **Responsibility**: Data practices must uphold the well-being and interests of Indigenous peoples.  
 * **Ethics**: Data use must be guided by ethical considerations, respecting cultural protocols and privacy.  
 
-These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Applying the CARE principles in archaeological research will strongly depend on whether and how the *indigenous peoples* associated to the material culture research are identified and defined by researchers.
+These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Applying the CARE principles in archaeological research will strongly depend on whether and how researchers identify and define the *indigenous peoples* associated with material culture research.
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
@@ -90,13 +90,13 @@ These principles aim to protect Indigenous rights to self-determination and ensu
 
 ### Reproducibility
 
-Reproducibility refers to the ability to replicate the results of a study using the original author's assets or following their methodology. It ensures that findings can be independently verified under similar conditions, reinforcing the reliability of scientific research [@national_academies_of_sciences_understanding_2019].
+Reproducibility refers to the ability to replicate a study's results using the original author's assets or following their methodology. It ensures that findings can be independently verified under similar conditions, reinforcing the reliability of scientific research [@national_academies_of_sciences_understanding_2019].
 
 In scientific research, reproducibility is crucial for confirming the validity of experimental findings and building upon existing knowledge. It enhances transparency and trustworthiness in scientific practices, promoting better peer review and collaboration [@baker_1500_2016,@noauthor_grn_nodate].
 
-Most research in archaeology does not necessarily involve controlled experiments and archaeological survey and excavation are destructive, thus unrepeatable. However, the reproducibility of data collection, processing and analysis is not a trivial concern.
+Most archaeological research does not necessarily involve controlled experiments, and archaeological surveys and excavations are destructive and thus unrepeatable. However, the reproducibility of data collection, processing, and analysis is not a trivial concern.
 
-Making research reproducible must be considered as a spectrum of practices, in which researchers should thrive for doing better, despite the challenges [@marwick_open_2017].
+Making research reproducible must be considered a spectrum of practices in which researchers should strive to improve despite the challenges [@marwick_open_2017].
 
 ```{=html}
 <iframe src="https://mfr.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2F9bru3%2F%3Fdirect%26mode%3Drender" width="100%" scrolling="yes" height="300px" marginheight="0" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
@@ -109,7 +109,7 @@ Open Source refers to software and tools that are freely available for anyone to
 
 Key criteria include:
 
-* **Access to Source Code**: Users have access to the software's source code.  
+* **Access to Source Code**: Users can access the software's source code.  
 * **Free Redistribution**: The software can be freely redistributed.  
 * **Modifications and Derived Works**: Users can modify the software and create derived works based on it.  
 * **Integrity of the Author's Source Code**: License terms ensure modifications do not restrict access to the original code.  
@@ -117,7 +117,7 @@ Key criteria include:
 * **No Discrimination Against Fields of Endeavor**: The license must apply to all fields of use.  
 * **Distribution of License**: The rights attached to the software must apply to all who receive it without needing to acquire additional licenses.
 
-For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and data management, promoting a more inclusive research environment. Additionally, there is a growing community of archaeological software engineers that identify entirely with the open source principles [@batist_open_2024; noauthor_open_2015].
+For archaeologists, open-source tools can offer affordable solutions for data analysis, visualization, and management, promoting a more inclusive research environment. Additionally, there is a growing community of archaeological software engineers who identify entirely with open-source principles [@batist_open_2024; noauthor_open_2015].
 
 ### The lay of the land: Organizations, tools, data repositories and where to find them
 
@@ -136,10 +136,10 @@ Here is a list of those that will be most useful during this course:
   - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
   - [CAA Special Interest Group on Scientific Scripting Languages in Archaeology](https://sslarch.github.io/): group within the CAA that focuses on the application of Scripting Languages in archaeological research [@noauthor_home_nodate-2].
   - [Coalition for Archaeological Synthesis](https://www.archsynth.org/): an alliance of Partner organizations and individual Associates who are committed to fostering synthesis in archaeology to expand knowledge and benefit society [@noauthor_coalition_2024].  
-  - [NFDI4Objects - Research Data Infrastructure for the Material Remains of Human History](https://www.nfdi4objects.net/): NFDI4Objects is aimed at researchers, practitioners and students whose interests focus on the material heritage of around three million years of human and environmental history and addresses the challenges of modern research data infrastructures.
+  - [NFDI4Objects - Research Data Infrastructure for the Material Remains of Human History](https://www.nfdi4objects.net/): NFDI4Objects is aimed at researchers, practitioners, and students whose interests focus on the material heritage of around three million years of human and environmental history and address the challenges of modern research data infrastructures.
 
 - Data Repositories and Data Management Tools:  
-  - [ORCID](https://orcid.org/): ORCID, which stands for Open Researcher and Contributor ID, is a unique alphanumeric code used to identify researchers and contributors in scholarly activities.  
+  - [ORCID](https://orcid.org/): ORCID, which stands for Open Researcher and Contributor ID, is a unique alphanumeric code that identifies researchers and contributors in scholarly activities.  
   - [Zenodo](https://zenodo.org/): A repository where researchers can deposit datasets, software, and publications.  
   - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
   - [Archaeology Data Service (ADS)](https://archaeologydataservice.ac.uk/): An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.  
@@ -151,12 +151,12 @@ Here is a list of those that will be most useful during this course:
   - [R](https://www.r-project.org/) and [Python](https://www.python.org/): Programming languages with extensive libraries for data analysis, which are widely used in archaeology for statistical analysis and modeling [@r_core_team_r_2024, noauthor_welcome_2024]. See more about these and other programming languages below.  
   - [RStudio](https://posit.co/download/rstudio-desktop/): RStudio IDE is an integrated development environment for R, a programming language for statistical computing and graphics.
   - [Quarto](https://quarto.org/): An open-source scientific and technical publishing system.
-  - [Git](https://git-scm.com/): Git is a distributed version control system designed for tracking changes in source code during software development.
-  - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
+  - [Git](https://git-scm.com/): Git is a distributed version control system designed to track changes in source code during software development.
+  - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage, and share their code using Git software and a series of additional automated services.
   - [Zotero](https://www.zotero.org/): Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.  
   - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].  
-  - [Arches](https://www.archesproject.org/): Arches is an open source software platform freely available for cultural heritage organizations to deploy independently to help them manage their cultural heritage data [@noauthor_arches_2015].
-  - [OpenAtlas](https://openatlas.eu/): an open source database software developed especially to acquire, edit and manage research data from various fields of humanities like history, archaeology and cultural heritage as well as related scientific data [@noauthor_openatlas_nodate].  
+  - [Arches](https://www.archesproject.org/): Arches is an open-source software platform freely available for cultural heritage organizations to deploy independently to help them manage their cultural heritage data [@noauthor_arches_2015].
+  - [OpenAtlas](https://openatlas.eu/): an open-source database software developed primarily to acquire, edit, and manage research data from various fields of humanities like history, archaeology, and cultural heritage as well as related scientific data [@noauthor_openatlas_nodate].  
   - [open-archaeo](https://open-archaeo.info/): An extensive list of open source archaeological software and resources [@noauthor_open-archaeo_nodate].  
   
 By utilizing these resources, archaeologists can ensure that their research aligns with Open Science, FAIR, and Open Source principles, ultimately enhancing the transparency, accessibility, and longevity of their work.
@@ -164,7 +164,7 @@ By utilizing these resources, archaeologists can ensure that their research alig
 ## Introduction to Programming for Research
 
 ### What is Programming?
-Programming is the process of designing and implementing instructions that a computer can follow to perform specific tasks. It involves writing code in various programming languages that communicate with the computer's hardware and software to solve problems, process data, and automate repetitive tasks. At its core, programming is about creating a sequence of steps, known as algorithms, which help achieve a desired outcome [@noauthor_what_2024].
+Programming is designing and implementing instructions a computer can follow to perform specific tasks. It involves writing code in various programming languages that communicate with the computer's hardware and software to solve problems, process data, and automate repetitive tasks. At its core, programming is about creating a sequence of steps, known as algorithms, which help achieve a desired outcome [@noauthor_what_2024].
 
 ### Importance of Learning Programming
 
@@ -180,29 +180,29 @@ For researchers, learning programming offers several significant advantages:
 
 Several programming languages are popular in research due to their specific features and libraries[@noauthor_introduction_2018]:
 
-- *Python*: Known for its readability and versatility, Python is widely used for data analysis, machine learning, and automation. It has extensive libraries such as NumPy, pandas, and matplotlib, which are particularly useful for data-intensive research.
+- *Python*: Known for its readability and versatility, Python is widely used for data analysis, machine learning, and automation. It has extensive libraries such as *NumPy*, *pandas*, and *matplotlib*, particularly useful for data-intensive research.
 
-- *R*: A language specifically developed for statistical computing and graphics, R is preferred in data science, bioinformatics, and fields requiring extensive statistical analysis. The Comprehensive R Archive Network (CRAN) offers thousands of packages that can handle a range of analytical tasks.
+- *R*: A language developed explicitly for statistical computing and graphics, R is preferred in data science, bioinformatics, and fields requiring extensive statistical analysis. The Comprehensive R Archive Network (CRAN) offers thousands of packages that can handle various analytical tasks.
 
-- *MATLAB*: Commonly used in engineering and scientific research, MATLAB excels at numerical computing, simulation, and algorithm development. It is particularly popular in fields like physics, engineering, and finance.
+- *MATLAB*: Commonly used in engineering and scientific research, MATLAB excels at numerical computing, simulation, and algorithm development. It is prevalent in fields like physics, engineering, and finance.
 
-- *JavaScript*: While primarily a web development language, JavaScript is also used in research for developing interactive data visualizations and web-based applications.
+- *JavaScript*: While primarily a web development language, JavaScript is also used in research to develop interactive data visualizations and web-based applications.
 
 ### Concept of Research Software: Tools and Scripts
 
-Research software comprises tools, libraries, and scripts that aid in conducting and managing research activities. It can range from simple scripts for data cleaning and preprocessing to complex software packages for statistical analysis and simulation. Although any software used in research could be considered as research software, advance training focus on programming or scripting skills, not on graphical user interface operations (e.g., creating a plot in R or Python rather than in Microsoft Excel).
+Research software comprises tools, libraries, and scripts that aid in conducting and managing research activities. It can range from simple data cleaning and preprocessing scripts to complex software packages for statistical analysis and simulation. Although any software used in research could be considered research software, advanced training focuses on programming or scripting skills, not graphical user interface (GUI) operations (e.g., creating a plot in R or Python rather than in Microsoft Excel).
 
 - *Tools*: Research software tools like [Jupyter Notebooks](https://jupyter.org/), [RStudio](https://posit.co/download/rstudio-desktop/), [PyCharm](https://www.jetbrains.com/pycharm/), [Visual Studio Code](https://code.visualstudio.com/download), etc., offer integrated development environments (IDEs) tailored to a specific range of languages, enhancing productivity and facilitating code sharing and version control.
 
-- *Scripts*: Scripts are text files encoding programs written to perform specific tasks. In research, scripts are often used for data cleaning, model training, and result visualization. Scripts can be used even to generate and format an entire dataset (have a peek on how the [course schedule has been built with R code](https://github.com/Andros-Spica/rub-archwiss_040468-data-management/blob/main/index.qmd)). These scripts can be shared among researchers to ensure that analyses are reproducible and consistent.
+- *Scripts*: Scripts are text files encoding programs written to perform specific tasks. In research, scripts are often used for data cleaning, model training, and result visualization. Scripts can be used even to generate and format an entire dataset (have a peek on how the [course schedule has been built with R code](https://github.com/Andros-Spica/rub-archwiss_040468-data-management/blob/main/index.qmd)). Researchers can share these scripts to ensure that analyses are reproducible and consistent.
 
 Learning programming for research allows scientists to leverage these tools and scripts effectively, making research more efficient, reproducible, and insightful.
 
 ### Markdown: a language in between
 
-As already mentioned, [Markdown](https://www.markdownguide.org/) is a markup language with minimal syntax, designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate]. For us, humans, Markdown is easily readable and editable as text. However, it is technically a programming language, as it holds machine-readable instructions (i.e. program) which, once compiled (or rendered) by the right software, produces the desired output in form of a formatted text. A advanced text editor, such as Microsoft Word, allow you to do exactly the same (and more), but only through a sequence of interactions with the graphic user interface (GUI).
+As already mentioned, [Markdown](https://www.markdownguide.org/) is a markup language with minimal syntax, designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate]. Markdown is easily readable and editable for us humans, just like text. However, it is technically a programming language, as it holds machine-readable instructions (i.e., program), which, once compiled (or rendered) by the right software, produces the desired output in the form of a formatted text. An advanced text editor, such as Microsoft Word, allows you to do exactly the same (and more), but only through a sequence of interactions with the graphic user interface (GUI).
 
-Writing in Markdown or "writing Markdown code" is straightforward and will only require some getting use to, especially if you costumed to advanced text editors. For example, instead of marking a fragment of text in bold font through the usual steps, we would do it by typing \*\* (two asterisks) before and after the fragment.
+Writing in Markdown or "writing Markdown code" is straightforward and will only require some getting used to, mainly if you are accustomed to advanced text editors. For example, instead of marking a text fragment in bold font through the usual steps, we would do it by typing \*\* (two asterisks) before and after the fragment.
 
 To illustrate this, consider the rendering and source code of a markdown text:
 
@@ -214,7 +214,7 @@ To illustrate this, consider the rendering and source code of a markdown text:
 Mahatma Gandhi, Source: [BrainyQuote](https://www.brainyquote.com/citation/quotes/mahatma_gandhi_133995)
 ```
 
-The simplicity of this language might feel unnecessary, or even annoying, but it is actually the trait that opens a great range of potential applications. Markdown is today indispensable for all practices related to open science and can offer a good entry point for other, more complex programming languages. 
+The simplicity of this language might seem unnecessary or even annoying, but it is actually a trait that opens a wide range of potential applications. Today, markdown is indispensable for all practices related to open science and can offer a good entry point for other, more complex programming languages. 
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
@@ -237,7 +237,7 @@ The simplicity of this language might feel unnecessary, or even annoying, but it
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}
 
-* Task 1: register yourself as user at:  
+* Task 1: register yourself as a user at:  
   * [ORCID](https://orcid.org/)  
   * [GitHub](https://github.com/)  
   * [Zenodo](https://zenodo.org/)  
@@ -250,5 +250,5 @@ The simplicity of this language might feel unnecessary, or even annoying, but it
   * [RStudio](https://posit.co/download/rstudio-desktop/)
   * [QGIS](https://qgis.org/)
 * Task 3: explore datasets at [Open Context](https://opencontext.org/)
-* Task 4: try writing a short document in markdown at [Markdown Live Preview](https://markdownlivepreview.com/). 
+* Task 4: try writing a short document in Markdown at [Markdown Live Preview](https://markdownlivepreview.com/). 
 :::
