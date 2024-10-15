@@ -134,8 +134,9 @@ Here is a list of those that will be most useful during this course:
   - [CIDOC-CRM](https://www.cidoc-crm.org/): a theoretical and practical tool for information integration in the field of cultural heritage [@noauthor_home_nodate].  
   - [The Turing Way](https://github.com/the-turing-way/the-turing-way): collaborative writing of an online handbook [@community_turing_2022].
   - [CAA](https://caa-international.org/): Computer Applications and Quantitative Methods in Archaeology (CAA) is an international organisation bringing together archaeologists, mathematicians, and computer scientists. CAA counts with [National Chapters](https://caa-international.org/national-chapters/), including one for [Germany](https://ag-caa.de/).
-  - [CAA Special Interest Group on Scientific Scripting Languages in Archaeology](https://sslarch.github.io/): group within the CAA that focusses on the application of Scripting Languages in archaeological research [@noauthor_home_nodate-2].
-  - [Coalition for Archaeological Synthesis](https://www.archsynth.org/): an alliance of Partner organizations and individual Associates who are committed to fostering synthesis in archaeology to expand knowledge and benefit society [@noauthor_coalition_2024].
+  - [CAA Special Interest Group on Scientific Scripting Languages in Archaeology](https://sslarch.github.io/): group within the CAA that focuses on the application of Scripting Languages in archaeological research [@noauthor_home_nodate-2].
+  - [Coalition for Archaeological Synthesis](https://www.archsynth.org/): an alliance of Partner organizations and individual Associates who are committed to fostering synthesis in archaeology to expand knowledge and benefit society [@noauthor_coalition_2024].  
+  - [NFDI4Objects - Research Data Infrastructure for the Material Remains of Human History](https://www.nfdi4objects.net/): NFDI4Objects is aimed at researchers, practitioners and students whose interests focus on the material heritage of around three million years of human and environmental history and addresses the challenges of modern research data infrastructures.
 
 - Data Repositories and Data Management Tools:  
   - [ORCID](https://orcid.org/): ORCID, which stands for Open Researcher and Contributor ID, is a unique alphanumeric code used to identify researchers and contributors in scholarly activities.  
@@ -143,7 +144,7 @@ Here is a list of those that will be most useful during this course:
   - [Open Science Foundation](https://osf.io/): OSF is a free, open platform to support your research and enable collaboration. 
   - [Archaeology Data Service (ADS)](https://archaeologydataservice.ac.uk/): An archive for archaeological data from the UK, which provides access to various datasets, including excavation reports and geospatial data.  
   - [Open Context](https://opencontext.org/): A platform offering access to archaeological data from various global sources, adhering to FAIR principles [noauthor_open_nodate-1].
-  - [Hypothes.is](https://web.hypothes.is/): an open-source platform designed to facilitate collaborative annotation of web content. Is used as a browser extension or plug-in.
+  - [Hypothes.is](https://web.hypothes.is/): an open-source platform designed to facilitate collaborative annotation of web content. It is used as a browser extension or plug-in.
 
 - Open Source Tools:  
   - [Markdown](https://www.markdownguide.org/): Markdown is a lightweight markup language designed for creating formatted text using a plain-text editor [@noauthor_markdown_nodate].  
@@ -154,7 +155,7 @@ Here is a list of those that will be most useful during this course:
   - [GitHub](https://github.com/): GitHub is a developer platform that allows developers to create, store, manage and share their code through the use of Git software and a series of additional automated services.
   - [Zotero](https://www.zotero.org/): Zotero is a free, easy-to-use tool to help collect, organize, annotate, cite, and share metadata on references.  
   - [QGIS](https://qgis.org/): A free, open-source GIS tool useful for mapping and spatial analysis in archaeology [@noauthor_spatial_nodate].  
-  - [Arches](https://www.archesproject.org/): Arches is an open source software platform freely available for cultural heritage organizations to independently deploy to help them manage their cultural heritage data [@noauthor_arches_2015].
+  - [Arches](https://www.archesproject.org/): Arches is an open source software platform freely available for cultural heritage organizations to deploy independently to help them manage their cultural heritage data [@noauthor_arches_2015].
   - [OpenAtlas](https://openatlas.eu/): an open source database software developed especially to acquire, edit and manage research data from various fields of humanities like history, archaeology and cultural heritage as well as related scientific data [@noauthor_openatlas_nodate].  
   - [open-archaeo](https://open-archaeo.info/): An extensive list of open source archaeological software and resources [@noauthor_open-archaeo_nodate].  
   
