@@ -386,7 +386,7 @@ div.csl-indent {
 <h2 data-number="2.1" class="anchored" data-anchor-id="version-control-and-git"><span class="header-section-number">2.1</span> Version-control and Git</h2>
 <section id="version-control-general-concept-and-its-usefulness" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="version-control-general-concept-and-its-usefulness"><span class="header-section-number">2.1.1</span> Version control: general concept and its usefulness</h3>
-<p>Version control is a system that helps track and manage changes to files over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes, allowing users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.</p>
+<p>Version control is a system that helps track and manage file changes over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes. It allows users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.</p>
 <p>There are two main types of version control: centralized and distributed. Centralized version control systems, such as Subversion (SVN), store files in a central repository. Users check out files, make changes, and then commit them back to the central repository. While effective, centralized systems can be vulnerable if the central server fails. Distributed version control systems, like Git, address this by allowing every user to have a complete copy of the repository on their local machine. This setup enhances collaboration and provides redundancy, as users can work offline and synchronize changes with others when connected.</p>
 <figure class="figure">
 <a title="Jason Long, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Git_icon.svg"><img width="64" alt="Git icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/64px-Git_icon.svg.png?20220905010122" class="figure-img"></a> <fig-caption>Git icon</fig-caption>
@@ -395,14 +395,14 @@ div.csl-indent {
 <section id="benefits-of-version-control" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="benefits-of-version-control"><span class="header-section-number">2.1.2</span> Benefits of Version Control</h3>
 <ul>
-<li><p><em>Collaboration</em>: Version control systems make collaboration easier and more efficient by allowing multiple users to work on the same project simultaneously. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be merged into the main project seamlessly. This enables teams to work independently and minimize conflicts.</p></li>
-<li><p><em>Historical Tracking</em>: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when they were made, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
-<li><p><em>Backup and Redundancy</em>: In distributed systems, each user’s local copy serves as a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
+<li><p><em>Collaboration</em>: Version control systems make collaboration easier and more efficient by allowing multiple users to simultaneously work on the same project. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be seamlessly merged into the main project. This enables teams to work independently and minimize conflicts.</p></li>
+<li><p><em>Historical Tracking</em>: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
+<li><p><em>Backup and Redundancy</em>: In distributed systems, each user’s local copy is a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
 <li><p><em>Version Management</em>: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
 <li><p><em>Enhanced Workflow</em>: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</p></li>
 </ul>
 <p>Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.</p>
-<p>Get a short introduction on Git by watching the official Git Documentation videos <a href="https://git-scm.com/videos">here</a>.</p>
+<p>Get a short introduction to Git by watching the official Git Documentation videos <a href="https://git-scm.com/videos">here</a>.</p>
 </section>
 </section>
 <section id="git-terminology" class="level2" data-number="2.2">
@@ -617,7 +617,7 @@ Remote with Web Browser
 <ul>
 <li>Enter a commit message.<br>
 </li>
-<li>Choose whether to “commit to directly to main” or “Commit to a new branch…”.</li>
+<li>Choose whether to “commit directly to main” or “Commit to a new branch…”.</li>
 </ul>
 <p><strong>Pushing Changes</strong></p>
 <p>(No push is needed as changes are automatically saved to GitHub.)</p>
@@ -661,12 +661,12 @@ Local with Console Commands (advanced users)
 </section>
 <section id="how-to-organise-repositories" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="how-to-organise-repositories"><span class="header-section-number">2.3.4</span> How to organise repositories</h3>
-<p>When structuring your repositories, it’s helpful to follow some common conventions for organizing files in subdirectories. This makes projects more readable and easier for others to navigate. Here are some commonly used subdirectories:</p>
+<p>When structuring your repositories, following some common conventions for organizing files in subdirectories is helpful. This makes projects more readable and more accessible for others to navigate. Here are some commonly used subdirectories:</p>
 <p>When software development is a significant part:<br>
 * <code>source/</code> or <code>src/</code>: Contains the main source code for the project.<br>
 * <code>documentation/</code>, <code>docs/</code>, or <code>doc/</code>: Stores documentation, such as guides or API references.<br>
 * <code>tests/</code>: Includes test scripts to ensure code functionality. * <code>bin/</code>: Holds executable scripts or binaries. * <code>config/</code>: Contains configuration files, like YAML or JSON.</p>
-<p>When rendering an interface for users, such as an website, web app or video game:<br>
+<p>When rendering an interface for users, such as a website, web app, or video game:<br>
 * <code>assets</code>: to hold files and subdirectories with closed content and functionality files. * <code>assets/images/</code>, <code>assets/media/</code>, etc.: Holds all images or other media files generated externally (not by the repository’s source code). * <code>assets/styles.css</code> or <code>assets/css/</code>: all CSS code for formatting HTML objects. * <code>assets/js/</code>: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present.</p>
 <p>These folder structures are conventions and not strict rules. You can adapt or modify them based on your project’s needs.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -718,7 +718,7 @@ See also
 </li>
 <li><code>.gitignore</code>: Lists files and directories that Git should ignore, such as build outputs and temporary files.<br>
 </li>
-<li><code>CHANGELOG.md</code>: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.<br>
+<li><code>CHANGELOG.md</code>: This file logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.<br>
 </li>
 <li><code>references.bib</code>: a file containing references in BibTex format, which can be cited within the markdown files of the repository.</li>
 </ul>
@@ -754,9 +754,12 @@ About versioning
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If unfamiliar with the logic behind versioning, consult the reference to <a href="https://semver.org/">Semantic Versioning</a> which can also be found on the right of the “Create a new release” page in GitHub. Their summary states:</p>
+<p>If unfamiliar with the logic behind versioning, consult the reference to <a href="https://semver.org/">Semantic Versioning</a>, which can also be found on the right of the “Create a new release” page in GitHub. Their summary states:</p>
 <blockquote class="blockquote">
-<p>Given a version number MAJOR.MINOR.PATCH, increment the: 1. MAJOR version when you make incompatible API changes 2. MINOR version when you add functionality in a backward compatible manner 3. PATCH version when you make backward compatible bug fixes</p>
+<p>Given a version number MAJOR.MINOR.PATCH, increment the:<br>
+1. MAJOR version when you make incompatible API changes<br>
+2. MINOR version when you add functionality in a backward compatible manner<br>
+3. PATCH version when you make backward compatible bug fixes</p>
 </blockquote>
 <p>However, if your repository is not about creating software products and services, we can do well by simply obeying a few general conventions:</p>
 <ul>
@@ -856,7 +859,7 @@ Hands-on Practice
 <li>Clone your fork to a local directory.<br>
 </li>
 <li>Modify or add a <code>.qmd</code> file in your local directory.</li>
-<li>Commit to you local repository (one or more times).<br>
+<li>Commit to your local repository (one or more times).<br>
 </li>
 <li>Push the changed local repository to your remote repository (i.e.&nbsp;your fork).<br>
 </li>
@@ -870,7 +873,7 @@ Hands-on Practice
 <li>Public</li>
 <li>With a README file</li>
 <li>with .gitignore (template for R)</li>
-<li>With a license of you choice.</li>
+<li>With a license of your choice.</li>
 </ol>
 <ol start="2" type="1">
 <li>Add all other conventional files mentioned above, even if they remain empty for now.</li>
