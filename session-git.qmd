@@ -4,7 +4,7 @@
 
 ### Version control: general concept and its usefulness  
 
-Version control is a system that helps track and manage changes to files over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes, allowing users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.
+Version control is a system that helps track and manage file changes over time. It’s widely used in software development, but its applications extend to any field where file management is essential, including document editing, research, and project management. At its core, version control provides a historical record of changes. It allows users to revert to previous versions, identify when and why changes were made, and work collaboratively without the risk of overwriting each other’s work.
 
 There are two main types of version control: centralized and distributed. Centralized version control systems, such as Subversion (SVN), store files in a central repository. Users check out files, make changes, and then commit them back to the central repository. While effective, centralized systems can be vulnerable if the central server fails. Distributed version control systems, like Git, address this by allowing every user to have a complete copy of the repository on their local machine. This setup enhances collaboration and provides redundancy, as users can work offline and synchronize changes with others when connected.
 
@@ -15,11 +15,11 @@ There are two main types of version control: centralized and distributed. Centra
 
 ### Benefits of Version Control
 
-- *Collaboration*: Version control systems make collaboration easier and more efficient by allowing multiple users to work on the same project simultaneously. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be merged into the main project seamlessly. This enables teams to work independently and minimize conflicts.
+- *Collaboration*: Version control systems make collaboration easier and more efficient by allowing multiple users to simultaneously work on the same project. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be seamlessly merged into the main project. This enables teams to work independently and minimize conflicts.
 
-- *Historical Tracking*: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when they were made, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.
+- *Historical Tracking*: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.
 
-- *Backup and Redundancy*: In distributed systems, each user’s local copy serves as a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.
+- *Backup and Redundancy*: In distributed systems, each user’s local copy is a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.
 
 - *Version Management*: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.
 
@@ -27,7 +27,7 @@ There are two main types of version control: centralized and distributed. Centra
 
 Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.
 
-Get a short introduction on Git by watching the official Git Documentation videos [here](https://git-scm.com/videos). 
+Get a short introduction to Git by watching the official Git Documentation videos [here](https://git-scm.com/videos). 
 
 ## Git terminology
 
@@ -179,7 +179,7 @@ You can also work directly on GitHub.com:
 **Committing Changes**
 
 - Enter a commit message.  
-- Choose whether to "commit to directly to main" or "Commit to a new branch...".
+- Choose whether to "commit directly to main" or "Commit to a new branch...".
 
 **Pushing Changes**
 
@@ -233,7 +233,7 @@ There are some particularities about how Markdown files will be rendered in GitH
 
 ### How to organise repositories
 
-When structuring your repositories, it's helpful to follow some common conventions for organizing files in subdirectories. This makes projects more readable and easier for others to navigate. Here are some commonly used subdirectories:
+When structuring your repositories, following some common conventions for organizing files in subdirectories is helpful. This makes projects more readable and more accessible for others to navigate. Here are some commonly used subdirectories:
 
 When software development is a significant part:  
 * `source/` or `src/`: Contains the main source code for the project.  
@@ -242,7 +242,7 @@ When software development is a significant part:
 * `bin/`: Holds executable scripts or binaries.
 * `config/`: Contains configuration files, like YAML or JSON.
 
-When rendering an interface for users, such as an website, web app or video game:  
+When rendering an interface for users, such as a website, web app, or video game:  
 * `assets`: to hold files and subdirectories with closed content and functionality files.
   * `assets/images/`, `assets/media/`, etc.: Holds all images or other media files generated externally (not by the repository's source code).
   * `assets/styles.css` or `assets/css/`: all CSS code for formatting HTML objects.
@@ -272,7 +272,7 @@ These folder structures are conventions and not strict rules. You can adapt or m
   * `LICENSE`: Specifies the terms under which the content of the repository can be used, modified, and distributed. There are many licenses, varying in *permissiveness* and *type of content*. Generally, for projects involving both code and other kinds of content, we recommend CC0-1.0 or MIT. See [https://choosealicense.com/](https://choosealicense.com/) and [GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)). 
   * `CITATION.cff`: human- and machine-readable citation information for software (and datasets). See example [here](https://citation-file-format.github.io/#:~:text=cff%20file%3F-,CITATION.,to%20correctly%20cite%20their%20software.).  
   * `.gitignore`: Lists files and directories that Git should ignore, such as build outputs and temporary files.  
-  * `CHANGELOG.md`: Logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.  
+  * `CHANGELOG.md`: This file logs a chronological record of all notable changes made to the project, often following conventions like Conventional Commits.  
   * `references.bib`: a file containing references in BibTex format, which can be cited within the markdown files of the repository.  
 
 ### Version Tags and Releases on GitHub
@@ -295,12 +295,12 @@ Releases are tied to tags and provide a stable reference for each version, makin
 ::: {.callout-note collapse="true"}
 #### About versioning {.unnumbered}
 
-If unfamiliar with the logic behind versioning, consult the reference to [Semantic Versioning](https://semver.org/) which can also be found on the right of the "Create a new release" page in GitHub. Their summary states:
+If unfamiliar with the logic behind versioning, consult the reference to [Semantic Versioning](https://semver.org/), which can also be found on the right of the "Create a new release" page in GitHub. Their summary states:
 
-> Given a version number MAJOR.MINOR.PATCH, increment the:
-> 1. MAJOR version when you make incompatible API changes
-> 2. MINOR version when you add functionality in a backward compatible manner
-> 3. PATCH version when you make backward compatible bug fixes
+> Given a version number MAJOR.MINOR.PATCH, increment the:  
+> 1. MAJOR version when you make incompatible API changes  
+> 2. MINOR version when you add functionality in a backward compatible manner  
+> 3. PATCH version when you make backward compatible bug fixes  
 
 However, if your repository is not about creating software products and services, we can do well by simply obeying a few general conventions:
 
@@ -355,7 +355,7 @@ This connection allows you to generate and manage DOIs for GitHub repositories, 
   1. Fork the [Course Book repository](https://github.com/Andros-Spica/rub-archwiss_040468-data-management).  
   2. Clone your fork to a local directory.  
   3. Modify or add a `.qmd` file in your local directory.
-  4. Commit to you local repository (one or more times).  
+  4. Commit to your local repository (one or more times).  
   4. Push the changed local repository to your remote repository (i.e. your fork).  
   5. Create a pull request back to the original repository.
   
@@ -364,7 +364,7 @@ This connection allows you to generate and manage DOIs for GitHub repositories, 
     a. Public
     b. With a README file
     c. with .gitignore (template for R)
-    d. With a license of you choice.
+    d. With a license of your choice.
   2. Add all other conventional files mentioned above, even if they remain empty for now. 
   3. Edit your README file and commit/push your changes.   
 
