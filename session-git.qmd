@@ -23,6 +23,10 @@ There are two main types of version control: centralized and distributed. Centra
 
 - *Version Management*: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.
 
+<!-- COMMENT
+Technically spoken, the unique identifier is a hash. A commit is correctly defined further below as the "snapshot"of changes to which git assigns this identifier.  
+--> 
+
 - *Enhanced Workflow*: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.
 
 Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.
@@ -37,7 +41,7 @@ Here are some essential Git terms to know:
 
 - **Repository**: A storage space for your project files and their history. Repositories can be local (on your computer) or remote (on platforms like GitHub).
   
-- **Initialise**: configure a specific local directory as a working directory as a local repository by creating all necessary files for Git to work.
+- **Initialise**: configure a specific local directory as a local repository by creating all necessary files for Git to work.
 
 - **Add**/**Stage**: adds a change in the working directory to the staging area, telling Git to include updates to a particular file in the next commit. However, adding or staging doesn't really affect the repository since changes are not actually recorded until they are committed (see below).
 
@@ -53,7 +57,7 @@ Here are some essential Git terms to know:
 
 - **Pull**: A command that fetches changes from a remote repository and merges them into your local branch, ensuring your local work is up-to-date with the remote [[2](https://www.pluralsight.com/resources/blog/cloud/git-terms-explained)].
 
-- **Push**: Uploads your commits from the local branch to the remote repository, making your changes available to others.
+- **Push**: Uploads your commits from the local repository to the remote repository, making your changes available to others.
 
 Understanding these terms is crucial for effective Git usage and collaboration in any project.
 
@@ -96,6 +100,7 @@ GitHub also offers hosting for open-source projects, allowing anyone to contribu
 <a title="GitHub Inc., MIT &lt;http://opensource.org/licenses/mit-license.php&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg"><img width="64" alt="Octicons-mark-github" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/512px-Octicons-mark-github.svg.png?20180806170715"></a>
 <fig-caption>GitHub icon</fig-caption>
 </figure>
+
 
 ::: {.callout-caution  collapse="true"}
 ## CHECK: GitHub user and GitHub Desktop installation {.unnumbered}
@@ -164,6 +169,10 @@ You can also work directly on GitHub.com:
 
 - Go to the repository page.  
 - Click the green "Code" button and copy the link.
+
+<!-- COMMENT
+And then? The code must be still be cloned with `git clone <URL>` locally. "Cloning" a repository from someone else online is called forking and done differently.
+-->
 
 **Creating a New Branch**
 
@@ -249,6 +258,10 @@ When rendering an interface for users, such as a website, web app, or video game
   * `assets/js/`: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present. 
 
 These folder structures are conventions and not strict rules. You can adapt or modify them based on your project's needs. 
+
+<!-- COMMENT
+Consider adding an example for a typical data science project, e.g. from https://github.com/drivendataorg/cookiecutter-data-science 
+--> 
 
 ::: {.callout-note collapse="true"}
 #### See also
