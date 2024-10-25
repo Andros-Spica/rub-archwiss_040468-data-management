@@ -238,15 +238,15 @@ When structuring your repositories, following some common conventions for organi
 When software development is a significant part:  
 * `source/` or `src/`: Contains the main source code for the project.  
 * `documentation/`, `docs/`, or `doc/`: Stores documentation, such as guides or API references.  
-* `tests/`: Includes test scripts to ensure code functionality.
-* `bin/`: Holds executable scripts or binaries.
-* `config/`: Contains configuration files, like YAML or JSON.
+* `tests/`: Includes test scripts to ensure code functionality.  
+* `bin/`: Holds executable scripts or binaries.  
+* `config/`: Contains configuration files, like YAML or JSON.  
 
 When rendering an interface for users, such as a website, web app, or video game:  
-* `assets`: to hold files and subdirectories with closed content and functionality files.
-  * `assets/images/`, `assets/media/`, etc.: Holds all images or other media files generated externally (not by the repository's source code).
-  * `assets/styles.css` or `assets/css/`: all CSS code for formatting HTML objects.
-  * `assets/js/`: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present. 
+* `assets`: to hold files and subdirectories with closed content and functionality files.  
+  * `assets/images/`, `assets/media/`, etc.: Holds all images or other media files generated externally (not by the repository's source code).  
+  * `assets/styles.css` or `assets/css/`: all CSS code for formatting HTML objects.  
+  * `assets/js/`: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present.  
 
 These folder structures are conventions and not strict rules. You can adapt or modify them based on your project's needs. 
 
