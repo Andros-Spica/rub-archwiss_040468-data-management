@@ -21,7 +21,7 @@ There are two main types of version control: centralized and distributed. Centra
 
 - *Backup and Redundancy*: In distributed systems, each user’s local copy is a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.
 
-- *Version Management*: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.
+- *Version Management*: Version control systems assign unique identifiers to each change, per commit and file changed, usually called "Git hash" or “commit hash”. A Git hash a 40-character hexadecimal string, such as 2d3acf90f35989df8f262dc50beadc4ee3ae1560, derived from the contents of the commit, including its parent commit(s), timestamp, and author details [REF]. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.
 
 <!-- COMMENT
 Technically spoken, the unique identifier is a hash. A commit is correctly defined further below as the "snapshot"of changes to which git assigns this identifier.  
