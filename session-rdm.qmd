@@ -85,7 +85,9 @@ The CARE Principles for Indigenous Data Governance were defined more recently [@
 * **Responsibility**: Data practices must uphold the well-being and interests of Indigenous peoples.  
 * **Ethics**: Data use must be guided by ethical considerations, respecting cultural protocols and privacy.  
 
-These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Applying the CARE principles in archaeological research will strongly depend on whether and how researchers identify and define the *indigenous peoples* associated with material culture research.
+These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Researchers involved in archaeology should remain sensitive to the concerns raised by CARE, especially when conceptualising a new research project and later, when publishing data and research outputs. 
+
+Applying the CARE principles in archaeological research will strongly depend on whether an indigenous group (self-identified and/or legally recognised) is directly involved as researchers or research enablers (e.g., creators of material culture, subjects to surveys and interviews, consulting experts, etc). In countries with a recent colonial past, this criteria tends to be clear for all parts involved. However, the concept of indigenous is hardly consensual when speaking about cultural groups not self-identified in oposition to a colonising cultural group. Initiatives, such as the Traditional Knowledge Labels by [Local Contexts](https://localcontexts.org/), continue to be developed to help to clarify this and other points.
 
 <!-- COMMENT
 "Indigenous" is clearly defined and does not include all groups. For this reason, the TK (traditional knowledge) labels were conceptualised. I am not sure though if this level of detail is necessary here. 
