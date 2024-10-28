@@ -66,15 +66,7 @@ A short breakdown of the concepts behind FAIR:
 
 These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others [@lamprecht_towards_2020; @wilkinson_fair_2016]. Applying FAIR principles in archaeology involves creating well-documented, datasets that other researchers can readily access openly or through transparent authentication procedures, in case of sensitive data [@hiebel_fair_2021;@lien-talks_how_2024;@nicholson_will_2023].
 
-<!-- COMMENT
-The FAIR principles do not require open access, on the contrary (see principle A2)! And there is good reason in archaeology to not have everything in open access. Readily to my mind comes protection from looters by not making site coordinates open access. 
--->
-
 ![A summary breakdown of the FAIR data principles (reproduction from @lien-talks_how_2024, Figure 1)](https://storage.googleapis.com/jnl-up-j-jcaa-files/journals/1/articles/154/665701dcda4a5.png)
-
-<!-- COMMENT
-You might want to avoid Google Services because their use requires setting up a cookie banner (I would extremely surprised if this does not apply to the link above given that even inclusion of fonts from GoogleFont must be undisclosed in a cookie banner according to a court decision several years ago)
---> 
 
 ### CARE Principles
 
@@ -88,10 +80,6 @@ The CARE Principles for Indigenous Data Governance were defined more recently [@
 These principles aim to protect Indigenous rights to self-determination and ensure data contributes positively to community development and innovation. Researchers involved in archaeology should remain sensitive to the concerns raised by CARE, especially when conceptualising a new research project and later, when publishing data and research outputs. 
 
 Applying the CARE principles in archaeological research will strongly depend on whether an indigenous group (self-identified and/or legally recognised) is directly involved as researchers or research enablers (e.g., creators of material culture, subjects to surveys and interviews, consulting experts, etc). In countries with a recent colonial past, this criteria tends to be clear for all parts involved. However, the concept of indigenous is hardly consensual when speaking about cultural groups not self-identified in oposition to a colonising cultural group. Initiatives, such as the Traditional Knowledge Labels by [Local Contexts](https://localcontexts.org/), continue to be developed to help to clarify this and other points.
-
-<!-- COMMENT
-"Indigenous" is clearly defined and does not include all groups. For this reason, the TK (traditional knowledge) labels were conceptualised. I am not sure though if this level of detail is necessary here. 
---> 
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
@@ -204,10 +192,6 @@ Several programming languages are popular in research due to their specific feat
 - *MATLAB*: Commonly used in engineering and scientific research, MATLAB excels at numerical computing, simulation, and algorithm development. It is prevalent in fields like physics, engineering, and finance. In contrast to R and Python, MATLAB is not open source. A MATLAB license can be obtained through the [campus license of the RUB](https://www.it-services.ruhr-uni-bochum.de/services/software/matlab_simulink.html.de).
 
 - *JavaScript*: A web development language also used in research to develop interactive data visualizations and web-based applications.
-
-<!-- COMMENT
-What else is Javascript then a web development language? 
--->
 
 ### Concept of Research Software: Tools and Scripts
 

@@ -23,10 +23,6 @@ There are two main types of version control: centralized and distributed. Centra
 
 - *Version Management*: Version control systems assign unique identifiers to each change, per commit and file changed, usually called "Git hash" or “commit hash”. A Git hash a 40-character hexadecimal string, such as 2d3acf90f35989df8f262dc50beadc4ee3ae1560, derived from the contents of the commit, including its parent commit(s), timestamp, and author details [REF]. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.
 
-<!-- COMMENT
-Technically spoken, the unique identifier is a hash. A commit is correctly defined further below as the "snapshot"of changes to which git assigns this identifier.  
---> 
-
 - *Enhanced Workflow*: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.
 
 Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.
@@ -125,6 +121,34 @@ In your Internet browser, make sure that your own GitHub user profile page is sa
 
 :::
 
+### GitHub terminology
+
+Understanding the core vocabulary associated with GitHub operations can help users make the most of this platform, especially for collaborative or open-source projects. Here are some key concepts to keep in mind:
+
+- **Forking**: Forking creates a personal copy of someone else’s GitHub repository in your account. It allows users to experiment with changes without affecting the original repository, and is often used to contribute to open-source projects. After forking, developers can freely modify their own versions and submit a pull request to propose these changes to the original repository if they have improvements or fixes to offer.
+
+- **Cloning**: Cloning involves creating a local copy of a repository on your machine. By cloning a repository, users can work offline and change files that can later be pushed back to the GitHub repository. This process is essential for local development, allowing users to commit changes and manage their workflow effectively with Git commands.
+
+- **Pull Requests**: A pull request (PR) is a way to propose changes in a repository. After modifying a forked or branched version of a repository, a developer can open a pull request, which initiates a review process. This feature is central to collaboration on GitHub, allowing others to review, discuss, and approve proposed changes before they are merged into the main branch.
+
+- **Branching**: A branch is a parallel version of the repository within the same repository structure. By branching, developers can isolate work on different features or fixes without altering the main project files. For example, many projects have a main or master branch for the official release version, while other branches are used for development or testing. Branches are typically merged into the main branch once they are finalized.
+
+- **Commits and Push**: A commit is a snapshot of changes in the repository. Every commit includes a message describing the changes, and each commit builds upon previous ones, creating a history of the repository's development. Pushing is uploading these commits to GitHub from a local repository. After a series of commits on a local branch, a user can push these changes to the corresponding branch on GitHub to keep the remote repository up-to-date.
+
+- **Gists**: A gist is a simple way to share code snippets or single files. Gists can be public or secret, and they are particularly useful for sharing configuration files or code examples. Users can fork and edit Gists, making them a lightweight collaboration and code-sharing tool.
+
+- **Issues and Discussions**: Issues are GitHub’s built-in tracking system for bugs, tasks, and feature requests. They allow users to report problems, suggest new features, and engage in conversations related to the project. Discussions provide a more open forum-style setting for broader conversation, enabling users to share ideas, ask questions, and contribute knowledge that might not directly relate to specific code changes.
+
+::: {.callout-note collapse="true"}
+#### See also
+
+- @noauthor_cloning_nodate  
+- @noauthor_github_nodate  
+- @noauthor_how_2023  
+- @noauthor_difference_2021  
+
+:::
+
 ### Working with GitHub
 
 GitHub offers various workflows to manage repositories. Here are three common methods:
@@ -165,14 +189,16 @@ For those who prefer a graphical user interface (GUI):
 #### Remote with Web Browser {.unnumbered}
 You can also work directly on GitHub.com:
 
+**Forking a Repository**
+
+- Go to the repository page. 
+- Click on the Fork button in the top-right corner of the page.  
+- Choose an owner (user or organisation), a name and description for the new fork repository. The default will always be a exact copy of the original repository. Select whether to copy only the main branch. Click "Create fork".  
+
 **Cloning a Repository**
 
 - Go to the repository page.  
 - Click the green "Code" button and continue the cloning process locally, using console commands (copying link) or with GitHub Desktop.
-
-<!-- COMMENT
-And then? The code must be still be cloned with `git clone <URL>` locally. "Cloning" a repository from someone else online is called forking and done differently.
--->
 
 **Creating a New Branch**
 
@@ -251,7 +277,7 @@ When software development is a significant part:
 * `bin/`: Holds executable scripts or binaries.  
 * `config/`: Contains configuration files, like YAML or JSON.  
 
-When rendering an interface for users, such as a website, web app, or video game:  
+When rendering a document or a graphical user interface, such as LaTeX documents, websites, web apps, or video games:  
 * `assets`: to hold files and subdirectories with closed content and functionality files.  
   * `assets/images/`, `assets/media/`, etc.: Holds all images or other media files generated externally (not by the repository's source code).  
   * `assets/styles.css` or `assets/css/`: all CSS code for formatting HTML objects.  
@@ -259,9 +285,7 @@ When rendering an interface for users, such as a website, web app, or video game
 
 These folder structures are conventions and not strict rules. You can adapt or modify them based on your project's needs. 
 
-<!-- COMMENT
-Consider adding an example for a typical data science project, e.g. from https://github.com/drivendataorg/cookiecutter-data-science 
---> 
+There are several community-based proposals for standards, including tools that can help automate the creation of a new project directory with conventional files. For example, for a typical Data Science project using Python see [Cookiecutter Data Science](https://github.com/drivendataorg/cookiecutter-data-science).
 
 ::: {.callout-note collapse="true"}
 #### See also
@@ -270,7 +294,8 @@ Consider adding an example for a typical data science project, e.g. from https:/
 - @zestyclose-low-6403_how_2023  
 - @danijar_can_2019 
 - @suhail_structuring_2024   
-- @cioara_how_2018
+- @cioara_how_2018  
+
 :::
 
 ### Conventional files

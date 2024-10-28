@@ -13,10 +13,6 @@ To ensure that both R and RStudio have been installed correctly, follow these st
 2. When it opens, you should see an interface with multiple panels, including the Console in the left or bottom left panel.    
 3. In the RStudio Console, you should see details about the R version currently running, which confirms that both R and RStudio are correctly installed and linked. You can always re-print this information by typing the command `version`.
 
-<!-- COMMENT
-When loading RStudio and it successfully loads R, the version and copyright is displayed in the console. Step 3 should not be necessary. 
--->
-
 If any of these steps fail, consider reinstalling R and RStudio, ensuring they are compatible with your operating system.
 
 :::
@@ -76,12 +72,9 @@ print(mean_value)
 In this script, we define a vector, calculate its mean, and print the result. The focus is on the code itself, without additional formatting or documentation.
 
 #### Notebooks/Rendered notebooks (.Rmd/.qmd files) {.unnumbered}
-* Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.  
-* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows. 
+* Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.
 
-<!-- COMMENT
-In contrast to Jupyter Notebooks, The code is only run when the document is rendered and the document will be static (with exception of purposefully created interactive elements such as plots or maps). This is a huge difference and the paragraph should be rephrased accordingly.
--->
+* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows.
 
 * Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  It is possible to have code being run and rendered with output directly into a HTML file by choosing `html_notebook`, a type of output that approaches the one of [Jupyter notebooks](https://jupyter.org/).
 
