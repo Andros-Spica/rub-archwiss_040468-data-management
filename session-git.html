@@ -398,8 +398,13 @@ div.csl-indent {
 <li><p><em>Collaboration</em>: Version control systems make collaboration easier and more efficient by allowing multiple users to simultaneously work on the same project. With distributed systems like Git, branches can be created for different features or tasks, and changes can later be seamlessly merged into the main project. This enables teams to work independently and minimize conflicts.</p></li>
 <li><p><em>Historical Tracking</em>: Version control systems keep a detailed history of all changes made to the files. This allows users to see who made changes, when, and why. If an issue arises, it’s possible to revert to a previous state without losing any data, making debugging easier.</p></li>
 <li><p><em>Backup and Redundancy</em>: In distributed systems, each user’s local copy is a backup of the entire project. This redundancy reduces the risk of data loss due to server failures or other issues and allows users to work offline and sync changes later.</p></li>
-<li><p><em>Version Management</em>: Version control systems assign unique identifiers (usually called “commits”) to each change. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
-<li><p><em>Enhanced Workflow</em>: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</p></li>
+<li><p><em>Version Management</em>: Version control systems assign unique identifiers to each change, per commit and file changed, usually called “Git hash” or “commit hash”. A Git hash a 40-character hexadecimal string, such as 2d3acf90f35989df8f262dc50beadc4ee3ae1560, derived from the contents of the commit, including its parent commit(s), timestamp, and author details [REF]. These identifiers allow users to switch between different versions of the project easily. It’s also possible to create branches for experimental features and merge them with the main project once they’re stable, facilitating smoother integration of new features.</p></li>
+</ul>
+<!-- COMMENT
+Technically spoken, the unique identifier is a hash. A commit is correctly defined further below as the "snapshot"of changes to which git assigns this identifier.  
+-->
+<ul>
+<li><em>Enhanced Workflow</em>: Many version control systems support automated processes such as Continuous Integration (CI) and Continuous Deployment (CD), which streamline development and testing. These systems can automatically test changes before they are merged, ensuring higher code quality and reducing the risk of introducing bugs.</li>
 </ul>
 <p>Overall, version control systems are crucial tools in modern project management and development workflows. They enable collaboration, ensure data integrity, and improve productivity by providing a structured approach to managing changes in any type of project.</p>
 <p>Get a short introduction to Git by watching the official Git Documentation videos <a href="https://git-scm.com/videos">here</a>.</p>
@@ -416,7 +421,7 @@ div.csl-indent {
 <div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: flex-start;">
 <ul>
 <li><p><strong>Repository</strong>: A storage space for your project files and their history. Repositories can be local (on your computer) or remote (on platforms like GitHub).</p></li>
-<li><p><strong>Initialise</strong>: configure a specific local directory as a working directory as a local repository by creating all necessary files for Git to work.</p></li>
+<li><p><strong>Initialise</strong>: configure a specific local directory (your “working directory”) as a local repository by creating all necessary files for Git to work.</p></li>
 <li><p><strong>Add</strong>/<strong>Stage</strong>: adds a change in the working directory to the staging area, telling Git to include updates to a particular file in the next commit. However, adding or staging doesn’t really affect the repository since changes are not actually recorded until they are committed (see below).</p></li>
 </ul>
 </div>
@@ -430,7 +435,7 @@ div.csl-indent {
 <li><p><strong>Branch</strong>: A separate line of development. The default branch is usually called <code>main</code> or <code>master</code>. Branches allow you to work on features independently before merging them into the main project [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
 <li><p><strong>Merge</strong>: The process of integrating changes from one branch into another. Typically, this involves merging a feature branch into the main branch.</p></li>
 <li><p><strong>Pull</strong>: A command that fetches changes from a remote repository and merges them into your local branch, ensuring your local work is up-to-date with the remote [<a href="https://www.pluralsight.com/resources/blog/cloud/git-terms-explained">2</a>].</p></li>
-<li><p><strong>Push</strong>: Uploads your commits from the local branch to the remote repository, making your changes available to others.</p></li>
+<li><p><strong>Push</strong>: Uploads your commits from the local repository to the remote repository, making your changes available to others.</p></li>
 </ul>
 <p>Understanding these terms is crucial for effective Git usage and collaboration in any project.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -597,8 +602,11 @@ Remote with Web Browser
 <ul>
 <li>Go to the repository page.<br>
 </li>
-<li>Click the green “Code” button and copy the link.</li>
+<li>Click the green “Code” button and continue the cloning process locally, using console commands (copying link) or with GitHub Desktop.</li>
 </ul>
+<!-- COMMENT
+And then? The code must be still be cloned with `git clone <URL>` locally. "Cloning" a repository from someone else online is called forking and done differently.
+-->
 <p><strong>Creating a New Branch</strong></p>
 <ul>
 <li>Click the branch dropdown on the main page.<br>
@@ -674,6 +682,9 @@ Local with Console Commands (advanced users)
 * <code>assets/styles.css</code> or <code>assets/css/</code>: all CSS code for formatting HTML objects.<br>
 * <code>assets/js/</code>: JavaScript source code enabling interactive functionalities (it would also apply for other programming languages in similar position). Source code of this kind might also be placed inside the source code folder, if present.</p>
 <p>These folder structures are conventions and not strict rules. You can adapt or modify them based on your project’s needs.</p>
+<!-- COMMENT
+Consider adding an example for a typical data science project, e.g. from https://github.com/drivendataorg/cookiecutter-data-science 
+-->
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
