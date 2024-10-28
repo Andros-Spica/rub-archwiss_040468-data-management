@@ -64,7 +64,7 @@ A short breakdown of the concepts behind FAIR:
   * Documentation of data provenance.
   * Conformance to community standards.
 
-These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others [@lamprecht_towards_2020; @wilkinson_fair_2016]. Applying FAIR principles in archaeology involves creating well-documented, datasets that other researchers can readily use and are ideally made available in open access [@hiebel_fair_2021;@lien-talks_how_2024;@nicholson_will_2023].
+These principles aim to enhance the usefulness of digital assets by ensuring they can be easily located, understood, and utilized by others [@lamprecht_towards_2020; @wilkinson_fair_2016]. Applying FAIR principles in archaeology involves creating well-documented, datasets that other researchers can readily access openly or through transparent authentication procedures, in case of sensitive data [@hiebel_fair_2021;@lien-talks_how_2024;@nicholson_will_2023].
 
 <!-- COMMENT
 The FAIR principles do not require open access, on the contrary (see principle A2)! And there is good reason in archaeology to not have everything in open access. Readily to my mind comes protection from looters by not making site coordinates open access. 
