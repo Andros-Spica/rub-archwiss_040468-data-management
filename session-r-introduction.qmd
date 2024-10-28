@@ -83,7 +83,7 @@ In this script, we define a vector, calculate its mean, and print the result. Th
 In contrast to Jupyter Notebooks, The code is only run when the document is rendered and the document will be static (with exception of purposefully created interactive elements such as plots or maps). This is a huge difference and the paragraph should be rephrased accordingly.
 -->
 
-* Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  
+* Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  It is possible to have code being run and rendered with output directly into a HTML file by choosing `html_notebook`, a type of output that approaches the one of [Jupyter notebooks](https://jupyter.org/).
 
 ```{r, echo=FALSE}
 cat("
