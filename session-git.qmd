@@ -168,7 +168,7 @@ You can also work directly on GitHub.com:
 **Cloning a Repository**
 
 - Go to the repository page.  
-- Click the green "Code" button and copy the link.
+- Click the green "Code" button and continue the cloning process locally, using console commands (copying link) or with GitHub Desktop.
 
 <!-- COMMENT
 And then? The code must be still be cloned with `git clone <URL>` locally. "Cloning" a repository from someone else online is called forking and done differently.
