@@ -41,7 +41,7 @@ Here are some essential Git terms to know:
 
 - **Repository**: A storage space for your project files and their history. Repositories can be local (on your computer) or remote (on platforms like GitHub).
   
-- **Initialise**: configure a specific local directory as a local repository by creating all necessary files for Git to work.
+- **Initialise**: configure a specific local directory (your "working directory") as a local repository by creating all necessary files for Git to work.
 
 - **Add**/**Stage**: adds a change in the working directory to the staging area, telling Git to include updates to a particular file in the next commit. However, adding or staging doesn't really affect the repository since changes are not actually recorded until they are committed (see below).
 
