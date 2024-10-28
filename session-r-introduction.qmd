@@ -11,7 +11,11 @@ To ensure that both R and RStudio have been installed correctly, follow these st
 
 1. Launch RStudio by searching for it in your applications menu.  
 2. When it opens, you should see an interface with multiple panels, including the Console in the left or bottom left panel.    
-3. In the RStudio Console, type version and press Enter. You should see details about the R version currently running, which confirms that both R and RStudio are correctly installed and linked.
+3. In the RStudio Console, you should see details about the R version currently running, which confirms that both R and RStudio are correctly installed and linked. You can always re-print this information by typing the command `version`.
+
+<!-- COMMENT
+When loading RStudio and it successfully loads R, the version and copyright is displayed in the console. Step 3 should not be necessary. 
+-->
 
 If any of these steps fail, consider reinstalling R and RStudio, ensuring they are compatible with your operating system.
 
@@ -41,7 +45,7 @@ To customize RStudio, go to Tools > Global Options (or RStudio > Preferences on 
 
 ### RStudio Projects
 
-RStudio Projects help organize your work by keeping all related files, scripts, data, and outputs in one place. Each project has its own working directory, which helps to manage dependencies and maintain reproducibility. Projects are especially useful for keeping different analyses or projects separate from one another.
+RStudio Projects help organize your work by keeping all related files, scripts, data, and outputs in one place. Each project has its own working directory, which helps to manage dependencies and to maintain reproducibility. Projects are especially useful for keeping different analyses or projects separate from one another.
 
 To create a new project in RStudio, follow these steps:
 
@@ -73,8 +77,13 @@ In this script, we define a vector, calculate its mean, and print the result. Th
 
 #### Notebooks/Rendered notebooks (.Rmd/.qmd files) {.unnumbered}
 * Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.  
-* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it, which is useful for exploratory data analysis and iterative workflows.  
-* Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  
+* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows. 
+
+<!-- COMMENT
+In contrast to Jupyter Notebooks, The code is only run when the document is rendered and the document will be static (with exception of purposefully created interactive elements such as plots or maps). This is a huge difference and the paragraph should be rephrased accordingly.
+-->
+
+* Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  It is possible to have code being run and rendered with output directly into a HTML file by choosing `html_notebook`, a type of output that approaches the one of [Jupyter notebooks](https://jupyter.org/).
 
 ```{r, echo=FALSE}
 cat("
@@ -97,9 +106,9 @@ The mean of the vector is `r mean_value`.
 
 In this notebook, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format.
 
-Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file.
+Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file. 
 
-### Creating or editing Other files
+### Creating or editing other files
 
 In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports creating and editing various other file types, making it a versatile environment for different types of content and workflows. To create a new file, go to File > New File and select the desired file type.
 
@@ -107,7 +116,7 @@ Some examples of files you can create and edit in RStudio include:
 
 * Plain Text Files (.txt): Useful for notes, raw data, or configuration files.
 * HTML Files (.html): For creating and editing web pages, especially useful for generating custom reports.
-* Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment.
+* Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment if Python is installed on your computer.
 * SQL Files (.sql): You can write and run SQL queries directly in RStudio when working with databases.
 
 To create a file with an extension not listed in RStudio, simply create a .txt file, modify its name and add the desired extension.
@@ -227,7 +236,7 @@ library(ggplot2)
 
 Now you can access the functions within `ggplot2` and any other loaded package. You only need to install a package once, but you must load it in each new session.
 
-#### Package collection: `tidyverse` and `tesselle` {.unnumbered}
+#### Package collection: `tidyverse` {.unnumbered}
 
 The [`tidyverse`](https://www.tidyverse.org/) is a collection of R packages designed for data science, making data manipulation, visualization, and analysis easier and more intuitive [@wickham_welcome_2019; @noauthor_tidyverse_nodate]. It includes:
 
