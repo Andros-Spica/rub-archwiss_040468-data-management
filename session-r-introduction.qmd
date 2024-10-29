@@ -34,7 +34,7 @@ Many of the various elements of RStudio GUI are self-explanatory or further expl
 
 To customize RStudio, go to Tools > Global Options (or RStudio > Preferences on macOS). Here, you can adjust various settings, including:
 
-* General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify startup options.  
+* General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify start-up options.  
 * Code: Configuring code formatting, autocompletion, and syntax highlighting settings.
 * Appearance: Change the editor theme, font size, and other visual preferences.  
 * Pane Layout: Changing the default pane structure (not recommended).
@@ -47,9 +47,9 @@ To create a new project in RStudio, follow these steps:
 
 1. Go to File > New Project.
 2. You’ll see three options:
-  - New Directory: Create a project from scratch within a new folder. This is useful when starting a new analysis or project.  
-  - Existing Directory: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts.  
-  - Version Control: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.  
+    - *New Directory*: Create a project from scratch within a new folder. This is useful when starting a completely new analysis or project.  
+    - *Existing Directory*: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts into a RStudio project.  
+    - *Version Control*: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.  
 3. Select the appropriate option based on your needs. For example, if you choose New Directory, you can then select New Project, enter a project name, and specify the location to save it. Alternatively, if you are working with a GitHub repository, you could select Version Control to clone it directly into RStudio, creating a fully synchronized project environment.  
 4. Click Create Project. RStudio will open a new R session within the project’s directory.  
 
@@ -58,9 +58,12 @@ To create a new project in RStudio, follow these steps:
 In RStudio, both R scripts and Rmarkdown notebooks (or rendered notebooks) are used to write and execute R code, but they serve different purposes and have distinct features:
 
 #### Scripts (.R files) {.unnumbered}
-* Plain Text Format: Scripts are simple text files where you can write and save R code. They are best suited for running sequential code and writing reusable functions.  
+
+* Plain Text Format: Scripts are simple text files where you can write and save R code (.R file extension). They are best suited for running sequential code and writing reusable functions.  
 * Execution: You can run code line-by-line or in chunks directly in the Console. Scripts are ideal for production workflows or larger projects where maintaining clear, reproducible code is a priority.  
 * Comments: You can add comments for documentation, but scripts do not natively support rich formatting like Markdown.
+
+Example of a small R script, "print_mean_value.R", followed by its output once executed:
 
 ```{r}
 # Calculate the mean of a numeric vector
@@ -71,12 +74,15 @@ print(mean_value)
 
 In this script, we define a vector, calculate its mean, and print the result. The focus is on the code itself, without additional formatting or documentation.
 
-#### Notebooks/Rendered notebooks (.Rmd/.qmd files) {.unnumbered}
-* Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.
+#### Rmarkdown documents (.Rmd/.qmd files) {.unnumbered}
 
-* Interactive Execution: Notebooks support interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows.
+* Rich Content: RStudio allows you to create and use special files, named RMarkdown (.Rmd file extension), that combine formatted text in Markdown (e.g. headings, images, and links) and executable pieces of code or code "chunks". When added to a Rmarkdown, the code inside a chunk can be executed on-demand by clicking on the play button on its top right corner.
+
+* Interactive Execution: Rmarkdown supports interactive, cell-based execution, similar to [Jupyter notebooks](https://jupyter.org/). Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows.
 
 * Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis.  It is possible to have code being run and rendered with output directly into a HTML file by choosing `html_notebook`, a type of output that approaches the one of [Jupyter notebooks](https://jupyter.org/).
+
+Example of a small RMarkdown document, "mean_value_analysis.Rmd":
 
 ```{r, echo=FALSE}
 cat("
@@ -97,9 +103,41 @@ The mean of the vector is `r mean_value`.
 ")
 ```
 
-In this notebook, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format.
+In this document, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format. Notice we can also use \` r object_name \` to print inside a markdown line the value of an R object, in this case a single number.
 
-Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file. 
+How it would look in RStudio:
+
+![RMarkdown example in RStudio](assets/images/RMarkdown-example.png)
+
+And this is how it would be rendered in HTML:
+
+## Calculate the Mean of a Vector {.unnumbered}
+
+In this analysis, we calculate the mean of a simple numeric vector.
+
+```{r}
+# Define the numeric vector
+numbers <- c(1, 2, 3, 4, 5)
+
+# Calculate the mean
+mean_value <- mean(numbers)
+mean_value
+```
+
+The mean of the vector is `r mean_value`.
+
+You can learn more about Rmarkdown at the [Get Started tutorial](https://rmarkdown.rstudio.com/lesson-1.html) offered by its developers.
+
+In summary, **scripts** are optimal for code-centric work with minimal formatting, while **Rmarkdown documents** offer a flexible, document-like interface ideal for combining narrative and code in a single file. 
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+* @grolemund_r_nodate
+* @noauthor_r_nodate
+* @noauthor_introduction_nodate
+
+:::
 
 ### Creating or editing other files
 
@@ -107,13 +145,12 @@ In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports c
 
 Some examples of files you can create and edit in RStudio include:
 
-* Plain Text Files (.txt): Useful for notes, raw data, or configuration files.
-* HTML Files (.html): For creating and editing web pages, especially useful for generating custom reports.
-* Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment if Python is installed on your computer.
-* SQL Files (.sql): You can write and run SQL queries directly in RStudio when working with databases.
+* **Plain Text** files (.txt): Useful for notes, raw data, or configuration files.
+* **HTML** files (.html): For creating and editing web pages, especially useful for generating custom reports.
+* **Python** scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment if Python is installed on your computer.
+* **SQL** files (.sql): You can write and run [SQL queries](https://www.w3schools.com/sql/sql_syntax.asp) directly in RStudio when working with databases.
 
-To create a file with an extension not listed in RStudio, simply create a .txt file, modify its name and add the desired extension.
-This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.
+To create a file with an extension **_not_** listed in RStudio, simply create a plain text file (e.g., "newFile.txt"), modify its name and add the desired extension (e.g., "newFile.json", "newFile.css", etc.). This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
@@ -129,39 +166,78 @@ For more information about RStudio, consult:
 
 ### Basic R syntax: variables and data types
 
-In R, variables are created by assigning values using the <- operator. R supports various data types, including:
+In R, variables are created by assigning values using the `<-` operator. R supports various data types, including:
 
-* Numeric: Numbers, e.g., x <- 10.5
-* Integer: Whole numbers, declared with L, e.g., y <- 3L
-* Character: Text, surrounded by quotes, e.g., name <- "Alice"
-* Logical: Boolean values, TRUE or FALSE, e.g., is_true <- TRUE
-* Factor: Categorical data, useful for storing distinct categories, e.g., factor_var <- factor(c("Yes", "No", "Yes"))
+* **Numeric**: Numbers, e.g., `x <- 10.5`
+* **Integer**: Whole numbers, declared with L, e.g., `y <- 3L`
+* **Character**: Text, surrounded by quotes, e.g., `name <- "Alice"`
+* **Logical**: Boolean values, `TRUE` or `FALSE`, e.g., `is_true <- TRUE`
+* **Factor**: Categorical data, useful for storing distinct categories, and keeping both category names and indexed numeric value (see Data structures bellow).
 
-Variables store data for manipulation and analysis, forming the building blocks of R programming.
+Variables store data for manipulation and analysis, forming the building blocks of R programming. Variables and data structures (see bellow) can be all referred as "**R objects**", and once created, they will appear listed in the Environment tab in the Environments panel (top right).
+
+### Data structures
+
+Data structures are more complex objects that are also created using the `<-` operator.
+
+* **Vectors**: The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with `c()`, e.g., `c(1, 2, 3)` or `c("a", "b", "c")`.
+
+* **Matrices**: Two-dimensional, homogeneous data structures (all elements are of the same type). Created using `matrix()`, e.g., `matrix(1:9, nrow = 3, ncol = 3)`.
+
+* **Factor**: A factor is a special case in-between a vector and a matrix, designed to facilitate operations with categorical variables. While a factor will often seem equivalent to a Character vector (e.g., `c("Yes", "No", "Yes")`), it will be treated as a two column matrix where character values are mapped to a numeric index, assigned arbitrarily. In this *n*x2 matrix, where *n* is the number of rows or elements in each column, each row is referred as "level". To create a factor, we must use the primitive function `factor()` and give it a Character vector: e.g., `factor(c("Yes", "No", "Yes"))`.
+
+* **Data Frames**: Tabular data structures where each column can contain different data types (numeric, character, factor, etc.). Both columns and rows can be named. Data frames are created with `data.frame()`: e.g., `data.frame(x = 1:3, y = c("a", "b", "c"))`.
+
+* **Lists**: Collections of elements that can contain different types of data structures, such as vectors, data frames, or even other lists. All list elements can be assigned a specific name. To create a list, use `list()`: e.g., `list(a = 1, b = "text", c = TRUE, d = c(1, 2, 3))`.
+
+Each of these data structures supports a range of operations for data manipulation and can be essential in R for organizing and analysing data effectively.
 
 ### Arithmetic operations, logical operations in R.  
 
 R supports a range of arithmetic and logical operations:
 
-* Arithmetic Operations: Perform basic math on numbers.
-  * Addition: `5 + 3`
-  * Subtraction: `5 - 3`
-  * Multiplication: `5 * 3`
-  * Division: `5 / 3`
-  * Exponentiation: `5 ^ 3`
-  * Modulus: `5 %% 3` (remainder)
+* *Arithmetic Operations*: Perform basic mathematical operations on numbers (type **Numeric**).
+  * **Addition**: e.g., `5 + 3`
+  * **Subtraction**: e.g., `5 - 3`
+  * **Multiplication**: e.g., `5 * 3`
+  * **Division**: e.g., `5 / 3`
+  * **Exponentiation**: `5 ^ 3`
+  * **Modulus**: `5 %% 3` (remainder)
 
-* Logical Operations: Compare values, returning TRUE or FALSE.
-  * Equal to: `5 == 3`
-  * Not equal to: `5 != 3`
-  * Greater than: `5 > 3`
-  * Less than: `5 < 3`
-  * Logical **AND**: `TRUE & FALSE`
-  * Logical **OR**: `TRUE | FALSE`
+* *Logical Operations*: Compare values (any type), returning Boolean values (type Logical `TRUE` or `FALSE`).
+  * **Equal to**: e.g., `5 == 3`
+  * **Not equal to**: e.g., `5 != 3`
+  * **Greater than**: e.g., `5 > 3`
+  * **Less than**: e.g., `5 < 3`
+  * Logical **AND**: e.g., `TRUE & FALSE`
+  * Logical **OR**: e.g., `TRUE | FALSE`
 
-### Algorithm structures
+### Algorithm declaration
 
-R provides basic control structures for implementing algorithms:
+An algorithm is a step-by-step set of instructions used to solve a problem or perform a task, enabling computers to process data efficiently. Algorithms are normally fixed as re-usable code in the form of functions (or methods, depending on the programming language). These might take (or require) certain **input** variables, named "arguments" or "parameters", and return certain **output** variables.
+
+In R, a function can be declared (i.e., created for later use) by using the keyword `funtion()`, which is in itself a function already declared in R by default (i.e., a "primitive" function).
+
+```{r}
+add_numbers <- function(a, b) {
+  return(a + b)
+}
+```
+
+A function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., `funtion(a, b)`) and use the same names inside the function's code, enclosed by curly brackets (e.g., `{ return(a + b) }`). In R, a function's output is always a single R object, enclosed as an argument of another primitive function, `return()` (e.g., `return(a + b)`).
+
+Once declared, a function will be available or "loaded in the R session" for further use, using whatever values we assign to its input variables. For example, when `a = 3` and `b = 5`, `add_numbers()` will return:
+
+```{r}
+result <- add_numbers(3, 5)
+print(result)
+```
+
+### *Control flow* structures
+
+In programming, algorithms are executed through structured pathways known as *control flow structures*, determining the order in which instructions are carried out. Control flow structures include sequence (executing statements in order), selection (using conditions like "if" statements), and iteration (looping through repeated instructions). These structures direct the program’s execution path, ensuring it meets the logical requirements of the algorithm and reaches a solution effectively [@noauthor_control_2024; @noauthor_control_2020].
+
+R provides basic control flow structures for implementing algorithms:
 
 * `if` and `else`: Execute code based on a condition.
 ```{r}
@@ -180,15 +256,30 @@ while (count <= 5) {
   count <- count + 1
 }
 ```
-* `funtion`: Encapsulate code into reusable blocks.
-```{r}
-add_numbers <- function(a, b) {
-  return(a + b)
-}
 
-result <- add_numbers(3, 5)
-print(result)
-```
+::: {.callout-note}
+### Getting help {.unnumbered}
+
+While learning R and its extensive *vocabulary*, it is useful to know where to get help. Beyond searching for specific questions online (always a good option), it can be clarifying enough to read the relevant fragment of R documentation.
+
+There are mainly two ways of accessing R documentation:
+
+* **Console command**: In the R console, type `?` followed by the name of a function (e.g., `?factor`) or a canonical dataset (e.g., `?iris`, see Importing data).
+
+* **RStudio Help tab**: Go the Help tab in the Output area of RStudio's interface (bottom left), and using the search field (top right in Help), type the name of a function or canonical dataset.
+
+The R documentation entry for a function explains briefly:
+
+* what it does ("Description")
+* what arguments it takes ("Arguments")
+* what values it outputs ("Value")
+* additional information about its behaviour ("Details", etc.)
+* related bibliographic references ("References")
+* use examples in code ("Examples") 
+
+Notice that sometimes one documentation entry might be related to an entire group of functions. For example, the entry on `factor()` also refers to `as.factor()` and `is.factor()`, among others.
+
+:::
 
 ### Writing and executing R scripts 
 
@@ -213,7 +304,7 @@ print(sum)
 Packages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.
 
 #### Installing and loading packages {.unnumbered}
-To install a package, use the install.packages() function. For example, to install the ggplot2 package:
+To install a package, use the `install.packages()` function. For example, to install the ggplot2 package:
 
 ```{r, eval=FALSE}
 #| eval: false
@@ -263,41 +354,403 @@ install.packages("tesselle")
 
 We will look into more details about this collection in @sec-compositional-data and @sec-count-and-seriation.
 
-## Basic Data Structures in R
+## Data Manipulation
 
-* Vectors, matrices, data frames, lists.  
-* Basic operations on data structures (indexing, subsetting, adding/removing elements).
+### Importing data
 
-## Data Manipulation in R
+#### Reading CSV Files{.unnumbered}
 
-* Importing data: reading data from CSV files, using canonical datasets (`iris`, `archdata::DartPoints`).  
-* Basic data manipulation using base R (`subset`, `merge`, `apply` functions).  
-* Introduction to `dplyr` package for data manipulation (filtering, selecting, mutating data).
+To read data from a CSV file, use the `read.csv()` or `read_csv()` function from the `readr` package. The `read.csv()` function is part of base R and handles typical CSV formats, while `read_csv()` is optimized for speed and flexibility in handling larger files.
+
+```{r, eval=FALSE}
+#| eval: false
+# Base R
+data <- read.csv("path/to/file.csv")
+
+# Using readr package (installation required)
+library(readr)
+data <- read_csv("path/to/file.csv")
+```
+
+#### Writing CSV Files {.unnumbered}
+
+To save your data as a CSV file, use the `write.csv()` or `write_csv()` functions.
+
+```{r, eval=FALSE}
+#| eval: false
+# Base R
+write.csv(data, "path/to/output.csv")
+
+# Using readr package
+write_csv(data, "path/to/output.csv")
+```
+
+#### Using Canonical Datasets {.unnumbered}
+
+R includes several built-in or "canonical" datasets, like `iris`, useful for having a common benchmark for testing and giving examples. Other canonical datasets are available inside packages dedicated specialized fields, like `archdata` containing several archaeological datasets. To load a canonical dataset, use `data()`:
+
+```{r, eval=FALSE}
+#| eval: false
+# Load the built-in iris dataset
+data(iris)
+
+# Load the DartPoints dataset from the archdata package
+library(archdata)
+data("DartPoints")
+```
+
+As long as the dataset is from base R, we can skip the loading step and use the dataset directly in an operation by using its name:
+
+```{r}
+# Find out how many columns the iris dataset have 
+ncol(iris)
+```
+
+### Basic operations on data structures
+
+#### Adding/Removing Elements {.unnumbered}
+
+- **Adding Elements**: Use functions like `cbind()` for columns and `rbind()` for rows to add elements to data frames and matrices.
+  ```{r, eval=FALSE}
+  #| eval: false
+  # Adding a column
+  df <- data.frame(x = 1:3, y = 4:6)
+  df$z <- 7:9  # Adding column using $
+
+  # Adding a row
+  new_row <- data.frame(x = 4, y = 7, z = 10)
+  df <- rbind(df, new_row)
+  ```
+
+- **Removing Elements**: Use `NULL` assignment or `subset()` to remove columns or rows.
+  ```{r, eval=FALSE}
+  #| eval: false
+  # Removing a column
+  df$z <- NULL
+
+  # Removing rows by index
+  df <- df[-c(1, 2), ]
+  ```
+
+#### Indexing {.unnumbered}
+
+1. **Numeric Indexing**: Access elements by specifying their position.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df[1, 2]  # First row, second column
+   df[1:3, ]  # First three rows, all columns
+   ```
+
+2. **Logical Indexing**: Filter based on logical conditions.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df[df$y > 5, ]  # Rows where column y > 5
+   ```
+
+3. **Column Selection**: Access columns by `$` (column name) or numeric index.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df$x  # Access column by name
+   df[, 1]  # Access first column by index
+   ```
+
+4. **Row Selection**: Filter rows with conditions.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df[1:2, ]  # First two rows
+   df[df$x > 2, ]  # Rows where column x > 2
+   ```
+
+5. **Combining Indexing**: Combine row and column filters for specific elements.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df[1:2, c("x", "y")]  # First two rows, columns x and y
+   ```
+
+#### Subsetting (`subset`) {.unnumbered}
+
+- The `subset()` function provides an easy way to filter data by specifying conditions.
+  ```{r, eval=FALSE}
+  #| eval: false
+  subset(df, x > 2 & y < 6)  # Filter rows where x > 2 and y < 6
+  ```
+
+#### Joining or Merging (`merge`) {.unnumbered}
+
+- Use `merge()` to combine two data frames based on a common key or column.
+  ```{r, eval=FALSE}
+  #| eval: false
+  df1 <- data.frame(id = 1:3, x = c("A", "B", "C"))
+  df2 <- data.frame(id = 2:4, y = c("D", "E", "F"))
+  merged_df <- merge(df1, df2, by = "id")
+  ```
+
+#### Modifying Elements with Functions (`apply`) {.unnumbered}
+
+- The `apply()` function allows operations across rows or columns of a data frame or matrix.
+  ```{r, eval=FALSE}
+  #| eval: false
+  # Summing across rows (1 indicates rows)
+  apply(df[, 1:2], 1, sum)
+
+  # Summing across columns (2 indicates columns)
+  apply(df[, 1:2], 2, sum)
+  ```
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+* @noauthor_indexing_nodate  
+* @phillips_yarrr_nodate  
+* @noauthor_indexing_2022  
+* @noauthor_subsetting_nodate  
+* @noauthor_indexing_nodate-1  
+
+:::
+
+### Using `dplyr` Package
+
+The `dplyr` package in R provides a suite of functions to manipulate data in a streamlined and readable way. Key functions include those for filtering, selecting, and mutating data, which help manage data subsets, reorganize columns, and create new variables.
+
+1. **Filtering Data**
+   - Use `filter()` to select rows based on conditions. Multiple conditions can be combined with `&` (and) or `|` (or).
+   ```{r, eval=FALSE}
+   #| eval: false
+   library(dplyr)
+   filtered_data <- df %>% filter(column1 > 10, column2 == "A")
+   ```
+
+2. **Selecting Columns**
+   - Use `select()` to choose specific columns by name. You can use `:` to select a range of columns or `-` to exclude columns.
+   ```{r, eval=FALSE}
+   #| eval: false
+   selected_data <- df %>% select(column1, column2)
+   selected_data <- df %>% select(-column3)  # Exclude column3
+   ```
+
+3. **Mutating Data**
+   - The `mutate()` function creates new columns or modifies existing ones by performing calculations or transformations on current columns.
+   ```{r, eval=FALSE}
+   #| eval: false
+   df <- df %>% mutate(new_column = column1 * 2)
+   ```
+
+These functions are especially powerful when combined in recursive structures or "pipelines" using `%>%` to streamline data manipulation tasks.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+* @noauthor_grammar_nodate  
+* @noauthor_data_nodate  
+* @noauthor_aggregating_nodate  
+* @noauthor_dplyr_2020  
+* @bhalla_dplyr_nodate  
+
+:::
 
 ## Data Visualization
 
-* Introduction to plots: histograms, bar plots, scatter plots.  
-* Creating plots in R with base R graphics.  
-* Creating multiple plot figures with `layout`.  
-* Creating plots in `ggplot2`.  
-* Creating multiple plot figures with `gridExtra::grid.arrange`.  
-* Base R graphics and `ggplot2`: comparative  
-* Saving plots: open and closing graphic devices in R.
+Let us load the `DartPoints` dataset from the `archdata` package and use it in the examples:
+```{r}
+library(archdata)
+data(DartPoints)
+```
 
-## (EXTRA)Interactive Visualizations
+### Creating Plots in R with Base R Graphics
+Base R provides quick ways to create plots using functions like `plot()`, `hist()`, `barplot()`, and `boxplot()`.
 
-* Introduction to creating interactive visualizations.  
-* Example: Building an interactive plot using `plotly` and `knitr`.
+1. **Histograms**: Display the distribution of a single continuous variable.
+   ```{r}
+   hist(DartPoints$Length, main = "Histogram of Dart Points Length", xlab = "Maximum Length (mm)")
+   ```
+
+2. **Bar plots**: Used for categorical data to show the frequency or count for each category.
+   ```{r}
+   barplot(table(DartPoints$Blade.Sh), main = "Bar Plot of Blade Shape", xlab = "Blade Shape categories", names.arg = c("Excurvate", "Incurvate", "Recurvate", "Straight"))
+   ```
+
+3. **Box plots**: Visualize the relationship between one continuous variable and one categorical variable.
+   ```{r}
+   boxplot(Length ~ Blade.Sh, DartPoints, main = "Box Plot of Length vs Blade Shape", xlab = "Blade Shape categories", ylab = "Maximum Length (mm)", names = c("Excurvate", "Incurvate", "Recurvate", "Straight"))
+   ```
+   
+4. **Scatter plots**: Visualize the relationship between two continuous variables.
+   ```{r}
+   plot(DartPoints$Width, DartPoints$Length, main = "Scatter Plot of Length vs Width", xlab = "Maximum Width (mm)", ylab = "Maximum Length (mm)")
+   ```
+
+It is possible to customise the graphics much further, for example, by colouring (`col` argument) or using different point shapes (`pch` argument) in scatter plots:
+
+```{r}
+plot(DartPoints$Width, DartPoints$Length, 
+     col = DartPoints$Blade.Sh, # use factor as it is, plot() will convert it into colours
+     pch = as.numeric(DartPoints$Blade.Sh), # use factor index as code for symbols
+     main = "Scatter Plot of Length vs Width", 
+     xlab = "Maximum Width (mm)", ylab = "Maximum Length (mm)")
+```
+
+### Creating Multiple Plot Figures with `layout`
+- Use `layout()` to organize multiple plots in a single window.
+  ```{r}
+  layout(matrix(1:2, nrow = 1))
+  hist(DartPoints$Length, main = "Plot 1: histogram", xlab = "Maximum Length (mm)")
+  boxplot(DartPoints$Length, main = "Plot 2: boxplot")
+  ```
+  With the right combination of additional arguments, we are able to produce customised layouts for a combined plot:
+  ```{r}
+  layout(matrix(1:2, nrow = 2))
+  par(mar = c(0.1, 5, 1, 1))
+  hist(DartPoints$Length, xaxt='n', main = "Distribution of Maximum Length in the DartPoints dataset", xlab = "", ylab = "Frequency")
+  par(mar = c(5, 5, 0.1, 1))
+  boxplot(DartPoints$Length, horizontal = TRUE, xlab = "Maximum Length (mm)")
+  ```
+
+### Creating Plots in `ggplot2`
+
+`ggplot2` is an extensive package for creating complex and aesthetically pleasing graphics.
+
+```{r}
+library(ggplot2)
+```
+
+Here are a few examples using `ggplot2`:
+
+- **Histograms**:
+  ```{r, message = FALSE}
+  ggplot(DartPoints, aes(x = Length)) + 
+    geom_histogram() +
+    labs(title = "Histogram of Dart Points Length")
+  ```
+   
+- **Bar plots**:
+  ```{r, message = FALSE}
+  ggplot(DartPoints, aes(x = Blade.Sh)) + 
+    geom_bar() +
+    scale_x_discrete(labels = c("Excurvate", "Incurvate", "Recurvate", "Straight")) + 
+    labs(title = "Bar plot of Blade Shape", x = "Blade Shape categories")
+  ```
+
+- **Box plots**:
+  ```{r}
+  ggplot(DartPoints, aes(x = Blade.Sh, y = Length)) +
+    geom_boxplot() +
+    scale_x_discrete(labels = c("Excurvate", "Incurvate", "Recurvate", "Straight")) + 
+    labs(title = "Box Plot of Length vs Blade Shape", x = "Blade Shape categories", y = "Maximum Length (mm)")
+  ```
+  
+- **Scatter plots**:
+  ```{r}
+  ggplot(DartPoints, aes(x = Width, y = Length)) +
+    geom_point() +
+    labs(title = "Length vs Width")
+  ```
+
+As base R, `ggplot2` also allow customising graphics. Replicating the same example, we add colors and shape matching a categorical variable:
+
+```{r, message=FALSE}
+ggplot(DartPoints, aes(x = Width, y = Length, 
+                       color = Blade.Sh, # use factor as it is, ggplot() will convert it into colours
+                       shape = Blade.Sh)) + # use factor as it is, ggplot() will convert it into shapes
+  geom_point() +
+  labs(title = "Length vs Width by Blade Shape")
+```
+
+### Creating Multiple Plot Figures with `gridExtra::grid.arrange`
+
+`gridExtra::grid.arrange()` allows for multiple `ggplot2` plots in one layout.
+```{r, message=FALSE}
+library(gridExtra)
+p1 <- ggplot(DartPoints, aes(x = Length)) + geom_histogram()
+p2 <- ggplot(DartPoints, aes(x = factor(Blade.Sh))) + geom_bar() + xlab("Blade Shape categories")
+grid.arrange(p1, p2, ncol = 2)
+```
+
+### Base R Graphics and `ggplot2`: Comparative
+
+**Base R** is quick and requires less setup, ideal for simple exploratory analysis. It offers a more robust and flexible framework for building complex custom plots, containing multiple plot types and separated R objects.  
+
+**ggplot2** provides a grammar of graphics, which is more powerful and customizable for detailed visualizations. In general, it produces more attractive plots for public display and it is the best choice whenever the goal to produce a standard plot from a single dataset. 
+
+### Saving Plots: Opening and Closing Graphic Devices in R
+
+Use `png()`, `pdf()`, etc., to open graphic devices, giving at least the path and file name as argument, and `dev.off()` to close the device. After execution, the corresponding file will be created at the specified directory.
+
+```{r, eval=FALSE}
+png("myPlots/plot.png")
+plot(mtcars$mpg, mtcars$wt)
+dev.off()
+```
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+* @engel_data_nodate  
+* @noauthor_function_nodate  
+* @holtz_data_nodate  
+* @kabacoff_modern_nodate  
+* @holtz_r_nodate  
+* @qin_research_nodate  
+* @healy_data_nodate  
+
+:::
+
+## Interactive Visualizations
+
+### Introduction to Creating Interactive Visualizations
+
+Interactive visualizations enhance data exploration by allowing users to zoom, pan, hover, and filter elements in a plot. In R, libraries like `plotly` integrate with `ggplot2` and base graphics to turn static plots into interactive ones. The `plotly` package is particularly useful for creating dashboards and presentations, as it enables seamless transitions between static and interactive graphs.
+
+### Example: Building an Interactive Plot using `plotly` and `knitr`
+
+With `plotly` and `knitr` in R Markdown, you can embed interactive plots directly in a report.
+
+```{r, message=FALSE}
+# Load libraries
+library(plotly)
+library(knitr)
+
+# Change Blade.Sh levels to a full text form
+DartPoints$Blade.Sh <- factor(DartPoints$Blade.Sh,
+                              levels = c("E", "I", "R", "S"),
+                              labels = c("Excurvate", "Incurvate", "Recurvate", "Straight"))
+
+# Create a basic ggplot2 scatter plot
+p <- ggplot(DartPoints, aes(x = Width, y = Length, color = Blade.Sh)) +
+  geom_point(size = 2) +
+  labs(title = "Length vs Width by Blade Shape", color = "Blade Shape")
+
+# Convert ggplot2 object to plotly
+interactive_plot <- ggplotly(p)
+
+# Display the interactive plot
+interactive_plot
+```
+
+This example takes a `ggplot2` scatter plot and transforms it into an interactive visualization with `plotly`. You can embed this code in an R Markdown document to generate a shareable, interactive HTML report.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+* @engel_chapter_nodate  
+* @meo_creating_2023 
+* @collins_how_2020  
+* @majumder_guide_2021  
+* @nhs-r_community_plotting_2021
+
+:::
 
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}
 
-* Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).  
-* Create a Rmarkdown document or Notebook and give it a title, e.g. "Introduction to R: an exercise".
-* In this document, create a R code chunk to start working and create new chunks and markdown commentaries at every computation step, as you see fit.
-* Create a data.frame named “stone\_tools\_data” directly in R with the following characteristics (based on Carlson 2017, p. 26):  
-  * Set of six stone tools with inventory number  
-  * Recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.  
+* Create a **new project** in RStudio, placing it at the root directory of your own repository (cloned local branch). Inside, create a "data" and a "plots" subdirectories (i.e. folders).
+
+* Create a **Rmarkdown document** and give it a title, e.g. "Introduction to R: an exercise".
+
+* In this document, create a **R code chunk** to start working and create new chunks and markdown commentaries at every computation step, as you see fit.
+
+* Create a **data frame** named “stone\_tools\_data” directly in R (i.e. constructed by typing vectors and joining them by code) with the following characteristics (based on Carlson 2017, p. 26):  
+  * Set of **six** stone tools with inventory number  
+  * Variables or columns: recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.  
   * Data per object:  
     * LN15:  
       * Length: 18  
@@ -335,15 +788,25 @@ We will look into more details about this collection in @sec-compositional-data 
       * Thickness: 2  
       * Material type: obsidian  
       * Material provenance: non-local  
-* Check that the data and data types are coherent with the specifications. Save it as a CSV file and load it back as a new R object (e.g. “stone\_tools\_data2”). Compare.  
-* Create a plot showing the counts of objects made of chert and obsidian. Save it as a PNG file.  
-* Create a new variable (“type\_and\_provenance”) that combines type and provenance and create a plot showing the counts in each category. Save it as a PNG file.  
-* Create a single figure displaying the variable distribution of the three dimensions measured. Save it as both a PNG and a SVG file.  
-* Create a plot displaying the relationship between length and breadth. Save it as a PNG file.  
-* Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type\_and\_provenance”. Save it as both a PNG and a EPS file.  
+
+* Check that the data and data types are coherent with the specifications. Save it as a CSV file (stored in a "data" subdirectory) and load it back as a new R object (e.g. “stone\_tools\_data2”). Compare.  
+
+* Create a plot showing the counts of objects made of chert and obsidian. Save it as a PNG file in "plots" subdirectory.  
+
+* Create a new variable (“type\_and\_provenance”) that combines type and provenance and create a plot showing the counts in each category. Save it as a PNG file in "plots" subdirectory.  
+
+* Create a single figure displaying the variable distribution of the three dimensions measured. Save it as both a PNG and a SVG file in "plots" subdirectory.  
+
+* Create a plot displaying the relationship between length and breadth. Save it as a PNG file in "plots" subdirectory.  
+
+* Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type\_and\_provenance”. Save it as both a PNG and a EPS file in "plots" subdirectory.  
+
 * (EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?  
-* (EXTRA) Duplicate the Rmarkdown document, repeating the steps using `tidyverse` functions.
-* Commit all changes and push to the remote using RStudio.  
+
+* (EXTRA) Duplicate the Rmarkdown document and add "_tidyverse" to the file name. Inside, replicate all steps and  using `tidyverse` and `ggplot` functions.
+
+* Commit all changes and push to the remote using RStudio (use the buttons in the Git tab in the "Environments" panel on the top right).  
+
 * Q\&A and troubleshooting.
 
 :::

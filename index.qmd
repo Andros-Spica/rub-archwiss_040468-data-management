@@ -36,7 +36,9 @@ session_data$Block <- factor(session_data$Block, unique(session_data$Block))
 
 **Place** / **_Ort_**: Raum 2
 
-**Course instructors** / **_Kursleiter_**: Andreas Angourakis / Tim Klingenberg
+**Course instructors** / **_Kursleiter_**:  
+Andreas Angourakis  
+Tim Klingenberg
 
 **Support** / **_Unterstützung_**: Thomas Rose
 
