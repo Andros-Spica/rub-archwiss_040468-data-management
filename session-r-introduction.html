@@ -128,6 +128,14 @@ div.csl-indent {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <link rel="stylesheet" href="assets/styles.css">
@@ -347,20 +355,41 @@ div.csl-indent {
   <li><a href="#global-settings" id="toc-global-settings" class="nav-link" data-scroll-target="#global-settings"><span class="header-section-number">3.1.2</span> Global Settings</a></li>
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">3.1.3</span> RStudio Projects</a></li>
   <li><a href="#r-scripts-and-rmarkdown-notebooks" id="toc-r-scripts-and-rmarkdown-notebooks" class="nav-link" data-scroll-target="#r-scripts-and-rmarkdown-notebooks"><span class="header-section-number">3.1.4</span> R Scripts and Rmarkdown notebooks</a></li>
+  </ul></li>
+  <li><a href="#calculate-the-mean-of-a-vector" id="toc-calculate-the-mean-of-a-vector" class="nav-link" data-scroll-target="#calculate-the-mean-of-a-vector">Calculate the Mean of a Vector</a>
+  <ul class="collapse">
   <li><a href="#creating-or-editing-other-files" id="toc-creating-or-editing-other-files" class="nav-link" data-scroll-target="#creating-or-editing-other-files"><span class="header-section-number">3.1.5</span> Creating or editing other files</a></li>
   </ul></li>
   <li><a href="#r-syntax-and-workflow" id="toc-r-syntax-and-workflow" class="nav-link" data-scroll-target="#r-syntax-and-workflow"><span class="header-section-number">3.2</span> R syntax and workflow</a>
   <ul class="collapse">
   <li><a href="#basic-r-syntax-variables-and-data-types" id="toc-basic-r-syntax-variables-and-data-types" class="nav-link" data-scroll-target="#basic-r-syntax-variables-and-data-types"><span class="header-section-number">3.2.1</span> Basic R syntax: variables and data types</a></li>
-  <li><a href="#arithmetic-operations-logical-operations-in-r." id="toc-arithmetic-operations-logical-operations-in-r." class="nav-link" data-scroll-target="#arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.2</span> Arithmetic operations, logical operations in R.</a></li>
-  <li><a href="#algorithm-structures" id="toc-algorithm-structures" class="nav-link" data-scroll-target="#algorithm-structures"><span class="header-section-number">3.2.3</span> Algorithm structures</a></li>
-  <li><a href="#writing-and-executing-r-scripts" id="toc-writing-and-executing-r-scripts" class="nav-link" data-scroll-target="#writing-and-executing-r-scripts"><span class="header-section-number">3.2.4</span> Writing and executing R scripts</a></li>
-  <li><a href="#using-packages" id="toc-using-packages" class="nav-link" data-scroll-target="#using-packages"><span class="header-section-number">3.2.5</span> Using packages</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">3.2.2</span> Data structures</a></li>
+  <li><a href="#arithmetic-operations-logical-operations-in-r." id="toc-arithmetic-operations-logical-operations-in-r." class="nav-link" data-scroll-target="#arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.3</span> Arithmetic operations, logical operations in R.</a></li>
+  <li><a href="#algorithm-declaration" id="toc-algorithm-declaration" class="nav-link" data-scroll-target="#algorithm-declaration"><span class="header-section-number">3.2.4</span> Algorithm declaration</a></li>
+  <li><a href="#control-flow-structures" id="toc-control-flow-structures" class="nav-link" data-scroll-target="#control-flow-structures"><span class="header-section-number">3.2.5</span> <em>Control flow</em> structures</a></li>
+  <li><a href="#writing-and-executing-r-scripts" id="toc-writing-and-executing-r-scripts" class="nav-link" data-scroll-target="#writing-and-executing-r-scripts"><span class="header-section-number">3.2.6</span> Writing and executing R scripts</a></li>
+  <li><a href="#using-packages" id="toc-using-packages" class="nav-link" data-scroll-target="#using-packages"><span class="header-section-number">3.2.7</span> Using packages</a></li>
   </ul></li>
-  <li><a href="#basic-data-structures-in-r" id="toc-basic-data-structures-in-r" class="nav-link" data-scroll-target="#basic-data-structures-in-r"><span class="header-section-number">3.3</span> Basic Data Structures in R</a></li>
-  <li><a href="#data-manipulation-in-r" id="toc-data-manipulation-in-r" class="nav-link" data-scroll-target="#data-manipulation-in-r"><span class="header-section-number">3.4</span> Data Manipulation in R</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">3.5</span> Data Visualization</a></li>
-  <li><a href="#extrainteractive-visualizations" id="toc-extrainteractive-visualizations" class="nav-link" data-scroll-target="#extrainteractive-visualizations"><span class="header-section-number">3.6</span> (EXTRA)Interactive Visualizations</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">3.3</span> Data Manipulation</a>
+  <ul class="collapse">
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data"><span class="header-section-number">3.3.1</span> Importing data</a></li>
+  <li><a href="#basic-operations-on-data-structures" id="toc-basic-operations-on-data-structures" class="nav-link" data-scroll-target="#basic-operations-on-data-structures"><span class="header-section-number">3.3.2</span> Basic operations on data structures</a></li>
+  <li><a href="#using-dplyr-package" id="toc-using-dplyr-package" class="nav-link" data-scroll-target="#using-dplyr-package"><span class="header-section-number">3.3.3</span> Using <code>dplyr</code> Package</a></li>
+  </ul></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">3.4</span> Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#creating-plots-in-r-with-base-r-graphics" id="toc-creating-plots-in-r-with-base-r-graphics" class="nav-link" data-scroll-target="#creating-plots-in-r-with-base-r-graphics"><span class="header-section-number">3.4.1</span> Creating Plots in R with Base R Graphics</a></li>
+  <li><a href="#creating-multiple-plot-figures-with-layout" id="toc-creating-multiple-plot-figures-with-layout" class="nav-link" data-scroll-target="#creating-multiple-plot-figures-with-layout"><span class="header-section-number">3.4.2</span> Creating Multiple Plot Figures with <code>layout</code></a></li>
+  <li><a href="#creating-plots-in-ggplot2" id="toc-creating-plots-in-ggplot2" class="nav-link" data-scroll-target="#creating-plots-in-ggplot2"><span class="header-section-number">3.4.3</span> Creating Plots in <code>ggplot2</code></a></li>
+  <li><a href="#creating-multiple-plot-figures-with-gridextragrid.arrange" id="toc-creating-multiple-plot-figures-with-gridextragrid.arrange" class="nav-link" data-scroll-target="#creating-multiple-plot-figures-with-gridextragrid.arrange"><span class="header-section-number">3.4.4</span> Creating Multiple Plot Figures with <code>gridExtra::grid.arrange</code></a></li>
+  <li><a href="#base-r-graphics-and-ggplot2-comparative" id="toc-base-r-graphics-and-ggplot2-comparative" class="nav-link" data-scroll-target="#base-r-graphics-and-ggplot2-comparative"><span class="header-section-number">3.4.5</span> Base R Graphics and <code>ggplot2</code>: Comparative</a></li>
+  <li><a href="#saving-plots-opening-and-closing-graphic-devices-in-r" id="toc-saving-plots-opening-and-closing-graphic-devices-in-r" class="nav-link" data-scroll-target="#saving-plots-opening-and-closing-graphic-devices-in-r"><span class="header-section-number">3.4.6</span> Saving Plots: Opening and Closing Graphic Devices in R</a></li>
+  </ul></li>
+  <li><a href="#interactive-visualizations" id="toc-interactive-visualizations" class="nav-link" data-scroll-target="#interactive-visualizations"><span class="header-section-number">3.5</span> Interactive Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-creating-interactive-visualizations" id="toc-introduction-to-creating-interactive-visualizations" class="nav-link" data-scroll-target="#introduction-to-creating-interactive-visualizations"><span class="header-section-number">3.5.1</span> Introduction to Creating Interactive Visualizations</a></li>
+  <li><a href="#example-building-an-interactive-plot-using-plotly-and-knitr" id="toc-example-building-an-interactive-plot-using-plotly-and-knitr" class="nav-link" data-scroll-target="#example-building-an-interactive-plot-using-plotly-and-knitr"><span class="header-section-number">3.5.2</span> Example: Building an Interactive Plot using <code>plotly</code> and <code>knitr</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-r-introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -437,7 +466,7 @@ CHECK: R and RStudio installation
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="global-settings"><span class="header-section-number">3.1.2</span> Global Settings</h3>
 <p>To customize RStudio, go to Tools &gt; Global Options (or RStudio &gt; Preferences on macOS). Here, you can adjust various settings, including:</p>
 <ul>
-<li>General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify startup options.<br>
+<li>General: Setting the directory path where R has been installed (normally assigned automatically), your default working directory and specify start-up options.<br>
 </li>
 <li>Code: Configuring code formatting, autocompletion, and syntax highlighting settings.</li>
 <li>Appearance: Change the editor theme, font size, and other visual preferences.<br>
@@ -451,17 +480,15 @@ CHECK: R and RStudio installation
 <p>To create a new project in RStudio, follow these steps:</p>
 <ol type="1">
 <li>Go to File &gt; New Project.</li>
-<li>You’ll see three options:</li>
-</ol>
+<li>You’ll see three options:
 <ul>
-<li>New Directory: Create a project from scratch within a new folder. This is useful when starting a new analysis or project.<br>
+<li><em>New Directory</em>: Create a project from scratch within a new folder. This is useful when starting a completely new analysis or project.<br>
 </li>
-<li>Existing Directory: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts.<br>
+<li><em>Existing Directory</em>: Convert an existing folder into an RStudio project. Ideal for organizing already-existing files and scripts into a RStudio project.<br>
 </li>
-<li>Version Control: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.<br>
+<li><em>Version Control</em>: Clone a project from GitHub, GitLab, or other version control systems. This option is helpful when working with collaborative projects or version-tracked repositories.<br>
 </li>
-</ul>
-<ol start="3" type="1">
+</ul></li>
 <li>Select the appropriate option based on your needs. For example, if you choose New Directory, you can then select New Project, enter a project name, and specify the location to save it. Alternatively, if you are working with a GitHub repository, you could select Version Control to clone it directly into RStudio, creating a fully synchronized project environment.<br>
 </li>
 <li>Click Create Project. RStudio will open a new R session within the project’s directory.</li>
@@ -473,12 +500,13 @@ CHECK: R and RStudio installation
 <section id="scripts-.r-files" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="scripts-.r-files">Scripts (.R files)</h4>
 <ul>
-<li>Plain Text Format: Scripts are simple text files where you can write and save R code. They are best suited for running sequential code and writing reusable functions.<br>
+<li>Plain Text Format: Scripts are simple text files where you can write and save R code (.R file extension). They are best suited for running sequential code and writing reusable functions.<br>
 </li>
 <li>Execution: You can run code line-by-line or in chunks directly in the Console. Scripts are ideal for production workflows or larger projects where maintaining clear, reproducible code is a priority.<br>
 </li>
 <li>Comments: You can add comments for documentation, but scripts do not natively support rich formatting like Markdown.</li>
 </ul>
+<p>Example of a small R script, “print_mean_value.R”, followed by its output once executed:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of a numeric vector</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
@@ -490,13 +518,14 @@ CHECK: R and RStudio installation
 </div>
 <p>In this script, we define a vector, calculate its mean, and print the result. The focus is on the code itself, without additional formatting or documentation.</p>
 </section>
-<section id="notebooksrendered-notebooks-.rmd.qmd-files" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="notebooksrendered-notebooks-.rmd.qmd-files">Notebooks/Rendered notebooks (.Rmd/.qmd files)</h4>
+<section id="rmarkdown-documents-.rmd.qmd-files" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="rmarkdown-documents-.rmd.qmd-files">Rmarkdown documents (.Rmd/.qmd files)</h4>
 <ul>
-<li><p>Rich Content: Notebooks allow you to combine code with Markdown for text, making it easy to include formatted text, headings, images, and links alongside your code.</p></li>
-<li><p>Interactive Execution: Notebooks support interactive, cell-based execution, similar to <a href="https://jupyter.org/">Jupyter notebooks</a>. Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows.</p></li>
+<li><p>Rich Content: RStudio allows you to create and use special files, named RMarkdown (.Rmd file extension), that combine formatted text in Markdown (e.g.&nbsp;headings, images, and links) and executable pieces of code or code “chunks”. When added to a Rmarkdown, the code inside a chunk can be executed on-demand by clicking on the play button on its top right corner.</p></li>
+<li><p>Interactive Execution: Rmarkdown supports interactive, cell-based execution, similar to <a href="https://jupyter.org/">Jupyter notebooks</a>. Each code cell outputs results directly below it by default, which is useful for exploratory data analysis and iterative workflows.</p></li>
 <li><p>Output Options: Notebooks can be rendered into various formats, such as HTML, PDF, or Word, allowing you to create polished, shareable reports directly from your analysis. It is possible to have code being run and rendered with output directly into a HTML file by choosing <code>html_notebook</code>, a type of output that approaches the one of <a href="https://jupyter.org/">Jupyter notebooks</a>.</p></li>
 </ul>
+<p>Example of a small RMarkdown document, “mean_value_analysis.Rmd”:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -516,21 +545,35 @@ mean_value
 The mean of the vector is `r mean_value`.</code></pre>
 </div>
 </div>
-<p>In this notebook, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format.</p>
-<p>Scripts are optimal for code-centric work with minimal formatting, while notebooks offer a flexible, document-like interface ideal for combining narrative and code in a single file.</p>
+<p>In this document, Markdown is used to add a heading and text explanation, while the code chunk calculates and displays the mean. The output is shown directly below the code, creating an interactive, document-like format. Notice we can also use ` r object_name ` to print inside a markdown line the value of an R object, in this case a single number.</p>
+<p>How it would look in RStudio:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/RMarkdown-example.png" class="img-fluid figure-img"></p>
+<figcaption>RMarkdown example in RStudio</figcaption>
+</figure>
+</div>
+<p>And this is how it would be rendered in HTML:</p>
 </section>
 </section>
-<section id="creating-or-editing-other-files" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="creating-or-editing-other-files"><span class="header-section-number">3.1.5</span> Creating or editing other files</h3>
-<p>In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports creating and editing various other file types, making it a versatile environment for different types of content and workflows. To create a new file, go to File &gt; New File and select the desired file type.</p>
-<p>Some examples of files you can create and edit in RStudio include:</p>
-<ul>
-<li>Plain Text Files (.txt): Useful for notes, raw data, or configuration files.</li>
-<li>HTML Files (.html): For creating and editing web pages, especially useful for generating custom reports.</li>
-<li>Python Scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment if Python is installed on your computer.</li>
-<li>SQL Files (.sql): You can write and run SQL queries directly in RStudio when working with databases.</li>
-</ul>
-<p>To create a file with an extension not listed in RStudio, simply create a .txt file, modify its name and add the desired extension. This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.</p>
+</section>
+<section id="calculate-the-mean-of-a-vector" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="calculate-the-mean-of-a-vector">Calculate the Mean of a Vector</h2>
+<p>In this analysis, we calculate the mean of a simple numeric vector.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the numeric vector</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(numbers)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mean_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>The mean of the vector is 3.</p>
+<p>You can learn more about Rmarkdown at the <a href="https://rmarkdown.rstudio.com/lesson-1.html">Get Started tutorial</a> offered by its developers.</p>
+<p>In summary, <strong>scripts</strong> are optimal for code-centric work with minimal formatting, while <strong>Rmarkdown documents</strong> offer a flexible, document-like interface ideal for combining narrative and code in a single file.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -542,6 +585,37 @@ See also
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="grolemund_r_nodate">Grolemund (<a href="references.html#ref-grolemund_r_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_r_nodate"><span>“R <span>Markdown</span>”</span> (<a href="references.html#ref-noauthor_r_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_introduction_nodate"><span>“Introduction”</span> (<a href="references.html#ref-noauthor_introduction_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<section id="creating-or-editing-other-files" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="creating-or-editing-other-files"><span class="header-section-number">3.1.5</span> Creating or editing other files</h3>
+<p>In addition to R scripts (.R) and RMarkdown notebooks (.Rmd), RStudio supports creating and editing various other file types, making it a versatile environment for different types of content and workflows. To create a new file, go to File &gt; New File and select the desired file type.</p>
+<p>Some examples of files you can create and edit in RStudio include:</p>
+<ul>
+<li><strong>Plain Text</strong> files (.txt): Useful for notes, raw data, or configuration files.</li>
+<li><strong>HTML</strong> files (.html): For creating and editing web pages, especially useful for generating custom reports.</li>
+<li><strong>Python</strong> scripts (.py): RStudio supports Python, allowing you to write and execute Python code within the same environment if Python is installed on your computer.</li>
+<li><strong>SQL</strong> files (.sql): You can write and run <a href="https://www.w3schools.com/sql/sql_syntax.asp">SQL queries</a> directly in RStudio when working with databases.</li>
+</ul>
+<p>To create a file with an extension <strong><em>not</em></strong> listed in RStudio, simply create a plain text file (e.g., “newFile.txt”), modify its name and add the desired extension (e.g., “newFile.json”, “newFile.css”, etc.). This flexibility allows you to manage all parts of your project, from data processing to documentation, within RStudio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For more information about RStudio, consult:</p>
 <ul>
@@ -557,53 +631,85 @@ See also
 <h2 data-number="3.2" class="anchored" data-anchor-id="r-syntax-and-workflow"><span class="header-section-number">3.2</span> R syntax and workflow</h2>
 <section id="basic-r-syntax-variables-and-data-types" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="basic-r-syntax-variables-and-data-types"><span class="header-section-number">3.2.1</span> Basic R syntax: variables and data types</h3>
-<p>In R, variables are created by assigning values using the &lt;- operator. R supports various data types, including:</p>
+<p>In R, variables are created by assigning values using the <code>&lt;-</code> operator. R supports various data types, including:</p>
 <ul>
-<li>Numeric: Numbers, e.g., x &lt;- 10.5</li>
-<li>Integer: Whole numbers, declared with L, e.g., y &lt;- 3L</li>
-<li>Character: Text, surrounded by quotes, e.g., name &lt;- “Alice”</li>
-<li>Logical: Boolean values, TRUE or FALSE, e.g., is_true &lt;- TRUE</li>
-<li>Factor: Categorical data, useful for storing distinct categories, e.g., factor_var &lt;- factor(c(“Yes”, “No”, “Yes”))</li>
+<li><strong>Numeric</strong>: Numbers, e.g., <code>x &lt;- 10.5</code></li>
+<li><strong>Integer</strong>: Whole numbers, declared with L, e.g., <code>y &lt;- 3L</code></li>
+<li><strong>Character</strong>: Text, surrounded by quotes, e.g., <code>name &lt;- "Alice"</code></li>
+<li><strong>Logical</strong>: Boolean values, <code>TRUE</code> or <code>FALSE</code>, e.g., <code>is_true &lt;- TRUE</code></li>
+<li><strong>Factor</strong>: Categorical data, useful for storing distinct categories, and keeping both category names and indexed numeric value (see Data structures bellow).</li>
 </ul>
-<p>Variables store data for manipulation and analysis, forming the building blocks of R programming.</p>
+<p>Variables store data for manipulation and analysis, forming the building blocks of R programming. Variables and data structures (see bellow) can be all referred as “<strong>R objects</strong>”, and once created, they will appear listed in the Environment tab in the Environments panel (top right).</p>
 </section>
-<section id="arithmetic-operations-logical-operations-in-r." class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.2</span> Arithmetic operations, logical operations in R.</h3>
+<section id="data-structures" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">3.2.2</span> Data structures</h3>
+<p>Data structures are more complex objects that are also created using the <code>&lt;-</code> operator.</p>
+<ul>
+<li><p><strong>Vectors</strong>: The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with <code>c()</code>, e.g., <code>c(1, 2, 3)</code> or <code>c("a", "b", "c")</code>.</p></li>
+<li><p><strong>Matrices</strong>: Two-dimensional, homogeneous data structures (all elements are of the same type). Created using <code>matrix()</code>, e.g., <code>matrix(1:9, nrow = 3, ncol = 3)</code>.</p></li>
+<li><p><strong>Factor</strong>: A factor is a special case in-between a vector and a matrix, designed to facilitate operations with categorical variables. While a factor will often seem equivalent to a Character vector (e.g., <code>c("Yes", "No", "Yes")</code>), it will be treated as a two column matrix where character values are mapped to a numeric index, assigned arbitrarily. In this <em>n</em>x2 matrix, where <em>n</em> is the number of rows or elements in each column, each row is referred as “level”. To create a factor, we must use the primitive function <code>factor()</code> and give it a Character vector: e.g., <code>factor(c("Yes", "No", "Yes"))</code>.</p></li>
+<li><p><strong>Data Frames</strong>: Tabular data structures where each column can contain different data types (numeric, character, factor, etc.). Both columns and rows can be named. Data frames are created with <code>data.frame()</code>: e.g., <code>data.frame(x = 1:3, y = c("a", "b", "c"))</code>.</p></li>
+<li><p><strong>Lists</strong>: Collections of elements that can contain different types of data structures, such as vectors, data frames, or even other lists. All list elements can be assigned a specific name. To create a list, use <code>list()</code>: e.g., <code>list(a = 1, b = "text", c = TRUE, d = c(1, 2, 3))</code>.</p></li>
+</ul>
+<p>Each of these data structures supports a range of operations for data manipulation and can be essential in R for organizing and analysing data effectively.</p>
+</section>
+<section id="arithmetic-operations-logical-operations-in-r." class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="arithmetic-operations-logical-operations-in-r."><span class="header-section-number">3.2.3</span> Arithmetic operations, logical operations in R.</h3>
 <p>R supports a range of arithmetic and logical operations:</p>
 <ul>
-<li>Arithmetic Operations: Perform basic math on numbers.
+<li><em>Arithmetic Operations</em>: Perform basic mathematical operations on numbers (type <strong>Numeric</strong>).
 <ul>
-<li>Addition: <code>5 + 3</code></li>
-<li>Subtraction: <code>5 - 3</code></li>
-<li>Multiplication: <code>5 * 3</code></li>
-<li>Division: <code>5 / 3</code></li>
-<li>Exponentiation: <code>5 ^ 3</code></li>
-<li>Modulus: <code>5 %% 3</code> (remainder)</li>
+<li><strong>Addition</strong>: e.g., <code>5 + 3</code></li>
+<li><strong>Subtraction</strong>: e.g., <code>5 - 3</code></li>
+<li><strong>Multiplication</strong>: e.g., <code>5 * 3</code></li>
+<li><strong>Division</strong>: e.g., <code>5 / 3</code></li>
+<li><strong>Exponentiation</strong>: <code>5 ^ 3</code></li>
+<li><strong>Modulus</strong>: <code>5 %% 3</code> (remainder)</li>
 </ul></li>
-<li>Logical Operations: Compare values, returning TRUE or FALSE.
+<li><em>Logical Operations</em>: Compare values (any type), returning Boolean values (type Logical <code>TRUE</code> or <code>FALSE</code>).
 <ul>
-<li>Equal to: <code>5 == 3</code></li>
-<li>Not equal to: <code>5 != 3</code></li>
-<li>Greater than: <code>5 &gt; 3</code></li>
-<li>Less than: <code>5 &lt; 3</code></li>
-<li>Logical <strong>AND</strong>: <code>TRUE &amp; FALSE</code></li>
-<li>Logical <strong>OR</strong>: <code>TRUE | FALSE</code></li>
+<li><strong>Equal to</strong>: e.g., <code>5 == 3</code></li>
+<li><strong>Not equal to</strong>: e.g., <code>5 != 3</code></li>
+<li><strong>Greater than</strong>: e.g., <code>5 &gt; 3</code></li>
+<li><strong>Less than</strong>: e.g., <code>5 &lt; 3</code></li>
+<li>Logical <strong>AND</strong>: e.g., <code>TRUE &amp; FALSE</code></li>
+<li>Logical <strong>OR</strong>: e.g., <code>TRUE | FALSE</code></li>
 </ul></li>
 </ul>
 </section>
-<section id="algorithm-structures" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="algorithm-structures"><span class="header-section-number">3.2.3</span> Algorithm structures</h3>
-<p>R provides basic control structures for implementing algorithms:</p>
+<section id="algorithm-declaration" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="algorithm-declaration"><span class="header-section-number">3.2.4</span> Algorithm declaration</h3>
+<p>An algorithm is a step-by-step set of instructions used to solve a problem or perform a task, enabling computers to process data efficiently. Algorithms are normally fixed as re-usable code in the form of functions (or methods, depending on the programming language). These might take (or require) certain <strong>input</strong> variables, named “arguments” or “parameters”, and return certain <strong>output</strong> variables.</p>
+<p>In R, a function can be declared (i.e., created for later use) by using the keyword <code>funtion()</code>, which is in itself a function already declared in R by default (i.e., a “primitive” function).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., <code>funtion(a, b)</code>) and use the same names inside the function’s code, enclosed by curly brackets (e.g., <code>{ return(a + b) }</code>). In R, a function’s output is always a single R object, enclosed as an argument of another primitive function, <code>return()</code> (e.g., <code>return(a + b)</code>).</p>
+<p>Once declared, a function will be available or “loaded in the R session” for further use, using whatever values we assign to its input variables. For example, when <code>a = 3</code> and <code>b = 5</code>, <code>add_numbers()</code> will return:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">add_numbers</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section id="control-flow-structures" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="control-flow-structures"><span class="header-section-number">3.2.5</span> <em>Control flow</em> structures</h3>
+<p>In programming, algorithms are executed through structured pathways known as <em>control flow structures</em>, determining the order in which instructions are carried out. Control flow structures include sequence (executing statements in order), selection (using conditions like “if” statements), and iteration (looping through repeated instructions). These structures direct the program’s execution path, ensuring it meets the logical requirements of the algorithm and reaches a solution effectively <span class="citation" data-cites="noauthor_control_2024 noauthor_control_2020">(<a href="references.html#ref-noauthor_control_2024" role="doc-biblioref"><span>“Control Flow”</span> 2024</a>; <a href="references.html#ref-noauthor_control_2020" role="doc-biblioref"><span>“Control <span>Structures</span> in <span>Programming</span> <span>Languages</span>”</span> 2020</a>)</span>.</p>
+<p>R provides basic control flow structures for implementing algorithms:</p>
 <ul>
 <li><code>if</code> and <code>else</code>: Execute code based on a condition.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is greater than 5"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is not greater than 5"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is greater than 5"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is not greater than 5"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x is greater than 5"</code></pre>
 </div>
@@ -612,11 +718,11 @@ See also
 <li><code>while</code> loop: Repeat code while a condition is true.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 2
@@ -625,52 +731,66 @@ See also
 [1] 5</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Getting help
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While learning R and its extensive <em>vocabulary</em>, it is useful to know where to get help. Beyond searching for specific questions online (always a good option), it can be clarifying enough to read the relevant fragment of R documentation.</p>
+<p>There are mainly two ways of accessing R documentation:</p>
 <ul>
-<li><code>funtion</code>: Encapsulate code into reusable blocks.</li>
+<li><p><strong>Console command</strong>: In the R console, type <code>?</code> followed by the name of a function (e.g., <code>?factor</code>) or a canonical dataset (e.g., <code>?iris</code>, see Importing data).</p></li>
+<li><p><strong>RStudio Help tab</strong>: Go the Help tab in the Output area of RStudio’s interface (bottom left), and using the search field (top right in Help), type the name of a function or canonical dataset.</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">add_numbers</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
+<p>The R documentation entry for a function explains briefly:</p>
+<ul>
+<li>what it does (“Description”)</li>
+<li>what arguments it takes (“Arguments”)</li>
+<li>what values it outputs (“Value”)</li>
+<li>additional information about its behaviour (“Details”, etc.)</li>
+<li>related bibliographic references (“References”)</li>
+<li>use examples in code (“Examples”)</li>
+</ul>
+<p>Notice that sometimes one documentation entry might be related to an entire group of functions. For example, the entry on <code>factor()</code> also refers to <code>as.factor()</code> and <code>is.factor()</code>, among others.</p>
 </div>
 </div>
 </section>
-<section id="writing-and-executing-r-scripts" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="writing-and-executing-r-scripts"><span class="header-section-number">3.2.4</span> Writing and executing R scripts</h3>
+<section id="writing-and-executing-r-scripts" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="writing-and-executing-r-scripts"><span class="header-section-number">3.2.6</span> Writing and executing R scripts</h3>
 <p>To create and run an R script:</p>
 <ol type="1">
 <li><p>Go to File &gt; New File &gt; R Script in RStudio.</p></li>
 <li><p>Write your code in the editor. For example:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple R Script</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple R Script</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Highlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.</li>
 </ol>
 </section>
-<section id="using-packages" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="using-packages"><span class="header-section-number">3.2.5</span> Using packages</h3>
+<section id="using-packages" class="level3" data-number="3.2.7">
+<h3 data-number="3.2.7" class="anchored" data-anchor-id="using-packages"><span class="header-section-number">3.2.7</span> Using packages</h3>
 <p>Packages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.</p>
 <section id="installing-and-loading-packages" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="installing-and-loading-packages">Installing and loading packages</h4>
-<p>To install a package, use the install.packages() function. For example, to install the ggplot2 package:</p>
+<p>To install a package, use the <code>install.packages()</code> function. For example, to install the ggplot2 package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you may use the GUI Wizard in Tools &gt; Install Packages…, where an autocomplete feature will help selecting packages exact names.</p>
 <p>Once installed, load the package with the <code>library()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can access the functions within <code>ggplot2</code> and any other loaded package. You only need to install a package once, but you must load it in each new session.</p>
 </section>
@@ -687,8 +807,8 @@ See also
 </ul>
 <p>The installation and use of the entire tidyverse works as a single package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e.&nbsp;other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.</p>
 </section>
@@ -697,55 +817,540 @@ See also
 <p>The <a href="https://www.tesselle.org/"><code>tesselle</code></a> collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data <span class="citation" data-cites="frerebeau_tesselle_2023 noauthor_tesselle_nodate">(<a href="references.html#ref-frerebeau_tesselle_2023" role="doc-biblioref">Frerebeau 2023</a>; <a href="references.html#ref-noauthor_tesselle_nodate" role="doc-biblioref"><span>“Tesselle: <span>R</span> <span>Packages</span> &amp; <span>Archaeology</span>”</span> n.d.</a>)</span>.</p>
 <p>Install the complete suite with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will look into more details about this collection in <a href="session-compositional-data.html" class="quarto-xref"><span>Chapter 6</span></a> and <a href="session-count-and-seriation.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
 </section>
 </section>
 </section>
-<section id="basic-data-structures-in-r" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="basic-data-structures-in-r"><span class="header-section-number">3.3</span> Basic Data Structures in R</h2>
+<section id="data-manipulation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">3.3</span> Data Manipulation</h2>
+<section id="importing-data" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="importing-data"><span class="header-section-number">3.3.1</span> Importing data</h3>
+<section id="reading-csv-files" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="reading-csv-files">Reading CSV Files</h4>
+<p>To read data from a CSV file, use the <code>read.csv()</code> or <code>read_csv()</code> function from the <code>readr</code> package. The <code>read.csv()</code> function is part of base R and handles typical CSV formats, while <code>read_csv()</code> is optimized for speed and flexibility in handling larger files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path/to/file.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package (installation required)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path/to/file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="writing-csv-files" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="writing-csv-files">Writing CSV Files</h4>
+<p>To save your data as a CSV file, use the <code>write.csv()</code> or <code>write_csv()</code> functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-canonical-datasets" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="using-canonical-datasets">Using Canonical Datasets</h4>
+<p>R includes several built-in or “canonical” datasets, like <code>iris</code>, useful for having a common benchmark for testing and giving examples. Other canonical datasets are available inside packages dedicated specialized fields, like <code>archdata</code> containing several archaeological datasets. To load a canonical dataset, use <code>data()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the built-in iris dataset</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DartPoints dataset from the archdata package</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"DartPoints"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As long as the dataset is from base R, we can skip the loading step and use the dataset directly in an operation by using its name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out how many columns the iris dataset have </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="basic-operations-on-data-structures" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="basic-operations-on-data-structures"><span class="header-section-number">3.3.2</span> Basic operations on data structures</h3>
+<section id="addingremoving-elements" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="addingremoving-elements">Adding/Removing Elements</h4>
 <ul>
-<li>Vectors, matrices, data frames, lists.<br>
-</li>
-<li>Basic operations on data structures (indexing, subsetting, adding/removing elements).</li>
+<li><p><strong>Adding Elements</strong>: Use functions like <code>cbind()</code> for columns and <code>rbind()</code> for rows to add elements to data frames and matrices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a column</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>  <span class="co"># Adding column using $</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a row</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="dv">7</span>, <span class="at">z =</span> <span class="dv">10</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df, new_row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Removing Elements</strong>: Use <code>NULL</code> assignment or <code>subset()</code> to remove columns or rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing a column</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing rows by index</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
-<section id="data-manipulation-in-r" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-manipulation-in-r"><span class="header-section-number">3.4</span> Data Manipulation in R</h2>
+<section id="indexing" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="indexing">Indexing</h4>
+<ol type="1">
+<li><p><strong>Numeric Indexing</strong>: Access elements by specifying their position.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, <span class="dv">2</span>]  <span class="co"># First row, second column</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]  <span class="co"># First three rows, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Logical Indexing</strong>: Filter based on logical conditions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>y <span class="sc">&gt;</span> <span class="dv">5</span>, ]  <span class="co"># Rows where column y &gt; 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Column Selection</strong>: Access columns by <code>$</code> (column name) or numeric index.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>x  <span class="co"># Access column by name</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]  <span class="co"># Access first column by index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Row Selection</strong>: Filter rows with conditions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]  <span class="co"># First two rows</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>x <span class="sc">&gt;</span> <span class="dv">2</span>, ]  <span class="co"># Rows where column x &gt; 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Combining Indexing</strong>: Combine row and column filters for specific elements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)]  <span class="co"># First two rows, columns x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="subsetting-subset" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="subsetting-subset">Subsetting (<code>subset</code>)</h4>
 <ul>
-<li>Importing data: reading data from CSV files, using canonical datasets (<code>iris</code>, <code>archdata::DartPoints</code>).<br>
-</li>
-<li>Basic data manipulation using base R (<code>subset</code>, <code>merge</code>, <code>apply</code> functions).<br>
-</li>
-<li>Introduction to <code>dplyr</code> package for data manipulation (filtering, selecting, mutating data).</li>
+<li><p>The <code>subset()</code> function provides an easy way to filter data by specifying conditions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">6</span>)  <span class="co"># Filter rows where x &gt; 2 and y &lt; 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
-<section id="data-visualization" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">3.5</span> Data Visualization</h2>
+<section id="joining-or-merging-merge" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="joining-or-merging-merge">Joining or Merging (<code>merge</code>)</h4>
 <ul>
-<li>Introduction to plots: histograms, bar plots, scatter plots.<br>
-</li>
-<li>Creating plots in R with base R graphics.<br>
-</li>
-<li>Creating multiple plot figures with <code>layout</code>.<br>
-</li>
-<li>Creating plots in <code>ggplot2</code>.<br>
-</li>
-<li>Creating multiple plot figures with <code>gridExtra::grid.arrange</code>.<br>
-</li>
-<li>Base R graphics and <code>ggplot2</code>: comparative<br>
-</li>
-<li>Saving plots: open and closing graphic devices in R.</li>
+<li><p>Use <code>merge()</code> to combine two data frames based on a common key or column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>merged_df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
-<section id="extrainteractive-visualizations" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="extrainteractive-visualizations"><span class="header-section-number">3.6</span> (EXTRA)Interactive Visualizations</h2>
+<section id="modifying-elements-with-functions-apply" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="modifying-elements-with-functions-apply">Modifying Elements with Functions (<code>apply</code>)</h4>
 <ul>
-<li>Introduction to creating interactive visualizations.<br>
-</li>
-<li>Example: Building an interactive plot using <code>plotly</code> and <code>knitr</code>.</li>
+<li><p>The <code>apply()</code> function allows operations across rows or columns of a data frame or matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across rows (1 indicates rows)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">1</span>, sum)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across columns (2 indicates columns)</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">2</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_indexing_nodate"><span>“Indexing — <span>R</span> <span>Spatial</span>”</span> (<a href="references.html#ref-noauthor_indexing_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="phillips_yarrr_nodate">Phillips (<a href="references.html#ref-phillips_yarrr_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_indexing_2022"><span>“Indexing and <span>Slicing</span> <span>Data</span> <span>Frames</span> in <span>R</span>”</span> (<a href="references.html#ref-noauthor_indexing_2022" role="doc-biblioref">2022</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_subsetting_nodate"><span>“Subsetting <span>Data</span> <span></span> <span>R</span> <span>Learning</span> <span>Modules</span>”</span> (<a href="references.html#ref-noauthor_subsetting_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_indexing_nodate-1"><span>“Indexing into a Data Structure”</span> (<a href="references.html#ref-noauthor_indexing_nodate-1" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-dplyr-package" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="using-dplyr-package"><span class="header-section-number">3.3.3</span> Using <code>dplyr</code> Package</h3>
+<p>The <code>dplyr</code> package in R provides a suite of functions to manipulate data in a streamlined and readable way. Key functions include those for filtering, selecting, and mutating data, which help manage data subsets, reorganize columns, and create new variables.</p>
+<ol type="1">
+<li><strong>Filtering Data</strong>
+<ul>
+<li>Use <code>filter()</code> to select rows based on conditions. Multiple conditions can be combined with <code>&amp;</code> (and) or <code>|</code> (or).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(column1 <span class="sc">&gt;</span> <span class="dv">10</span>, column2 <span class="sc">==</span> <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><strong>Selecting Columns</strong>
+<ul>
+<li>Use <code>select()</code> to choose specific columns by name. You can use <code>:</code> to select a range of columns or <code>-</code> to exclude columns.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(column1, column2)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>column3)  <span class="co"># Exclude column3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><strong>Mutating Data</strong>
+<ul>
+<li>The <code>mutate()</code> function creates new columns or modifies existing ones by performing calculations or transformations on current columns.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">new_column =</span> column1 <span class="sc">*</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+<p>These functions are especially powerful when combined in recursive structures or “pipelines” using <code>%&gt;%</code> to streamline data manipulation tasks.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_grammar_nodate"><span>“A <span>Grammar</span> of <span>Data</span> <span>Manipulation</span>”</span> (<a href="references.html#ref-noauthor_grammar_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_data_nodate"><span>“Data: Starwars”</span> (<a href="references.html#ref-noauthor_data_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_aggregating_nodate"><span>“Aggregating and Analyzing Data with Dplyr”</span> (<a href="references.html#ref-noauthor_aggregating_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_dplyr_2020"><span>“Dplyr <span>Package</span> in <span>R</span> <span>Programming</span>”</span> (<a href="references.html#ref-noauthor_dplyr_2020" role="doc-biblioref">2020</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="bhalla_dplyr_nodate">Bhalla (<a href="references.html#ref-bhalla_dplyr_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-visualization" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">3.4</span> Data Visualization</h2>
+<p>Let us load the <code>DartPoints</code> dataset from the <code>archdata</code> package and use it in the examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DartPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="creating-plots-in-r-with-base-r-graphics" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="creating-plots-in-r-with-base-r-graphics"><span class="header-section-number">3.4.1</span> Creating Plots in R with Base R Graphics</h3>
+<p>Base R provides quick ways to create plots using functions like <code>plot()</code>, <code>hist()</code>, <code>barplot()</code>, and <code>boxplot()</code>.</p>
+<ol type="1">
+<li><p><strong>Histograms</strong>: Display the distribution of a single continuous variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Histogram of Dart Points Length"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-31-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Bar plots</strong>: Used for categorical data to show the frequency or count for each category.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="at">main =</span> <span class="st">"Bar Plot of Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-32-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Box plots</strong>: Visualize the relationship between one continuous variable and one categorical variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Length <span class="sc">~</span> Blade.Sh, DartPoints, <span class="at">main =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-33-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Scatter plots</strong>: Visualize the relationship between two continuous variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-34-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ol>
+<p>It is possible to customise the graphics much further, for example, by colouring (<code>col</code> argument) or using different point shapes (<code>pch</code> argument) in scatter plots:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> DartPoints<span class="sc">$</span>Blade.Sh, <span class="co"># use factor as it is, plot() will convert it into colours</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="fu">as.numeric</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="co"># use factor index as code for symbols</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-35-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-multiple-plot-figures-with-layout" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="creating-multiple-plot-figures-with-layout"><span class="header-section-number">3.4.2</span> Creating Multiple Plot Figures with <code>layout</code></h3>
+<ul>
+<li><p>Use <code>layout()</code> to organize multiple plots in a single window.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">1</span>))</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 1: histogram"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 2: boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-36-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With the right combination of additional arguments, we are able to produce customised layouts for a combined plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">main =</span> <span class="st">"Distribution of Maximum Length in the DartPoints dataset"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="fl">0.1</span>, <span class="dv">1</span>))</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-37-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="creating-plots-in-ggplot2" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="creating-plots-in-ggplot2"><span class="header-section-number">3.4.3</span> Creating Plots in <code>ggplot2</code></h3>
+<p><code>ggplot2</code> is an extensive package for creating complex and aesthetically pleasing graphics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here are a few examples using <code>ggplot2</code>:</p>
+<ul>
+<li><p><strong>Histograms</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Dart Points Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-39-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Bar plots</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bar plot of Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-40-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Box plots</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">y =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-41-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Scatter plots</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-42-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+<p>As base R, <code>ggplot2</code> also allow customising graphics. Replicating the same example, we add colors and shape matching a categorical variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> Blade.Sh, <span class="co"># use factor as it is, ggplot() will convert it into colours</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">shape =</span> Blade.Sh)) <span class="sc">+</span> <span class="co"># use factor as it is, ggplot() will convert it into shapes</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-43-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-multiple-plot-figures-with-gridextragrid.arrange" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="creating-multiple-plot-figures-with-gridextragrid.arrange"><span class="header-section-number">3.4.4</span> Creating Multiple Plot Figures with <code>gridExtra::grid.arrange</code></h3>
+<p><code>gridExtra::grid.arrange()</code> allows for multiple <code>ggplot2</code> plots in one layout.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Blade.Sh))) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Blade Shape categories"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-r-introduction_files/figure-html/unnamed-chunk-44-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="base-r-graphics-and-ggplot2-comparative" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="base-r-graphics-and-ggplot2-comparative"><span class="header-section-number">3.4.5</span> Base R Graphics and <code>ggplot2</code>: Comparative</h3>
+<p><strong>Base R</strong> is quick and requires less setup, ideal for simple exploratory analysis. It offers a more robust and flexible framework for building complex custom plots, containing multiple plot types and separated R objects.</p>
+<p><strong>ggplot2</strong> provides a grammar of graphics, which is more powerful and customizable for detailed visualizations. In general, it produces more attractive plots for public display and it is the best choice whenever the goal to produce a standard plot from a single dataset.</p>
+</section>
+<section id="saving-plots-opening-and-closing-graphic-devices-in-r" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="saving-plots-opening-and-closing-graphic-devices-in-r"><span class="header-section-number">3.4.6</span> Saving Plots: Opening and Closing Graphic Devices in R</h3>
+<p>Use <code>png()</code>, <code>pdf()</code>, etc., to open graphic devices, giving at least the path and file name as argument, and <code>dev.off()</code> to close the device. After execution, the corresponding file will be created at the specified directory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"myPlots/plot.png"</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="engel_data_nodate">Engel (<a href="references.html#ref-engel_data_nodate" role="doc-biblioref">n.d.b</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_function_nodate"><span>“Function Reference”</span> (<a href="references.html#ref-noauthor_function_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="holtz_data_nodate">Holtz (<a href="references.html#ref-holtz_data_nodate" role="doc-biblioref">n.d.a</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="kabacoff_modern_nodate">Kabacoff (<a href="references.html#ref-kabacoff_modern_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="holtz_r_nodate">Holtz (<a href="references.html#ref-holtz_r_nodate" role="doc-biblioref">n.d.b</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="qin_research_nodate">Qin (<a href="references.html#ref-qin_research_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="healy_data_nodate">Healy (<a href="references.html#ref-healy_data_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="interactive-visualizations" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="interactive-visualizations"><span class="header-section-number">3.5</span> Interactive Visualizations</h2>
+<section id="introduction-to-creating-interactive-visualizations" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="introduction-to-creating-interactive-visualizations"><span class="header-section-number">3.5.1</span> Introduction to Creating Interactive Visualizations</h3>
+<p>Interactive visualizations enhance data exploration by allowing users to zoom, pan, hover, and filter elements in a plot. In R, libraries like <code>plotly</code> integrate with <code>ggplot2</code> and base graphics to turn static plots into interactive ones. The <code>plotly</code> package is particularly useful for creating dashboards and presentations, as it enables seamless transitions between static and interactive graphs.</p>
+</section>
+<section id="example-building-an-interactive-plot-using-plotly-and-knitr" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="example-building-an-interactive-plot-using-plotly-and-knitr"><span class="header-section-number">3.5.2</span> Example: Building an Interactive Plot using <code>plotly</code> and <code>knitr</code></h3>
+<p>With <code>plotly</code> and <code>knitr</code> in R Markdown, you can embed interactive plots directly in a report.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Blade.Sh levels to a full text form</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>DartPoints<span class="sc">$</span>Blade.Sh <span class="ot">&lt;-</span> <span class="fu">factor</span>(DartPoints<span class="sc">$</span>Blade.Sh,</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>, <span class="st">"S"</span>),</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a basic ggplot2 scatter plot</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, <span class="at">color =</span> Blade.Sh)) <span class="sc">+</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>, <span class="at">color =</span> <span class="st">"Blade Shape"</span>)</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ggplot2 object to plotly</span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(p)</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-568056d60a78a8cd631d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-568056d60a78a8cd631d">{"x":{"data":[{"x":[18.699999999999999,17.5,15.800000000000001,14.5,14.6,16.600000000000001,16.699999999999999,16.5,16.300000000000001,17.399999999999999,20.300000000000001,19.199999999999999,20.399999999999999,20.300000000000001,21,25.100000000000001,21.399999999999999,27.800000000000001,27.199999999999999,28.5,22.800000000000001,27.300000000000001,21.199999999999999,26.899999999999999,28.100000000000001,26.899999999999999,29.600000000000001,25.199999999999999,30.399999999999999,27.199999999999999,22,26.800000000000001,21.100000000000001,22.399999999999999,21.300000000000001,18.899999999999999,21.399999999999999,21.5,20.899999999999999,29.600000000000001,24.399999999999999,19.300000000000001],"y":[48.5,47.700000000000003,33.600000000000001,32.399999999999999,42.200000000000003,33.5,41.799999999999997,38,35.5,33.100000000000001,47.600000000000001,42.299999999999997,38.299999999999997,50.600000000000001,54.200000000000003,42.100000000000001,34.899999999999999,53.5,66,64.5,59,55.299999999999997,84,48,78.299999999999997,57.200000000000003,52,61.100000000000001,70.400000000000006,64.099999999999994,55,44.799999999999997,56.5,54.600000000000001,46.299999999999997,57.600000000000001,49.100000000000001,64.599999999999994,69,53.100000000000001,58.899999999999999,55.399999999999999],"text":["Width: 18.7<br />Length:  48.5<br />Blade.Sh: Excurvate","Width: 17.5<br />Length:  47.7<br />Blade.Sh: Excurvate","Width: 15.8<br />Length:  33.6<br />Blade.Sh: Excurvate","Width: 14.5<br />Length:  32.4<br />Blade.Sh: Excurvate","Width: 14.6<br />Length:  42.2<br />Blade.Sh: Excurvate","Width: 16.6<br />Length:  33.5<br />Blade.Sh: Excurvate","Width: 16.7<br />Length:  41.8<br />Blade.Sh: Excurvate","Width: 16.5<br />Length:  38.0<br />Blade.Sh: Excurvate","Width: 16.3<br />Length:  35.5<br />Blade.Sh: Excurvate","Width: 17.4<br />Length:  33.1<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  47.6<br />Blade.Sh: Excurvate","Width: 19.2<br />Length:  42.3<br />Blade.Sh: Excurvate","Width: 20.4<br />Length:  38.3<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  50.6<br />Blade.Sh: Excurvate","Width: 21.0<br />Length:  54.2<br />Blade.Sh: Excurvate","Width: 25.1<br />Length:  42.1<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  34.9<br />Blade.Sh: Excurvate","Width: 27.8<br />Length:  53.5<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  66.0<br />Blade.Sh: Excurvate","Width: 28.5<br />Length:  64.5<br />Blade.Sh: Excurvate","Width: 22.8<br />Length:  59.0<br />Blade.Sh: Excurvate","Width: 27.3<br />Length:  55.3<br />Blade.Sh: Excurvate","Width: 21.2<br />Length:  84.0<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  48.0<br />Blade.Sh: Excurvate","Width: 28.1<br />Length:  78.3<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  57.2<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  52.0<br />Blade.Sh: Excurvate","Width: 25.2<br />Length:  61.1<br />Blade.Sh: Excurvate","Width: 30.4<br />Length:  70.4<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  64.1<br />Blade.Sh: Excurvate","Width: 22.0<br />Length:  55.0<br />Blade.Sh: Excurvate","Width: 26.8<br />Length:  44.8<br />Blade.Sh: Excurvate","Width: 21.1<br />Length:  56.5<br />Blade.Sh: Excurvate","Width: 22.4<br />Length:  54.6<br />Blade.Sh: Excurvate","Width: 21.3<br />Length:  46.3<br />Blade.Sh: Excurvate","Width: 18.9<br />Length:  57.6<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  49.1<br />Blade.Sh: Excurvate","Width: 21.5<br />Length:  64.6<br />Blade.Sh: Excurvate","Width: 20.9<br />Length:  69.0<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  53.1<br />Blade.Sh: Excurvate","Width: 24.4<br />Length:  58.9<br />Blade.Sh: Excurvate","Width: 19.3<br />Length:  55.4<br />Blade.Sh: Excurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Excurvate","legendgroup":"Excurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20.699999999999999,15.9,17.5,22.800000000000001],"y":[40.299999999999997,34.5,38,45.200000000000003],"text":["Width: 20.7<br />Length:  40.3<br />Blade.Sh: Incurvate","Width: 15.9<br />Length:  34.5<br />Blade.Sh: Incurvate","Width: 17.5<br />Length:  38.0<br />Blade.Sh: Incurvate","Width: 22.8<br />Length:  45.2<br />Blade.Sh: Incurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(124,174,0,1)"}},"hoveron":"points","name":"Incurvate","legendgroup":"Incurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[27.899999999999999,20.899999999999999,27.100000000000001],"y":[60,48.100000000000001,67.200000000000003],"text":["Width: 27.9<br />Length:  60.0<br />Blade.Sh: Recurvate","Width: 20.9<br />Length:  48.1<br />Blade.Sh: Recurvate","Width: 27.1<br />Length:  67.2<br />Blade.Sh: Recurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Recurvate","legendgroup":"Recurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[15.800000000000001,17.399999999999999,16.300000000000001,16.100000000000001,17.100000000000001,16.800000000000001,15.6,16,19.800000000000001,23.300000000000001,20.100000000000001,20.800000000000001,20,21.800000000000001,22.5,18.600000000000001,49.299999999999997,31.699999999999999,25.300000000000001,21,23.100000000000001,24.399999999999999,24.300000000000001,22.600000000000001,20.899999999999999,31.600000000000001,18.5,28.100000000000001,25.800000000000001,18.399999999999999,19.199999999999999,17.899999999999999,21.5,19.699999999999999,22.600000000000001,26,25.100000000000001,18.899999999999999,21.100000000000001,24.699999999999999],"y":[42.799999999999997,40.5,37.5,40.299999999999997,30.600000000000001,41.799999999999997,31.199999999999999,32,38.100000000000001,44.200000000000003,43.5,42.100000000000001,43.100000000000001,37.5,55.200000000000003,42.5,109.5,59.799999999999997,52.799999999999997,43.700000000000003,43.200000000000003,49,46.399999999999999,56.200000000000003,47.100000000000001,65,35.399999999999999,61.299999999999997,49.100000000000001,40.100000000000001,41.5,46.299999999999997,39.600000000000001,41.200000000000003,45,54.200000000000003,65.400000000000006,45.799999999999997,49.100000000000001,63.100000000000001],"text":["Width: 15.8<br />Length:  42.8<br />Blade.Sh: Straight","Width: 17.4<br />Length:  40.5<br />Blade.Sh: Straight","Width: 16.3<br />Length:  37.5<br />Blade.Sh: Straight","Width: 16.1<br />Length:  40.3<br />Blade.Sh: Straight","Width: 17.1<br />Length:  30.6<br />Blade.Sh: Straight","Width: 16.8<br />Length:  41.8<br />Blade.Sh: Straight","Width: 15.6<br />Length:  31.2<br />Blade.Sh: Straight","Width: 16.0<br />Length:  32.0<br />Blade.Sh: Straight","Width: 19.8<br />Length:  38.1<br />Blade.Sh: Straight","Width: 23.3<br />Length:  44.2<br />Blade.Sh: Straight","Width: 20.1<br />Length:  43.5<br />Blade.Sh: Straight","Width: 20.8<br />Length:  42.1<br />Blade.Sh: Straight","Width: 20.0<br />Length:  43.1<br />Blade.Sh: Straight","Width: 21.8<br />Length:  37.5<br />Blade.Sh: Straight","Width: 22.5<br />Length:  55.2<br />Blade.Sh: Straight","Width: 18.6<br />Length:  42.5<br />Blade.Sh: Straight","Width: 49.3<br />Length: 109.5<br />Blade.Sh: Straight","Width: 31.7<br />Length:  59.8<br />Blade.Sh: Straight","Width: 25.3<br />Length:  52.8<br />Blade.Sh: Straight","Width: 21.0<br />Length:  43.7<br />Blade.Sh: Straight","Width: 23.1<br />Length:  43.2<br />Blade.Sh: Straight","Width: 24.4<br />Length:  49.0<br />Blade.Sh: Straight","Width: 24.3<br />Length:  46.4<br />Blade.Sh: Straight","Width: 22.6<br />Length:  56.2<br />Blade.Sh: Straight","Width: 20.9<br />Length:  47.1<br />Blade.Sh: Straight","Width: 31.6<br />Length:  65.0<br />Blade.Sh: Straight","Width: 18.5<br />Length:  35.4<br />Blade.Sh: Straight","Width: 28.1<br />Length:  61.3<br />Blade.Sh: Straight","Width: 25.8<br />Length:  49.1<br />Blade.Sh: Straight","Width: 18.4<br />Length:  40.1<br />Blade.Sh: Straight","Width: 19.2<br />Length:  41.5<br />Blade.Sh: Straight","Width: 17.9<br />Length:  46.3<br />Blade.Sh: Straight","Width: 21.5<br />Length:  39.6<br />Blade.Sh: Straight","Width: 19.7<br />Length:  41.2<br />Blade.Sh: Straight","Width: 22.6<br />Length:  45.0<br />Blade.Sh: Straight","Width: 26.0<br />Length:  54.2<br />Blade.Sh: Straight","Width: 25.1<br />Length:  65.4<br />Blade.Sh: Straight","Width: 18.9<br />Length:  45.8<br />Blade.Sh: Straight","Width: 21.1<br />Length:  49.1<br />Blade.Sh: Straight","Width: 24.7<br />Length:  63.1<br />Blade.Sh: Straight"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(199,124,255,1)"}},"hoveron":"points","name":"Straight","legendgroup":"Straight","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18.199999999999999,27.300000000000001],"y":[40,48.5],"text":["Width: 18.2<br />Length:  40.0<br />Blade.Sh: NA","Width: 27.3<br />Length:  48.5<br />Blade.Sh: NA"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Length vs Width by Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[12.76,51.039999999999999],"tickmode":"array","ticktext":["20","30","40","50"],"tickvals":[20,30,40,50],"categoryorder":"array","categoryarray":["20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[26.655000000000001,113.44499999999999],"tickmode":"array","ticktext":["30","50","70","90","110"],"tickvals":[30,50,70,90,110],"categoryorder":"array","categoryarray":["30","50","70","90","110"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"311c31185bb3":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"311c31185bb3","visdat":{"311c31185bb3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>This example takes a <code>ggplot2</code> scatter plot and transforms it into an interactive visualization with <code>plotly</code>. You can embed this code in an R Markdown document to generate a shareable, interactive HTML report.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="engel_chapter_nodate">Engel (<a href="references.html#ref-engel_chapter_nodate" role="doc-biblioref">n.d.a</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="meo_creating_2023">Méo (<a href="references.html#ref-meo_creating_2023" role="doc-biblioref">2023</a>)</span></li>
+<li><span class="citation" data-cites="collins_how_2020">Collins (<a href="references.html#ref-collins_how_2020" role="doc-biblioref">2020</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="majumder_guide_2021">Majumder (<a href="references.html#ref-majumder_guide_2021" role="doc-biblioref">2021</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="nhs-r_community_plotting_2021">NHS-R Community (<a href="references.html#ref-nhs-r_community_plotting_2021" role="doc-biblioref">2021</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -757,15 +1362,14 @@ Hands-on Practice
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Create a new project in RStudio, placing it at the root directory of your own repository (cloned local branch).<br>
-</li>
-<li>Create a Rmarkdown document or Notebook and give it a title, e.g.&nbsp;“Introduction to R: an exercise”.</li>
-<li>In this document, create a R code chunk to start working and create new chunks and markdown commentaries at every computation step, as you see fit.</li>
-<li>Create a data.frame named “stone_tools_data” directly in R with the following characteristics (based on Carlson 2017, p.&nbsp;26):
+<li><p>Create a <strong>new project</strong> in RStudio, placing it at the root directory of your own repository (cloned local branch). Inside, create a “data” and a “plots” subdirectories (i.e.&nbsp;folders).</p></li>
+<li><p>Create a <strong>Rmarkdown document</strong> and give it a title, e.g.&nbsp;“Introduction to R: an exercise”.</p></li>
+<li><p>In this document, create a <strong>R code chunk</strong> to start working and create new chunks and markdown commentaries at every computation step, as you see fit.</p></li>
+<li><p>Create a <strong>data frame</strong> named “stone_tools_data” directly in R (i.e.&nbsp;constructed by typing vectors and joining them by code) with the following characteristics (based on Carlson 2017, p.&nbsp;26):</p>
 <ul>
-<li>Set of six stone tools with inventory number<br>
+<li>Set of <strong>six</strong> stone tools with inventory number<br>
 </li>
-<li>Recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.<br>
+<li>Variables or columns: recording of dimensions (length, breadth, thickness), material type, and whether the material is local or non-local.<br>
 </li>
 <li>Data per object:
 <ul>
@@ -844,43 +1448,115 @@ Hands-on Practice
 </li>
 <li>Material type: obsidian<br>
 </li>
-<li>Material provenance: non-local<br>
-</li>
+<li>Material provenance: non-local</li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>Check that the data and data types are coherent with the specifications. Save it as a CSV file and load it back as a new R object (e.g.&nbsp;“stone_tools_data2”). Compare.<br>
-</li>
-<li>Create a plot showing the counts of objects made of chert and obsidian. Save it as a PNG file.<br>
-</li>
-<li>Create a new variable (“type_and_provenance”) that combines type and provenance and create a plot showing the counts in each category. Save it as a PNG file.<br>
-</li>
-<li>Create a single figure displaying the variable distribution of the three dimensions measured. Save it as both a PNG and a SVG file.<br>
-</li>
-<li>Create a plot displaying the relationship between length and breadth. Save it as a PNG file.<br>
-</li>
-<li>Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type_and_provenance”. Save it as both a PNG and a EPS file.<br>
-</li>
-<li>(EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?<br>
-</li>
-<li>(EXTRA) Duplicate the Rmarkdown document, repeating the steps using <code>tidyverse</code> functions.</li>
-<li>Commit all changes and push to the remote using RStudio.<br>
-</li>
-<li>Q&amp;A and troubleshooting.</li>
+<li><p>Check that the data and data types are coherent with the specifications. Save it as a CSV file (stored in a “data” subdirectory) and load it back as a new R object (e.g.&nbsp;“stone_tools_data2”). Compare.</p></li>
+<li><p>Create a plot showing the counts of objects made of chert and obsidian. Save it as a PNG file in “plots” subdirectory.</p></li>
+<li><p>Create a new variable (“type_and_provenance”) that combines type and provenance and create a plot showing the counts in each category. Save it as a PNG file in “plots” subdirectory.</p></li>
+<li><p>Create a single figure displaying the variable distribution of the three dimensions measured. Save it as both a PNG and a SVG file in “plots” subdirectory.</p></li>
+<li><p>Create a plot displaying the relationship between length and breadth. Save it as a PNG file in “plots” subdirectory.</p></li>
+<li><p>Create a plot displaying the relationship between length and breadth, this time marking (point type, colour) objects by their “type_and_provenance”. Save it as both a PNG and a EPS file in “plots” subdirectory.</p></li>
+<li><p>(EXTRA) Create a figure to help explore the question: Do stone tools of different material and provenance tend to be of different size?</p></li>
+<li><p>(EXTRA) Duplicate the Rmarkdown document and add “_tidyverse” to the file name. Inside, replicate all steps and using <code>tidyverse</code> and <code>ggplot</code> functions.</p></li>
+<li><p>Commit all changes and push to the remote using RStudio (use the buttons in the Git tab in the “Environments” panel on the top right).</p></li>
+<li><p>Q&amp;A and troubleshooting.</p></li>
 </ul>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-noauthor_grammar_nodate" class="csl-entry" role="listitem">
+<span>“A <span>Grammar</span> of <span>Data</span> <span>Manipulation</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://dplyr.tidyverse.org/">https://dplyr.tidyverse.org/</a>.
+</div>
+<div id="ref-noauthor_aggregating_nodate" class="csl-entry" role="listitem">
+<span>“Aggregating and Analyzing Data with Dplyr.”</span> n.d. Accessed October 29, 2024. <a href="https://datacarpentry.org/R-genomics/04-dplyr.html">https://datacarpentry.org/R-genomics/04-dplyr.html</a>.
+</div>
+<div id="ref-bhalla_dplyr_nodate" class="csl-entry" role="listitem">
+Bhalla, Deepanshu. n.d. <span>“Dplyr <span>Tutorial</span> : <span>Data</span> <span>Manipulation</span> (50 <span>Examples</span>).”</span> <em>ListenData</em>. Accessed October 29, 2024. <a href="https://www.listendata.com/2016/08/dplyr-tutorial.html">https://www.listendata.com/2016/08/dplyr-tutorial.html</a>.
+</div>
+<div id="ref-collins_how_2020" class="csl-entry" role="listitem">
+Collins, Neil. 2020. <span>“How to <span>Create</span> <span>Interactive</span> <span>Reports</span> in <span>R</span> <span>Markdown</span> <span>Part</span> <span>II</span>: <span>Data</span> <span>Visualisation</span>.”</span> <em>Medium</em>. <a href="https://medium.com/@SportSciData/how-to-create-interactive-reports-in-r-markdown-part-ii-data-visualisation-6b8061136370">https://medium.com/@SportSciData/how-to-create-interactive-reports-in-r-markdown-part-ii-data-visualisation-6b8061136370</a>.
+</div>
+<div id="ref-noauthor_control_2024" class="csl-entry" role="listitem">
+<span>“Control Flow.”</span> 2024. <em>Wikipedia</em>. <a href="https://en.wikipedia.org/w/index.php?title=Control_flow&amp;oldid=1253332211">https://en.wikipedia.org/w/index.php?title=Control_flow&amp;oldid=1253332211</a>.
+</div>
+<div id="ref-noauthor_control_2020" class="csl-entry" role="listitem">
+<span>“Control <span>Structures</span> in <span>Programming</span> <span>Languages</span>.”</span> 2020. <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/control-structures-in-programming-languages/">https://www.geeksforgeeks.org/control-structures-in-programming-languages/</a>.
+</div>
+<div id="ref-noauthor_data_nodate" class="csl-entry" role="listitem">
+<span>“Data: Starwars.”</span> n.d. Accessed October 29, 2024. <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html</a>.
+</div>
+<div id="ref-noauthor_dplyr_2020" class="csl-entry" role="listitem">
+<span>“Dplyr <span>Package</span> in <span>R</span> <span>Programming</span>.”</span> 2020. <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/dplyr-package-in-r-programming/">https://www.geeksforgeeks.org/dplyr-package-in-r-programming/</a>.
+</div>
+<div id="ref-engel_chapter_nodate" class="csl-entry" role="listitem">
+Engel, Claudia A. n.d.a. <em>Chapter 2 <span>Interactive</span> Graphs <span></span> <span>Data</span> <span>Visualization</span> with <span>R</span></em>. Accessed October 29, 2024. <a href="https://cengel.github.io/R-data-viz/interactive-graphs.html">https://cengel.github.io/R-data-viz/interactive-graphs.html</a>.
+</div>
+<div id="ref-engel_data_nodate" class="csl-entry" role="listitem">
+———. n.d.b. <em>Data <span>Visualization</span> with <span>R</span></em>. Accessed October 29, 2024. <a href="https://cengel.github.io/R-data-viz/">https://cengel.github.io/R-data-viz/</a>.
+</div>
 <div id="ref-frerebeau_tesselle_2023" class="csl-entry" role="listitem">
 Frerebeau, Nicolas. 2023. <em>Tesselle: <span>Easily</span> <span>Install</span> and <span>Load</span> ’Tesselle’ <span>Packages</span></em>. Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.6500491">https://doi.org/10.5281/zenodo.6500491</a>.
+</div>
+<div id="ref-noauthor_function_nodate" class="csl-entry" role="listitem">
+<span>“Function Reference.”</span> n.d. Accessed October 29, 2024. <a href="https://ggplot2.tidyverse.org/reference/">https://ggplot2.tidyverse.org/reference/</a>.
+</div>
+<div id="ref-grolemund_r_nodate" class="csl-entry" role="listitem">
+Grolemund, Garrett, J. J. Allaire. n.d. <em>R <span>Markdown</span>: <span>The</span> <span>Definitive</span> <span>Guide</span></em>. Accessed October 29, 2024. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.
+</div>
+<div id="ref-healy_data_nodate" class="csl-entry" role="listitem">
+Healy, Yan Holtz and Conor. n.d. <span>“From Data to <span>Viz</span> <span></span> <span>Find</span> the Graphic You Need.”</span> Accessed October 29, 2024. <a href="https://www.data-to-viz.com/data-to-viz.com">https://www.data-to-viz.com/data-to-viz.com</a>.
+</div>
+<div id="ref-holtz_data_nodate" class="csl-entry" role="listitem">
+Holtz, Yan. n.d.a. <span>“Data Visualization with <span>R</span> and Ggplot2 <span></span> the <span>R</span> <span>Graph</span> <span>Gallery</span>.”</span> Accessed October 29, 2024. <a href="https://r-graph-gallery.com/ggplot2-package.html">https://r-graph-gallery.com/ggplot2-package.html</a>.
+</div>
+<div id="ref-holtz_r_nodate" class="csl-entry" role="listitem">
+———. n.d.b. <span>“The <span>R</span> <span>Graph</span> <span>Gallery</span> – <span>Help</span> and Inspiration for <span>R</span> Charts.”</span> <em>The R Graph Gallery</em>. Accessed October 29, 2024. <a href="https://r-graph-gallery.com/">https://r-graph-gallery.com/</a>.
+</div>
+<div id="ref-noauthor_indexing_nodate" class="csl-entry" role="listitem">
+<span>“Indexing — <span>R</span> <span>Spatial</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://rspatial.org/intr/4-indexing.html">https://rspatial.org/intr/4-indexing.html</a>.
+</div>
+<div id="ref-noauthor_indexing_2022" class="csl-entry" role="listitem">
+<span>“Indexing and <span>Slicing</span> <span>Data</span> <span>Frames</span> in <span>R</span>.”</span> 2022. <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/indexing-and-slicing-data-frames-in-r/">https://www.geeksforgeeks.org/indexing-and-slicing-data-frames-in-r/</a>.
+</div>
+<div id="ref-noauthor_indexing_nodate-1" class="csl-entry" role="listitem">
+<span>“Indexing into a Data Structure.”</span> n.d. Accessed October 29, 2024. <a href="http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/">http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/</a>.
+</div>
+<div id="ref-noauthor_introduction_nodate" class="csl-entry" role="listitem">
+<span>“Introduction.”</span> n.d. Accessed October 29, 2024. <a href="https://rmarkdown.rstudio.com/lesson-1.html">https://rmarkdown.rstudio.com/lesson-1.html</a>.
+</div>
+<div id="ref-kabacoff_modern_nodate" class="csl-entry" role="listitem">
+Kabacoff, Robert. n.d. <em>Modern <span>Data</span> <span>Visualization</span> with <span>R</span></em>. Accessed October 29, 2024. <a href="https://rkabacoff.github.io/datavis/">https://rkabacoff.github.io/datavis/</a>.
+</div>
+<div id="ref-majumder_guide_2021" class="csl-entry" role="listitem">
+Majumder, Prateek. 2021. <span>“Guide to <span>Create</span> <span>Interactive</span> <span>Plots</span> with <span>Plotly</span> <span>Python</span>.”</span> <em>Analytics Vidhya</em>. <a href="https://www.analyticsvidhya.com/blog/2021/10/interactive-plots-in-python-with-plotly-a-complete-guide/">https://www.analyticsvidhya.com/blog/2021/10/interactive-plots-in-python-with-plotly-a-complete-guide/</a>.
+</div>
+<div id="ref-meo_creating_2023" class="csl-entry" role="listitem">
+Méo, Grace Di. 2023. <span>“Creating <span>Interactive</span> <span>Visualizations</span> with <span>Plotly</span>.”</span> <em>Programming Historian</em>, December. <a href="https://programminghistorian.org/en/lessons/interactive-visualization-with-plotly">https://programminghistorian.org/en/lessons/interactive-visualization-with-plotly</a>.
+</div>
+<div id="ref-nhs-r_community_plotting_2021" class="csl-entry" role="listitem">
+NHS-R Community. 2021. <span>“Plotting Interactive Visualizations with <span>Plotly</span> in <span>R</span>.”</span> <a href="https://www.youtube.com/watch?v=WmofiOklux8">https://www.youtube.com/watch?v=WmofiOklux8</a>.
+</div>
+<div id="ref-phillips_yarrr_nodate" class="csl-entry" role="listitem">
+Phillips, Nathaniel D. n.d. <em><span>YaRrr</span>! <span>The</span> <span>Pirate</span>’s <span>Guide</span> to <span>R</span></em>. Accessed October 29, 2024. <a href="https://bookdown.org/ndphillips/YaRrr/">https://bookdown.org/ndphillips/YaRrr/</a>.
+</div>
+<div id="ref-qin_research_nodate" class="csl-entry" role="listitem">
+Qin, Yufei. n.d. <span>“Research <span>Guides</span>: <span>Data</span> <span>Visualization</span> in <span>R</span>: <span>Introduction</span>.”</span> Accessed October 29, 2024. <a href="https://libguides.princeton.edu/c.php?g=1350384&amp;p=9965533">https://libguides.princeton.edu/c.php?g=1350384&amp;p=9965533</a>.
+</div>
+<div id="ref-noauthor_r_nodate" class="csl-entry" role="listitem">
+<span>“R <span>Markdown</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://rmarkdown.rstudio.com/index.html">https://rmarkdown.rstudio.com/index.html</a>.
 </div>
 <div id="ref-noauthor_rstudio_nodate" class="csl-entry" role="listitem">
 <span>“<span>RStudio</span> <span>IDE</span> :: <span>Cheatsheet</span>.”</span> n.d. Accessed October 14, 2024. <a href="https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.">https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.</a>
 </div>
 <div id="ref-noauthor_rstudio_2024" class="csl-entry" role="listitem">
 <span>“<span>RStudio</span> <span>User</span> <span>Guide</span> - <span>RStudio</span> <span>IDE</span> <span>User</span> <span>Guide</span>.”</span> 2024. <em>RStudio User Guide</em>. <a href="https://docs.posit.co/ide/user/">https://docs.posit.co/ide/user/</a>.
+</div>
+<div id="ref-noauthor_subsetting_nodate" class="csl-entry" role="listitem">
+<span>“Subsetting <span>Data</span> <span></span> <span>R</span> <span>Learning</span> <span>Modules</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://stats.oarc.ucla.edu/r/modules/subsetting-data/">https://stats.oarc.ucla.edu/r/modules/subsetting-data/</a>.
 </div>
 <div id="ref-noauthor_tesselle_nodate" class="csl-entry" role="listitem">
 <span>“Tesselle: <span>R</span> <span>Packages</span> &amp; <span>Archaeology</span>.”</span> n.d. <em>Tesselle</em>. Accessed October 14, 2024. <a href="https://www.tesselle.org/">https://www.tesselle.org/</a>.
@@ -892,6 +1568,7 @@ Frerebeau, Nicolas. 2023. <em>Tesselle: <span>Easily</span> <span>Install</span>
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the Tidyverse.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
