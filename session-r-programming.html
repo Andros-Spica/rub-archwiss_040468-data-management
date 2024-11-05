@@ -674,7 +674,8 @@ Magic numbers in programming
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Magic numbers</strong> refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because: 1. <strong>Lack of clarity</strong>: Without meaningful names, the purpose of the number is unclear to others (or to you in the future).<br>
+<p><strong>Magic numbers</strong> refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because:<br>
+1. <strong>Lack of clarity</strong>: Without meaningful names, the purpose of the number is unclear to others (or to you in the future).<br>
 2. <strong>Hard to update</strong>: If the same number appears in multiple places, updating it becomes error-prone and tedious.<br>
 3. <strong>Reduced readability</strong>: Magic numbers obscure the intent of the code, making it harder to follow and debug.</p>
 </div>
@@ -741,8 +742,10 @@ See also
 <section id="vectorization" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="vectorization"><strong>Vectorization</strong></h4>
 <p>Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R’s optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.</p>
-<p><strong>Examples:</strong> - <strong>Base R</strong>:</p>
-<p>::: {.cell}</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><p><strong>Base R</strong>:</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop approach</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">1000</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
@@ -751,8 +754,7 @@ See also
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized approach</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<ul>
+</div></li>
 <li><p><strong>Using <code>dplyr</code></strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -767,8 +769,10 @@ See also
 <section id="memory-management" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="memory-management"><strong>Memory Management</strong></h4>
 <p>Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. <code>data.table</code> is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.</p>
-<p><strong>Example:</strong> - <strong>Using <code>data.table</code></strong>:</p>
-<p>::: {.cell}</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><p><strong>Using <code>data.table</code></strong>:</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a large data.table</span></span>
@@ -776,7 +780,8 @@ See also
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Efficiently computing on large datasets</span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>dt[, mean_x <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div></li>
+</ul>
 <p><code>data.table</code> optimizes memory usage by modifying data in place and avoids unnecessary copies, making it ideal for large-scale data processing.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
