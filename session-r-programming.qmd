@@ -315,7 +315,7 @@ Efficient and scalable R code is crucial when dealing with large datasets or com
 Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R's optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.
 
 **Examples:**
-- **Base R**:
+- **Base R**:  
   ```{r, eval=FALSE}
   #| eval: false
   # Loop approach
@@ -328,7 +328,7 @@ Vectorization involves replacing explicit loops with vectorized operations, whic
   result <- (1:1000)^2
   ```
 
-- **Using `dplyr`**:
+- **Using `dplyr`**:  
   ```{r, eval=FALSE}
   #| eval: false
   library(dplyr)
@@ -344,7 +344,7 @@ Vectorization involves replacing explicit loops with vectorized operations, whic
 Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. `data.table` is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.
 
 **Example:**
-- **Using `data.table`**:
+- **Using `data.table`**:  
   ```{r, eval=FALSE}
   #| eval: false
   library(data.table)
@@ -379,14 +379,14 @@ Refactoring refers to the process of improving existing code without changing it
 ### Examples of Refactoring in R
 
 #### **1. Removing Redundant Code** {.unnumbered}  
-Before:
+Before:  
 ```{r, eval=FALSE}
 #| eval: false
 data <- read.csv("data.csv")
 data_cleaned <- na.omit(data)
 data_cleaned <- data_cleaned[data_cleaned$score > 10, ]
 ```
-After:
+After:  
 ```{r, eval=FALSE}
 #| eval: false
 data <- read.csv("data.csv") %>%
@@ -430,7 +430,7 @@ if (length(data) > 1000) {
   print("Large dataset")
 }
 ```
-After:
+After:  
 ```{r, eval=FALSE}
 #| eval: false
 THRESHOLD <- 1000
@@ -476,7 +476,7 @@ Unit tests are essential for ensuring code correctness by verifying that each fu
      expect_error(calculate_mean("string"))
    })
    ```
-3. Run the tests:
+3. Run the tests:  
    ```{r, eval=FALSE}
    #| eval: false
    test_file("test_calculate_mean.R")
@@ -492,7 +492,7 @@ Validating data inputs and outputs is crucial for maintaining data integrity, es
    #| eval: false
    install.packages("validate")
    ```
-2. Validate data:  
+2. Validate data: 
    ```{r, eval=FALSE}
    #| eval: false
    library(validate)
