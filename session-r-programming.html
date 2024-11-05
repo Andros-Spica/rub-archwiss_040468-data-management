@@ -353,9 +353,18 @@ div.csl-indent {
   <li><a href="#avoiding-magic-numbers-and-hardcoding" id="toc-avoiding-magic-numbers-and-hardcoding" class="nav-link" data-scroll-target="#avoiding-magic-numbers-and-hardcoding"><span class="header-section-number">4.2.3</span> Avoiding magic numbers and hardcoding</a></li>
   <li><a href="#writing-efficient-and-scalable-code" id="toc-writing-efficient-and-scalable-code" class="nav-link" data-scroll-target="#writing-efficient-and-scalable-code"><span class="header-section-number">4.2.4</span> Writing efficient and scalable code</a></li>
   </ul></li>
-  <li><a href="#extratesting-and-validation" id="toc-extratesting-and-validation" class="nav-link" data-scroll-target="#extratesting-and-validation"><span class="header-section-number">4.3</span> (EXTRA)Testing and Validation</a></li>
-  <li><a href="#extraerror-handling-and-debugging" id="toc-extraerror-handling-and-debugging" class="nav-link" data-scroll-target="#extraerror-handling-and-debugging"><span class="header-section-number">4.4</span> (EXTRA)Error Handling and Debugging</a></li>
-  <li><a href="#extracode-reusability-and-sharing" id="toc-extracode-reusability-and-sharing" class="nav-link" data-scroll-target="#extracode-reusability-and-sharing"><span class="header-section-number">4.5</span> (EXTRA)Code Reusability and Sharing</a></li>
+  <li><a href="#refactoring" id="toc-refactoring" class="nav-link" data-scroll-target="#refactoring"><span class="header-section-number">4.3</span> Refactoring</a>
+  <ul class="collapse">
+  <li><a href="#why-refactor" id="toc-why-refactor" class="nav-link" data-scroll-target="#why-refactor"><span class="header-section-number">4.3.1</span> Why Refactor?</a></li>
+  <li><a href="#examples-of-refactoring-in-r" id="toc-examples-of-refactoring-in-r" class="nav-link" data-scroll-target="#examples-of-refactoring-in-r"><span class="header-section-number">4.3.2</span> Examples of Refactoring in R</a></li>
+  </ul></li>
+  <li><a href="#extra-testing-and-validation" id="toc-extra-testing-and-validation" class="nav-link" data-scroll-target="#extra-testing-and-validation"><span class="header-section-number">4.4</span> EXTRA: Testing and validation</a>
+  <ul class="collapse">
+  <li><a href="#writing-unit-tests" id="toc-writing-unit-tests" class="nav-link" data-scroll-target="#writing-unit-tests"><span class="header-section-number">4.4.1</span> Writing Unit Tests</a></li>
+  <li><a href="#data-validation" id="toc-data-validation" class="nav-link" data-scroll-target="#data-validation"><span class="header-section-number">4.4.2</span> Data Validation</a></li>
+  </ul></li>
+  <li><a href="#extraerror-handling-and-debugging" id="toc-extraerror-handling-and-debugging" class="nav-link" data-scroll-target="#extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</a></li>
+  <li><a href="#extracode-reusability-and-sharing" id="toc-extracode-reusability-and-sharing" class="nav-link" data-scroll-target="#extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-r-programming.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -732,24 +741,42 @@ See also
 <section id="vectorization" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="vectorization"><strong>Vectorization</strong></h4>
 <p>Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R’s optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.</p>
-<p><strong>Examples:</strong> - <strong>Base R</strong>: ```r # Loop approach result &lt;- numeric(1000) for (i in 1:1000) { result[i] &lt;- i^2 }</p>
-<p># Vectorized approach result &lt;- (1:1000)^2 ```</p>
+<p><strong>Examples:</strong> - <strong>Base R</strong>:</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop approach</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">1000</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  result[i] <span class="ot">&lt;-</span> i<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized approach</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
 <ul>
 <li><p><strong>Using <code>dplyr</code></strong>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized operation with dplyr</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized operation with dplyr</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="memory-management" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="memory-management"><strong>Memory Management</strong></h4>
 <p>Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. <code>data.table</code> is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.</p>
-<p><strong>Example:</strong> - <strong>Using <code>data.table</code></strong>: ```r library(data.table)</p>
-<p># Creating a large data.table dt &lt;- data.table(x = rnorm(1e7), y = rnorm(1e7))</p>
-<p># Efficiently computing on large datasets dt[, mean_x := mean(x)] ```</p>
+<p><strong>Example:</strong> - <strong>Using <code>data.table</code></strong>:</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a large data.table</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="fl">1e7</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="fl">1e7</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Efficiently computing on large datasets</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>dt[, mean_x <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
 <p><code>data.table</code> optimizes memory usage by modifying data in place and avoids unnecessary copies, making it ideal for large-scale data processing.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -776,26 +803,195 @@ See also
 </section>
 </section>
 </section>
-<section id="extratesting-and-validation" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="extratesting-and-validation"><span class="header-section-number">4.3</span> (EXTRA)Testing and Validation</h2>
+<section id="refactoring" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="refactoring"><span class="header-section-number">4.3</span> Refactoring</h2>
+<p>Refactoring refers to the process of improving existing code without changing its external behaviour. The goal is to make the code cleaner, more efficient, and easier to maintain. Refactoring enhances readability, reduces complexity, and simplifies future modifications.</p>
+<section id="why-refactor" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="why-refactor"><span class="header-section-number">4.3.1</span> Why Refactor?</h3>
 <ul>
-<li><strong>Writing Unit Tests</strong>
-<ul>
-<li>Importance of testing: ensuring code correctness.<br>
-</li>
-<li>Example: Writing basic unit tests in Python (<code>unittest</code> or <code>pytest</code>) and R (<code>testthat</code>).<br>
-</li>
-</ul></li>
-<li><strong>Data Validation</strong>
-<ul>
-<li>Validating data inputs and outputs, ensuring data integrity.<br>
-</li>
-<li>Example: Implementing data validation checks in data processing scripts.</li>
-</ul></li>
+<li><strong>Improves code readability</strong>: Well-structured code is easier to understand.</li>
+<li><strong>Enhances maintainability</strong>: Simplified codebase reduces the time required for future updates or debugging.</li>
+<li><strong>Promotes reusability</strong>: Modularized and clean code is more reusable in different contexts.</li>
 </ul>
 </section>
-<section id="extraerror-handling-and-debugging" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="extraerror-handling-and-debugging"><span class="header-section-number">4.4</span> (EXTRA)Error Handling and Debugging</h2>
+<section id="examples-of-refactoring-in-r" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="examples-of-refactoring-in-r"><span class="header-section-number">4.3.2</span> Examples of Refactoring in R</h3>
+<section id="removing-redundant-code" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="removing-redundant-code"><strong>1. Removing Redundant Code</strong></h4>
+<p>Before:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>data_cleaned <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data_cleaned <span class="ot">&lt;-</span> data_cleaned[data_cleaned<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using <code>dplyr</code> pipelines makes the code concise and easier to read.</p>
+</section>
+<section id="breaking-down-long-functions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="breaking-down-long-functions"><strong>2. Breaking Down Long Functions</strong></h4>
+<p>Before:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>calculate_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  mean_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>score)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  sd_value <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>score)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">mean =</span> mean_value, <span class="at">sd =</span> sd_value))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(data<span class="sc">$</span>score)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>calculate_sd <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(data<span class="sc">$</span>score)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>calculate_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">calculate_mean</span>(data), <span class="at">sd =</span> <span class="fu">calculate_sd</span>(data))</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Breaking down long functions into smaller ones improves readability and reusability.</p>
+</section>
+<section id="replacing-hardcoded-values-with-constants" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="replacing-hardcoded-values-with-constants"><strong>3. Replacing Hardcoded Values with Constants</strong></h4>
+<p>Before:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(data) <span class="sc">&gt;</span> <span class="dv">1000</span>) {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Large dataset"</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>THRESHOLD <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(data) <span class="sc">&gt;</span> THRESHOLD) {</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Large dataset"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using constants improves clarity and ease of updating values.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_introduction_nodate-1"><span>“Introduction to <span>R</span> - <span>Refactoring</span> the <span>Workshop</span>”</span> (<a href="references.html#ref-noauthor_introduction_nodate-1" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_programming_nodate"><span>“Programming with <span>R</span>: <span>Best</span> <span>Practices</span> for <span>Writing</span> <span>R</span> <span>Code</span>”</span> (<a href="references.html#ref-noauthor_programming_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="extra-testing-and-validation" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="extra-testing-and-validation"><span class="header-section-number">4.4</span> EXTRA: Testing and validation</h2>
+<section id="writing-unit-tests" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="writing-unit-tests"><span class="header-section-number">4.4.1</span> Writing Unit Tests</h3>
+<p>Unit tests are essential for ensuring code correctness by verifying that each function behaves as expected. They help catch errors early and make code more robust by facilitating easy modifications and refactoring.</p>
+<section id="example-writing-basic-unit-tests-in-r-testthat" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-writing-basic-unit-tests-in-r-testthat"><strong>Example: Writing basic unit tests in R (<code>testthat</code>)</strong></h4>
+<ol type="1">
+<li><p>Install <code>testthat</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"testthat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Create a test script (<code>test_calculate_mean.R</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(x)) <span class="fu">stop</span>(<span class="st">"Input must be numeric"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"calculate_mean works correctly"</span>, {</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">calculate_mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)), <span class="dv">2</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">calculate_mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">3</span>)), <span class="fl">2.5</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_error</span>(<span class="fu">calculate_mean</span>(<span class="st">"string"</span>))</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Run the tests:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_file</span>(<span class="st">"test_calculate_mean.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+</section>
+<section id="data-validation" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="data-validation"><span class="header-section-number">4.4.2</span> Data Validation</h3>
+<p>Validating data inputs and outputs is crucial for maintaining data integrity, especially in data processing pipelines. It ensures that the data conforms to expected formats and values, avoiding downstream errors.</p>
+<section id="example-implementing-data-validation-checks-in-data-processing-scripts" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-implementing-data-validation-checks-in-data-processing-scripts"><strong>Example: Implementing data validation checks in data processing scripts</strong></h4>
+<ol type="1">
+<li><p>Install <code>validate</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"validate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Validate data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(validate)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">validator</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  age <span class="sc">&gt;=</span> <span class="dv">0</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  salary <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">is.na</span>(name)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">30</span>),</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">salary =</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">0</span>, <span class="dv">60000</span>),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="cn">NA</span>, <span class="st">"Bob"</span>)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Validate the data</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">confront</span>(data, rules)</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(check)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This checks that <code>age</code> is non-negative, <code>salary</code> is positive, and <code>name</code> is not missing.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_prerequisites_nodate"><span>“Prerequisites”</span> (<a href="references.html#ref-noauthor_prerequisites_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_best_nodate"><span>“Best <span>Practices</span> for <span>Durable</span> <span>R</span> <span>Code</span>”</span> (<a href="references.html#ref-noauthor_best_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_validation_nodate"><span>“The <span>Validation</span> <span>Set</span> <span>Approach</span> in <span>R</span> <span>Programming</span> - <span>GeeksforGeeks</span>”</span> (<a href="references.html#ref-noauthor_validation_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="kennedy_best_2019">Kennedy (<a href="references.html#ref-kennedy_best_2019" role="doc-biblioref">2019</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="extraerror-handling-and-debugging" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</h2>
 <ul>
 <li><strong>Error Handling Techniques</strong>
 <ul>
@@ -814,8 +1010,8 @@ See also
 </ul></li>
 </ul>
 </section>
-<section id="extracode-reusability-and-sharing" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="extracode-reusability-and-sharing"><span class="header-section-number">4.5</span> (EXTRA)Code Reusability and Sharing</h2>
+<section id="extracode-reusability-and-sharing" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</h2>
 <ul>
 <li><strong>Creating Reusable Code</strong>
 <ul>
@@ -878,6 +1074,9 @@ Alboukadel. 2020. <span>“R <span>Coding</span> <span>Style</span> <span>Best</
 <div id="ref-anderson_19_nodate" class="csl-entry" role="listitem">
 Anderson, and Brooke, Sean Kross. n.d. <em>1.9 <span>Working</span> with <span>Large</span> <span>Datasets</span> <span></span> <span>Mastering</span> <span>Software</span> <span>Development</span> in <span>R</span></em>. Accessed November 5, 2024. <a href="https://github.com/rdpeng/RProgDA">https://github.com/rdpeng/RProgDA</a>.
 </div>
+<div id="ref-noauthor_best_nodate" class="csl-entry" role="listitem">
+<span>“Best <span>Practices</span> for <span>Durable</span> <span>R</span> <span>Code</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.appsilon.com/post/best-practices-for-durable-r-code">https://www.appsilon.com/post/best-practices-for-durable-r-code</a>.
+</div>
 <div id="ref-gillespie_efficient_nodate" class="csl-entry" role="listitem">
 Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programming</em>. Accessed November 5, 2024. <a href="https://csgillespie.github.io/efficientR/">https://csgillespie.github.io/efficientR/</a>.
 </div>
@@ -887,11 +1086,23 @@ Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programm
 <div id="ref-grolemund_welcome_nodate" class="csl-entry" role="listitem">
 Grolemund, Hadley Wickham and Garrett. n.d. <em>Welcome <span></span> <span>R</span> for <span>Data</span> <span>Science</span></em>. Accessed November 5, 2024. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
 </div>
+<div id="ref-noauthor_introduction_nodate-1" class="csl-entry" role="listitem">
+<span>“Introduction to <span>R</span> - <span>Refactoring</span> the <span>Workshop</span>.”</span> n.d. <em>HackMD</em>. Accessed November 5, 2024. <a href="https://hackmd.io/@libjohn/Bkpg0zp3I">https://hackmd.io/@libjohn/Bkpg0zp3I</a>.
+</div>
+<div id="ref-kennedy_best_2019" class="csl-entry" role="listitem">
+Kennedy, Hannah. 2019. <span>“Best <span>Practices</span> for <span>Unit</span> <span>Testing</span> and <span>Linting</span> with <span>R</span>.”</span> <em>Medium</em>. <a href="https://medium.com/@mindlessroman/best-practices-for-unit-testing-and-linting-with-r-6d40be95391c">https://medium.com/@mindlessroman/best-practices-for-unit-testing-and-linting-with-r-6d40be95391c</a>.
+</div>
 <div id="ref-noauthor_learn_nodate-1" class="csl-entry" role="listitem">
 <span>“Learn More.”</span> n.d. Accessed November 5, 2024. <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a>.
 </div>
 <div id="ref-lipkin_writing_2022" class="csl-entry" role="listitem">
 Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <span>Vectorization</span> and the {Apply} Family.”</span> <em>Medium</em>. <a href="https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a">https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a</a>.
+</div>
+<div id="ref-noauthor_prerequisites_nodate" class="csl-entry" role="listitem">
+<span>“Prerequisites.”</span> n.d. Accessed November 5, 2024. <a href="https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html">https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html</a>.
+</div>
+<div id="ref-noauthor_programming_nodate" class="csl-entry" role="listitem">
+<span>“Programming with <span>R</span>: <span>Best</span> <span>Practices</span> for <span>Writing</span> <span>R</span> <span>Code</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html">https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html</a>.
 </div>
 <div id="ref-noauthor_r_nodate-4" class="csl-entry" role="listitem">
 <span>“R Dtplyr: <span>How</span> to <span>Efficiently</span> <span>Process</span> <span>Huge</span> <span>Datasets</span> with a Data.table <span>Backend</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.appsilon.com/post/r-dtplyr">https://www.appsilon.com/post/r-dtplyr</a>.
@@ -907,6 +1118,9 @@ Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <spa
 </div>
 <div id="ref-noauthor_style_nodate" class="csl-entry" role="listitem">
 <span>“Style Guide · <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a>.
+</div>
+<div id="ref-noauthor_validation_nodate" class="csl-entry" role="listitem">
+<span>“The <span>Validation</span> <span>Set</span> <span>Approach</span> in <span>R</span> <span>Programming</span> - <span>GeeksforGeeks</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.geeksforgeeks.org/the-validation-set-approach-in-r-programming/">https://www.geeksforgeeks.org/the-validation-set-approach-in-r-programming/</a>.
 </div>
 <div id="ref-noauthor_tidyverse_nodate-1" class="csl-entry" role="listitem">
 <span>“Tidyverse Style Guide.”</span> n.d. Accessed November 5, 2024. <a href="https://style.tidyverse.org/index.html">https://style.tidyverse.org/index.html</a>.
