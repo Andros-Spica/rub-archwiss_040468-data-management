@@ -316,7 +316,8 @@ Vectorization involves replacing explicit loops with vectorized operations, whic
 
 **Examples:**
 - **Base R**:
-  ```r
+  ```{r, eval=FALSE}
+  #| eval: false
   # Loop approach
   result <- numeric(1000)
   for (i in 1:1000) {
@@ -328,7 +329,8 @@ Vectorization involves replacing explicit loops with vectorized operations, whic
   ```
 
 - **Using `dplyr`**:
-  ```r
+  ```{r, eval=FALSE}
+  #| eval: false
   library(dplyr)
   data <- tibble(x = 1:1000)
   
@@ -343,7 +345,8 @@ Efficient memory management is essential when working with large datasets to pre
 
 **Example:**
 - **Using `data.table`**:
-  ```r
+  ```{r, eval=FALSE}
+  #| eval: false
   library(data.table)
   
   # Creating a large data.table
@@ -364,14 +367,163 @@ Efficient memory management is essential when working with large datasets to pre
 
 :::
 
-## (EXTRA)Testing and Validation
+## Refactoring
 
-* **Writing Unit Tests**  
-  * Importance of testing: ensuring code correctness.  
-  * Example: Writing basic unit tests in Python (`unittest` or `pytest`) and R (`testthat`).  
-* **Data Validation**  
-  * Validating data inputs and outputs, ensuring data integrity.  
-  * Example: Implementing data validation checks in data processing scripts.
+Refactoring refers to the process of improving existing code without changing its external behaviour. The goal is to make the code cleaner, more efficient, and easier to maintain. Refactoring enhances readability, reduces complexity, and simplifies future modifications.
+
+### Why Refactor?
+- **Improves code readability**: Well-structured code is easier to understand.
+- **Enhances maintainability**: Simplified codebase reduces the time required for future updates or debugging.
+- **Promotes reusability**: Modularized and clean code is more reusable in different contexts.
+
+### Examples of Refactoring in R
+
+#### **1. Removing Redundant Code** {.unnumbered}  
+Before:
+```{r, eval=FALSE}
+#| eval: false
+data <- read.csv("data.csv")
+data_cleaned <- na.omit(data)
+data_cleaned <- data_cleaned[data_cleaned$score > 10, ]
+```
+After:
+```{r, eval=FALSE}
+#| eval: false
+data <- read.csv("data.csv") %>%
+  na.omit() %>%
+  filter(score > 10)
+```
+Using `dplyr` pipelines makes the code concise and easier to read.
+
+#### **2. Breaking Down Long Functions** {.unnumbered}  
+Before:  
+```{r, eval=FALSE}
+#| eval: false
+calculate_metrics <- function(data) {
+  mean_value <- mean(data$score)
+  sd_value <- sd(data$score)
+  return(list(mean = mean_value, sd = sd_value))
+}
+```
+After:  
+```{r, eval=FALSE}
+#| eval: false
+calculate_mean <- function(data) {
+  mean(data$score)
+}
+
+calculate_sd <- function(data) {
+  sd(data$score)
+}
+
+calculate_metrics <- function(data) {
+  list(mean = calculate_mean(data), sd = calculate_sd(data))
+}
+```
+Breaking down long functions into smaller ones improves readability and reusability.
+
+#### **3. Replacing Hardcoded Values with Constants** {.unnumbered}  
+Before:  
+```{r, eval=FALSE}
+#| eval: false
+if (length(data) > 1000) {
+  print("Large dataset")
+}
+```
+After:
+```{r, eval=FALSE}
+#| eval: false
+THRESHOLD <- 1000
+if (length(data) > THRESHOLD) {
+  print("Large dataset")
+}
+```
+Using constants improves clarity and ease of updating values.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_introduction_nodate-1    
+- @noauthor_programming_nodate  
+
+:::
+
+## EXTRA: Testing and validation
+
+### Writing Unit Tests
+
+Unit tests are essential for ensuring code correctness by verifying that each function behaves as expected. They help catch errors early and make code more robust by facilitating easy modifications and refactoring.
+
+#### **Example: Writing basic unit tests in R (`testthat`)** {.unnumbered}  
+1. Install `testthat` package:  
+   ```{r, eval=FALSE}
+   #| eval: false
+   install.packages("testthat")
+   ```
+2. Create a test script (`test_calculate_mean.R`):  
+   ```{r, eval=FALSE}
+   #| eval: false
+   library(testthat)
+
+   calculate_mean <- function(x) {
+     if (!is.numeric(x)) stop("Input must be numeric")
+     mean(x, na.rm = TRUE)
+   }
+
+   test_that("calculate_mean works correctly", {
+     expect_equal(calculate_mean(c(1, 2, 3)), 2)
+     expect_equal(calculate_mean(c(NA, 2, 3)), 2.5)
+     expect_error(calculate_mean("string"))
+   })
+   ```
+3. Run the tests:
+   ```{r, eval=FALSE}
+   #| eval: false
+   test_file("test_calculate_mean.R")
+   ```
+
+### Data Validation
+
+Validating data inputs and outputs is crucial for maintaining data integrity, especially in data processing pipelines. It ensures that the data conforms to expected formats and values, avoiding downstream errors.
+
+#### **Example: Implementing data validation checks in data processing scripts** {.unnumbered}  
+1. Install `validate` package:  
+   ```{r, eval=FALSE}
+   #| eval: false
+   install.packages("validate")
+   ```
+2. Validate data:  
+   ```{r, eval=FALSE}
+   #| eval: false
+   library(validate)
+
+   rules <- validator(
+     age >= 0,
+     salary > 0,
+     !is.na(name)
+   )
+
+   data <- data.frame(
+     age = c(25, -5, 30),
+     salary = c(50000, 0, 60000),
+     name = c("Alice", NA, "Bob")
+   )
+
+   # Validate the data
+   check <- confront(data, rules)
+   summary(check)
+   ```  
+   This checks that `age` is non-negative, `salary` is positive, and `name` is not missing.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_prerequisites_nodate  
+- @noauthor_best_nodate  
+- @noauthor_validation_nodate  
+- @kennedy_best_2019  
+
+:::
 
 ## (EXTRA)Error Handling and Debugging
 
