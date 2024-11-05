@@ -164,9 +164,9 @@ For more information about RStudio, consult:
 
 ## R syntax and workflow
 
-### Basic R syntax: variables and data types
+### Variables and data types
 
-In R, variables are created by assigning values using the `<-` operator. R supports various data types, including:
+In R, variables or *vectors* are created by assigning values using the `<-` operator. A variable in R corresponds to values of a specific data type, including:
 
 * **Numeric**: Numbers, e.g., `x <- 10.5`
 * **Integer**: Whole numbers, declared with L, e.g., `y <- 3L`
@@ -180,7 +180,7 @@ Variables store data for manipulation and analysis, forming the building blocks 
 
 Data structures are more complex objects that are also created using the `<-` operator.
 
-* **Vectors**: The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with `c()`, e.g., `c(1, 2, 3)` or `c("a", "b", "c")`.
+* **Vectors** (i.e. variables): The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with `c()`, e.g., `c(1, 2, 3)` or `c("a", "b", "c")`.
 
 * **Matrices**: Two-dimensional, homogeneous data structures (all elements are of the same type). Created using `matrix()`, e.g., `matrix(1:9, nrow = 3, ncol = 3)`.
 
@@ -278,6 +278,8 @@ The R documentation entry for a function explains briefly:
 * use examples in code ("Examples") 
 
 Notice that sometimes one documentation entry might be related to an entire group of functions. For example, the entry on `factor()` also refers to `as.factor()` and `is.factor()`, among others.
+
+Warning: R will only find documentation of those functions and datasets currently loaded in the session environment. Whenever the consultation involves a package (see below), make sure that it has been installed and loaded. 
 
 :::
 
@@ -408,88 +410,97 @@ ncol(iris)
 
 ### Basic operations on data structures
 
+We create a dummy dataset for us to test operations:
+
+```{r}
+df <- data.frame(x = 1:3, y = 4:6)
+df # print it in the console
+```
+
 #### Adding/Removing Elements {.unnumbered}
 
 - **Adding Elements**: Use functions like `cbind()` for columns and `rbind()` for rows to add elements to data frames and matrices.
-  ```{r, eval=FALSE}
-  #| eval: false
+  ```{r}
   # Adding a column
-  df <- data.frame(x = 1:3, y = 4:6)
   df$z <- 7:9  # Adding column using $
+  df
 
   # Adding a row
   new_row <- data.frame(x = 4, y = 7, z = 10)
   df <- rbind(df, new_row)
+  df
   ```
 
 - **Removing Elements**: Use `NULL` assignment or `subset()` to remove columns or rows.
-  ```{r, eval=FALSE}
-  #| eval: false
+  ```{r}
   # Removing a column
   df$z <- NULL
+  df
 
   # Removing rows by index
   df <- df[-c(1, 2), ]
+  df
   ```
 
 #### Indexing {.unnumbered}
 
+Recreate the initial dataset:
+
+```{r}
+df <- data.frame(x = 1:3, y = 4:6)
+```
+
 1. **Numeric Indexing**: Access elements by specifying their position.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df[1, 2]  # First row, second column
    df[1:3, ]  # First three rows, all columns
    ```
 
 2. **Logical Indexing**: Filter based on logical conditions.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df[df$y > 5, ]  # Rows where column y > 5
    ```
 
 3. **Column Selection**: Access columns by `$` (column name) or numeric index.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df$x  # Access column by name
    df[, 1]  # Access first column by index
    ```
 
 4. **Row Selection**: Filter rows with conditions.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df[1:2, ]  # First two rows
    df[df$x > 2, ]  # Rows where column x > 2
    ```
 
 5. **Combining Indexing**: Combine row and column filters for specific elements.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df[1:2, c("x", "y")]  # First two rows, columns x and y
    ```
 
 #### Subsetting (`subset`) {.unnumbered}
 
 - The `subset()` function provides an easy way to filter data by specifying conditions.
-  ```{r, eval=FALSE}
-  #| eval: false
+  ```{r}
   subset(df, x > 2 & y < 6)  # Filter rows where x > 2 and y < 6
   ```
 
 #### Joining or Merging (`merge`) {.unnumbered}
 
 - Use `merge()` to combine two data frames based on a common key or column.
-  ```{r, eval=FALSE}
-  #| eval: false
+  ```{r}
   df1 <- data.frame(id = 1:3, x = c("A", "B", "C"))
+  df1
   df2 <- data.frame(id = 2:4, y = c("D", "E", "F"))
+  df2
   merged_df <- merge(df1, df2, by = "id")
+  merged_df
   ```
 
 #### Modifying Elements with Functions (`apply`) {.unnumbered}
 
 - The `apply()` function allows operations across rows or columns of a data frame or matrix.
-  ```{r, eval=FALSE}
-  #| eval: false
+  ```{r}
   # Summing across rows (1 indicates rows)
   apply(df[, 1:2], 1, sum)
 
@@ -514,25 +525,26 @@ The `dplyr` package in R provides a suite of functions to manipulate data in a s
 
 1. **Filtering Data**
    - Use `filter()` to select rows based on conditions. Multiple conditions can be combined with `&` (and) or `|` (or).
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    library(dplyr)
    filtered_data <- df %>% filter(column1 > 10, column2 == "A")
+   filtered_data
    ```
 
 2. **Selecting Columns**
    - Use `select()` to choose specific columns by name. You can use `:` to select a range of columns or `-` to exclude columns.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    selected_data <- df %>% select(column1, column2)
+   selected_data
    selected_data <- df %>% select(-column3)  # Exclude column3
+   selected_data
    ```
 
 3. **Mutating Data**
    - The `mutate()` function creates new columns or modifies existing ones by performing calculations or transformations on current columns.
-   ```{r, eval=FALSE}
-   #| eval: false
+   ```{r}
    df <- df %>% mutate(new_column = column1 * 2)
+   df
    ```
 
 These functions are especially powerful when combined in recursive structures or "pipelines" using `%>%` to streamline data manipulation tasks.
