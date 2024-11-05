@@ -248,6 +248,18 @@ if (x > 5) {
   print("x is not greater than 5")
 }
 ```
+* `for` loop: Repeat code over the elements of a vector.
+```{r}
+x <- c("First", "Second", "Third", "Fourth", "Fifth")
+# iterate over numeric index, created on the fly
+for (i in 1:length(x)) {
+  print(x[i])
+}
+# iterate over the values of x directly
+for (value in x) {
+  print(value)
+}
+```
 * `while` loop: Repeat code while a condition is true.
 ```{r}
 count <- 1
