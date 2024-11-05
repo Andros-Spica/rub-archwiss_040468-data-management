@@ -341,16 +341,21 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#code-organisation" id="toc-code-organisation" class="nav-link active" data-scroll-target="#code-organisation"><span class="header-section-number">4.1</span> Code Organisation</a>
+  <li><a href="#code-organisation" id="toc-code-organisation" class="nav-link active" data-scroll-target="#code-organisation"><span class="header-section-number">4.1</span> Code organisation</a>
   <ul class="collapse">
-  <li><a href="#modular-programming" id="toc-modular-programming" class="nav-link" data-scroll-target="#modular-programming"><span class="header-section-number">4.1.1</span> Modular Programming</a></li>
-  <li><a href="#code-structuring" id="toc-code-structuring" class="nav-link" data-scroll-target="#code-structuring"><span class="header-section-number">4.1.2</span> Code Structuring</a></li>
+  <li><a href="#modular-programming" id="toc-modular-programming" class="nav-link" data-scroll-target="#modular-programming"><span class="header-section-number">4.1.1</span> Modular programming</a></li>
+  <li><a href="#code-structuring" id="toc-code-structuring" class="nav-link" data-scroll-target="#code-structuring"><span class="header-section-number">4.1.2</span> Code structuring</a></li>
   </ul></li>
-  <li><a href="#writing-clean-and-readable-code" id="toc-writing-clean-and-readable-code" class="nav-link" data-scroll-target="#writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing Clean and Readable Code</a></li>
-  <li><a href="#writing-efficient-and-scalable-code" id="toc-writing-efficient-and-scalable-code" class="nav-link" data-scroll-target="#writing-efficient-and-scalable-code"><span class="header-section-number">4.3</span> Writing Efficient and Scalable Code</a></li>
-  <li><a href="#extratesting-and-validation" id="toc-extratesting-and-validation" class="nav-link" data-scroll-target="#extratesting-and-validation"><span class="header-section-number">4.4</span> (EXTRA)Testing and Validation</a></li>
-  <li><a href="#extraerror-handling-and-debugging" id="toc-extraerror-handling-and-debugging" class="nav-link" data-scroll-target="#extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</a></li>
-  <li><a href="#extracode-reusability-and-sharing" id="toc-extracode-reusability-and-sharing" class="nav-link" data-scroll-target="#extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</a></li>
+  <li><a href="#writing-clean-and-readable-code" id="toc-writing-clean-and-readable-code" class="nav-link" data-scroll-target="#writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing clean and readable code</a>
+  <ul class="collapse">
+  <li><a href="#naming-conventions" id="toc-naming-conventions" class="nav-link" data-scroll-target="#naming-conventions"><span class="header-section-number">4.2.1</span> Naming conventions</a></li>
+  <li><a href="#commenting-and-documentation" id="toc-commenting-and-documentation" class="nav-link" data-scroll-target="#commenting-and-documentation"><span class="header-section-number">4.2.2</span> Commenting and documentation</a></li>
+  <li><a href="#avoiding-magic-numbers-and-hardcoding" id="toc-avoiding-magic-numbers-and-hardcoding" class="nav-link" data-scroll-target="#avoiding-magic-numbers-and-hardcoding"><span class="header-section-number">4.2.3</span> Avoiding magic numbers and hardcoding</a></li>
+  <li><a href="#writing-efficient-and-scalable-code" id="toc-writing-efficient-and-scalable-code" class="nav-link" data-scroll-target="#writing-efficient-and-scalable-code"><span class="header-section-number">4.2.4</span> Writing efficient and scalable code</a></li>
+  </ul></li>
+  <li><a href="#extratesting-and-validation" id="toc-extratesting-and-validation" class="nav-link" data-scroll-target="#extratesting-and-validation"><span class="header-section-number">4.3</span> (EXTRA)Testing and Validation</a></li>
+  <li><a href="#extraerror-handling-and-debugging" id="toc-extraerror-handling-and-debugging" class="nav-link" data-scroll-target="#extraerror-handling-and-debugging"><span class="header-section-number">4.4</span> (EXTRA)Error Handling and Debugging</a></li>
+  <li><a href="#extracode-reusability-and-sharing" id="toc-extracode-reusability-and-sharing" class="nav-link" data-scroll-target="#extracode-reusability-and-sharing"><span class="header-section-number">4.5</span> (EXTRA)Code Reusability and Sharing</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-r-programming.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -377,9 +382,9 @@ div.csl-indent {
 
 
 <section id="code-organisation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="code-organisation"><span class="header-section-number">4.1</span> Code Organisation</h2>
+<h2 data-number="4.1" class="anchored" data-anchor-id="code-organisation"><span class="header-section-number">4.1</span> Code organisation</h2>
 <section id="modular-programming" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="modular-programming"><span class="header-section-number">4.1.1</span> Modular Programming</h3>
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="modular-programming"><span class="header-section-number">4.1.1</span> Modular programming</h3>
 <p><strong>Importance of modularity</strong><br>
 Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -473,7 +478,7 @@ Single-responsability Principle
 </section>
 </section>
 <section id="code-structuring" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="code-structuring"><span class="header-section-number">4.1.2</span> Code Structuring</h3>
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="code-structuring"><span class="header-section-number">4.1.2</span> Code structuring</h3>
 <p><strong>Structuring a data science project</strong><br>
 A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.</p>
 <section id="example-setting-up-a-basic-project-structure-in-r-and-rstudio" class="level4 unnumbered">
@@ -564,50 +569,215 @@ See also
 </section>
 </section>
 <section id="writing-clean-and-readable-code" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing Clean and Readable Code</h2>
+<h2 data-number="4.2" class="anchored" data-anchor-id="writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing clean and readable code</h2>
+<p>Code is effectively written for a computer to “understand” and execute (i.e., <em>machine readable</em>). However, humans revise, learn, and expand code (<em>geek</em> humans, but humans all the same!). Therefore, when writing code, you should remember a few practices that will make it easier to read and understand by humans (i.e., more <em>human-readable</em>).</p>
+<section id="naming-conventions" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="naming-conventions"><span class="header-section-number">4.2.1</span> Naming conventions</h3>
+<section id="bad-practices" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="bad-practices"><strong>Bad practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Non-descriptive variable names</strong><br>
+Using vague names makes it hard to understand the purpose of a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad naming</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">22.5</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Inconsistent naming styles</strong><br>
+Mixing different styles (e.g., camelCase, snake_case, and inconsistent capitalization) leads to confusion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inconsistent naming</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>calcMean <span class="ot">&lt;-</span> <span class="cf">function</span>(X) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(X)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="best-practices" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="best-practices"><strong>Best practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Using descriptive and consistent names</strong><br>
+Choose clear and consistent names to convey purpose.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good naming conventions</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>average_temperature <span class="ot">&lt;-</span> <span class="fl">22.5</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(values) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(values)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For more guidance, refer to the tidyverse style guide <span class="citation" data-cites="noauthor_tidyverse_nodate-1">(<a href="references.html#ref-noauthor_tidyverse_nodate-1" role="doc-biblioref"><span>“Tidyverse Style Guide”</span> n.d.</a>)</span>.</p></li>
+</ol>
+</section>
+</section>
+<section id="commenting-and-documentation" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="commenting-and-documentation"><span class="header-section-number">4.2.2</span> Commenting and documentation</h3>
+<section id="bad-practices-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="bad-practices-1"><strong>Bad practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Lack of comments</strong><br>
+Skipping comments leads to difficulty in understanding the purpose or logic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No comments</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> data[data<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Over-commenting obvious code</strong><br>
+Commenting on trivial lines unnecessarily clutters the code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding 1 to x</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="best-practices-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="best-practices-1"><strong>Best practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Meaningful comments and using <code>roxygen2</code></strong><br>
+Document non-obvious logic and function purpose clearly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Filter data by score</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' This function filters data for scores greater than 10.</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param data A dataframe with a score column</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Filtered dataframe</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>filter_high_scores <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  data[data<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">10</span>, ]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For more about the <code>roxygen2</code> package, see its “vignette” <span class="citation" data-cites="noauthor_learn_nodate-1">(<a href="references.html#ref-noauthor_learn_nodate-1" role="doc-biblioref"><span>“Learn More”</span> n.d.</a>)</span>.</p></li>
+</ol>
+</section>
+</section>
+<section id="avoiding-magic-numbers-and-hardcoding" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="avoiding-magic-numbers-and-hardcoding"><span class="header-section-number">4.2.3</span> Avoiding magic numbers and hardcoding</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Magic numbers in programming
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Magic numbers</strong> refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because: 1. <strong>Lack of clarity</strong>: Without meaningful names, the purpose of the number is unclear to others (or to you in the future).<br>
+2. <strong>Hard to update</strong>: If the same number appears in multiple places, updating it becomes error-prone and tedious.<br>
+3. <strong>Reduced readability</strong>: Magic numbers obscure the intent of the code, making it harder to follow and debug.</p>
+</div>
+</div>
+<section id="bad-practices-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="bad-practices-2"><strong>Bad practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Using magic numbers</strong><br>
+Hardcoding values without explanation can confuse users about their significance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hardcoded magic number</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="best-practices-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="best-practices-2"><strong>Best practices:</strong></h4>
+<ol type="1">
+<li><p><strong>Defining constants</strong><br>
+Clearly define constants for better clarity and easy updates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using constants</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>DAYS_IN_WEEK <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>DAYS_IN_WEEK) {</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li><strong>Naming Conventions</strong>
+<li><span class="citation" data-cites="noauthor_tidyverse_nodate-1"><span>“Tidyverse Style Guide”</span> (<a href="references.html#ref-noauthor_tidyverse_nodate-1" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="alboukadel_r_2020">Alboukadel (<a href="references.html#ref-alboukadel_r_2020" role="doc-biblioref">2020</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_r_nodate-2"><span>“R <span>Variables</span> and <span>Constants</span>”</span> (<a href="references.html#ref-noauthor_r_nodate-2" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_style_nodate"><span>“Style Guide · <span>Advanced</span> <span>R</span>.”</span> (<a href="references.html#ref-noauthor_style_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_r_nodate-3"><span>“R <span>Variables</span> and <span>Constants</span> (<span>With</span> <span>Examples</span>)”</span> (<a href="references.html#ref-noauthor_r_nodate-3" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_googles_nodate"><span>“Google’s <span>R</span> <span>Style</span> <span>Guide</span>”</span> (<a href="references.html#ref-noauthor_googles_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="writing-efficient-and-scalable-code" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="writing-efficient-and-scalable-code"><span class="header-section-number">4.2.4</span> Writing efficient and scalable code</h3>
+<p>Efficient and scalable R code is crucial when dealing with large datasets or computationally intensive tasks. Scalability refers to the code’s ability to handle increasing amounts of data or complexity without significant performance degradation.</p>
+<section id="vectorization" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="vectorization"><strong>Vectorization</strong></h4>
+<p>Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R’s optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.</p>
+<p><strong>Examples:</strong> - <strong>Base R</strong>: ```r # Loop approach result &lt;- numeric(1000) for (i in 1:1000) { result[i] &lt;- i^2 }</p>
+<p># Vectorized approach result &lt;- (1:1000)^2 ```</p>
 <ul>
-<li>Using meaningful and consistent names for variables, functions, and files.<br>
-</li>
-<li>Example: Best practices in naming conventions in R (<a href="https://style.tidyverse.org/index.html">tidyverse style guide</a>).<br>
-</li>
-</ul></li>
-<li><strong>Commenting and Documentation</strong>
-<ul>
-<li>Importance of comments and inline documentation.<br>
-</li>
-<li>Example: Writing using <code>roxygen2</code> in R for documenting functions.<br>
-</li>
-</ul></li>
-<li><strong>Avoiding Magic Numbers and Hardcoding</strong>
-<ul>
-<li>Use of constants and configuration files.<br>
-</li>
-<li>Example: Using constants in R.</li>
-</ul></li>
+<li><p><strong>Using <code>dplyr</code></strong>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized operation with dplyr</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="writing-efficient-and-scalable-code" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="writing-efficient-and-scalable-code"><span class="header-section-number">4.3</span> Writing Efficient and Scalable Code</h2>
+<section id="memory-management" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="memory-management"><strong>Memory Management</strong></h4>
+<p>Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. <code>data.table</code> is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.</p>
+<p><strong>Example:</strong> - <strong>Using <code>data.table</code></strong>: ```r library(data.table)</p>
+<p># Creating a large data.table dt &lt;- data.table(x = rnorm(1e7), y = rnorm(1e7))</p>
+<p># Efficiently computing on large datasets dt[, mean_x := mean(x)] ```</p>
+<p><code>data.table</code> optimizes memory usage by modifying data in place and avoids unnecessary copies, making it ideal for large-scale data processing.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li><strong>Vectorization</strong>
-<ul>
-<li>Avoiding loops by using vectorized operations for efficiency.<br>
+<li><span class="citation" data-cites="anderson_19_nodate">Anderson (<a href="references.html#ref-anderson_19_nodate" role="doc-biblioref">n.d.</a>)</span><br>
 </li>
-<li>Example: Implementing vectorized operations in R (base R, <code>dplyr</code>).<br>
+<li><span class="citation" data-cites="noauthor_r_nodate-4"><span>“R Dtplyr: <span>How</span> to <span>Efficiently</span> <span>Process</span> <span>Huge</span> <span>Datasets</span> with a Data.table <span>Backend</span>”</span> (<a href="references.html#ref-noauthor_r_nodate-4" role="doc-biblioref">n.d.</a>)</span><br>
 </li>
-</ul></li>
-<li><strong>Memory Management</strong>
-<ul>
-<li>Managing memory usage and avoiding memory leaks.<br>
-</li>
-<li>Example: Best practices for handling large datasets in R (using <code>data.table</code>).</li>
-</ul></li>
+<li><span class="citation" data-cites="lipkin_writing_2022">Lipkin (<a href="references.html#ref-lipkin_writing_2022" role="doc-biblioref">2022</a>)</span></li>
 </ul>
+</div>
+</div>
+</div>
 </section>
-<section id="extratesting-and-validation" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="extratesting-and-validation"><span class="header-section-number">4.4</span> (EXTRA)Testing and Validation</h2>
+</section>
+</section>
+<section id="extratesting-and-validation" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="extratesting-and-validation"><span class="header-section-number">4.3</span> (EXTRA)Testing and Validation</h2>
 <ul>
 <li><strong>Writing Unit Tests</strong>
 <ul>
@@ -624,8 +794,8 @@ See also
 </ul></li>
 </ul>
 </section>
-<section id="extraerror-handling-and-debugging" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</h2>
+<section id="extraerror-handling-and-debugging" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="extraerror-handling-and-debugging"><span class="header-section-number">4.4</span> (EXTRA)Error Handling and Debugging</h2>
 <ul>
 <li><strong>Error Handling Techniques</strong>
 <ul>
@@ -644,8 +814,8 @@ See also
 </ul></li>
 </ul>
 </section>
-<section id="extracode-reusability-and-sharing" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</h2>
+<section id="extracode-reusability-and-sharing" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="extracode-reusability-and-sharing"><span class="header-section-number">4.5</span> (EXTRA)Code Reusability and Sharing</h2>
 <ul>
 <li><strong>Creating Reusable Code</strong>
 <ul>
@@ -702,14 +872,44 @@ Hands-on Practice
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-alboukadel_r_2020" class="csl-entry" role="listitem">
+Alboukadel. 2020. <span>“R <span>Coding</span> <span>Style</span> <span>Best</span> <span>Practices</span>.”</span> <em>Datanovia</em>. <a href="https://www.datanovia.com/en/blog/r-coding-style-best-practices/">https://www.datanovia.com/en/blog/r-coding-style-best-practices/</a>.
+</div>
+<div id="ref-anderson_19_nodate" class="csl-entry" role="listitem">
+Anderson, and Brooke, Sean Kross. n.d. <em>1.9 <span>Working</span> with <span>Large</span> <span>Datasets</span> <span></span> <span>Mastering</span> <span>Software</span> <span>Development</span> in <span>R</span></em>. Accessed November 5, 2024. <a href="https://github.com/rdpeng/RProgDA">https://github.com/rdpeng/RProgDA</a>.
+</div>
 <div id="ref-gillespie_efficient_nodate" class="csl-entry" role="listitem">
 Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programming</em>. Accessed November 5, 2024. <a href="https://csgillespie.github.io/efficientR/">https://csgillespie.github.io/efficientR/</a>.
+</div>
+<div id="ref-noauthor_googles_nodate" class="csl-entry" role="listitem">
+<span>“Google’s <span>R</span> <span>Style</span> <span>Guide</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html">https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html</a>.
 </div>
 <div id="ref-grolemund_welcome_nodate" class="csl-entry" role="listitem">
 Grolemund, Hadley Wickham and Garrett. n.d. <em>Welcome <span></span> <span>R</span> for <span>Data</span> <span>Science</span></em>. Accessed November 5, 2024. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
 </div>
+<div id="ref-noauthor_learn_nodate-1" class="csl-entry" role="listitem">
+<span>“Learn More.”</span> n.d. Accessed November 5, 2024. <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a>.
+</div>
+<div id="ref-lipkin_writing_2022" class="csl-entry" role="listitem">
+Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <span>Vectorization</span> and the {Apply} Family.”</span> <em>Medium</em>. <a href="https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a">https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a</a>.
+</div>
+<div id="ref-noauthor_r_nodate-4" class="csl-entry" role="listitem">
+<span>“R Dtplyr: <span>How</span> to <span>Efficiently</span> <span>Process</span> <span>Huge</span> <span>Datasets</span> with a Data.table <span>Backend</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.appsilon.com/post/r-dtplyr">https://www.appsilon.com/post/r-dtplyr</a>.
+</div>
+<div id="ref-noauthor_r_nodate-2" class="csl-entry" role="listitem">
+<span>“R <span>Variables</span> and <span>Constants</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.programiz.com/r/variables-and-constants">https://www.programiz.com/r/variables-and-constants</a>.
+</div>
+<div id="ref-noauthor_r_nodate-3" class="csl-entry" role="listitem">
+<span>“R <span>Variables</span> and <span>Constants</span> (<span>With</span> <span>Examples</span>).”</span> n.d. Accessed November 5, 2024. <a href="https://www.datamentor.io/r-programming/variable-constant">https://www.datamentor.io/r-programming/variable-constant</a>.
+</div>
 <div id="ref-noauthor_single-responsibility_nodate" class="csl-entry" role="listitem">
 <span>“Single-Responsibility Principle - <span>Wikipedia</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">https://en.wikipedia.org/wiki/Single-responsibility_principle</a>.
+</div>
+<div id="ref-noauthor_style_nodate" class="csl-entry" role="listitem">
+<span>“Style Guide · <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a>.
+</div>
+<div id="ref-noauthor_tidyverse_nodate-1" class="csl-entry" role="listitem">
+<span>“Tidyverse Style Guide.”</span> n.d. Accessed November 5, 2024. <a href="https://style.tidyverse.org/index.html">https://style.tidyverse.org/index.html</a>.
 </div>
 <div id="ref-noauthor_welcome_nodate" class="csl-entry" role="listitem">
 <span>“Welcome <span></span> <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>.
