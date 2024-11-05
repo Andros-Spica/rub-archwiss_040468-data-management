@@ -569,7 +569,7 @@ These functions are especially powerful when combined in recursive structures or
 ## Data Visualization
 
 Let us load the `DartPoints` dataset from the `archdata` package and use it in the examples:
-```{r}
+```{r, message=FALSE}
 library(archdata)
 data(DartPoints)
 ```
