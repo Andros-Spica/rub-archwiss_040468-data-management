@@ -7,7 +7,21 @@
 **Importance of modularity**  
 Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.
 
-**Example: Creating in-script custom functions**  
+::: {.callout-note}
+#### Single-responsability Principle {.unnumbered} 
+
+The Single-responsibility Principle (SRP) is a key concept in software design that ensures each function or module in your code has one, and only one, reason to change. For students learning R, this means breaking down your code into smaller, well-defined functions where each function does one specific task. This makes your code easier to understand, test, and maintain [@noauthor_single-responsibility_nodate].
+
+For example, instead of writing one long script that loads data, cleans it, and plots it, you can write separate functions for each task:
+- `load_data()` handles loading the data.
+- `clean_data()` takes care of data cleaning.
+- `plot_data()` is responsible for plotting.
+
+By adhering to SRP, you reduce the chance of introducing bugs when modifying or extending your code. If the way data is loaded changes, you only need to adjust `load_data()` without worrying about unintended side effects on `clean_data()` or `plot_data()`.
+
+:::
+
+#### **Example: Creating in-script custom functions** {.unnumbered}  
 ```r
 # Custom function to calculate mean
 calculate_mean <- function(data) {
@@ -19,9 +33,57 @@ numbers <- c(1, 2, 3, NA, 5)
 calculate_mean(numbers)
 ```
 
-**Example: Creating and importing custom R scripts**  
+#### **Example: Wrapping messy code into clear functions** {.unnumbered}  
+**Messy Code Example:**
+```{r, eval=FALSE}
+#| eval: false
+# Messy and hard to follow
+data <- read.csv("data.csv")
+data$cleaned <- na.omit(data$column)
+data$scaled <- (data$cleaned - mean(data$cleaned)) / sd(data$cleaned)
+hist(data$scaled)
+```
+
+**Wrapped in functions clearly defined:**
+```{r, eval=FALSE}
+#| eval: false
+# Function to load data
+load_data <- function(filepath) {
+  read.csv(filepath)
+}
+
+# Function to clean data
+clean_data <- function(data, column) {
+  na.omit(data[[column]])
+}
+
+# Function to scale data
+scale_data <- function(data) {
+  (data - mean(data)) / sd(data)
+}
+
+# Function to plot histogram
+plot_histogram <- function(data) {
+  hist(data)
+}
+
+# Main execution sequence
+main <- function() {
+  raw_data <- load_data("data.csv")
+  cleaned_data <- clean_data(raw_data, "column")
+  scaled_data <- scale_data(cleaned_data)
+  plot_histogram(scaled_data)
+}
+
+# Run the main function
+main()
+```
+
+By organizing the operations into clear, single-responsibility functions, the code becomes more readable, maintainable, and easier to debug.
+
+#### **Example: Creating and importing custom R scripts** {.unnumbered}  
 1. **Creating a script:** Save the following function in a file named `utility_functions.R`.
-   ```{r, eval = FALSE}
+   ```{r, eval=FALSE}
    #| eval: false
    # utility_functions.R
    calculate_sum <- function(data) {
@@ -29,7 +91,7 @@ calculate_mean(numbers)
    }
    ```
 2. **Importing the script:**
-   ```{r, eval = FALSE}
+   ```{r, eval=FALSE}
    #| eval: false
    source("utility_functions.R") # loads all functions defined inside the script
    numbers <- c(1, 2, 3, NA, 5)
@@ -41,25 +103,25 @@ calculate_mean(numbers)
 **Structuring a data science project**  
 A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.
 
-**Example: Setting up a basic project structure in R and RStudio**  
+#### **Example: Setting up a basic project structure in R and RStudio** {.unnumbered}   
 1. **Folder Structure:**
    ```
-   #| eval: false
-   my_project/
-   ├── data/
-   │   └── raw_data.csv
-   ├── scripts/
-   │   ├── 01_load_data.R
-   │   └── 02_analyse_data.R
-   │   └── 03_visualise_data.R
-   ├── outputs/
-   │   └── analysis_results.csv
-   └── workflow.R
-   └── my_project.Rproj
+   my_project/  
+   ├── data/  
+   │   └── raw_data.csv  
+   ├── scripts/  
+   │   ├── 01_load_data.R  
+   │   └── 02_analyse_data.R  
+   │   └── 03_visualise_data.R  
+   ├── outputs/  
+   │   └── analysis_results.csv  
+   └── workflow.R  
+   └── my_project.Rproj  
    ```
-2. **Script Example:**
+   
+2. **Script Example:**  
    - `01_load_data.R`
-     ```{r, eval = FALSE}
+     ```{r, eval=FALSE}
      #| eval: false
      load_data <- function(file_name, dir = "data", save_rds = FALSE) {
        file_path <- paste(dir, file_name, sep = "/")
@@ -73,7 +135,7 @@ A well-organized project structure separates code, data, and outputs, which faci
      ```
 
    - `02_analyse_data.R`
-     ```{r, eval = FALSE}
+     ```{r, eval=FALSE}
      #| eval: false
      analyze_data <- function() {
        summary_stats <- summary(raw_data)
@@ -84,7 +146,7 @@ A well-organized project structure separates code, data, and outputs, which faci
      ```
 
    - `03_visualise_data.R`
-     ```{r, eval = FALSE}
+     ```{r, eval=FALSE}
      #| eval: false
      visualise_data <- function(dataset, plot_name, dir = "outputs", width = 480, height = 480) {
        file_path <- paste(dir, plot_name, sep = "/")
@@ -96,7 +158,7 @@ A well-organized project structure separates code, data, and outputs, which faci
      ```
      
    - `workflow.R`
-     ```{r, eval = FALSE}
+     ```{r, eval=FALSE}
      source("01_load_data.R")
      source("02_analyze_data.R")
      
