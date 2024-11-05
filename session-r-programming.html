@@ -382,7 +382,23 @@ div.csl-indent {
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="modular-programming"><span class="header-section-number">4.1.1</span> Modular Programming</h3>
 <p><strong>Importance of modularity</strong><br>
 Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.</p>
-<p><strong>Example: Creating in-script custom functions</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Single-responsability Principle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Single-responsibility Principle (SRP) is a key concept in software design that ensures each function or module in your code has one, and only one, reason to change. For students learning R, this means breaking down your code into smaller, well-defined functions where each function does one specific task. This makes your code easier to understand, test, and maintain <span class="citation" data-cites="noauthor_single-responsibility_nodate">(<a href="references.html#ref-noauthor_single-responsibility_nodate" role="doc-biblioref"><span>“Single-Responsibility Principle - <span>Wikipedia</span>”</span> n.d.</a>)</span>.</p>
+<p>For example, instead of writing one long script that loads data, cleans it, and plots it, you can write separate functions for each task: - <code>load_data()</code> handles loading the data. - <code>clean_data()</code> takes care of data cleaning. - <code>plot_data()</code> is responsible for plotting.</p>
+<p>By adhering to SRP, you reduce the chance of introducing bugs when modifying or extending your code. If the way data is loaded changes, you only need to adjust <code>load_data()</code> without worrying about unintended side effects on <code>clean_data()</code> or <code>plot_data()</code>.</p>
+</div>
+</div>
+<section id="example-creating-in-script-custom-functions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-creating-in-script-custom-functions"><strong>Example: Creating in-script custom functions</strong></h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom function to calculate mean</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
@@ -391,78 +407,139 @@ Breaking down your code into functions and modules enhances readability, maintai
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_mean</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Creating and importing custom R scripts</strong><br>
-1. <strong>Creating a script:</strong> Save the following function in a file named <code>utility_functions.R</code>.</p>
-<p>::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utility_functions.R</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>calculate_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<ol start="2" type="1">
+</section>
+<section id="example-wrapping-messy-code-into-clear-functions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-wrapping-messy-code-into-clear-functions"><strong>Example: Wrapping messy code into clear functions</strong></h4>
+<p><strong>Messy Code Example:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Messy and hard to follow</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>cleaned <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data<span class="sc">$</span>column)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>scaled <span class="ot">&lt;-</span> (data<span class="sc">$</span>cleaned <span class="sc">-</span> <span class="fu">mean</span>(data<span class="sc">$</span>cleaned)) <span class="sc">/</span> <span class="fu">sd</span>(data<span class="sc">$</span>cleaned)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>scaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Wrapped in functions clearly defined:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to load data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>load_data <span class="ot">&lt;-</span> <span class="cf">function</span>(filepath) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.csv</span>(filepath)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to clean data</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data, column) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(data[[column]])</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to scale data</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>scale_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  (data <span class="sc">-</span> <span class="fu">mean</span>(data)) <span class="sc">/</span> <span class="fu">sd</span>(data)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot histogram</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plot_histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(data)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution sequence</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  raw_data <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  cleaned_data <span class="ot">&lt;-</span> <span class="fu">clean_data</span>(raw_data, <span class="st">"column"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  scaled_data <span class="ot">&lt;-</span> <span class="fu">scale_data</span>(cleaned_data)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_histogram</span>(scaled_data)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the main function</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By organizing the operations into clear, single-responsibility functions, the code becomes more readable, maintainable, and easier to debug.</p>
+</section>
+<section id="example-creating-and-importing-custom-r-scripts" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-creating-and-importing-custom-r-scripts"><strong>Example: Creating and importing custom R scripts</strong></h4>
+<ol type="1">
+<li><p><strong>Creating a script:</strong> Save the following function in a file named <code>utility_functions.R</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utility_functions.R</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>calculate_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p><strong>Importing the script:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utility_functions.R"</span>) <span class="co"># loads all functions defined inside the script</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_sum</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utility_functions.R"</span>) <span class="co"># loads all functions defined inside the script</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_sum</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ol>
+</section>
 </section>
 <section id="code-structuring" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="code-structuring"><span class="header-section-number">4.1.2</span> Code Structuring</h3>
 <p><strong>Structuring a data science project</strong><br>
 A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.</p>
-<p><strong>Example: Setting up a basic project structure in R and RStudio</strong><br>
-1. <strong>Folder Structure:</strong> <code>#| eval: false    my_project/    ├── data/    │   └── raw_data.csv    ├── scripts/    │   ├── 01_load_data.R    │   └── 02_analyse_data.R    │   └── 03_visualise_data.R    ├── outputs/    │   └── analysis_results.csv    └── workflow.R    └── my_project.Rproj</code> 2. <strong>Script Example:</strong> - <code>01_load_data.R</code></p>
-<pre><code> ::: {.cell}
- 
- ```{.r .cell-code}
- load_data &lt;- function(file_name, dir = "data", save_rds = FALSE) {
-   file_path &lt;- paste(dir, file_name, sep = "/")
-   # load raw data
-   raw_data &lt;- read.csv(paste(file_path, "csv", sep = "."))
-   if (save_rds) {
-     # save a copy as a R dataset (.rds)
-     saveRDS(raw_data, file = paste(file_path, "rds", sep = "."))
-   }
- }
- ```
- :::</code></pre>
+<section id="example-setting-up-a-basic-project-structure-in-r-and-rstudio" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-setting-up-a-basic-project-structure-in-r-and-rstudio"><strong>Example: Setting up a basic project structure in R and RStudio</strong></h4>
+<ol type="1">
+<li><p><strong>Folder Structure:</strong></p>
+<pre><code>my_project/  
+├── data/  
+│   └── raw_data.csv  
+├── scripts/  
+│   ├── 01_load_data.R  
+│   └── 02_analyse_data.R  
+│   └── 03_visualise_data.R  
+├── outputs/  
+│   └── analysis_results.csv  
+└── workflow.R  
+└── my_project.Rproj  </code></pre></li>
+<li><p><strong>Script Example:</strong></p>
 <ul>
+<li><p><code>01_load_data.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>load_data <span class="ot">&lt;-</span> <span class="cf">function</span>(file_name, <span class="at">dir =</span> <span class="st">"data"</span>, <span class="at">save_rds =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(dir, file_name, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># load raw data</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  raw_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste</span>(file_path, <span class="st">"csv"</span>, <span class="at">sep =</span> <span class="st">"."</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (save_rds) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save a copy as a R dataset (.rds)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(raw_data, <span class="at">file =</span> <span class="fu">paste</span>(file_path, <span class="st">"rds"</span>, <span class="at">sep =</span> <span class="st">"."</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p><code>02_analyse_data.R</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>analyze_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  summary_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(raw_data)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(summary_stats)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the results to an output file</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(summary_stats, <span class="st">"outputs/analysis_results.csv"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>analyze_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  summary_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(raw_data)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(summary_stats)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the results to an output file</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(summary_stats, <span class="st">"outputs/analysis_results.csv"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><code>03_visualise_data.R</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>visualise_data <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, plot_name, <span class="at">dir =</span> <span class="st">"outputs"</span>, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(dir, plot_name, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(file_path, <span class="st">"png"</span>, <span class="at">sep =</span> <span class="st">"."</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">png</span>(file_name, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>(dataset) <span class="co"># matrix of scatterplots</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>visualise_data <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, plot_name, <span class="at">dir =</span> <span class="st">"outputs"</span>, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(dir, plot_name, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(file_path, <span class="st">"png"</span>, <span class="at">sep =</span> <span class="st">"."</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">png</span>(file_name, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>(dataset) <span class="co"># matrix of scatterplots</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><code>workflow.R</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"01_load_data.R"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"02_analyze_data.R"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"raw_data"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">analyze_data</span>(dt)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise_data</span>(dt, <span class="st">"Variables overview"</span>, <span class="at">width =</span> <span class="dv">560</span>, <span class="at">height =</span> <span class="dv">560</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"01_load_data.R"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"02_analyze_data.R"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"raw_data"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">analyze_data</span>(dt)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise_data</span>(dt, <span class="st">"Variables overview"</span>, <span class="at">width =</span> <span class="dv">560</span>, <span class="at">height =</span> <span class="dv">560</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
-</ul>
+</ul></li>
+</ol>
 <p>This structure ensures clarity, with each component of the project clearly demarcated, promoting better workflow and collaboration.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -471,7 +548,7 @@ See also
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><span class="citation" data-cites="grolemund_welcome_nodate">Grolemund (<a href="references.html#ref-grolemund_welcome_nodate" role="doc-biblioref">n.d.</a>)</span><br>
@@ -483,6 +560,7 @@ See also
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="writing-clean-and-readable-code" class="level2" data-number="4.2">
@@ -629,6 +707,9 @@ Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programm
 </div>
 <div id="ref-grolemund_welcome_nodate" class="csl-entry" role="listitem">
 Grolemund, Hadley Wickham and Garrett. n.d. <em>Welcome <span></span> <span>R</span> for <span>Data</span> <span>Science</span></em>. Accessed November 5, 2024. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+</div>
+<div id="ref-noauthor_single-responsibility_nodate" class="csl-entry" role="listitem">
+<span>“Single-Responsibility Principle - <span>Wikipedia</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">https://en.wikipedia.org/wiki/Single-responsibility_principle</a>.
 </div>
 <div id="ref-noauthor_welcome_nodate" class="csl-entry" role="listitem">
 <span>“Welcome <span></span> <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>.
