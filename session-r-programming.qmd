@@ -2,13 +2,121 @@
 
 ## Code Organisation
 
-* **Modular Programming**  
-  * Importance of modularity: breaking down code into functions and modules.  
-  * Example: Creating in-script custom functions.   
-  * Example: Creating and importing custom R scripts.  
-* **Code Structuring**  
-  * Structuring a data science project: folder organization, separating code, data, and outputs.  
-  * Example: Setting up a basic project structure in R and RStudio.
+### Modular Programming
+
+**Importance of modularity**  
+Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.
+
+**Example: Creating in-script custom functions**  
+```r
+# Custom function to calculate mean
+calculate_mean <- function(data) {
+  mean(data, na.rm = TRUE)
+}
+
+# Usage
+numbers <- c(1, 2, 3, NA, 5)
+calculate_mean(numbers)
+```
+
+**Example: Creating and importing custom R scripts**  
+1. **Creating a script:** Save the following function in a file named `utility_functions.R`.
+   ```{r, eval = FALSE}
+   #| eval: false
+   # utility_functions.R
+   calculate_sum <- function(data) {
+     sum(data, na.rm = TRUE)
+   }
+   ```
+2. **Importing the script:**
+   ```{r, eval = FALSE}
+   #| eval: false
+   source("utility_functions.R") # loads all functions defined inside the script
+   numbers <- c(1, 2, 3, NA, 5)
+   calculate_sum(numbers)
+   ```
+
+### Code Structuring
+
+**Structuring a data science project**  
+A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.
+
+**Example: Setting up a basic project structure in R and RStudio**  
+1. **Folder Structure:**
+   ```
+   #| eval: false
+   my_project/
+   ├── data/
+   │   └── raw_data.csv
+   ├── scripts/
+   │   ├── 01_load_data.R
+   │   └── 02_analyse_data.R
+   │   └── 03_visualise_data.R
+   ├── outputs/
+   │   └── analysis_results.csv
+   └── workflow.R
+   └── my_project.Rproj
+   ```
+2. **Script Example:**
+   - `01_load_data.R`
+     ```{r, eval = FALSE}
+     #| eval: false
+     load_data <- function(file_name, dir = "data", save_rds = FALSE) {
+       file_path <- paste(dir, file_name, sep = "/")
+       # load raw data
+       raw_data <- read.csv(paste(file_path, "csv", sep = "."))
+       if (save_rds) {
+         # save a copy as a R dataset (.rds)
+         saveRDS(raw_data, file = paste(file_path, "rds", sep = "."))
+       }
+     }
+     ```
+
+   - `02_analyse_data.R`
+     ```{r, eval = FALSE}
+     #| eval: false
+     analyze_data <- function() {
+       summary_stats <- summary(raw_data)
+       print(summary_stats)
+       # Save the results to an output file
+       write.csv(summary_stats, "outputs/analysis_results.csv")
+     }
+     ```
+
+   - `03_visualise_data.R`
+     ```{r, eval = FALSE}
+     #| eval: false
+     visualise_data <- function(dataset, plot_name, dir = "outputs", width = 480, height = 480) {
+       file_path <- paste(dir, plot_name, sep = "/")
+       file_name <- paste(file_path, "png", sep = ".")
+       png(file_name, width = 480, height = 480)
+       pairs(dataset) # matrix of scatterplots
+       dev.off()
+     }
+     ```
+     
+   - `workflow.R`
+     ```{r, eval = FALSE}
+     source("01_load_data.R")
+     source("02_analyze_data.R")
+     
+     dt <- load_data("raw_data")
+     
+     analyze_data(dt)
+     
+     visualise_data(dt, "Variables overview", width = 560, height = 560)
+     ```
+
+This structure ensures clarity, with each component of the project clearly demarcated, promoting better workflow and collaboration.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @grolemund_welcome_nodate  
+- @gillespie_efficient_nodate  
+- @noauthor_welcome_nodate  
+
+:::
 
 ## Writing Clean and Readable Code
 
