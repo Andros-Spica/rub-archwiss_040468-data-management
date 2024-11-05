@@ -264,7 +264,7 @@ Code is effectively written for a computer to "understand" and execute (i.e., *m
 ::: {.callout-note}
 #### Magic numbers in programming {.unnumbered} 
 
-**Magic numbers** refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because:
+**Magic numbers** refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because:  
 1. **Lack of clarity**: Without meaningful names, the purpose of the number is unclear to others (or to you in the future).  
 2. **Hard to update**: If the same number appears in multiple places, updating it becomes error-prone and tedious.  
 3. **Reduced readability**: Magic numbers obscure the intent of the code, making it harder to follow and debug.  
@@ -315,6 +315,7 @@ Efficient and scalable R code is crucial when dealing with large datasets or com
 Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R's optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.
 
 **Examples:**
+
 - **Base R**:  
   ```{r, eval=FALSE}
   #| eval: false
@@ -344,6 +345,7 @@ Vectorization involves replacing explicit loops with vectorized operations, whic
 Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. `data.table` is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.
 
 **Example:**
+
 - **Using `data.table`**:  
   ```{r, eval=FALSE}
   #| eval: false
