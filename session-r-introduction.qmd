@@ -224,7 +224,7 @@ add_numbers <- function(a, b) {
 }
 ```
 
-A function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., `funtion(a, b)`) and use the same names inside the function's code, enclosed by curly brackets (e.g., `{ return(a + b) }`). In R, a function's output is always a single R object, enclosed as an argument of another primitive function, `return()` (e.g., `return(a + b)`).
+A function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., `funtion(a, b)`) and use the same names inside the function's code, enclosed by curly brackets (e.g., `{ return(a + b) }`). A function can perform a series of operations, some of which can have external consequences, such as printing console messages or creating or modifying files. In R, a function's output, if anything, is always a single R object, enclosed as an argument of another primitive function, `return()` (e.g., `return(a + b)`). Any R objects created or modified inside a function's code, but not included in the output, will be erased afterwards.
 
 Once declared, a function will be available or "loaded in the R session" for further use, using whatever values we assign to its input variables. For example, when `a = 3` and `b = 5`, `add_numbers()` will return:
 
@@ -523,28 +523,34 @@ df <- data.frame(x = 1:3, y = 4:6)
 
 The `dplyr` package in R provides a suite of functions to manipulate data in a streamlined and readable way. Key functions include those for filtering, selecting, and mutating data, which help manage data subsets, reorganize columns, and create new variables.
 
+```{r}
+library(dplyr)
+df <- data.frame(x = 1:30, y = rep(c("A", "B", "C"), 10), z = rep(c(TRUE, FALSE), 15))
+```
+
 1. **Filtering Data**
    - Use `filter()` to select rows based on conditions. Multiple conditions can be combined with `&` (and) or `|` (or).
    ```{r}
-   library(dplyr)
-   filtered_data <- df %>% filter(column1 > 10, column2 == "A")
+   filtered_data <- df %>% filter(x > 10, y == "A")
+   filtered_data
+   filtered_data <- df %>% filter(z)
    filtered_data
    ```
 
 2. **Selecting Columns**
    - Use `select()` to choose specific columns by name. You can use `:` to select a range of columns or `-` to exclude columns.
    ```{r}
-   selected_data <- df %>% select(column1, column2)
+   selected_data <- df %>% select(x, y)
    selected_data
-   selected_data <- df %>% select(-column3)  # Exclude column3
+   selected_data <- df %>% select(-z)  # Exclude z (third column)
    selected_data
    ```
 
 3. **Mutating Data**
    - The `mutate()` function creates new columns or modifies existing ones by performing calculations or transformations on current columns.
    ```{r}
-   df <- df %>% mutate(new_column = column1 * 2)
-   df
+   mutated_data <- df %>% mutate(new_column = x * 2)
+   mutated_data
    ```
 
 These functions are especially powerful when combined in recursive structures or "pipelines" using `%>%` to streamline data manipulation tasks.
