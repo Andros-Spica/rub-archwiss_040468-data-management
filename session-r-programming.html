@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -287,7 +341,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#code-organisation" id="toc-code-organisation" class="nav-link active" data-scroll-target="#code-organisation"><span class="header-section-number">4.1</span> Code Organisation</a></li>
+  <li><a href="#code-organisation" id="toc-code-organisation" class="nav-link active" data-scroll-target="#code-organisation"><span class="header-section-number">4.1</span> Code Organisation</a>
+  <ul class="collapse">
+  <li><a href="#modular-programming" id="toc-modular-programming" class="nav-link" data-scroll-target="#modular-programming"><span class="header-section-number">4.1.1</span> Modular Programming</a></li>
+  <li><a href="#code-structuring" id="toc-code-structuring" class="nav-link" data-scroll-target="#code-structuring"><span class="header-section-number">4.1.2</span> Code Structuring</a></li>
+  </ul></li>
   <li><a href="#writing-clean-and-readable-code" id="toc-writing-clean-and-readable-code" class="nav-link" data-scroll-target="#writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing Clean and Readable Code</a></li>
   <li><a href="#writing-efficient-and-scalable-code" id="toc-writing-efficient-and-scalable-code" class="nav-link" data-scroll-target="#writing-efficient-and-scalable-code"><span class="header-section-number">4.3</span> Writing Efficient and Scalable Code</a></li>
   <li><a href="#extratesting-and-validation" id="toc-extratesting-and-validation" class="nav-link" data-scroll-target="#extratesting-and-validation"><span class="header-section-number">4.4</span> (EXTRA)Testing and Validation</a></li>
@@ -320,23 +378,112 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="code-organisation" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="code-organisation"><span class="header-section-number">4.1</span> Code Organisation</h2>
+<section id="modular-programming" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="modular-programming"><span class="header-section-number">4.1.1</span> Modular Programming</h3>
+<p><strong>Importance of modularity</strong><br>
+Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.</p>
+<p><strong>Example: Creating in-script custom functions</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom function to calculate mean</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_mean</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example: Creating and importing custom R scripts</strong><br>
+1. <strong>Creating a script:</strong> Save the following function in a file named <code>utility_functions.R</code>.</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utility_functions.R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>calculate_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ol start="2" type="1">
+<li><p><strong>Importing the script:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utility_functions.R"</span>) <span class="co"># loads all functions defined inside the script</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_sum</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="code-structuring" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="code-structuring"><span class="header-section-number">4.1.2</span> Code Structuring</h3>
+<p><strong>Structuring a data science project</strong><br>
+A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.</p>
+<p><strong>Example: Setting up a basic project structure in R and RStudio</strong><br>
+1. <strong>Folder Structure:</strong> <code>#| eval: false    my_project/    ├── data/    │   └── raw_data.csv    ├── scripts/    │   ├── 01_load_data.R    │   └── 02_analyse_data.R    │   └── 03_visualise_data.R    ├── outputs/    │   └── analysis_results.csv    └── workflow.R    └── my_project.Rproj</code> 2. <strong>Script Example:</strong> - <code>01_load_data.R</code></p>
+<pre><code> ::: {.cell}
+ 
+ ```{.r .cell-code}
+ load_data &lt;- function(file_name, dir = "data", save_rds = FALSE) {
+   file_path &lt;- paste(dir, file_name, sep = "/")
+   # load raw data
+   raw_data &lt;- read.csv(paste(file_path, "csv", sep = "."))
+   if (save_rds) {
+     # save a copy as a R dataset (.rds)
+     saveRDS(raw_data, file = paste(file_path, "rds", sep = "."))
+   }
+ }
+ ```
+ :::</code></pre>
 <ul>
-<li><strong>Modular Programming</strong>
-<ul>
-<li>Importance of modularity: breaking down code into functions and modules.<br>
-</li>
-<li>Example: Creating in-script custom functions.<br>
-</li>
-<li>Example: Creating and importing custom R scripts.<br>
-</li>
-</ul></li>
-<li><strong>Code Structuring</strong>
-<ul>
-<li>Structuring a data science project: folder organization, separating code, data, and outputs.<br>
-</li>
-<li>Example: Setting up a basic project structure in R and RStudio.</li>
-</ul></li>
+<li><p><code>02_analyse_data.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>analyze_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  summary_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(raw_data)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(summary_stats)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the results to an output file</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(summary_stats, <span class="st">"outputs/analysis_results.csv"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>03_visualise_data.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>visualise_data <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, plot_name, <span class="at">dir =</span> <span class="st">"outputs"</span>, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(dir, plot_name, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(file_path, <span class="st">"png"</span>, <span class="at">sep =</span> <span class="st">"."</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">png</span>(file_name, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>(dataset) <span class="co"># matrix of scatterplots</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>workflow.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"01_load_data.R"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"02_analyze_data.R"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"raw_data"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">analyze_data</span>(dt)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise_data</span>(dt, <span class="st">"Variables overview"</span>, <span class="at">width =</span> <span class="dv">560</span>, <span class="at">height =</span> <span class="dv">560</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
+<p>This structure ensures clarity, with each component of the project clearly demarcated, promoting better workflow and collaboration.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="grolemund_welcome_nodate">Grolemund (<a href="references.html#ref-grolemund_welcome_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="gillespie_efficient_nodate">Gillespie and Lovelace (<a href="references.html#ref-gillespie_efficient_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_welcome_nodate"><span>“Welcome <span></span> <span>Advanced</span> <span>R</span>”</span> (<a href="references.html#ref-noauthor_welcome_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="writing-clean-and-readable-code" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="writing-clean-and-readable-code"><span class="header-section-number">4.2</span> Writing Clean and Readable Code</h2>
@@ -476,6 +623,17 @@ Hands-on Practice
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gillespie_efficient_nodate" class="csl-entry" role="listitem">
+Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programming</em>. Accessed November 5, 2024. <a href="https://csgillespie.github.io/efficientR/">https://csgillespie.github.io/efficientR/</a>.
+</div>
+<div id="ref-grolemund_welcome_nodate" class="csl-entry" role="listitem">
+Grolemund, Hadley Wickham and Garrett. n.d. <em>Welcome <span></span> <span>R</span> for <span>Data</span> <span>Science</span></em>. Accessed November 5, 2024. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+</div>
+<div id="ref-noauthor_welcome_nodate" class="csl-entry" role="listitem">
+<span>“Welcome <span></span> <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
