@@ -1,8 +1,8 @@
 # Best practices in programming {#sec-r-programming}
 
-## Code Organisation
+## Code organisation
 
-### Modular Programming
+### Modular programming
 
 **Importance of modularity**  
 Breaking down your code into functions and modules enhances readability, maintainability, and reusability. This approach helps isolate specific tasks and allows for easier debugging and testing.
@@ -98,7 +98,7 @@ By organizing the operations into clear, single-responsibility functions, the co
    calculate_sum(numbers)
    ```
 
-### Code Structuring
+### Code structuring
 
 **Structuring a data science project**  
 A well-organized project structure separates code, data, and outputs, which facilitates efficient project management.
@@ -180,26 +180,189 @@ This structure ensures clarity, with each component of the project clearly demar
 
 :::
 
-## Writing Clean and Readable Code
+## Writing clean and readable code
 
-* **Naming Conventions**  
-  * Using meaningful and consistent names for variables, functions, and files.  
-  * Example: Best practices in naming conventions in R ([tidyverse style guide](https://style.tidyverse.org/index.html)).  
-* **Commenting and Documentation**  
-  * Importance of comments and inline documentation.  
-  * Example: Writing using `roxygen2` in R for documenting functions.  
-* **Avoiding Magic Numbers and Hardcoding**  
-  * Use of constants and configuration files.  
-  * Example: Using constants in R.
+Code is effectively written for a computer to "understand" and execute (i.e., *machine readable*). However, humans revise, learn, and expand code (*geek* humans, but humans all the same!). Therefore, when writing code, you should remember a few practices that will make it easier to read and understand by humans (i.e., more *human-readable*).
 
-## Writing Efficient and Scalable Code
+### Naming conventions
 
-* **Vectorization**  
-  * Avoiding loops by using vectorized operations for efficiency.  
-  * Example: Implementing vectorized operations in R (base R, `dplyr`).  
-* **Memory Management**  
-  * Managing memory usage and avoiding memory leaks.  
-  * Example: Best practices for handling large datasets in R (using `data.table`).
+#### **Bad practices:** {.unnumbered}    
+1. **Non-descriptive variable names**  
+   Using vague names makes it hard to understand the purpose of a variable.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Bad naming
+   a <- 22.5
+   b <- function(x) {
+     mean(x)
+   }
+   ```
+   
+2. **Inconsistent naming styles**  
+   Mixing different styles (e.g., camelCase, snake_case, and inconsistent capitalization) leads to confusion.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Inconsistent naming
+   calcMean <- function(X) {
+     mean(X)
+   }
+   calculate_mean <- function(x) {
+     mean(x)
+   }
+   ```
+
+#### **Best practices:** {.unnumbered}  
+1. **Using descriptive and consistent names**  
+   Choose clear and consistent names to convey purpose.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Good naming conventions
+   average_temperature <- 22.5
+   calculate_mean <- function(values) {
+     mean(values)
+   }
+   ```
+   For more guidance, refer to the tidyverse style guide [@noauthor_tidyverse_nodate-1].
+
+### Commenting and documentation
+
+#### **Bad practices:** {.unnumbered}   
+1. **Lack of comments**  
+   Skipping comments leads to difficulty in understanding the purpose or logic.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # No comments
+   data <- read.csv("data.csv")
+   result <- data[data$score > 10, ]
+   ```
+2. **Over-commenting obvious code**  
+   Commenting on trivial lines unnecessarily clutters the code.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Adding 1 to x
+   x <- x + 1
+   ```
+
+#### **Best practices:** {.unnumbered}  
+1. **Meaningful comments and using `roxygen2`**  
+   Document non-obvious logic and function purpose clearly.
+   ```{r, eval=FALSE}
+   #| eval: false
+   #' Filter data by score
+   #'
+   #' This function filters data for scores greater than 10.
+   #' @param data A dataframe with a score column
+   #' @return Filtered dataframe
+   filter_high_scores <- function(data) {
+     data[data$score > 10, ]
+   }
+   ```
+   For more about the `roxygen2` package, see its "vignette" [@noauthor_learn_nodate-1].
+
+### Avoiding magic numbers and hardcoding
+
+::: {.callout-note}
+#### Magic numbers in programming {.unnumbered} 
+
+**Magic numbers** refer to unique numeric values embedded directly in the code without context or explanation. These numbers often appear arbitrary and can make the code difficult to understand and maintain. They are problematic because:
+1. **Lack of clarity**: Without meaningful names, the purpose of the number is unclear to others (or to you in the future).  
+2. **Hard to update**: If the same number appears in multiple places, updating it becomes error-prone and tedious.  
+3. **Reduced readability**: Magic numbers obscure the intent of the code, making it harder to follow and debug.  
+
+:::
+
+#### **Bad practices:** {.unnumbered}    
+1. **Using magic numbers**  
+   Hardcoding values without explanation can confuse users about their significance.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Hardcoded magic number
+   for (i in 1:7) {
+     print(i)
+   }
+   ```
+
+#### **Best practices:** {.unnumbered}    
+1. **Defining constants**  
+   Clearly define constants for better clarity and easy updates.  
+   ```{r, eval=FALSE}
+   #| eval: false
+   # Using constants
+   DAYS_IN_WEEK <- 7
+   for (i in 1:DAYS_IN_WEEK) {
+     print(i)
+   }
+   ```
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_tidyverse_nodate-1  
+- @alboukadel_r_2020  
+- @noauthor_r_nodate-2  
+- @noauthor_style_nodate  
+- @noauthor_r_nodate-3  
+- @noauthor_googles_nodate  
+
+:::
+
+### Writing efficient and scalable code
+
+Efficient and scalable R code is crucial when dealing with large datasets or computationally intensive tasks. Scalability refers to the code's ability to handle increasing amounts of data or complexity without significant performance degradation.
+
+#### **Vectorization** {.unnumbered}  
+
+Vectorization involves replacing explicit loops with vectorized operations, which are more efficient and concise. This approach leverages R's optimized internal functions to operate on entire vectors or matrices in one go, reducing execution time.
+
+**Examples:**
+- **Base R**:
+  ```r
+  # Loop approach
+  result <- numeric(1000)
+  for (i in 1:1000) {
+    result[i] <- i^2
+  }
+
+  # Vectorized approach
+  result <- (1:1000)^2
+  ```
+
+- **Using `dplyr`**:
+  ```r
+  library(dplyr)
+  data <- tibble(x = 1:1000)
+  
+  # Vectorized operation with dplyr
+  data <- data %>%
+    mutate(square = x^2)
+  ```
+
+#### **Memory Management** {.unnumbered}  
+
+Efficient memory management is essential when working with large datasets to prevent memory exhaustion and improve performance. `data.table` is a package specifically designed for handling large datasets efficiently by minimizing memory usage and speeding up data operations.
+
+**Example:**
+- **Using `data.table`**:
+  ```r
+  library(data.table)
+  
+  # Creating a large data.table
+  dt <- data.table(x = rnorm(1e7), y = rnorm(1e7))
+  
+  # Efficiently computing on large datasets
+  dt[, mean_x := mean(x)]
+  ```
+
+`data.table` optimizes memory usage by modifying data in place and avoids unnecessary copies, making it ideal for large-scale data processing.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @anderson_19_nodate  
+- @noauthor_r_nodate-4  
+- @lipkin_writing_2022  
+
+:::
 
 ## (EXTRA)Testing and Validation
 
