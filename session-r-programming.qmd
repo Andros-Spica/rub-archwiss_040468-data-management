@@ -137,7 +137,7 @@ A well-organized project structure separates code, data, and outputs, which faci
    - `02_analyse_data.R`
      ```{r, eval=FALSE}
      #| eval: false
-     analyze_data <- function() {
+     analyse_data <- function() {
        summary_stats <- summary(raw_data)
        print(summary_stats)
        # Save the results to an output file
@@ -151,7 +151,7 @@ A well-organized project structure separates code, data, and outputs, which faci
      visualise_data <- function(dataset, plot_name, dir = "outputs", width = 480, height = 480) {
        file_path <- paste(dir, plot_name, sep = "/")
        file_name <- paste(file_path, "png", sep = ".")
-       png(file_name, width = 480, height = 480)
+       png(file_name, width = width, height = height)
        pairs(dataset) # matrix of scatterplots
        dev.off()
      }
@@ -160,7 +160,8 @@ A well-organized project structure separates code, data, and outputs, which faci
    - `workflow.R`
      ```{r, eval=FALSE}
      source("01_load_data.R")
-     source("02_analyze_data.R")
+     source("02_analyse_data.R")
+     source("03_visualise_data.R")
      
      dt <- load_data("raw_data")
      
@@ -397,6 +398,17 @@ data <- read.csv("data.csv") %>%
 ```
 Using `dplyr` pipelines makes the code concise and easier to read.
 
+<!--- COMMENT 
+consider here also the version using the base R pipeline operator:
+
+data <- read.csv("data.csv") |>
+  na.omit() |>
+  subset(score > 10)
+
+also: it is sufficient to write "eval = false" either in the header of the chode chunk or as chunk option. The latter is the quarto-way, the former the Rmarkdown-way but both work the same. To ensure future compatibility, I would suggest going for the quarto-way. 
+
+-->
+
 #### **2. Breaking Down Long Functions** {.unnumbered}  
 Before:  
 ```{r, eval=FALSE}
@@ -516,6 +528,19 @@ Validating data inputs and outputs is crucial for maintaining data integrity, es
    summary(check)
    ```  
    This checks that `age` is non-negative, `salary` is positive, and `name` is not missing.
+
+<!-- COMMENT 
+These kinds of test can also be implemented using base R: 
+
+stopifnot(age >= 0, salary > 0, !is.na(name))
+
+or with custom error messages: 
+
+stopifnot("age must be positive"= age >= 0)
+stopifnot("salary must be positive"= salary > 0)
+stopifnot("name must not be NA"= !is.na(name))
+
+-->
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
