@@ -521,7 +521,7 @@ A well-organized project structure separates code, data, and outputs, which faci
 </div></li>
 <li><p><code>02_analyse_data.R</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>analyze_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>analyse_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  summary_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(raw_data)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(summary_stats)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the results to an output file</span></span>
@@ -533,7 +533,7 @@ A well-organized project structure separates code, data, and outputs, which faci
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>visualise_data <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, plot_name, <span class="at">dir =</span> <span class="st">"outputs"</span>, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>) {</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(dir, plot_name, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(file_path, <span class="st">"png"</span>, <span class="at">sep =</span> <span class="st">"."</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">png</span>(file_name, <span class="at">width =</span> <span class="dv">480</span>, <span class="at">height =</span> <span class="dv">480</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">png</span>(file_name, <span class="at">width =</span> width, <span class="at">height =</span> height)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>(dataset) <span class="co"># matrix of scatterplots</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -541,13 +541,14 @@ A well-organized project structure separates code, data, and outputs, which faci
 <li><p><code>workflow.R</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"01_load_data.R"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"02_analyze_data.R"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"raw_data"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">analyze_data</span>(dt)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise_data</span>(dt, <span class="st">"Variables overview"</span>, <span class="at">width =</span> <span class="dv">560</span>, <span class="at">height =</span> <span class="dv">560</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"02_analyse_data.R"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"03_visualise_data.R"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"raw_data"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">analyze_data</span>(dt)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise_data</span>(dt, <span class="st">"Variables overview"</span>, <span class="at">width =</span> <span class="dv">560</span>, <span class="at">height =</span> <span class="dv">560</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul></li>
 </ol>
@@ -836,6 +837,16 @@ See also
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using <code>dplyr</code> pipelines makes the code concise and easier to read.</p>
+<!--- COMMENT 
+consider here also the version using the base R pipeline operator:
+
+data <- read.csv("data.csv") |>
+  na.omit() |>
+  subset(score > 10)
+
+also: it is sufficient to write "eval = false" either in the header of the chode chunk or as chunk option. The latter is the quarto-way, the former the Rmarkdown-way but both work the same. To ensure future compatibility, I would suggest going for the quarto-way. 
+
+-->
 </section>
 <section id="breaking-down-long-functions" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="breaking-down-long-functions"><strong>2. Breaking Down Long Functions</strong></h4>
@@ -968,6 +979,18 @@ See also
 </div>
 <p>This checks that <code>age</code> is non-negative, <code>salary</code> is positive, and <code>name</code> is not missing.</p></li>
 </ol>
+<!-- COMMENT 
+These kinds of test can also be implemented using base R: 
+
+stopifnot(age >= 0, salary > 0, !is.na(name))
+
+or with custom error messages: 
+
+stopifnot("age must be positive"= age >= 0)
+stopifnot("salary must be positive"= salary > 0)
+stopifnot("name must not be NA"= !is.na(name))
+
+-->
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
