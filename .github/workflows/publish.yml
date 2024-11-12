@@ -52,6 +52,7 @@ jobs:
             any::archdata
             any::plotly
             any::tesselle
+            any::validate
       
       # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
       - name: Publish to GitHub Pages (and render) 
