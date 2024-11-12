@@ -363,8 +363,16 @@ div.csl-indent {
   <li><a href="#writing-unit-tests" id="toc-writing-unit-tests" class="nav-link" data-scroll-target="#writing-unit-tests"><span class="header-section-number">4.4.1</span> Writing Unit Tests</a></li>
   <li><a href="#data-validation" id="toc-data-validation" class="nav-link" data-scroll-target="#data-validation"><span class="header-section-number">4.4.2</span> Data Validation</a></li>
   </ul></li>
-  <li><a href="#extraerror-handling-and-debugging" id="toc-extraerror-handling-and-debugging" class="nav-link" data-scroll-target="#extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</a></li>
-  <li><a href="#extracode-reusability-and-sharing" id="toc-extracode-reusability-and-sharing" class="nav-link" data-scroll-target="#extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</a></li>
+  <li><a href="#extra-error-handling-and-debugging" id="toc-extra-error-handling-and-debugging" class="nav-link" data-scroll-target="#extra-error-handling-and-debugging"><span class="header-section-number">4.5</span> EXTRA: Error handling and debugging</a>
+  <ul class="collapse">
+  <li><a href="#error-handling-techniques" id="toc-error-handling-techniques" class="nav-link" data-scroll-target="#error-handling-techniques"><span class="header-section-number">4.5.1</span> Error Handling Techniques</a></li>
+  <li><a href="#debugging-tools" id="toc-debugging-tools" class="nav-link" data-scroll-target="#debugging-tools"><span class="header-section-number">4.5.2</span> Debugging tools</a></li>
+  </ul></li>
+  <li><a href="#extra-creating-and-releasing-packages" id="toc-extra-creating-and-releasing-packages" class="nav-link" data-scroll-target="#extra-creating-and-releasing-packages"><span class="header-section-number">4.6</span> EXTRA: Creating and releasing packages</a>
+  <ul class="collapse">
+  <li><a href="#creating-packages" id="toc-creating-packages" class="nav-link" data-scroll-target="#creating-packages"><span class="header-section-number">4.6.1</span> Creating packages</a></li>
+  <li><a href="#releasingsharing-packages" id="toc-releasingsharing-packages" class="nav-link" data-scroll-target="#releasingsharing-packages"><span class="header-section-number">4.6.2</span> Releasing/sharing packages</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-r-programming.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -832,21 +840,15 @@ See also
 </div>
 <p>After:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(score <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or using dplyr</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using <code>dplyr</code> pipelines makes the code concise and easier to read.</p>
-<!--- COMMENT 
-consider here also the version using the base R pipeline operator:
-
-data <- read.csv("data.csv") |>
-  na.omit() |>
-  subset(score > 10)
-
-also: it is sufficient to write "eval = false" either in the header of the chode chunk or as chunk option. The latter is the quarto-way, the former the Rmarkdown-way but both work the same. To ensure future compatibility, I would suggest going for the quarto-way. 
-
--->
 </section>
 <section id="breaking-down-long-functions" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="breaking-down-long-functions"><strong>2. Breaking Down Long Functions</strong></h4>
@@ -952,45 +954,46 @@ See also
 <p>Validating data inputs and outputs is crucial for maintaining data integrity, especially in data processing pipelines. It ensures that the data conforms to expected formats and values, avoiding downstream errors.</p>
 <section id="example-implementing-data-validation-checks-in-data-processing-scripts" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="example-implementing-data-validation-checks-in-data-processing-scripts"><strong>Example: Implementing data validation checks in data processing scripts</strong></h4>
-<ol type="1">
-<li><p>Install <code>validate</code> package:</p>
+<p>Given a dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"validate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-<li><p>Validate data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(validate)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">validator</span>(</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  age <span class="sc">&gt;=</span> <span class="dv">0</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  salary <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">is.na</span>(name)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">30</span>),</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">salary =</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">0</span>, <span class="dv">60000</span>),</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="cn">NA</span>, <span class="st">"Bob"</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Validate the data</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">confront</span>(data, rules)</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(check)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">30</span>),</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">salary =</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">0</span>, <span class="dv">60000</span>),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="cn">NA</span>, <span class="st">"Bob"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This checks that <code>age</code> is non-negative, <code>salary</code> is positive, and <code>name</code> is not missing.</p></li>
-</ol>
-<!-- COMMENT 
-These kinds of test can also be implemented using base R: 
-
-stopifnot(age >= 0, salary > 0, !is.na(name))
-
-or with custom error messages: 
-
-stopifnot("age must be positive"= age >= 0)
-stopifnot("salary must be positive"= salary > 0)
-stopifnot("name must not be NA"= !is.na(name))
-
--->
+<p>Check if each variable comply with certain rules:<br>
+* <code>age</code> is non-negative,<br>
+* <code>salary</code> is positive,<br>
+* <code>name</code> is not missing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(data<span class="sc">$</span>age <span class="sc">&gt;=</span> <span class="dv">0</span>, data<span class="sc">$</span>salary <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>name))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or with custom error messages: </span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(data<span class="sc">$</span>age <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="st">"Age values must be non-negative"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(data<span class="sc">$</span>salary <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"Salary values must be positive"</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>name), <span class="st">"Names must not be NA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For handling larger rule sets and getting a more structured feedback, consider using <code>validate</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(validate)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">validator</span>(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>age <span class="sc">&gt;=</span> <span class="dv">0</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>salary <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(name)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Validate the data</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">confront</span>(data, rules)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(check)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  name items passes fails nNA error warning        expression
+1   V1     3      2     1   0 FALSE   FALSE age - 0 &gt;= -1e-08
+2   V2     3      2     1   0 FALSE   FALSE        salary &gt; 0
+3   V3     3      2     1   0 FALSE   FALSE      !is.na(name)</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1018,43 +1021,154 @@ See also
 </section>
 </section>
 </section>
-<section id="extraerror-handling-and-debugging" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="extraerror-handling-and-debugging"><span class="header-section-number">4.5</span> (EXTRA)Error Handling and Debugging</h2>
-<ul>
-<li><strong>Error Handling Techniques</strong>
-<ul>
-<li>Using tryCatch in R.<br>
-</li>
-<li>Writing meaningful error messages.<br>
-</li>
-<li>Example: Implementing error handling in a data processing script.<br>
-</li>
-</ul></li>
-<li><strong>Debugging Tools</strong>
-<ul>
-<li>Introduction to debugging tools: <code>browser</code> in R.<br>
-</li>
-<li>Example: Walkthrough of a debugging session in R.</li>
-</ul></li>
-</ul>
+<section id="extra-error-handling-and-debugging" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="extra-error-handling-and-debugging"><span class="header-section-number">4.5</span> EXTRA: Error handling and debugging</h2>
+<p>Error handling and debugging are essential for building robust R code that gracefully manages unexpected issues. Effective error handling prevents crashes and improves user feedback, while debugging tools help identify and resolve problems during code development.</p>
+<section id="error-handling-techniques" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="error-handling-techniques"><span class="header-section-number">4.5.1</span> Error Handling Techniques</h3>
+<p><strong>Using <code>tryCatch</code> in R</strong><br>
+<code>tryCatch</code> is a versatile function for handling errors, warnings, and messages in R. It allows you to specify actions for different types of errors, ensuring that code can handle unexpected conditions gracefully.</p>
+<p><strong>Writing Meaningful Error Messages</strong><br>
+Meaningful error messages help both developers and users understand what went wrong and guide them toward solutions. Avoid generic messages like <code>"Error occurred"</code> and instead specify the exact problem.</p>
+<p><strong>Example: Implementing error handling in a data processing script</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>process_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="st">"score"</span> <span class="sc">%in%</span> <span class="fu">names</span>(data)) <span class="fu">stop</span>(<span class="st">"Missing 'score' column in data"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filter</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">10</span>, ]  <span class="co"># Process data</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(data)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Error in processing data:"</span>, e<span class="sc">$</span>message, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">process_data</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Error in processing data: Missing 'score' column in data </code></pre>
+</div>
+</div>
+<p>In this example, <code>tryCatch</code> captures errors from <code>read.csv()</code> or the missing column and provides a custom message.</p>
 </section>
-<section id="extracode-reusability-and-sharing" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="extracode-reusability-and-sharing"><span class="header-section-number">4.6</span> (EXTRA)Code Reusability and Sharing</h2>
+<section id="debugging-tools" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="debugging-tools"><span class="header-section-number">4.5.2</span> Debugging tools</h3>
+<p><strong>Introduction to Debugging Tools: <code>browser</code> in R</strong><br>
+The <code>browser</code> function in R allows you to pause code execution at a specific point, enabling step-by-step inspection of variables and function behaviour. This is especially useful for identifying unexpected values or conditions.</p>
+<p><strong>Example: Walkthrough of a debugging session in R</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">browser</span>()  <span class="co"># Debugging breakpoint</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(data<span class="sc">$</span>score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">score =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">20</span>, <span class="dv">15</span>))</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_mean</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When <code>browser()</code> is called, R will pause execution and open an interactive environment. Here, you can inspect <code>data$score</code>, check conditions, and proceed line by line, allowing you to diagnose issues effectively.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li><strong>Creating Reusable Code</strong>
-<ul>
-<li>Writing functions and libraries for reuse across projects.<br>
+<li><span class="citation" data-cites="noauthor_exceptions_nodate"><span>“Exceptions and Debugging · <span>Advanced</span> <span>R</span>.”</span> (<a href="references.html#ref-noauthor_exceptions_nodate" role="doc-biblioref">n.d.</a>)</span><br>
 </li>
-<li>Example: Creating a simple R package.<br>
+<li><span class="citation" data-cites="noauthor_22_nodate"><span>“22 <span>Debugging</span> <span></span> <span>Advanced</span> <span>R</span>”</span> (<a href="references.html#ref-noauthor_22_nodate" role="doc-biblioref">n.d.</a>)</span><br>
 </li>
-</ul></li>
-<li><strong>Sharing Code</strong>
-<ul>
-<li>Sharing code with others: publishing packages, sharing notebooks.<br>
+<li><span class="citation" data-cites="noauthor_license_nodate"><span>“License (<span>GPL</span>-3)”</span> (<a href="references.html#ref-noauthor_license_nodate" role="doc-biblioref">n.d.</a>)</span><br>
 </li>
-<li>Example: Publishing an R package on CRAN/GitHub.</li>
-</ul></li>
+<li><span class="citation" data-cites="noauthor_4_nodate"><span>“4&nbsp; <span>Debugging</span> Pipelines – <span>The</span> {Targets} <span>R</span> Package User Manual”</span> (<a href="references.html#ref-noauthor_4_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="albert_rapp_stop_2024">Albert Rapp (<a href="references.html#ref-albert_rapp_stop_2024" role="doc-biblioref">2024</a>)</span></li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="extra-creating-and-releasing-packages" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="extra-creating-and-releasing-packages"><span class="header-section-number">4.6</span> EXTRA: Creating and releasing packages</h2>
+<p>Reusable and shareable code helps in building efficient workflows, saving time, and reducing redundancy across projects. Reusable code can be encapsulated in functions, libraries, or R packages to simplify future use and sharing.</p>
+<section id="creating-packages" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="creating-packages"><span class="header-section-number">4.6.1</span> Creating packages</h3>
+<p>Writing functions and libraries that can be reused in multiple projects helps standardize tasks and reduces the risk of introducing errors by duplicating code. R packages are an ideal way to organize reusable functions, data, and documentation, making it easy to use them across different projects.</p>
+<p><strong>Example: Creating a Simple R Package</strong> 1. <strong>Set up the package</strong><br>
+Use the <code>usethis</code> package to initiate a new package:</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"path/to/myPackage"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ol start="2" type="1">
+<li><p><strong>Add a function</strong><br>
+Create a function file in the <code>R/</code> folder, for example <code>R/hello.R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>hello <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">"world"</span>) {</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"Hello,"</span>, name)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Document the function</strong><br>
+Use <code>roxygen2</code> to add documentation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Say Hello</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param name A character string. Default is "world".</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A greeting message.</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>hello <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">"world"</span>) {</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"Hello,"</span>, name)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Build and test</strong><br>
+Load and test your package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hello</span>(<span class="st">"R user"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="releasingsharing-packages" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="releasingsharing-packages"><span class="header-section-number">4.6.2</span> Releasing/sharing packages</h3>
+<p>Once your code is reusable as package, share it to help others benefit from your work. Publishing packages on CRAN or GitHub makes them accessible to other users and developers, while sharing R Markdown notebooks helps others reproduce and understand your analyses.</p>
+<p><strong>GitHub</strong>: Initialize a Git repository in the package directory or a new project in RStudio as a R package, set up a GitHub connection, and add the package files. Push changes to GitHub and release with a new tag.</p>
+<p><strong>CRAN</strong>: Follow <a href="https://cran.r-project.org/submit.html">CRAN submission guidelines</a>.</p>
+<p>Sharing packages or code through these platforms allows the broader R community to contribute, use, and improve your work.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="noauthor_making_nodate"><span>“Making <span>Your</span> <span>First</span> <span>R</span> <span>Package</span>”</span> (<a href="references.html#ref-noauthor_making_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_notitle_nodate"> (<a href="references.html#ref-noauthor_notitle_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="noauthor_writing_nodate"><span>“Writing <span>R</span> Packages in <span>Rstudio</span>”</span> (<a href="references.html#ref-noauthor_writing_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="statistikindd_creating_2021">StatistikinDD (<a href="references.html#ref-statistikindd_creating_2021" role="doc-biblioref">2021</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1096,6 +1210,18 @@ Hands-on Practice
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-noauthor_notitle_nodate" class="csl-entry" role="listitem">
+n.d. Accessed November 12, 2024. <a href="https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf">https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf</a>.
+</div>
+<div id="ref-noauthor_22_nodate" class="csl-entry" role="listitem">
+<span>“22 <span>Debugging</span> <span></span> <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 12, 2024. <a href="https://adv-r.hadley.nz/debugging.html">https://adv-r.hadley.nz/debugging.html</a>.
+</div>
+<div id="ref-noauthor_4_nodate" class="csl-entry" role="listitem">
+<span>“4&nbsp; <span>Debugging</span> Pipelines – <span>The</span> {Targets} <span>R</span> Package User Manual.”</span> n.d. Accessed November 12, 2024. <a href="https://books.ropensci.org/targets/debugging.html">https://books.ropensci.org/targets/debugging.html</a>.
+</div>
+<div id="ref-albert_rapp_stop_2024" class="csl-entry" role="listitem">
+Albert Rapp. 2024. <span>“Stop <span>Code</span> <span>Errors</span> <span>From</span> <span>Crashing</span> <span>Your</span> <span>Whole</span> <span>R</span> <span>Script</span>.”</span> <a href="https://www.youtube.com/watch?v=4Az6pyWrUG4">https://www.youtube.com/watch?v=4Az6pyWrUG4</a>.
+</div>
 <div id="ref-alboukadel_r_2020" class="csl-entry" role="listitem">
 Alboukadel. 2020. <span>“R <span>Coding</span> <span>Style</span> <span>Best</span> <span>Practices</span>.”</span> <em>Datanovia</em>. <a href="https://www.datanovia.com/en/blog/r-coding-style-best-practices/">https://www.datanovia.com/en/blog/r-coding-style-best-practices/</a>.
 </div>
@@ -1104,6 +1230,9 @@ Anderson, and Brooke, Sean Kross. n.d. <em>1.9 <span>Working</span> with <span>L
 </div>
 <div id="ref-noauthor_best_nodate" class="csl-entry" role="listitem">
 <span>“Best <span>Practices</span> for <span>Durable</span> <span>R</span> <span>Code</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://www.appsilon.com/post/best-practices-for-durable-r-code">https://www.appsilon.com/post/best-practices-for-durable-r-code</a>.
+</div>
+<div id="ref-noauthor_exceptions_nodate" class="csl-entry" role="listitem">
+<span>“Exceptions and Debugging · <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 12, 2024. <a href="http://adv-r.had.co.nz/Exceptions-Debugging.html">http://adv-r.had.co.nz/Exceptions-Debugging.html</a>.
 </div>
 <div id="ref-gillespie_efficient_nodate" class="csl-entry" role="listitem">
 Gillespie, Colin, and Robin Lovelace. n.d. <em>Efficient <span>R</span> Programming</em>. Accessed November 5, 2024. <a href="https://csgillespie.github.io/efficientR/">https://csgillespie.github.io/efficientR/</a>.
@@ -1123,8 +1252,14 @@ Kennedy, Hannah. 2019. <span>“Best <span>Practices</span> for <span>Unit</span
 <div id="ref-noauthor_learn_nodate-1" class="csl-entry" role="listitem">
 <span>“Learn More.”</span> n.d. Accessed November 5, 2024. <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a>.
 </div>
+<div id="ref-noauthor_license_nodate" class="csl-entry" role="listitem">
+<span>“License (<span>GPL</span>-3).”</span> n.d. Accessed November 12, 2024. <a href="https://cran.r-project.org/web/packages/tryCatchLog/vignettes/tryCatchLog-intro.html">https://cran.r-project.org/web/packages/tryCatchLog/vignettes/tryCatchLog-intro.html</a>.
+</div>
 <div id="ref-lipkin_writing_2022" class="csl-entry" role="listitem">
 Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <span>Vectorization</span> and the {Apply} Family.”</span> <em>Medium</em>. <a href="https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a">https://guslipkin.medium.com/writing-faster-r-with-vectorization-and-the-apply-family-ff6078a2583a</a>.
+</div>
+<div id="ref-noauthor_making_nodate" class="csl-entry" role="listitem">
+<span>“Making <span>Your</span> <span>First</span> <span>R</span> <span>Package</span>.”</span> n.d. Accessed November 12, 2024. <a href="https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html">https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html</a>.
 </div>
 <div id="ref-noauthor_prerequisites_nodate" class="csl-entry" role="listitem">
 <span>“Prerequisites.”</span> n.d. Accessed November 5, 2024. <a href="https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html">https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html</a>.
@@ -1144,6 +1279,9 @@ Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <spa
 <div id="ref-noauthor_single-responsibility_nodate" class="csl-entry" role="listitem">
 <span>“Single-Responsibility Principle - <span>Wikipedia</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">https://en.wikipedia.org/wiki/Single-responsibility_principle</a>.
 </div>
+<div id="ref-statistikindd_creating_2021" class="csl-entry" role="listitem">
+StatistikinDD. 2021. <span>“Creating <span>Your</span> <span>First</span> <span>R</span> <span>Package</span> in 2 <span>Minutes</span> in <span>RStudio</span>!”</span> <a href="https://www.youtube.com/watch?v=47PN2VG3RmI">https://www.youtube.com/watch?v=47PN2VG3RmI</a>.
+</div>
 <div id="ref-noauthor_style_nodate" class="csl-entry" role="listitem">
 <span>“Style Guide · <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a>.
 </div>
@@ -1156,7 +1294,11 @@ Lipkin, Gus. 2022. <span>“Writing <span>Faster</span> <span>R</span> with <spa
 <div id="ref-noauthor_welcome_nodate" class="csl-entry" role="listitem">
 <span>“Welcome <span></span> <span>Advanced</span> <span>R</span>.”</span> n.d. Accessed November 5, 2024. <a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>.
 </div>
+<div id="ref-noauthor_writing_nodate" class="csl-entry" role="listitem">
+<span>“Writing <span>R</span> Packages in <span>Rstudio</span>.”</span> n.d. Accessed November 12, 2024. <a href="https://ourcodingclub.github.io/tutorials/writing-r-package/">https://ourcodingclub.github.io/tutorials/writing-r-package/</a>.
 </div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

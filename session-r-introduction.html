@@ -573,6 +573,15 @@ The mean of the vector is `r mean_value`.</code></pre>
 </div>
 </div>
 <p>The mean of the vector is 3.</p>
+<p>Although not necessary by default, R Markdown files can contain <strong>YAML headers</strong>, which define the metadata for the document. Located at the top of the file, the YAML header specifies key information and rendering options, such as <code>title</code>, <code>author</code>, <code>date</code>, <code>output</code> format (e.g., HTML, PDF), and document theme. This header controls how the document is processed and rendered, allowing customization without altering the main content.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Analysis Report"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Data Scientist"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-11-12"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This YAML block will render the document as an HTML report with a dynamic date and specified author and title.</p>
 <p>You can learn more about Rmarkdown at the <a href="https://rmarkdown.rstudio.com/lesson-1.html">Get Started tutorial</a> offered by its developers.</p>
 <p>In summary, <strong>scripts</strong> are optimal for code-centric work with minimal formatting, while <strong>Rmarkdown documents</strong> offer a flexible, document-like interface ideal for combining narrative and code in a single file.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -588,9 +597,16 @@ See also
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="citation" data-cites="grolemund_r_nodate">Grolemund (<a href="references.html#ref-grolemund_r_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="grolemund_r_nodate">G. Grolemund J. J. Allaire (<a href="references.html#ref-grolemund_r_nodate" role="doc-biblioref">n.d.</a>)</span></li>
 <li><span class="citation" data-cites="noauthor_r_nodate"><span>“R <span>Markdown</span>”</span> (<a href="references.html#ref-noauthor_r_nodate" role="doc-biblioref">n.d.</a>)</span></li>
 <li><span class="citation" data-cites="noauthor_introduction_nodate"><span>“Introduction”</span> (<a href="references.html#ref-noauthor_introduction_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_r_nodate-5"><span>“R <span>Markdown</span> <span>Reporting</span> <span>Best</span> <span>Practices</span>”</span> (<a href="references.html#ref-noauthor_r_nodate-5" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="grolemund_27_nodate">H. W. and G. Grolemund (<a href="references.html#ref-grolemund_27_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="melfi_chapter_nodate">Melfi (<a href="references.html#ref-melfi_chapter_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="noauthor_rmarkdown_nodate"><span>“Rmarkdown :: <span>Cheatsheet</span>”</span> (<a href="references.html#ref-noauthor_rmarkdown_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="smith_9_nodate">Smith (<a href="references.html#ref-smith_9_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="riederer_22_nodate">Riederer (<a href="references.html#ref-riederer_22_nodate" role="doc-biblioref">n.d.</a>)</span></li>
+<li><span class="citation" data-cites="liang_hao203rmarkdown-yaml_2024">Liang (<a href="references.html#ref-liang_hao203rmarkdown-yaml_2024" role="doc-biblioref">2024</a>)</span></li>
 </ul>
 </div>
 </div>
@@ -683,15 +699,15 @@ See also
 <p>An algorithm is a step-by-step set of instructions used to solve a problem or perform a task, enabling computers to process data efficiently. Algorithms are normally fixed as re-usable code in the form of functions (or methods, depending on the programming language). These might take (or require) certain <strong>input</strong> variables, named “arguments” or “parameters”, and return certain <strong>output</strong> variables.</p>
 <p>In R, a function can be declared (i.e., created for later use) by using the keyword <code>funtion()</code>, which is in itself a function already declared in R by default (i.e., a “primitive” function).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., <code>funtion(a, b)</code>) and use the same names inside the function’s code, enclosed by curly brackets (e.g., <code>{ return(a + b) }</code>). A function can perform a series of operations, some of which can have external consequences, such as printing console messages or creating or modifying files. In R, a function’s output, if anything, is always a single R object, enclosed as an argument of another primitive function, <code>return()</code> (e.g., <code>return(a + b)</code>). Any R objects created or modified inside a function’s code, but not included in the output, will be erased afterwards.</p>
 <p>Once declared, a function will be available or “loaded in the R session” for further use, using whatever values we assign to its input variables. For example, when <code>a = 3</code> and <code>b = 5</code>, <code>add_numbers()</code> will return:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">add_numbers</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">add_numbers</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -705,12 +721,12 @@ See also
 <li><code>if</code> and <code>else</code>: Execute code based on a condition.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is greater than 5"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is not greater than 5"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is greater than 5"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is not greater than 5"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x is greater than 5"</code></pre>
 </div>
@@ -719,11 +735,11 @@ See also
 <li><code>for</code> loop: Repeat code over the elements of a vector.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over numeric index, created on the fly</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x[i])</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over numeric index, created on the fly</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x[i])</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "First"
 [1] "Second"
@@ -731,10 +747,10 @@ See also
 [1] "Fourth"
 [1] "Fifth"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over the values of x directly</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (value <span class="cf">in</span> x) {</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(value)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># iterate over the values of x directly</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (value <span class="cf">in</span> x) {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(value)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "First"
 [1] "Second"
@@ -747,11 +763,11 @@ See also
 <li><code>while</code> loop: Repeat code while a condition is true.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 2
@@ -798,11 +814,14 @@ Getting help
 <li><p>Write your code in the editor. For example:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple R Script</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple R Script</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Highlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.</li>
@@ -815,12 +834,12 @@ Getting help
 <h4 class="unnumbered anchored" data-anchor-id="installing-and-loading-packages">Installing and loading packages</h4>
 <p>To install a package, use the <code>install.packages()</code> function. For example, to install the ggplot2 package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you may use the GUI Wizard in Tools &gt; Install Packages…, where an autocomplete feature will help selecting packages exact names.</p>
 <p>Once installed, load the package with the <code>library()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can access the functions within <code>ggplot2</code> and any other loaded package. You only need to install a package once, but you must load it in each new session.</p>
 </section>
@@ -837,8 +856,8 @@ Getting help
 </ul>
 <p>The installation and use of the entire tidyverse works as a single package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e.&nbsp;other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.</p>
 </section>
@@ -847,7 +866,7 @@ Getting help
 <p>The <a href="https://www.tesselle.org/"><code>tesselle</code></a> collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data <span class="citation" data-cites="frerebeau_tesselle_2023 noauthor_tesselle_nodate">(<a href="references.html#ref-frerebeau_tesselle_2023" role="doc-biblioref">Frerebeau 2023</a>; <a href="references.html#ref-noauthor_tesselle_nodate" role="doc-biblioref"><span>“Tesselle: <span>R</span> <span>Packages</span> &amp; <span>Archaeology</span>”</span> n.d.</a>)</span>.</p>
 <p>Install the complete suite with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will look into more details about this collection in <a href="session-compositional-data.html" class="quarto-xref"><span>Chapter 6</span></a> and <a href="session-count-and-seriation.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
 </section>
@@ -861,40 +880,40 @@ Getting help
 <h4 class="unnumbered anchored" data-anchor-id="reading-csv-files">Reading CSV Files</h4>
 <p>To read data from a CSV file, use the <code>read.csv()</code> or <code>read_csv()</code> function from the <code>readr</code> package. The <code>read.csv()</code> function is part of base R and handles typical CSV formats, while <code>read_csv()</code> is optimized for speed and flexibility in handling larger files.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path/to/file.csv"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package (installation required)</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path/to/file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path/to/file.csv"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package (installation required)</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path/to/file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="writing-csv-files" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="writing-csv-files">Writing CSV Files</h4>
 <p>To save your data as a CSV file, use the <code>write.csv()</code> or <code>write_csv()</code> functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readr package</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(data, <span class="st">"path/to/output.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="using-canonical-datasets" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="using-canonical-datasets">Using Canonical Datasets</h4>
 <p>R includes several built-in or “canonical” datasets, like <code>iris</code>, useful for having a common benchmark for testing and giving examples. Other canonical datasets are available inside packages dedicated specialized fields, like <code>archdata</code> containing several archaeological datasets. To load a canonical dataset, use <code>data()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the built-in iris dataset</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DartPoints dataset from the archdata package</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"DartPoints"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the built-in iris dataset</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DartPoints dataset from the archdata package</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"DartPoints"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As long as the dataset is from base R, we can skip the loading step and use the dataset directly in an operation by using its name:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out how many columns the iris dataset have </span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out how many columns the iris dataset have </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -905,8 +924,8 @@ Getting help
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="basic-operations-on-data-structures"><span class="header-section-number">3.3.2</span> Basic operations on data structures</h3>
 <p>We create a dummy dataset for us to test operations:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df <span class="co"># print it in the console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df <span class="co"># print it in the console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 1 1 4
@@ -919,19 +938,19 @@ Getting help
 <ul>
 <li><p><strong>Adding Elements</strong>: Use functions like <code>cbind()</code> for columns and <code>rbind()</code> for rows to add elements to data frames and matrices.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a column</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>  <span class="co"># Adding column using $</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a column</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>  <span class="co"># Adding column using $</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y z
 1 1 4 7
 2 2 5 8
 3 3 6 9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a row</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="dv">7</span>, <span class="at">z =</span> <span class="dv">10</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df, new_row)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a row</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="dv">7</span>, <span class="at">z =</span> <span class="dv">10</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df, new_row)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y  z
 1 1 4  7
@@ -942,9 +961,9 @@ Getting help
 </div></li>
 <li><p><strong>Removing Elements</strong>: Use <code>NULL</code> assignment or <code>subset()</code> to remove columns or rows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing a column</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing a column</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 1 1 4
@@ -952,9 +971,9 @@ Getting help
 3 3 6
 4 4 7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing rows by index</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing rows by index</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 3 3 6
@@ -967,16 +986,16 @@ Getting help
 <h4 class="unnumbered anchored" data-anchor-id="indexing">Indexing</h4>
 <p>Recreate the initial dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li><p><strong>Numeric Indexing</strong>: Access elements by specifying their position.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, <span class="dv">2</span>]  <span class="co"># First row, second column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, <span class="dv">2</span>]  <span class="co"># First row, second column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]  <span class="co"># First three rows, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]  <span class="co"># First three rows, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 1 1 4
@@ -986,7 +1005,7 @@ Getting help
 </div></li>
 <li><p><strong>Logical Indexing</strong>: Filter based on logical conditions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>y <span class="sc">&gt;</span> <span class="dv">5</span>, ]  <span class="co"># Rows where column y &gt; 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>y <span class="sc">&gt;</span> <span class="dv">5</span>, ]  <span class="co"># Rows where column y &gt; 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 3 3 6</code></pre>
@@ -994,24 +1013,24 @@ Getting help
 </div></li>
 <li><p><strong>Column Selection</strong>: Access columns by <code>$</code> (column name) or numeric index.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>x  <span class="co"># Access column by name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>x  <span class="co"># Access column by name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]  <span class="co"># Access first column by index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]  <span class="co"># Access first column by index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3</code></pre>
 </div>
 </div></li>
 <li><p><strong>Row Selection</strong>: Filter rows with conditions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]  <span class="co"># First two rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]  <span class="co"># First two rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 1 1 4
 2 2 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>x <span class="sc">&gt;</span> <span class="dv">2</span>, ]  <span class="co"># Rows where column x &gt; 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>x <span class="sc">&gt;</span> <span class="dv">2</span>, ]  <span class="co"># Rows where column x &gt; 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 3 3 6</code></pre>
@@ -1019,7 +1038,7 @@ Getting help
 </div></li>
 <li><p><strong>Combining Indexing</strong>: Combine row and column filters for specific elements.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)]  <span class="co"># First two rows, columns x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)]  <span class="co"># First two rows, columns x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x y
 1 1 4
@@ -1033,7 +1052,7 @@ Getting help
 <ul>
 <li><p>The <code>subset()</code> function provides an easy way to filter data by specifying conditions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">6</span>)  <span class="co"># Filter rows where x &gt; 2 and y &lt; 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">6</span>)  <span class="co"># Filter rows where x &gt; 2 and y &lt; 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] x y
 &lt;0 rows&gt; (or 0-length row.names)</code></pre>
@@ -1046,24 +1065,24 @@ Getting help
 <ul>
 <li><p>Use <code>merge()</code> to combine two data frames based on a common key or column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id x
 1  1 A
 2  2 B
 3  3 C</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>))</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>))</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id y
 1  2 D
 2  3 E
 3  4 F</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"id"</span>)</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>merged_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>merged_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id x y
 1  2 B D
@@ -1077,13 +1096,13 @@ Getting help
 <ul>
 <li><p>The <code>apply()</code> function allows operations across rows or columns of a data frame or matrix.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across rows (1 indicates rows)</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">1</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across rows (1 indicates rows)</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">1</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 7 9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across columns (2 indicates columns)</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">2</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summing across columns (2 indicates columns)</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">2</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> x  y 
  6 15 </code></pre>
@@ -1122,7 +1141,7 @@ See also
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="using-dplyr-package"><span class="header-section-number">3.3.3</span> Using <code>dplyr</code> Package</h3>
 <p>The <code>dplyr</code> package in R provides a suite of functions to manipulate data in a streamlined and readable way. Key functions include those for filtering, selecting, and mutating data, which help manage data subsets, reorganize columns, and create new variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -1137,7 +1156,7 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="dv">10</span>), <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="dv">10</span>), <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li><strong>Filtering Data</strong>
@@ -1145,8 +1164,8 @@ Attaching package: 'dplyr'</code></pre>
 <li>Use <code>filter()</code> to select rows based on conditions. Multiple conditions can be combined with <code>&amp;</code> (and) or <code>|</code> (or).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">10</span>, y <span class="sc">==</span> <span class="st">"A"</span>)</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>filtered_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">10</span>, y <span class="sc">==</span> <span class="st">"A"</span>)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>filtered_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   x y     z
 1 13 A  TRUE
@@ -1156,8 +1175,8 @@ Attaching package: 'dplyr'</code></pre>
 5 25 A  TRUE
 6 28 A FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(z)</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>filtered_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(z)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>filtered_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    x y    z
 1   1 A TRUE
@@ -1182,8 +1201,8 @@ Attaching package: 'dplyr'</code></pre>
 <li>Use <code>select()</code> to choose specific columns by name. You can use <code>:</code> to select a range of columns or <code>-</code> to exclude columns.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(x, y)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>selected_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(x, y)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>selected_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    x y
 1   1 A
@@ -1217,8 +1236,8 @@ Attaching package: 'dplyr'</code></pre>
 29 29 B
 30 30 C</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>z)  <span class="co"># Exclude z (third column)</span></span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>selected_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>z)  <span class="co"># Exclude z (third column)</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>selected_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    x y
 1   1 A
@@ -1258,8 +1277,8 @@ Attaching package: 'dplyr'</code></pre>
 <li>The <code>mutate()</code> function creates new columns or modifies existing ones by performing calculations or transformations on current columns.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>mutated_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">new_column =</span> x <span class="sc">*</span> <span class="dv">2</span>)</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>mutated_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>mutated_data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">new_column =</span> x <span class="sc">*</span> <span class="dv">2</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>mutated_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    x y     z new_column
 1   1 A  TRUE          2
@@ -1328,8 +1347,8 @@ See also
 <h2 data-number="3.4" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">3.4</span> Data Visualization</h2>
 <p>Let us load the <code>DartPoints</code> dataset from the <code>archdata</code> package and use it in the examples:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DartPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DartPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="creating-plots-in-r-with-base-r-graphics" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="creating-plots-in-r-with-base-r-graphics"><span class="header-section-number">3.4.1</span> Creating Plots in R with Base R Graphics</h3>
@@ -1337,7 +1356,7 @@ See also
 <ol type="1">
 <li><p><strong>Histograms</strong>: Display the distribution of a single continuous variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Histogram of Dart Points Length"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Histogram of Dart Points Length"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1348,7 +1367,7 @@ See also
 </div></li>
 <li><p><strong>Bar plots</strong>: Used for categorical data to show the frequency or count for each category.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="at">main =</span> <span class="st">"Bar Plot of Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="at">main =</span> <span class="st">"Bar Plot of Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1359,7 +1378,7 @@ See also
 </div></li>
 <li><p><strong>Box plots</strong>: Visualize the relationship between one continuous variable and one categorical variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Length <span class="sc">~</span> Blade.Sh, DartPoints, <span class="at">main =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Length <span class="sc">~</span> Blade.Sh, DartPoints, <span class="at">main =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">xlab =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1370,7 +1389,7 @@ See also
 </div></li>
 <li><p><strong>Scatter plots</strong>: Visualize the relationship between two continuous variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1382,11 +1401,11 @@ See also
 </ol>
 <p>It is possible to customise the graphics much further, for example, by colouring (<code>col</code> argument) or using different point shapes (<code>pch</code> argument) in scatter plots:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, </span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> DartPoints<span class="sc">$</span>Blade.Sh, <span class="co"># use factor as it is, plot() will convert it into colours</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="fu">as.numeric</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="co"># use factor index as code for symbols</span></span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, </span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>Width, DartPoints<span class="sc">$</span>Length, </span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> DartPoints<span class="sc">$</span>Blade.Sh, <span class="co"># use factor as it is, plot() will convert it into colours</span></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="fu">as.numeric</span>(DartPoints<span class="sc">$</span>Blade.Sh), <span class="co"># use factor index as code for symbols</span></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Scatter Plot of Length vs Width"</span>, </span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Maximum Width (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1401,9 +1420,9 @@ See also
 <ul>
 <li><p>Use <code>layout()</code> to organize multiple plots in a single window.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">1</span>))</span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 1: histogram"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 2: boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">1</span>))</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 1: histogram"</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">main =</span> <span class="st">"Plot 2: boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1414,11 +1433,11 @@ See also
 </div>
 <p>With the right combination of additional arguments, we are able to produce customised layouts for a combined plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">main =</span> <span class="st">"Distribution of Maximum Length in the DartPoints dataset"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="fl">0.1</span>, <span class="dv">1</span>))</span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DartPoints<span class="sc">$</span>Length, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">main =</span> <span class="st">"Distribution of Maximum Length in the DartPoints dataset"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="fl">0.1</span>, <span class="dv">1</span>))</span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(DartPoints<span class="sc">$</span>Length, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1433,15 +1452,15 @@ See also
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="creating-plots-in-ggplot2"><span class="header-section-number">3.4.3</span> Creating Plots in <code>ggplot2</code></h3>
 <p><code>ggplot2</code> is an extensive package for creating complex and aesthetically pleasing graphics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here are a few examples using <code>ggplot2</code>:</p>
 <ul>
 <li><p><strong>Histograms</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Dart Points Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> </span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Dart Points Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1452,10 +1471,10 @@ See also
 </div></li>
 <li><p><strong>Bar plots</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh)) <span class="sc">+</span> </span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bar plot of Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh)) <span class="sc">+</span> </span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bar plot of Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1466,10 +1485,10 @@ See also
 </div></li>
 <li><p><strong>Box plots</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">y =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Blade.Sh, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span> </span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Box Plot of Length vs Blade Shape"</span>, <span class="at">x =</span> <span class="st">"Blade Shape categories"</span>, <span class="at">y =</span> <span class="st">"Maximum Length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1480,9 +1499,9 @@ See also
 </div></li>
 <li><p><strong>Scatter plots</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length)) <span class="sc">+</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1494,11 +1513,11 @@ See also
 </ul>
 <p>As base R, <code>ggplot2</code> also allow customising graphics. Replicating the same example, we add colors and shape matching a categorical variable:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, </span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> Blade.Sh, <span class="co"># use factor as it is, ggplot() will convert it into colours</span></span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">shape =</span> Blade.Sh)) <span class="sc">+</span> <span class="co"># use factor as it is, ggplot() will convert it into shapes</span></span>
-<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, </span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> Blade.Sh, <span class="co"># use factor as it is, ggplot() will convert it into colours</span></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">shape =</span> Blade.Sh)) <span class="sc">+</span> <span class="co"># use factor as it is, ggplot() will convert it into shapes</span></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1516,10 +1535,10 @@ See also
 <h3 data-number="3.4.4" class="anchored" data-anchor-id="creating-multiple-plot-figures-with-gridextragrid.arrange"><span class="header-section-number">3.4.4</span> Creating Multiple Plot Figures with <code>gridExtra::grid.arrange</code></h3>
 <p><code>gridExtra::grid.arrange()</code> allows for multiple <code>ggplot2</code> plots in one layout.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Blade.Sh))) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Blade Shape categories"</span>)</span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Blade.Sh))) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Blade Shape categories"</span>)</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1538,9 +1557,9 @@ See also
 <h3 data-number="3.4.6" class="anchored" data-anchor-id="saving-plots-opening-and-closing-graphic-devices-in-r"><span class="header-section-number">3.4.6</span> Saving Plots: Opening and Closing Graphic Devices in R</h3>
 <p>Use <code>png()</code>, <code>pdf()</code>, etc., to open graphic devices, giving at least the path and file name as argument, and <code>dev.off()</code> to close the device. After execution, the corresponding file will be created at the specified directory.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"myPlots/plot.png"</span>)</span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt)</span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"myPlots/plot.png"</span>)</span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt)</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -1584,28 +1603,28 @@ See also
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="example-building-an-interactive-plot-using-plotly-and-knitr"><span class="header-section-number">3.5.2</span> Example: Building an Interactive Plot using <code>plotly</code> and <code>knitr</code></h3>
 <p>With <code>plotly</code> and <code>knitr</code> in R Markdown, you can embed interactive plots directly in a report.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Blade.Sh levels to a full text form</span></span>
-<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>DartPoints<span class="sc">$</span>Blade.Sh <span class="ot">&lt;-</span> <span class="fu">factor</span>(DartPoints<span class="sc">$</span>Blade.Sh,</span>
-<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>, <span class="st">"S"</span>),</span>
-<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span>
-<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a basic ggplot2 scatter plot</span></span>
-<span id="cb98-11"><a href="#cb98-11" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, <span class="at">color =</span> Blade.Sh)) <span class="sc">+</span></span>
-<span id="cb98-12"><a href="#cb98-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb98-13"><a href="#cb98-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>, <span class="at">color =</span> <span class="st">"Blade Shape"</span>)</span>
-<span id="cb98-14"><a href="#cb98-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-15"><a href="#cb98-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ggplot2 object to plotly</span></span>
-<span id="cb98-16"><a href="#cb98-16" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(p)</span>
-<span id="cb98-17"><a href="#cb98-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-18"><a href="#cb98-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span>
-<span id="cb98-19"><a href="#cb98-19" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Blade.Sh levels to a full text form</span></span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a>DartPoints<span class="sc">$</span>Blade.Sh <span class="ot">&lt;-</span> <span class="fu">factor</span>(DartPoints<span class="sc">$</span>Blade.Sh,</span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>, <span class="st">"S"</span>),</span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>))</span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-10"><a href="#cb100-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a basic ggplot2 scatter plot</span></span>
+<span id="cb100-11"><a href="#cb100-11" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Length, <span class="at">color =</span> Blade.Sh)) <span class="sc">+</span></span>
+<span id="cb100-12"><a href="#cb100-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb100-13"><a href="#cb100-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Length vs Width by Blade Shape"</span>, <span class="at">color =</span> <span class="st">"Blade Shape"</span>)</span>
+<span id="cb100-14"><a href="#cb100-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-15"><a href="#cb100-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ggplot2 object to plotly</span></span>
+<span id="cb100-16"><a href="#cb100-16" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(p)</span>
+<span id="cb100-17"><a href="#cb100-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-18"><a href="#cb100-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span>
+<span id="cb100-19"><a href="#cb100-19" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-fbe18c340c0b558156a9" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-fbe18c340c0b558156a9">{"x":{"data":[{"x":[18.699999999999999,17.5,15.800000000000001,14.5,14.6,16.600000000000001,16.699999999999999,16.5,16.300000000000001,17.399999999999999,20.300000000000001,19.199999999999999,20.399999999999999,20.300000000000001,21,25.100000000000001,21.399999999999999,27.800000000000001,27.199999999999999,28.5,22.800000000000001,27.300000000000001,21.199999999999999,26.899999999999999,28.100000000000001,26.899999999999999,29.600000000000001,25.199999999999999,30.399999999999999,27.199999999999999,22,26.800000000000001,21.100000000000001,22.399999999999999,21.300000000000001,18.899999999999999,21.399999999999999,21.5,20.899999999999999,29.600000000000001,24.399999999999999,19.300000000000001],"y":[48.5,47.700000000000003,33.600000000000001,32.399999999999999,42.200000000000003,33.5,41.799999999999997,38,35.5,33.100000000000001,47.600000000000001,42.299999999999997,38.299999999999997,50.600000000000001,54.200000000000003,42.100000000000001,34.899999999999999,53.5,66,64.5,59,55.299999999999997,84,48,78.299999999999997,57.200000000000003,52,61.100000000000001,70.400000000000006,64.099999999999994,55,44.799999999999997,56.5,54.600000000000001,46.299999999999997,57.600000000000001,49.100000000000001,64.599999999999994,69,53.100000000000001,58.899999999999999,55.399999999999999],"text":["Width: 18.7<br />Length:  48.5<br />Blade.Sh: Excurvate","Width: 17.5<br />Length:  47.7<br />Blade.Sh: Excurvate","Width: 15.8<br />Length:  33.6<br />Blade.Sh: Excurvate","Width: 14.5<br />Length:  32.4<br />Blade.Sh: Excurvate","Width: 14.6<br />Length:  42.2<br />Blade.Sh: Excurvate","Width: 16.6<br />Length:  33.5<br />Blade.Sh: Excurvate","Width: 16.7<br />Length:  41.8<br />Blade.Sh: Excurvate","Width: 16.5<br />Length:  38.0<br />Blade.Sh: Excurvate","Width: 16.3<br />Length:  35.5<br />Blade.Sh: Excurvate","Width: 17.4<br />Length:  33.1<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  47.6<br />Blade.Sh: Excurvate","Width: 19.2<br />Length:  42.3<br />Blade.Sh: Excurvate","Width: 20.4<br />Length:  38.3<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  50.6<br />Blade.Sh: Excurvate","Width: 21.0<br />Length:  54.2<br />Blade.Sh: Excurvate","Width: 25.1<br />Length:  42.1<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  34.9<br />Blade.Sh: Excurvate","Width: 27.8<br />Length:  53.5<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  66.0<br />Blade.Sh: Excurvate","Width: 28.5<br />Length:  64.5<br />Blade.Sh: Excurvate","Width: 22.8<br />Length:  59.0<br />Blade.Sh: Excurvate","Width: 27.3<br />Length:  55.3<br />Blade.Sh: Excurvate","Width: 21.2<br />Length:  84.0<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  48.0<br />Blade.Sh: Excurvate","Width: 28.1<br />Length:  78.3<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  57.2<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  52.0<br />Blade.Sh: Excurvate","Width: 25.2<br />Length:  61.1<br />Blade.Sh: Excurvate","Width: 30.4<br />Length:  70.4<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  64.1<br />Blade.Sh: Excurvate","Width: 22.0<br />Length:  55.0<br />Blade.Sh: Excurvate","Width: 26.8<br />Length:  44.8<br />Blade.Sh: Excurvate","Width: 21.1<br />Length:  56.5<br />Blade.Sh: Excurvate","Width: 22.4<br />Length:  54.6<br />Blade.Sh: Excurvate","Width: 21.3<br />Length:  46.3<br />Blade.Sh: Excurvate","Width: 18.9<br />Length:  57.6<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  49.1<br />Blade.Sh: Excurvate","Width: 21.5<br />Length:  64.6<br />Blade.Sh: Excurvate","Width: 20.9<br />Length:  69.0<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  53.1<br />Blade.Sh: Excurvate","Width: 24.4<br />Length:  58.9<br />Blade.Sh: Excurvate","Width: 19.3<br />Length:  55.4<br />Blade.Sh: Excurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Excurvate","legendgroup":"Excurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20.699999999999999,15.9,17.5,22.800000000000001],"y":[40.299999999999997,34.5,38,45.200000000000003],"text":["Width: 20.7<br />Length:  40.3<br />Blade.Sh: Incurvate","Width: 15.9<br />Length:  34.5<br />Blade.Sh: Incurvate","Width: 17.5<br />Length:  38.0<br />Blade.Sh: Incurvate","Width: 22.8<br />Length:  45.2<br />Blade.Sh: Incurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(124,174,0,1)"}},"hoveron":"points","name":"Incurvate","legendgroup":"Incurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[27.899999999999999,20.899999999999999,27.100000000000001],"y":[60,48.100000000000001,67.200000000000003],"text":["Width: 27.9<br />Length:  60.0<br />Blade.Sh: Recurvate","Width: 20.9<br />Length:  48.1<br />Blade.Sh: Recurvate","Width: 27.1<br />Length:  67.2<br />Blade.Sh: Recurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Recurvate","legendgroup":"Recurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[15.800000000000001,17.399999999999999,16.300000000000001,16.100000000000001,17.100000000000001,16.800000000000001,15.6,16,19.800000000000001,23.300000000000001,20.100000000000001,20.800000000000001,20,21.800000000000001,22.5,18.600000000000001,49.299999999999997,31.699999999999999,25.300000000000001,21,23.100000000000001,24.399999999999999,24.300000000000001,22.600000000000001,20.899999999999999,31.600000000000001,18.5,28.100000000000001,25.800000000000001,18.399999999999999,19.199999999999999,17.899999999999999,21.5,19.699999999999999,22.600000000000001,26,25.100000000000001,18.899999999999999,21.100000000000001,24.699999999999999],"y":[42.799999999999997,40.5,37.5,40.299999999999997,30.600000000000001,41.799999999999997,31.199999999999999,32,38.100000000000001,44.200000000000003,43.5,42.100000000000001,43.100000000000001,37.5,55.200000000000003,42.5,109.5,59.799999999999997,52.799999999999997,43.700000000000003,43.200000000000003,49,46.399999999999999,56.200000000000003,47.100000000000001,65,35.399999999999999,61.299999999999997,49.100000000000001,40.100000000000001,41.5,46.299999999999997,39.600000000000001,41.200000000000003,45,54.200000000000003,65.400000000000006,45.799999999999997,49.100000000000001,63.100000000000001],"text":["Width: 15.8<br />Length:  42.8<br />Blade.Sh: Straight","Width: 17.4<br />Length:  40.5<br />Blade.Sh: Straight","Width: 16.3<br />Length:  37.5<br />Blade.Sh: Straight","Width: 16.1<br />Length:  40.3<br />Blade.Sh: Straight","Width: 17.1<br />Length:  30.6<br />Blade.Sh: Straight","Width: 16.8<br />Length:  41.8<br />Blade.Sh: Straight","Width: 15.6<br />Length:  31.2<br />Blade.Sh: Straight","Width: 16.0<br />Length:  32.0<br />Blade.Sh: Straight","Width: 19.8<br />Length:  38.1<br />Blade.Sh: Straight","Width: 23.3<br />Length:  44.2<br />Blade.Sh: Straight","Width: 20.1<br />Length:  43.5<br />Blade.Sh: Straight","Width: 20.8<br />Length:  42.1<br />Blade.Sh: Straight","Width: 20.0<br />Length:  43.1<br />Blade.Sh: Straight","Width: 21.8<br />Length:  37.5<br />Blade.Sh: Straight","Width: 22.5<br />Length:  55.2<br />Blade.Sh: Straight","Width: 18.6<br />Length:  42.5<br />Blade.Sh: Straight","Width: 49.3<br />Length: 109.5<br />Blade.Sh: Straight","Width: 31.7<br />Length:  59.8<br />Blade.Sh: Straight","Width: 25.3<br />Length:  52.8<br />Blade.Sh: Straight","Width: 21.0<br />Length:  43.7<br />Blade.Sh: Straight","Width: 23.1<br />Length:  43.2<br />Blade.Sh: Straight","Width: 24.4<br />Length:  49.0<br />Blade.Sh: Straight","Width: 24.3<br />Length:  46.4<br />Blade.Sh: Straight","Width: 22.6<br />Length:  56.2<br />Blade.Sh: Straight","Width: 20.9<br />Length:  47.1<br />Blade.Sh: Straight","Width: 31.6<br />Length:  65.0<br />Blade.Sh: Straight","Width: 18.5<br />Length:  35.4<br />Blade.Sh: Straight","Width: 28.1<br />Length:  61.3<br />Blade.Sh: Straight","Width: 25.8<br />Length:  49.1<br />Blade.Sh: Straight","Width: 18.4<br />Length:  40.1<br />Blade.Sh: Straight","Width: 19.2<br />Length:  41.5<br />Blade.Sh: Straight","Width: 17.9<br />Length:  46.3<br />Blade.Sh: Straight","Width: 21.5<br />Length:  39.6<br />Blade.Sh: Straight","Width: 19.7<br />Length:  41.2<br />Blade.Sh: Straight","Width: 22.6<br />Length:  45.0<br />Blade.Sh: Straight","Width: 26.0<br />Length:  54.2<br />Blade.Sh: Straight","Width: 25.1<br />Length:  65.4<br />Blade.Sh: Straight","Width: 18.9<br />Length:  45.8<br />Blade.Sh: Straight","Width: 21.1<br />Length:  49.1<br />Blade.Sh: Straight","Width: 24.7<br />Length:  63.1<br />Blade.Sh: Straight"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(199,124,255,1)"}},"hoveron":"points","name":"Straight","legendgroup":"Straight","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18.199999999999999,27.300000000000001],"y":[40,48.5],"text":["Width: 18.2<br />Length:  40.0<br />Blade.Sh: NA","Width: 27.3<br />Length:  48.5<br />Blade.Sh: NA"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Length vs Width by Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[12.76,51.039999999999999],"tickmode":"array","ticktext":["20","30","40","50"],"tickvals":[20,30,40,50],"categoryorder":"array","categoryarray":["20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[26.655000000000001,113.44499999999999],"tickmode":"array","ticktext":["30","50","70","90","110"],"tickvals":[30,50,70,90,110],"categoryorder":"array","categoryarray":["30","50","70","90","110"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17c613bca0c9":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"17c613bca0c9","visdat":{"17c613bca0c9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c99066dee51055e9fcba" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c99066dee51055e9fcba">{"x":{"data":[{"x":[18.699999999999999,17.5,15.800000000000001,14.5,14.6,16.600000000000001,16.699999999999999,16.5,16.300000000000001,17.399999999999999,20.300000000000001,19.199999999999999,20.399999999999999,20.300000000000001,21,25.100000000000001,21.399999999999999,27.800000000000001,27.199999999999999,28.5,22.800000000000001,27.300000000000001,21.199999999999999,26.899999999999999,28.100000000000001,26.899999999999999,29.600000000000001,25.199999999999999,30.399999999999999,27.199999999999999,22,26.800000000000001,21.100000000000001,22.399999999999999,21.300000000000001,18.899999999999999,21.399999999999999,21.5,20.899999999999999,29.600000000000001,24.399999999999999,19.300000000000001],"y":[48.5,47.700000000000003,33.600000000000001,32.399999999999999,42.200000000000003,33.5,41.799999999999997,38,35.5,33.100000000000001,47.600000000000001,42.299999999999997,38.299999999999997,50.600000000000001,54.200000000000003,42.100000000000001,34.899999999999999,53.5,66,64.5,59,55.299999999999997,84,48,78.299999999999997,57.200000000000003,52,61.100000000000001,70.400000000000006,64.099999999999994,55,44.799999999999997,56.5,54.600000000000001,46.299999999999997,57.600000000000001,49.100000000000001,64.599999999999994,69,53.100000000000001,58.899999999999999,55.399999999999999],"text":["Width: 18.7<br />Length:  48.5<br />Blade.Sh: Excurvate","Width: 17.5<br />Length:  47.7<br />Blade.Sh: Excurvate","Width: 15.8<br />Length:  33.6<br />Blade.Sh: Excurvate","Width: 14.5<br />Length:  32.4<br />Blade.Sh: Excurvate","Width: 14.6<br />Length:  42.2<br />Blade.Sh: Excurvate","Width: 16.6<br />Length:  33.5<br />Blade.Sh: Excurvate","Width: 16.7<br />Length:  41.8<br />Blade.Sh: Excurvate","Width: 16.5<br />Length:  38.0<br />Blade.Sh: Excurvate","Width: 16.3<br />Length:  35.5<br />Blade.Sh: Excurvate","Width: 17.4<br />Length:  33.1<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  47.6<br />Blade.Sh: Excurvate","Width: 19.2<br />Length:  42.3<br />Blade.Sh: Excurvate","Width: 20.4<br />Length:  38.3<br />Blade.Sh: Excurvate","Width: 20.3<br />Length:  50.6<br />Blade.Sh: Excurvate","Width: 21.0<br />Length:  54.2<br />Blade.Sh: Excurvate","Width: 25.1<br />Length:  42.1<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  34.9<br />Blade.Sh: Excurvate","Width: 27.8<br />Length:  53.5<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  66.0<br />Blade.Sh: Excurvate","Width: 28.5<br />Length:  64.5<br />Blade.Sh: Excurvate","Width: 22.8<br />Length:  59.0<br />Blade.Sh: Excurvate","Width: 27.3<br />Length:  55.3<br />Blade.Sh: Excurvate","Width: 21.2<br />Length:  84.0<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  48.0<br />Blade.Sh: Excurvate","Width: 28.1<br />Length:  78.3<br />Blade.Sh: Excurvate","Width: 26.9<br />Length:  57.2<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  52.0<br />Blade.Sh: Excurvate","Width: 25.2<br />Length:  61.1<br />Blade.Sh: Excurvate","Width: 30.4<br />Length:  70.4<br />Blade.Sh: Excurvate","Width: 27.2<br />Length:  64.1<br />Blade.Sh: Excurvate","Width: 22.0<br />Length:  55.0<br />Blade.Sh: Excurvate","Width: 26.8<br />Length:  44.8<br />Blade.Sh: Excurvate","Width: 21.1<br />Length:  56.5<br />Blade.Sh: Excurvate","Width: 22.4<br />Length:  54.6<br />Blade.Sh: Excurvate","Width: 21.3<br />Length:  46.3<br />Blade.Sh: Excurvate","Width: 18.9<br />Length:  57.6<br />Blade.Sh: Excurvate","Width: 21.4<br />Length:  49.1<br />Blade.Sh: Excurvate","Width: 21.5<br />Length:  64.6<br />Blade.Sh: Excurvate","Width: 20.9<br />Length:  69.0<br />Blade.Sh: Excurvate","Width: 29.6<br />Length:  53.1<br />Blade.Sh: Excurvate","Width: 24.4<br />Length:  58.9<br />Blade.Sh: Excurvate","Width: 19.3<br />Length:  55.4<br />Blade.Sh: Excurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Excurvate","legendgroup":"Excurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20.699999999999999,15.9,17.5,22.800000000000001],"y":[40.299999999999997,34.5,38,45.200000000000003],"text":["Width: 20.7<br />Length:  40.3<br />Blade.Sh: Incurvate","Width: 15.9<br />Length:  34.5<br />Blade.Sh: Incurvate","Width: 17.5<br />Length:  38.0<br />Blade.Sh: Incurvate","Width: 22.8<br />Length:  45.2<br />Blade.Sh: Incurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(124,174,0,1)"}},"hoveron":"points","name":"Incurvate","legendgroup":"Incurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[27.899999999999999,20.899999999999999,27.100000000000001],"y":[60,48.100000000000001,67.200000000000003],"text":["Width: 27.9<br />Length:  60.0<br />Blade.Sh: Recurvate","Width: 20.9<br />Length:  48.1<br />Blade.Sh: Recurvate","Width: 27.1<br />Length:  67.2<br />Blade.Sh: Recurvate"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Recurvate","legendgroup":"Recurvate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[15.800000000000001,17.399999999999999,16.300000000000001,16.100000000000001,17.100000000000001,16.800000000000001,15.6,16,19.800000000000001,23.300000000000001,20.100000000000001,20.800000000000001,20,21.800000000000001,22.5,18.600000000000001,49.299999999999997,31.699999999999999,25.300000000000001,21,23.100000000000001,24.399999999999999,24.300000000000001,22.600000000000001,20.899999999999999,31.600000000000001,18.5,28.100000000000001,25.800000000000001,18.399999999999999,19.199999999999999,17.899999999999999,21.5,19.699999999999999,22.600000000000001,26,25.100000000000001,18.899999999999999,21.100000000000001,24.699999999999999],"y":[42.799999999999997,40.5,37.5,40.299999999999997,30.600000000000001,41.799999999999997,31.199999999999999,32,38.100000000000001,44.200000000000003,43.5,42.100000000000001,43.100000000000001,37.5,55.200000000000003,42.5,109.5,59.799999999999997,52.799999999999997,43.700000000000003,43.200000000000003,49,46.399999999999999,56.200000000000003,47.100000000000001,65,35.399999999999999,61.299999999999997,49.100000000000001,40.100000000000001,41.5,46.299999999999997,39.600000000000001,41.200000000000003,45,54.200000000000003,65.400000000000006,45.799999999999997,49.100000000000001,63.100000000000001],"text":["Width: 15.8<br />Length:  42.8<br />Blade.Sh: Straight","Width: 17.4<br />Length:  40.5<br />Blade.Sh: Straight","Width: 16.3<br />Length:  37.5<br />Blade.Sh: Straight","Width: 16.1<br />Length:  40.3<br />Blade.Sh: Straight","Width: 17.1<br />Length:  30.6<br />Blade.Sh: Straight","Width: 16.8<br />Length:  41.8<br />Blade.Sh: Straight","Width: 15.6<br />Length:  31.2<br />Blade.Sh: Straight","Width: 16.0<br />Length:  32.0<br />Blade.Sh: Straight","Width: 19.8<br />Length:  38.1<br />Blade.Sh: Straight","Width: 23.3<br />Length:  44.2<br />Blade.Sh: Straight","Width: 20.1<br />Length:  43.5<br />Blade.Sh: Straight","Width: 20.8<br />Length:  42.1<br />Blade.Sh: Straight","Width: 20.0<br />Length:  43.1<br />Blade.Sh: Straight","Width: 21.8<br />Length:  37.5<br />Blade.Sh: Straight","Width: 22.5<br />Length:  55.2<br />Blade.Sh: Straight","Width: 18.6<br />Length:  42.5<br />Blade.Sh: Straight","Width: 49.3<br />Length: 109.5<br />Blade.Sh: Straight","Width: 31.7<br />Length:  59.8<br />Blade.Sh: Straight","Width: 25.3<br />Length:  52.8<br />Blade.Sh: Straight","Width: 21.0<br />Length:  43.7<br />Blade.Sh: Straight","Width: 23.1<br />Length:  43.2<br />Blade.Sh: Straight","Width: 24.4<br />Length:  49.0<br />Blade.Sh: Straight","Width: 24.3<br />Length:  46.4<br />Blade.Sh: Straight","Width: 22.6<br />Length:  56.2<br />Blade.Sh: Straight","Width: 20.9<br />Length:  47.1<br />Blade.Sh: Straight","Width: 31.6<br />Length:  65.0<br />Blade.Sh: Straight","Width: 18.5<br />Length:  35.4<br />Blade.Sh: Straight","Width: 28.1<br />Length:  61.3<br />Blade.Sh: Straight","Width: 25.8<br />Length:  49.1<br />Blade.Sh: Straight","Width: 18.4<br />Length:  40.1<br />Blade.Sh: Straight","Width: 19.2<br />Length:  41.5<br />Blade.Sh: Straight","Width: 17.9<br />Length:  46.3<br />Blade.Sh: Straight","Width: 21.5<br />Length:  39.6<br />Blade.Sh: Straight","Width: 19.7<br />Length:  41.2<br />Blade.Sh: Straight","Width: 22.6<br />Length:  45.0<br />Blade.Sh: Straight","Width: 26.0<br />Length:  54.2<br />Blade.Sh: Straight","Width: 25.1<br />Length:  65.4<br />Blade.Sh: Straight","Width: 18.9<br />Length:  45.8<br />Blade.Sh: Straight","Width: 21.1<br />Length:  49.1<br />Blade.Sh: Straight","Width: 24.7<br />Length:  63.1<br />Blade.Sh: Straight"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(199,124,255,1)"}},"hoveron":"points","name":"Straight","legendgroup":"Straight","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18.199999999999999,27.300000000000001],"y":[40,48.5],"text":["Width: 18.2<br />Length:  40.0<br />Blade.Sh: NA","Width: 27.3<br />Length:  48.5<br />Blade.Sh: NA"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Length vs Width by Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[12.76,51.039999999999999],"tickmode":"array","ticktext":["20","30","40","50"],"tickvals":[20,30,40,50],"categoryorder":"array","categoryarray":["20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Width","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[26.655000000000001,113.44499999999999],"tickmode":"array","ticktext":["30","50","70","90","110"],"tickvals":[30,50,70,90,110],"categoryorder":"array","categoryarray":["30","50","70","90","110"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Length","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Blade Shape","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17a871b8abcc":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"17a871b8abcc","visdat":{"17a871b8abcc":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>This example takes a <code>ggplot2</code> scatter plot and transforms it into an interactive visualization with <code>plotly</code>. You can embed this code in an R Markdown document to generate a shareable, interactive HTML report.</p>
@@ -1790,6 +1809,9 @@ Frerebeau, Nicolas. 2023. <em>Tesselle: <span>Easily</span> <span>Install</span>
 <div id="ref-grolemund_r_nodate" class="csl-entry" role="listitem">
 Grolemund, Garrett, J. J. Allaire. n.d. <em>R <span>Markdown</span>: <span>The</span> <span>Definitive</span> <span>Guide</span></em>. Accessed October 29, 2024. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.
 </div>
+<div id="ref-grolemund_27_nodate" class="csl-entry" role="listitem">
+Grolemund, Hadley Wickham and Garrett. n.d. <em>27 <span>R</span> <span>Markdown</span> <span></span> <span>R</span> for <span>Data</span> <span>Science</span></em>. Accessed November 12, 2024. <a href="https://r4ds.had.co.nz/r-markdown.html">https://r4ds.had.co.nz/r-markdown.html</a>.
+</div>
 <div id="ref-healy_data_nodate" class="csl-entry" role="listitem">
 Healy, Yan Holtz and Conor. n.d. <span>“From Data to <span>Viz</span> <span></span> <span>Find</span> the Graphic You Need.”</span> Accessed October 29, 2024. <a href="https://www.data-to-viz.com/data-to-viz.com">https://www.data-to-viz.com/data-to-viz.com</a>.
 </div>
@@ -1814,8 +1836,14 @@ Holtz, Yan. n.d.a. <span>“Data Visualization with <span>R</span> and Ggplot2 <
 <div id="ref-kabacoff_modern_nodate" class="csl-entry" role="listitem">
 Kabacoff, Robert. n.d. <em>Modern <span>Data</span> <span>Visualization</span> with <span>R</span></em>. Accessed October 29, 2024. <a href="https://rkabacoff.github.io/datavis/">https://rkabacoff.github.io/datavis/</a>.
 </div>
+<div id="ref-liang_hao203rmarkdown-yaml_2024" class="csl-entry" role="listitem">
+Liang, Hao. 2024. <span>“Hao203/Rmarkdown-<span>YAML</span>.”</span> <a href="https://github.com/hao203/rmarkdown-YAML">https://github.com/hao203/rmarkdown-YAML</a>.
+</div>
 <div id="ref-majumder_guide_2021" class="csl-entry" role="listitem">
 Majumder, Prateek. 2021. <span>“Guide to <span>Create</span> <span>Interactive</span> <span>Plots</span> with <span>Plotly</span> <span>Python</span>.”</span> <em>Analytics Vidhya</em>. <a href="https://www.analyticsvidhya.com/blog/2021/10/interactive-plots-in-python-with-plotly-a-complete-guide/">https://www.analyticsvidhya.com/blog/2021/10/interactive-plots-in-python-with-plotly-a-complete-guide/</a>.
+</div>
+<div id="ref-melfi_chapter_nodate" class="csl-entry" role="listitem">
+Melfi, Vince, Jeffrey W. Doser. n.d. <em>Chapter 3 <span>Scripts</span> and <span>R</span> <span>Markdown</span> <span></span> <span>R</span> <span>Programming</span> for <span>Data</span> <span>Sciences</span></em>. Accessed November 12, 2024. <a href="https://doserlab.com/files/for875/_book/scripts">https://doserlab.com/files/for875/_book/scripts</a>.
 </div>
 <div id="ref-meo_creating_2023" class="csl-entry" role="listitem">
 Méo, Grace Di. 2023. <span>“Creating <span>Interactive</span> <span>Visualizations</span> with <span>Plotly</span>.”</span> <em>Programming Historian</em>, December. <a href="https://programminghistorian.org/en/lessons/interactive-visualization-with-plotly">https://programminghistorian.org/en/lessons/interactive-visualization-with-plotly</a>.
@@ -1832,11 +1860,23 @@ Qin, Yufei. n.d. <span>“Research <span>Guides</span>: <span>Data</span> <span>
 <div id="ref-noauthor_r_nodate" class="csl-entry" role="listitem">
 <span>“R <span>Markdown</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://rmarkdown.rstudio.com/index.html">https://rmarkdown.rstudio.com/index.html</a>.
 </div>
+<div id="ref-noauthor_r_nodate-5" class="csl-entry" role="listitem">
+<span>“R <span>Markdown</span> <span>Reporting</span> <span>Best</span> <span>Practices</span>.”</span> n.d. Accessed November 12, 2024. <a href="https://www.appsilon.com/post/r-markdown-reporting-best-practices">https://www.appsilon.com/post/r-markdown-reporting-best-practices</a>.
+</div>
+<div id="ref-riederer_22_nodate" class="csl-entry" role="listitem">
+Riederer, Emily, Christophe Dervieux. n.d. <em>2.2 <span>R</span> <span>Markdown</span> Anatomy <span></span> <span>R</span> <span>Markdown</span> <span>Cookbook</span></em>. Accessed November 12, 2024. <a href="https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html">https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html</a>.
+</div>
+<div id="ref-noauthor_rmarkdown_nodate" class="csl-entry" role="listitem">
+<span>“Rmarkdown :: <span>Cheatsheet</span>.”</span> n.d. Accessed October 14, 2024. <a href="https://rstudio.github.io/cheatsheets/html/rmarkdown.html?_gl=1*1k59g6x*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.">https://rstudio.github.io/cheatsheets/html/rmarkdown.html?_gl=1*1k59g6x*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.</a>
+</div>
 <div id="ref-noauthor_rstudio_nodate" class="csl-entry" role="listitem">
 <span>“<span>RStudio</span> <span>IDE</span> :: <span>Cheatsheet</span>.”</span> n.d. Accessed October 14, 2024. <a href="https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.">https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*11i4y2y*_ga*MjAyMzI2NjEwMC4xNzIzODI3Mjk2*_ga_2C0WZ1JHG0*MTcyODkxNzc2NS4xMy4xLjE3Mjg5MTkwNTIuMC4wLjA.</a>
 </div>
 <div id="ref-noauthor_rstudio_2024" class="csl-entry" role="listitem">
 <span>“<span>RStudio</span> <span>User</span> <span>Guide</span> - <span>RStudio</span> <span>IDE</span> <span>User</span> <span>Guide</span>.”</span> 2024. <em>RStudio User Guide</em>. <a href="https://docs.posit.co/ide/user/">https://docs.posit.co/ide/user/</a>.
+</div>
+<div id="ref-smith_9_nodate" class="csl-entry" role="listitem">
+Smith, Zachary M. n.d. <em>9 <span>Lesson</span> 4: <span>YAML</span> <span>Headers</span> <span></span> <span>R</span> <span>Markdown</span> <span>Crash</span> <span>Course</span></em>. Accessed November 12, 2024. <a href="https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html">https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html</a>.
 </div>
 <div id="ref-noauthor_subsetting_nodate" class="csl-entry" role="listitem">
 <span>“Subsetting <span>Data</span> <span></span> <span>R</span> <span>Learning</span> <span>Modules</span>.”</span> n.d. Accessed October 29, 2024. <a href="https://stats.oarc.ucla.edu/r/modules/subsetting-data/">https://stats.oarc.ucla.edu/r/modules/subsetting-data/</a>.
