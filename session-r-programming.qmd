@@ -546,24 +546,136 @@ summary(check)
 
 :::
 
-## (EXTRA)Error Handling and Debugging
+## EXTRA: Error handling and debugging
 
-* **Error Handling Techniques**  
-  * Using tryCatch in R.  
-  * Writing meaningful error messages.   
-  * Example: Implementing error handling in a data processing script.  
-* **Debugging Tools**  
-  * Introduction to debugging tools: `browser` in R.  
-  * Example: Walkthrough of a debugging session in R.
+Error handling and debugging are essential for building robust R code that gracefully manages unexpected issues. Effective error handling prevents crashes and improves user feedback, while debugging tools help identify and resolve problems during code development.
 
-## (EXTRA)Code Reusability and Sharing
+### Error Handling Techniques
 
-* **Creating Reusable Code**  
-  * Writing functions and libraries for reuse across projects.  
-  * Example: Creating a simple R package.  
-* **Sharing Code**  
-  * Sharing code with others: publishing packages, sharing notebooks.  
-  * Example: Publishing an R package on CRAN/GitHub.
+**Using `tryCatch` in R**  
+`tryCatch` is a versatile function for handling errors, warnings, and messages in R. It allows you to specify actions for different types of errors, ensuring that code can handle unexpected conditions gracefully.
+
+**Writing Meaningful Error Messages**  
+Meaningful error messages help both developers and users understand what went wrong and guide them toward solutions. Avoid generic messages like `"Error occurred"` and instead specify the exact problem.
+
+**Example: Implementing error handling in a data processing script**
+```{r}
+process_data <- function(data) {
+  tryCatch({
+    # check
+    if (!"score" %in% names(data)) stop("Missing 'score' column in data")
+    # filter
+    data <- data[data$score > 10, ]  # Process data
+    return(data)
+  },
+  error = function(e) {
+    cat("Error in processing data:", e$message, "\n")
+    return(NULL)
+  })
+}
+
+# Usage
+result <- process_data(iris)
+```
+In this example, `tryCatch` captures errors from `read.csv()` or the missing column and provides a custom message.
+
+### Debugging tools
+
+**Introduction to Debugging Tools: `browser` in R**  
+The `browser` function in R allows you to pause code execution at a specific point, enabling step-by-step inspection of variables and function behaviour. This is especially useful for identifying unexpected values or conditions.
+
+**Example: Walkthrough of a debugging session in R**
+```{r}
+#| eval: false
+calculate_mean <- function(data) {
+  browser()  # Debugging breakpoint
+  mean(data$score, na.rm = TRUE)
+}
+
+# Sample data
+data <- data.frame(score = c(10, NA, 20, 15))
+calculate_mean(data)
+```
+When `browser()` is called, R will pause execution and open an interactive environment. Here, you can inspect `data$score`, check conditions, and proceed line by line, allowing you to diagnose issues effectively.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_exceptions_nodate  
+- @noauthor_22_nodate  
+- @noauthor_license_nodate  
+- @noauthor_4_nodate    
+- @albert_rapp_stop_2024  
+
+:::
+
+## EXTRA: Creating and releasing packages
+
+Reusable and shareable code helps in building efficient workflows, saving time, and reducing redundancy across projects. Reusable code can be encapsulated in functions, libraries, or R packages to simplify future use and sharing.
+
+### Creating packages
+
+Writing functions and libraries that can be reused in multiple projects helps standardize tasks and reduces the risk of introducing errors by duplicating code. R packages are an ideal way to organize reusable functions, data, and documentation, making it easy to use them across different projects.
+
+**Example: Creating a Simple R Package**
+1. **Set up the package**  
+   Use the `usethis` package to initiate a new package:
+   ```{r}
+   #| eval: false
+   install.packages("usethis")
+   usethis::create_package("path/to/myPackage")
+   ```
+
+2. **Add a function**  
+   Create a function file in the `R/` folder, for example `R/hello.R`:
+   ```{r}
+   #| eval: false
+   hello <- function(name = "world") {
+     paste("Hello,", name)
+   }
+   ```
+
+3. **Document the function**  
+   Use `roxygen2` to add documentation:
+   ```{r}
+   #| eval: false
+   #' Say Hello
+   #'
+   #' @param name A character string. Default is "world".
+   #' @return A greeting message.
+   #' @export
+   hello <- function(name = "world") {
+     paste("Hello,", name)
+   }
+   ```
+4. **Build and test**  
+   Load and test your package:
+   ```{r}
+   #| eval: false
+   devtools::document()
+   devtools::load_all()
+   hello("R user")
+   ```
+
+### Releasing/sharing packages
+
+Once your code is reusable as package, share it to help others benefit from your work. Publishing packages on CRAN or GitHub makes them accessible to other users and developers, while sharing R Markdown notebooks helps others reproduce and understand your analyses.
+
+**GitHub**: Initialize a Git repository in the package directory or a new project in RStudio as a R package, set up a GitHub connection, and add the package files. Push changes to GitHub and release with a new tag. 
+
+**CRAN**: Follow [CRAN submission guidelines](https://cran.r-project.org/submit.html).
+
+Sharing packages or code through these platforms allows the broader R community to contribute, use, and improve your work.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @noauthor_making_nodate  
+- @noauthor_notitle_nodate  
+- @noauthor_writing_nodate  
+- @statistikindd_creating_2021  
+
+:::
 
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}

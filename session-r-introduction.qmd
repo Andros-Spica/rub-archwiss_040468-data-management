@@ -126,6 +126,20 @@ mean_value
 
 The mean of the vector is `r mean_value`.
 
+Although not necessary by default, R Markdown files can contain **YAML headers**, which define the metadata for the document. Located at the top of the file, the YAML header specifies key information and rendering options, such as `title`, `author`, `date`, `output` format (e.g., HTML, PDF), and document theme. This header controls how the document is processed and rendered, allowing customization without altering the main content.
+
+For example:
+```yaml
+---
+title: "Analysis Report"
+author: "Data Scientist"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```
+
+This YAML block will render the document as an HTML report with a dynamic date and specified author and title.
+
 You can learn more about Rmarkdown at the [Get Started tutorial](https://rmarkdown.rstudio.com/lesson-1.html) offered by its developers.
 
 In summary, **scripts** are optimal for code-centric work with minimal formatting, while **Rmarkdown documents** offer a flexible, document-like interface ideal for combining narrative and code in a single file. 
@@ -136,6 +150,13 @@ In summary, **scripts** are optimal for code-centric work with minimal formattin
 * @grolemund_r_nodate
 * @noauthor_r_nodate
 * @noauthor_introduction_nodate
+* @noauthor_r_nodate-5
+* @grolemund_27_nodate
+* @melfi_chapter_nodate
+* @noauthor_rmarkdown_nodate
+* @smith_9_nodate
+* @riederer_22_nodate
+* @liang_hao203rmarkdown-yaml_2024
 
 :::
 
