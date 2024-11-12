@@ -499,10 +499,10 @@ Validating data inputs and outputs is crucial for maintaining data integrity, es
 Given a dataset:
 ```{r}
 data <- data.frame(
-     age = c(25, -5, 30),
-     salary = c(50000, 0, 60000),
-     name = c("Alice", NA, "Bob")
-   )
+  age = c(25, -5, 30),
+  salary = c(50000, 0, 60000),
+  name = c("Alice", NA, "Bob")
+)
 ```
 
 Check if each variable comply with certain rules:  
@@ -511,18 +511,17 @@ Check if each variable comply with certain rules:
 * `name` is not missing.
 
 ```{r}
-stopifnot(age >= 0, salary > 0, !is.na(name))
+#| eval: false
+stopifnot(data$age >= 0, data$salary > 0, !is.na(data$name))
 
 # or with custom error messages: 
-
-stopifnot("age must be positive"= age >= 0)
-stopifnot("salary must be positive"= salary > 0)
-stopifnot("name must not be NA"= !is.na(name))
+stopifnot(data$age >= 0, "Age values must be non-negative")
+stopifnot(data$salary > 0, "Salary values must be positive")
+stopifnot(!is.na(data$name), "Names must not be NA")
 ```
 
-For handling larger rule sets, consider using the `validate` package:  
+For handling larger rule sets and getting a more structured feedback, consider using `validate` package:  
 ```{r}
-#| eval: false
 library(validate)
 
 rules <- validator(
