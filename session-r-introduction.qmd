@@ -303,7 +303,7 @@ To create and run an R script:
 
 2. Write your code in the editor. For example:
 
-```{r, eval=FALSE}
+```{r}
 # Simple R Script
 x <- 5
 y <- 10
@@ -320,7 +320,7 @@ Packages in R are collections of functions, data, and documentation that extend 
 #### Installing and loading packages {.unnumbered}
 To install a package, use the `install.packages()` function. For example, to install the ggplot2 package:
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 install.packages("ggplot2")
 ```
@@ -328,7 +328,7 @@ install.packages("ggplot2")
 Alternatively, you may use the GUI Wizard in Tools > Install Packages..., where an autocomplete feature will help selecting packages exact names.
 
 Once installed, load the package with the `library()` function:
-```{r, eval=FALSE}
+```{r}
 library(ggplot2)
 ```
 
@@ -347,7 +347,7 @@ The [`tidyverse`](https://www.tidyverse.org/) is a collection of R packages desi
 
 The installation and use of the entire tidyverse works as a single package:
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 install.packages("tidyverse")
 library(tidyverse)
@@ -361,7 +361,7 @@ The [`tesselle`](https://www.tesselle.org/) collection is a suite of R packages 
 
 Install the complete suite with:
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 install.packages("tesselle")
 ```
@@ -376,7 +376,7 @@ We will look into more details about this collection in @sec-compositional-data 
 
 To read data from a CSV file, use the `read.csv()` or `read_csv()` function from the `readr` package. The `read.csv()` function is part of base R and handles typical CSV formats, while `read_csv()` is optimized for speed and flexibility in handling larger files.
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 # Base R
 data <- read.csv("path/to/file.csv")
@@ -390,7 +390,7 @@ data <- read_csv("path/to/file.csv")
 
 To save your data as a CSV file, use the `write.csv()` or `write_csv()` functions.
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 # Base R
 write.csv(data, "path/to/output.csv")
@@ -403,7 +403,7 @@ write_csv(data, "path/to/output.csv")
 
 R includes several built-in or "canonical" datasets, like `iris`, useful for having a common benchmark for testing and giving examples. Other canonical datasets are available inside packages dedicated specialized fields, like `archdata` containing several archaeological datasets. To load a canonical dataset, use `data()`:
 
-```{r, eval=FALSE}
+```{r}
 #| eval: false
 # Load the built-in iris dataset
 data(iris)
@@ -705,7 +705,8 @@ grid.arrange(p1, p2, ncol = 2)
 
 Use `png()`, `pdf()`, etc., to open graphic devices, giving at least the path and file name as argument, and `dev.off()` to close the device. After execution, the corresponding file will be created at the specified directory.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 png("myPlots/plot.png")
 plot(mtcars$mpg, mtcars$wt)
 dev.off()
@@ -734,7 +735,7 @@ Interactive visualizations enhance data exploration by allowing users to zoom, p
 
 With `plotly` and `knitr` in R Markdown, you can embed interactive plots directly in a report.
 
-```{r, message=FALSE}
+```{r, warning=FALSE, message=FALSE}
 # Load libraries
 library(plotly)
 library(knitr)
