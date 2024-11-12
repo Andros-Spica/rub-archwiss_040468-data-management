@@ -252,7 +252,7 @@ if (x > 5) {
 ```{r}
 x <- c("First", "Second", "Third", "Fourth", "Fifth")
 # iterate over numeric index, created on the fly
-for (i in 1:length(x)) {
+for (i in seq_along(x)) {
   print(x[i])
 }
 # iterate over the values of x directly
