@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Databases (I) – Data Management and Digital Archaeology</title>
+<title>8&nbsp; Databases (I) – Data Management and Digital Archaeology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-database-1.html">Databases</a></li><li class="breadcrumb-item"><a href="./session-database-1.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Databases (I)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-database-1.html">Databases</a></li><li class="breadcrumb-item"><a href="./session-database-1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (I)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -213,14 +213,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./session-data-science-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Science Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./session-count-and-seriation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Count data and seriation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Count data and seriation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session-compositional-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Compositional data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Compositional data</span></span></a>
   </div>
 </li>
       </ul>
@@ -237,13 +243,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session-database-1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Databases (I)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (I)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session-database-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (II)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Databases (II)</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,13 +266,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session-gis-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">GIS (I)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GIS (I)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./session-gis-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GIS (II)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GIS (II)</span></span></a>
   </div>
 </li>
       </ul>
@@ -287,19 +293,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-databases-in-archaeology" id="toc-introduction-to-databases-in-archaeology" class="nav-link active" data-scroll-target="#introduction-to-databases-in-archaeology"><span class="header-section-number">7.1</span> Introduction to Databases in Archaeology</a></li>
-  <li><a href="#relational-database-concepts" id="toc-relational-database-concepts" class="nav-link" data-scroll-target="#relational-database-concepts"><span class="header-section-number">7.2</span> Relational Database Concepts</a></li>
-  <li><a href="#introduction-to-sql-structured-query-language" id="toc-introduction-to-sql-structured-query-language" class="nav-link" data-scroll-target="#introduction-to-sql-structured-query-language"><span class="header-section-number">7.3</span> Introduction to SQL (Structured Query Language)</a></li>
-  <li><a href="#database-tools-for-archaeology" id="toc-database-tools-for-archaeology" class="nav-link" data-scroll-target="#database-tools-for-archaeology"><span class="header-section-number">7.4</span> Database Tools for Archaeology</a></li>
+  <li><a href="#introduction-to-databases-in-archaeology" id="toc-introduction-to-databases-in-archaeology" class="nav-link active" data-scroll-target="#introduction-to-databases-in-archaeology"><span class="header-section-number">8.1</span> Introduction to Databases in Archaeology</a></li>
+  <li><a href="#relational-database-concepts" id="toc-relational-database-concepts" class="nav-link" data-scroll-target="#relational-database-concepts"><span class="header-section-number">8.2</span> Relational Database Concepts</a></li>
+  <li><a href="#introduction-to-sql-structured-query-language" id="toc-introduction-to-sql-structured-query-language" class="nav-link" data-scroll-target="#introduction-to-sql-structured-query-language"><span class="header-section-number">8.3</span> Introduction to SQL (Structured Query Language)</a></li>
+  <li><a href="#database-tools-for-archaeology" id="toc-database-tools-for-archaeology" class="nav-link" data-scroll-target="#database-tools-for-archaeology"><span class="header-section-number">8.4</span> Database Tools for Archaeology</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-database-1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-database-1.html">Databases</a></li><li class="breadcrumb-item"><a href="./session-database-1.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Databases (I)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-database-1.html">Databases</a></li><li class="breadcrumb-item"><a href="./session-database-1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (I)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-database-1" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Databases (I)</span></span></h1>
+<h1 class="title"><span id="sec-database-1" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (I)</span></span></h1>
 </div>
 
 
@@ -316,8 +322,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction-to-databases-in-archaeology" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="introduction-to-databases-in-archaeology"><span class="header-section-number">7.1</span> Introduction to Databases in Archaeology</h2>
+<section id="introduction-to-databases-in-archaeology" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction-to-databases-in-archaeology"><span class="header-section-number">8.1</span> Introduction to Databases in Archaeology</h2>
 <ul>
 <li><strong>What is a Database?</strong>
 <ul>
@@ -334,8 +340,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="relational-database-concepts" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="relational-database-concepts"><span class="header-section-number">7.2</span> Relational Database Concepts</h2>
+<section id="relational-database-concepts" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="relational-database-concepts"><span class="header-section-number">8.2</span> Relational Database Concepts</h2>
 <ul>
 <li><strong>Basic Concepts</strong>
 <ul>
@@ -359,8 +365,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="introduction-to-sql-structured-query-language" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="introduction-to-sql-structured-query-language"><span class="header-section-number">7.3</span> Introduction to SQL (Structured Query Language)</h2>
+<section id="introduction-to-sql-structured-query-language" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="introduction-to-sql-structured-query-language"><span class="header-section-number">8.3</span> Introduction to SQL (Structured Query Language)</h2>
 <ul>
 <li><strong>Basic SQL Commands</strong>
 <ul>
@@ -405,8 +411,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="database-tools-for-archaeology" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="database-tools-for-archaeology"><span class="header-section-number">7.4</span> Database Tools for Archaeology</h2>
+<section id="database-tools-for-archaeology" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="database-tools-for-archaeology"><span class="header-section-number">8.4</span> Database Tools for Archaeology</h2>
 <ul>
 <li><strong>Accessing Databases from R</strong>
 <ul>
@@ -903,12 +909,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./session-compositional-data.html" class="pagination-link" aria-label="Compositional data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Compositional data</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Compositional data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./session-database-2.html" class="pagination-link" aria-label="Databases (II)">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Databases (II)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Databases (II)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

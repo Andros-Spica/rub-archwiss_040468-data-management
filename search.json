@@ -164,7 +164,7 @@
     "href": "session-r-introduction.html#r-syntax-and-workflow",
     "title": "3  Introduction to R",
     "section": "3.2 R syntax and workflow",
-    "text": "3.2 R syntax and workflow\n\n3.2.1 Variables and data types\nIn R, variables or vectors are created by assigning values using the &lt;- operator. A variable in R corresponds to values of a specific data type, including:\n\nNumeric: Numbers, e.g., x &lt;- 10.5\nInteger: Whole numbers, declared with L, e.g., y &lt;- 3L\nCharacter: Text, surrounded by quotes, e.g., name &lt;- \"Alice\"\nLogical: Boolean values, TRUE or FALSE, e.g., is_true &lt;- TRUE\nFactor: Categorical data, useful for storing distinct categories, and keeping both category names and indexed numeric value (see Data structures bellow).\n\nVariables store data for manipulation and analysis, forming the building blocks of R programming. Variables and data structures (see bellow) can be all referred as “R objects”, and once created, they will appear listed in the Environment tab in the Environments panel (top right).\n\n\n3.2.2 Data structures\nData structures are more complex objects that are also created using the &lt;- operator.\n\nVectors (i.e. variables): The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with c(), e.g., c(1, 2, 3) or c(\"a\", \"b\", \"c\").\nMatrices: Two-dimensional, homogeneous data structures (all elements are of the same type). Created using matrix(), e.g., matrix(1:9, nrow = 3, ncol = 3).\nFactor: A factor is a special case in-between a vector and a matrix, designed to facilitate operations with categorical variables. While a factor will often seem equivalent to a Character vector (e.g., c(\"Yes\", \"No\", \"Yes\")), it will be treated as a two column matrix where character values are mapped to a numeric index, assigned arbitrarily. In this nx2 matrix, where n is the number of rows or elements in each column, each row is referred as “level”. To create a factor, we must use the primitive function factor() and give it a Character vector: e.g., factor(c(\"Yes\", \"No\", \"Yes\")).\nData Frames: Tabular data structures where each column can contain different data types (numeric, character, factor, etc.). Both columns and rows can be named. Data frames are created with data.frame(): e.g., data.frame(x = 1:3, y = c(\"a\", \"b\", \"c\")).\nLists: Collections of elements that can contain different types of data structures, such as vectors, data frames, or even other lists. All list elements can be assigned a specific name. To create a list, use list(): e.g., list(a = 1, b = \"text\", c = TRUE, d = c(1, 2, 3)).\n\nEach of these data structures supports a range of operations for data manipulation and can be essential in R for organizing and analysing data effectively.\n\n\n3.2.3 Arithmetic operations, logical operations in R.\nR supports a range of arithmetic and logical operations:\n\nArithmetic Operations: Perform basic mathematical operations on numbers (type Numeric).\n\nAddition: e.g., 5 + 3\nSubtraction: e.g., 5 - 3\nMultiplication: e.g., 5 * 3\nDivision: e.g., 5 / 3\nExponentiation: 5 ^ 3\nModulus: 5 %% 3 (remainder)\n\nLogical Operations: Compare values (any type), returning Boolean values (type Logical TRUE or FALSE).\n\nEqual to: e.g., 5 == 3\nNot equal to: e.g., 5 != 3\nGreater than: e.g., 5 &gt; 3\nLess than: e.g., 5 &lt; 3\nLogical AND: e.g., TRUE & FALSE\nLogical OR: e.g., TRUE | FALSE\n\n\n\n\n3.2.4 Algorithm declaration\nAn algorithm is a step-by-step set of instructions used to solve a problem or perform a task, enabling computers to process data efficiently. Algorithms are normally fixed as re-usable code in the form of functions (or methods, depending on the programming language). These might take (or require) certain input variables, named “arguments” or “parameters”, and return certain output variables.\nIn R, a function can be declared (i.e., created for later use) by using the keyword funtion(), which is in itself a function already declared in R by default (i.e., a “primitive” function).\n\nadd_numbers &lt;- function(a, b) {\n  return(a + b)\n}\n\nA function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., funtion(a, b)) and use the same names inside the function’s code, enclosed by curly brackets (e.g., { return(a + b) }). A function can perform a series of operations, some of which can have external consequences, such as printing console messages or creating or modifying files. In R, a function’s output, if anything, is always a single R object, enclosed as an argument of another primitive function, return() (e.g., return(a + b)). Any R objects created or modified inside a function’s code, but not included in the output, will be erased afterwards.\nOnce declared, a function will be available or “loaded in the R session” for further use, using whatever values we assign to its input variables. For example, when a = 3 and b = 5, add_numbers() will return:\n\nresult &lt;- add_numbers(3, 5)\nprint(result)\n\n[1] 8\n\n\n\n\n3.2.5 Control flow structures\nIn programming, algorithms are executed through structured pathways known as control flow structures, determining the order in which instructions are carried out. Control flow structures include sequence (executing statements in order), selection (using conditions like “if” statements), and iteration (looping through repeated instructions). These structures direct the program’s execution path, ensuring it meets the logical requirements of the algorithm and reaches a solution effectively (“Control Flow” 2024; “Control Structures in Programming Languages” 2020).\nR provides basic control flow structures for implementing algorithms:\n\nif and else: Execute code based on a condition.\n\n\nx &lt;- 10\nif (x &gt; 5) {\n  print(\"x is greater than 5\")\n} else {\n  print(\"x is not greater than 5\")\n}\n\n[1] \"x is greater than 5\"\n\n\n\nfor loop: Repeat code over the elements of a vector.\n\n\nx &lt;- c(\"First\", \"Second\", \"Third\", \"Fourth\", \"Fifth\")\n# iterate over numeric index, created on the fly\nfor (i in seq_along(x)) {\n  print(x[i])\n}\n\n[1] \"First\"\n[1] \"Second\"\n[1] \"Third\"\n[1] \"Fourth\"\n[1] \"Fifth\"\n\n# iterate over the values of x directly\nfor (value in x) {\n  print(value)\n}\n\n[1] \"First\"\n[1] \"Second\"\n[1] \"Third\"\n[1] \"Fourth\"\n[1] \"Fifth\"\n\n\n\nwhile loop: Repeat code while a condition is true.\n\n\ncount &lt;- 1\nwhile (count &lt;= 5) {\n  print(count)\n  count &lt;- count + 1\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n\n\n\n\n\n\n\n\nGetting help\n\n\n\nWhile learning R and its extensive vocabulary, it is useful to know where to get help. Beyond searching for specific questions online (always a good option), it can be clarifying enough to read the relevant fragment of R documentation.\nThere are mainly two ways of accessing R documentation:\n\nConsole command: In the R console, type ? followed by the name of a function (e.g., ?factor) or a canonical dataset (e.g., ?iris, see Importing data).\nRStudio Help tab: Go the Help tab in the Output area of RStudio’s interface (bottom left), and using the search field (top right in Help), type the name of a function or canonical dataset.\n\nThe R documentation entry for a function explains briefly:\n\nwhat it does (“Description”)\nwhat arguments it takes (“Arguments”)\nwhat values it outputs (“Value”)\nadditional information about its behaviour (“Details”, etc.)\nrelated bibliographic references (“References”)\nuse examples in code (“Examples”)\n\nNotice that sometimes one documentation entry might be related to an entire group of functions. For example, the entry on factor() also refers to as.factor() and is.factor(), among others.\nWarning: R will only find documentation of those functions and datasets currently loaded in the session environment. Whenever the consultation involves a package (see below), make sure that it has been installed and loaded.\n\n\n\n\n3.2.6 Writing and executing R scripts\nTo create and run an R script:\n\nGo to File &gt; New File &gt; R Script in RStudio.\nWrite your code in the editor. For example:\n\n\n# Simple R Script\nx &lt;- 5\ny &lt;- 10\nsum &lt;- x + y\nprint(sum)\n\n[1] 15\n\n\n\nHighlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.\n\n\n\n3.2.7 Using packages\nPackages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.\n\nInstalling and loading packages\nTo install a package, use the install.packages() function. For example, to install the ggplot2 package:\n\ninstall.packages(\"ggplot2\")\n\nAlternatively, you may use the GUI Wizard in Tools &gt; Install Packages…, where an autocomplete feature will help selecting packages exact names.\nOnce installed, load the package with the library() function:\n\nlibrary(ggplot2)\n\nNow you can access the functions within ggplot2 and any other loaded package. You only need to install a package once, but you must load it in each new session.\n\n\nPackage collection: tidyverse\nThe tidyverse is a collection of R packages designed for data science, making data manipulation, visualization, and analysis easier and more intuitive (Wickham et al. 2019; “Tidyverse” n.d.). It includes:\n\nggplot2: For creating data visualizations using a layered approach.\ndplyr: For data manipulation, including filtering, summarizing, and arranging data.\ntidyr: For reshaping and tidying data.\nreadr: For reading data files into R quickly.\npurrr: For functional programming, allowing you to work with lists and vectors more effectively.\ntibble: A modern version of data frames with enhanced printing and subsetting.\n\nThe installation and use of the entire tidyverse works as a single package:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\nThe tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e. other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.\n\n\nPackage collection: tesselle\nThe tesselle collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data (Frerebeau 2023; “Tesselle: R Packages & Archaeology” n.d.).\nInstall the complete suite with:\n\ninstall.packages(\"tesselle\")\n\nWe will look into more details about this collection in Chapter 6 and Chapter 5.",
+    "text": "3.2 R syntax and workflow\n\n3.2.1 Variables and data types\nIn R, variables or vectors are created by assigning values using the &lt;- operator. A variable in R corresponds to values of a specific data type, including:\n\nNumeric: Numbers, e.g., x &lt;- 10.5\nInteger: Whole numbers, declared with L, e.g., y &lt;- 3L\nCharacter: Text, surrounded by quotes, e.g., name &lt;- \"Alice\"\nLogical: Boolean values, TRUE or FALSE, e.g., is_true &lt;- TRUE\nFactor: Categorical data, useful for storing distinct categories, and keeping both category names and indexed numeric value (see Data structures bellow).\n\nVariables store data for manipulation and analysis, forming the building blocks of R programming. Variables and data structures (see bellow) can be all referred as “R objects”, and once created, they will appear listed in the Environment tab in the Environments panel (top right).\n\n\n3.2.2 Data structures\nData structures are more complex objects that are also created using the &lt;- operator.\n\nVectors (i.e. variables): The most basic data structure, a vector is a sequence of data elements of the same type (numeric, character, or logical). Created with c(), e.g., c(1, 2, 3) or c(\"a\", \"b\", \"c\").\nMatrices: Two-dimensional, homogeneous data structures (all elements are of the same type). Created using matrix(), e.g., matrix(1:9, nrow = 3, ncol = 3).\nFactor: A factor is a special case in-between a vector and a matrix, designed to facilitate operations with categorical variables. While a factor will often seem equivalent to a Character vector (e.g., c(\"Yes\", \"No\", \"Yes\")), it will be treated as a two column matrix where character values are mapped to a numeric index, assigned arbitrarily. In this nx2 matrix, where n is the number of rows or elements in each column, each row is referred as “level”. To create a factor, we must use the primitive function factor() and give it a Character vector: e.g., factor(c(\"Yes\", \"No\", \"Yes\")).\nData Frames: Tabular data structures where each column can contain different data types (numeric, character, factor, etc.). Both columns and rows can be named. Data frames are created with data.frame(): e.g., data.frame(x = 1:3, y = c(\"a\", \"b\", \"c\")).\nLists: Collections of elements that can contain different types of data structures, such as vectors, data frames, or even other lists. All list elements can be assigned a specific name. To create a list, use list(): e.g., list(a = 1, b = \"text\", c = TRUE, d = c(1, 2, 3)).\n\nEach of these data structures supports a range of operations for data manipulation and can be essential in R for organizing and analysing data effectively.\n\n\n3.2.3 Arithmetic operations, logical operations in R.\nR supports a range of arithmetic and logical operations:\n\nArithmetic Operations: Perform basic mathematical operations on numbers (type Numeric).\n\nAddition: e.g., 5 + 3\nSubtraction: e.g., 5 - 3\nMultiplication: e.g., 5 * 3\nDivision: e.g., 5 / 3\nExponentiation: 5 ^ 3\nModulus: 5 %% 3 (remainder)\n\nLogical Operations: Compare values (any type), returning Boolean values (type Logical TRUE or FALSE).\n\nEqual to: e.g., 5 == 3\nNot equal to: e.g., 5 != 3\nGreater than: e.g., 5 &gt; 3\nLess than: e.g., 5 &lt; 3\nLogical AND: e.g., TRUE & FALSE\nLogical OR: e.g., TRUE | FALSE\n\n\n\n\n3.2.4 Algorithm declaration\nAn algorithm is a step-by-step set of instructions used to solve a problem or perform a task, enabling computers to process data efficiently. Algorithms are normally fixed as re-usable code in the form of functions (or methods, depending on the programming language). These might take (or require) certain input variables, named “arguments” or “parameters”, and return certain output variables.\nIn R, a function can be declared (i.e., created for later use) by using the keyword funtion(), which is in itself a function already declared in R by default (i.e., a “primitive” function).\n\nadd_numbers &lt;- function(a, b) {\n  return(a + b)\n}\n\nA function declaration will then prescribe the input variables taken as variable names placed inside a parenthesis and separated by commas (e.g., funtion(a, b)) and use the same names inside the function’s code, enclosed by curly brackets (e.g., { return(a + b) }). A function can perform a series of operations, some of which can have external consequences, such as printing console messages or creating or modifying files. In R, a function’s output, if anything, is always a single R object, enclosed as an argument of another primitive function, return() (e.g., return(a + b)). Any R objects created or modified inside a function’s code, but not included in the output, will be erased afterwards.\nOnce declared, a function will be available or “loaded in the R session” for further use, using whatever values we assign to its input variables. For example, when a = 3 and b = 5, add_numbers() will return:\n\nresult &lt;- add_numbers(3, 5)\nprint(result)\n\n[1] 8\n\n\n\n\n3.2.5 Control flow structures\nIn programming, algorithms are executed through structured pathways known as control flow structures, determining the order in which instructions are carried out. Control flow structures include sequence (executing statements in order), selection (using conditions like “if” statements), and iteration (looping through repeated instructions). These structures direct the program’s execution path, ensuring it meets the logical requirements of the algorithm and reaches a solution effectively (“Control Flow” 2024; “Control Structures in Programming Languages” 2020).\nR provides basic control flow structures for implementing algorithms:\n\nif and else: Execute code based on a condition.\n\n\nx &lt;- 10\nif (x &gt; 5) {\n  print(\"x is greater than 5\")\n} else {\n  print(\"x is not greater than 5\")\n}\n\n[1] \"x is greater than 5\"\n\n\n\nfor loop: Repeat code over the elements of a vector.\n\n\nx &lt;- c(\"First\", \"Second\", \"Third\", \"Fourth\", \"Fifth\")\n# iterate over numeric index, created on the fly\nfor (i in seq_along(x)) {\n  print(x[i])\n}\n\n[1] \"First\"\n[1] \"Second\"\n[1] \"Third\"\n[1] \"Fourth\"\n[1] \"Fifth\"\n\n# iterate over the values of x directly\nfor (value in x) {\n  print(value)\n}\n\n[1] \"First\"\n[1] \"Second\"\n[1] \"Third\"\n[1] \"Fourth\"\n[1] \"Fifth\"\n\n\n\nwhile loop: Repeat code while a condition is true.\n\n\ncount &lt;- 1\nwhile (count &lt;= 5) {\n  print(count)\n  count &lt;- count + 1\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n\n\n\n\n\n\n\n\nGetting help\n\n\n\nWhile learning R and its extensive vocabulary, it is useful to know where to get help. Beyond searching for specific questions online (always a good option), it can be clarifying enough to read the relevant fragment of R documentation.\nThere are mainly two ways of accessing R documentation:\n\nConsole command: In the R console, type ? followed by the name of a function (e.g., ?factor) or a canonical dataset (e.g., ?iris, see Importing data).\nRStudio Help tab: Go the Help tab in the Output area of RStudio’s interface (bottom left), and using the search field (top right in Help), type the name of a function or canonical dataset.\n\nThe R documentation entry for a function explains briefly:\n\nwhat it does (“Description”)\nwhat arguments it takes (“Arguments”)\nwhat values it outputs (“Value”)\nadditional information about its behaviour (“Details”, etc.)\nrelated bibliographic references (“References”)\nuse examples in code (“Examples”)\n\nNotice that sometimes one documentation entry might be related to an entire group of functions. For example, the entry on factor() also refers to as.factor() and is.factor(), among others.\nWarning: R will only find documentation of those functions and datasets currently loaded in the session environment. Whenever the consultation involves a package (see below), make sure that it has been installed and loaded.\n\n\n\n\n3.2.6 Writing and executing R scripts\nTo create and run an R script:\n\nGo to File &gt; New File &gt; R Script in RStudio.\nWrite your code in the editor. For example:\n\n\n# Simple R Script\nx &lt;- 5\ny &lt;- 10\nsum &lt;- x + y\nprint(sum)\n\n[1] 15\n\n\n\nHighlight the code and press Ctrl + Enter (Windows) or Cmd + Enter (Mac) to execute it in the Console.\n\n\n\n3.2.7 Using packages\nPackages in R are collections of functions, data, and documentation that extend R’s capabilities. They allow you to perform specialized tasks without having to write code from scratch. To use a package, you need to first install it and then load it into your R session.\n\nInstalling and loading packages\nTo install a package, use the install.packages() function. For example, to install the ggplot2 package:\n\ninstall.packages(\"ggplot2\")\n\nAlternatively, you may use the GUI Wizard in Tools &gt; Install Packages…, where an autocomplete feature will help selecting packages exact names.\nOnce installed, load the package with the library() function:\n\nlibrary(ggplot2)\n\nNow you can access the functions within ggplot2 and any other loaded package. You only need to install a package once, but you must load it in each new session.\n\n\nPackage collection: tidyverse\nThe tidyverse is a collection of R packages designed for data science, making data manipulation, visualization, and analysis easier and more intuitive (Wickham et al. 2019; “Tidyverse” n.d.). It includes:\n\nggplot2: For creating data visualizations using a layered approach.\ndplyr: For data manipulation, including filtering, summarizing, and arranging data.\ntidyr: For reshaping and tidying data.\nreadr: For reading data files into R quickly.\npurrr: For functional programming, allowing you to work with lists and vectors more effectively.\ntibble: A modern version of data frames with enhanced printing and subsetting.\n\nThe installation and use of the entire tidyverse works as a single package:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\nThe tidyverse packages considerably change the way of working with R. Indeed, tidyverse code is now often used for introducing data science in R, since it is much easier to read and learn for beginners. However, it brings with it dependencies (i.e. other packages) and sometimes hide certain potentials that can only be explored with base R. In this course, we try to keep a balanced perspective by offering a glimpse of more than one R code solutions.\n\n\nPackage collection: tesselle\nThe tesselle collection is a suite of R packages specifically designed for teaching archaeological data analysis and modelling. These packages provide tools for handling and analysing spatial and temporal patterns in archaeological datasets, making it easier to derive insights from complex data, particularly count data, compositional data and chronological data (Frerebeau 2023; “Tesselle: R Packages & Archaeology” n.d.).\nInstall the complete suite with:\n\ninstall.packages(\"tesselle\")\n\nWe will look into more details about this collection in Chapter 7 and Chapter 6.",
     "crumbs": [
       "Programming in R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R</span>"
@@ -281,201 +281,267 @@
     ]
   },
   {
-    "objectID": "session-count-and-seriation.html",
-    "href": "session-count-and-seriation.html",
-    "title": "5  Count data and seriation",
+    "objectID": "session-data-science-workflow.html",
+    "href": "session-data-science-workflow.html",
+    "title": "5  Data Science Workflow",
     "section": "",
-    "text": "5.1 Introduction to Count Data in Archaeology",
+    "text": "5.1 Introduction to Data Science Workflow",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Count data and seriation</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-data-science-workflow.html#introduction-to-data-science-workflow",
+    "href": "session-data-science-workflow.html#introduction-to-data-science-workflow",
+    "title": "5  Data Science Workflow",
+    "section": "",
+    "text": "Overview of the data science process: data collection, cleaning, exploration, modelling, and communication.\n\nExample: Walk through of a simple data science project in R.",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-data-science-workflow.html#data-import-and-preparation",
+    "href": "session-data-science-workflow.html#data-import-and-preparation",
+    "title": "5  Data Science Workflow",
+    "section": "5.2 Data Import and Preparation",
+    "text": "5.2 Data Import and Preparation\n\nImporting Data\n\nReading data from various sources (CSV, Excel, databases).\n\nExample: Using read.csv, read_excel, and DBI package for data import.\n\n\nData Cleaning\n\nHandling missing values, duplicates, and inconsistent data.\n\nExample: Using tidyr and dplyr for cleaning data (e.g., fill, drop_na, distinct, separate).\n\n\nData Transformation\n\nFiltering, selecting, and transforming variables.\n\nExample: Using dplyr functions (filter, select, mutate,pivot_longer,pivot_wider) for data manipulation.",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-data-science-workflow.html#exploratory-data-analysis",
+    "href": "session-data-science-workflow.html#exploratory-data-analysis",
+    "title": "5  Data Science Workflow",
+    "section": "5.3 Exploratory Data Analysis",
+    "text": "5.3 Exploratory Data Analysis\n\nUnivariate statistics\n\nCreating basic plots to explore distribution in a single variable.\n\nExample: Using ggplot2 for histograms.\n\nFinding the range of a variable distribution\n\nCalculating central tendency and dispersal measurements: mean, median, mode, variance, standard deviation.\n\nExample: Using summary, mean, sd, and quantile functions in R.\n\nExample: Plotting a histogram and marking the mean of the distribution.\n\n\nBivariate statistics\n\nCreating basic plots to explore bivariate data relationships.\n\nExample: Using ggplot2 for scatter plots, box plots, and bar plots.\n\nContingency in two categorical variables: using table, mosaicplot\n\nCorrelation coefficient and linear regression.\n\nExample: Example: Fitting a simple linear regression model using lm, projecting it on a scatter plot using base R and ggplot2,and interpreting the results.\n\nExample: Calculating and visualizing correlations with cor and corrplot.\n\nIntroduction to hypothesis testing: t-tests, Chi-Square tests, ANOVA and Fisher test.\n\nExample: Conducting a t-test using t.test and a chi-square test using chisq.test.\n\nCreating faceted plots to explore multivariate data relationships\n\nExample: Using ggplot2 to create a grid of scatter plots separated by category.\n\n\n(EXTRA)Classification\n\nIntroduction to basic classification methods (e.g., logistic regression).\n\nExample: Building a logistic regression model using glm.",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-data-science-workflow.html#extrabasic-machine-learning-concepts",
+    "href": "session-data-science-workflow.html#extrabasic-machine-learning-concepts",
+    "title": "5  Data Science Workflow",
+    "section": "5.4 (EXTRA)Basic Machine Learning Concepts",
+    "text": "5.4 (EXTRA)Basic Machine Learning Concepts\n\nIntroduction to Machine Learning\n\nOverview of supervised and unsupervised learning.\n\nExample: Differentiating between regression and classification tasks.\n\n\nK-Nearest Neighbors (KNN)\n\nUnderstanding KNN for classification.\n\nExample: Implementing KNN using class package.\n\n\nClustering\n\nIntroduction to clustering techniques (e.g., k-means clustering).\n\nExample: Performing k-means clustering with kmeans and visualizing clusters.",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-data-science-workflow.html#extramodel-evaluation",
+    "href": "session-data-science-workflow.html#extramodel-evaluation",
+    "title": "5  Data Science Workflow",
+    "section": "5.5 (EXTRA)Model Evaluation",
+    "text": "5.5 (EXTRA)Model Evaluation\n\nTrain/Test Split\n\nSplitting data into training and testing sets.\n\nExample: Using caret package to split data and train models.\n\n\nModel Performance Metrics\n\nEvaluating model performance: accuracy, confusion matrix, ROC curve.\n\nExample: Calculating and interpreting metrics using caret and pROC.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nBuilding a Simple Data Science Workflow\n\nEnd-to-end example: data import, cleaning, exploration (modelling, and evaluation).\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in implementing basic data science methods in R.",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Science Workflow</span>"
+    ]
+  },
+  {
+    "objectID": "session-count-and-seriation.html",
+    "href": "session-count-and-seriation.html",
+    "title": "6  Count data and seriation",
+    "section": "",
+    "text": "6.1 Introduction to Count Data in Archaeology",
+    "crumbs": [
+      "Data Science in R",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Count data and seriation</span>"
     ]
   },
   {
     "objectID": "session-count-and-seriation.html#introduction-to-count-data-in-archaeology",
     "href": "session-count-and-seriation.html#introduction-to-count-data-in-archaeology",
-    "title": "5  Count data and seriation",
+    "title": "6  Count data and seriation",
     "section": "",
     "text": "Understanding Count Data\n\nDefinition and significance of count data in archaeological contexts (e.g., artifact counts, feature frequencies).\n\nExample: Overview of typical archaeological datasets involving count data.\n\n\nChallenges in Analysing Count Data\n\nIssues with skewness, overdispersion, and zero inflation.\n\nExample: Common problems encountered in archaeological count data analysis.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Count data and seriation</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Count data and seriation</span>"
     ]
   },
   {
     "objectID": "session-count-and-seriation.html#basic-statistical-methods-for-count-data",
     "href": "session-count-and-seriation.html#basic-statistical-methods-for-count-data",
-    "title": "5  Count data and seriation",
-    "section": "5.2 Basic Statistical Methods for Count Data",
-    "text": "5.2 Basic Statistical Methods for Count Data\n\nPoisson and Negative Binomial Distributions\n\nIntroduction to Poisson distribution and its application to count data.\n\nExample: Fitting a Poisson model using glm in R.\n\nIntroduction to the Negative Binomial distribution for overdispersed data.\n\nExample: Fitting a Negative Binomial model using MASS::glm.nb.\n\n\nGoodness-of-Fit Testing\n\nAssessing the fit of count data models.\n\nExample: Performing a chi-square goodness-of-fit test in R.",
+    "title": "6  Count data and seriation",
+    "section": "6.2 Basic Statistical Methods for Count Data",
+    "text": "6.2 Basic Statistical Methods for Count Data\n\nPoisson and Negative Binomial Distributions\n\nIntroduction to Poisson distribution and its application to count data.\n\nExample: Fitting a Poisson model using glm in R.\n\nIntroduction to the Negative Binomial distribution for overdispersed data.\n\nExample: Fitting a Negative Binomial model using MASS::glm.nb.\n\n\nGoodness-of-Fit Testing\n\nAssessing the fit of count data models.\n\nExample: Performing a chi-square goodness-of-fit test in R.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Count data and seriation</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Count data and seriation</span>"
     ]
   },
   {
     "objectID": "session-count-and-seriation.html#introduction-to-seriation",
     "href": "session-count-and-seriation.html#introduction-to-seriation",
-    "title": "5  Count data and seriation",
-    "section": "5.3 Introduction to Seriation",
-    "text": "5.3 Introduction to Seriation\n\nWhat is Seriation?\n\nOverview of seriation techniques and their importance in archaeology for ordering artefacts or sites chronologically.\n\nExample: Historical applications of seriation in archaeology.\n\n\nSeriation Techniques\n\nIntroduction to different seriation methods (e.g., frequency seriation, contextual seriation).\n\nExample: Basic seriation using traditional methods.",
+    "title": "6  Count data and seriation",
+    "section": "6.3 Introduction to Seriation",
+    "text": "6.3 Introduction to Seriation\n\nWhat is Seriation?\n\nOverview of seriation techniques and their importance in archaeology for ordering artefacts or sites chronologically.\n\nExample: Historical applications of seriation in archaeology.\n\n\nSeriation Techniques\n\nIntroduction to different seriation methods (e.g., frequency seriation, contextual seriation).\n\nExample: Basic seriation using traditional methods.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Count data and seriation</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Count data and seriation</span>"
     ]
   },
   {
     "objectID": "session-count-and-seriation.html#using-the-tesselle-package-for-seriation",
     "href": "session-count-and-seriation.html#using-the-tesselle-package-for-seriation",
-    "title": "5  Count data and seriation",
-    "section": "5.4 Using the tesselle Package for Seriation",
-    "text": "5.4 Using the tesselle Package for Seriation\n\nIntroduction to tesselle\n\nOverview of the tesselle package and its tools for seriation.\n\nExample: Installation and loading of tesselle.\n\n\nPractical Seriation in R\n\nPerforming seriation.\n\nExample: Applying seriation to an archaeological dataset (e.g., pottery styles, stratigraphic data).\n\n\nVisualizing Seriation Results\n\nCreating visual representations of seriation results.\n\nExample: Plotting seriation outputs.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nCase Study: Seriation of Archaeological Artefacts\n\nStep-by-step walkthrough of a seriation analysis using count data.\n\nExample: Seriation of pottery fragments or lithic tools using tesselle.\n\n\nQ&A and Troubleshooting\n\nAddressing common issues in count data analysis and seriation in archaeological contexts.",
+    "title": "6  Count data and seriation",
+    "section": "6.4 Using the tesselle Package for Seriation",
+    "text": "6.4 Using the tesselle Package for Seriation\n\nIntroduction to tesselle\n\nOverview of the tesselle package and its tools for seriation.\n\nExample: Installation and loading of tesselle.\n\n\nPractical Seriation in R\n\nPerforming seriation.\n\nExample: Applying seriation to an archaeological dataset (e.g., pottery styles, stratigraphic data).\n\n\nVisualizing Seriation Results\n\nCreating visual representations of seriation results.\n\nExample: Plotting seriation outputs.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nCase Study: Seriation of Archaeological Artefacts\n\nStep-by-step walkthrough of a seriation analysis using count data.\n\nExample: Seriation of pottery fragments or lithic tools using tesselle.\n\n\nQ&A and Troubleshooting\n\nAddressing common issues in count data analysis and seriation in archaeological contexts.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Count data and seriation</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Count data and seriation</span>"
     ]
   },
   {
     "objectID": "session-compositional-data.html",
     "href": "session-compositional-data.html",
-    "title": "6  Compositional data",
+    "title": "7  Compositional data",
     "section": "",
-    "text": "6.1 Introduction to Compositional Data in Archaeology",
+    "text": "7.1 Introduction to Compositional Data in Archaeology",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Compositional data</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Compositional data</span>"
     ]
   },
   {
     "objectID": "session-compositional-data.html#introduction-to-compositional-data-in-archaeology",
     "href": "session-compositional-data.html#introduction-to-compositional-data-in-archaeology",
-    "title": "6  Compositional data",
+    "title": "7  Compositional data",
     "section": "",
     "text": "Understanding Compositional Data\n\nDefinition and examples of compositional data in archaeology (e.g., proportions of different materials, chemical compositions).\n\nExample: Typical archaeological datasets that include compositional data.\n\n\nChallenges in Analysing Compositional Data\n\nIssues with relative proportions and the “closed” nature of compositional data.\n\nExample: Limitations of traditional statistical methods on compositional data.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Compositional data</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Compositional data</span>"
     ]
   },
   {
     "objectID": "session-compositional-data.html#basic-concepts-in-compositional-data-analysis",
     "href": "session-compositional-data.html#basic-concepts-in-compositional-data-analysis",
-    "title": "6  Compositional data",
-    "section": "6.2 Basic Concepts in Compositional Data Analysis",
-    "text": "6.2 Basic Concepts in Compositional Data Analysis\n\nOverview of methods in Multivariate statistics\n\nLog-Ratio Transformations\n\nIntroduction to log-ratio transformations (CLR, ILR, ALR) for compositional data.\n\nExample: Applying a centred log-ratio (CLR) transformation in R (e.g. nexus::transform_clr).\n\n\nVisualizing Compositional Data\n\nTechniques for visualizing compositional data (ternary plots, bar charts).\n\nExample: Creating a ternary plot using the isopleuros::ternary_plot and ggtern.",
+    "title": "7  Compositional data",
+    "section": "7.2 Basic Concepts in Compositional Data Analysis",
+    "text": "7.2 Basic Concepts in Compositional Data Analysis\n\nOverview of methods in Multivariate statistics\n\nLog-Ratio Transformations\n\nIntroduction to log-ratio transformations (CLR, ILR, ALR) for compositional data.\n\nExample: Applying a centred log-ratio (CLR) transformation in R (e.g. nexus::transform_clr).\n\n\nVisualizing Compositional Data\n\nTechniques for visualizing compositional data (ternary plots, bar charts).\n\nExample: Creating a ternary plot using the isopleuros::ternary_plot and ggtern.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Compositional data</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Compositional data</span>"
     ]
   },
   {
     "objectID": "session-compositional-data.html#exploratory-data-analysis",
     "href": "session-compositional-data.html#exploratory-data-analysis",
-    "title": "6  Compositional data",
-    "section": "6.3 Exploratory Data Analysis",
-    "text": "6.3 Exploratory Data Analysis\n\nPrincipal Component Analysis (PCA)\n\nIntroduction to PCA tailored for compositional data.\n\nExample: Performing PCA on compositional data using tesselle::nexus::pca.\n\nBiplots and screeplots\n\nExample: Plotting PCA results as a biplot and add visualisation aids using tesselle::dimensio functions.\n\n\nCluster Analysis\n\nOverview of clustering techniques for exploring groupings in compositional data.\n\nExample: Applying hierarchical clustering on transformed compositional data using tesselle.\n\nggplot2: dendrograms with ggraph\n\n\nCorrespondence Analysis\n\nCorrespondence Analysis for compositional data.\n\nExample: Performing Correspondence Analysis using tesselle::ca.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nCase Study: Analysis of Compositional Data from Archaeological Sites\n\nStep-by-step walkthrough of an exploratory analysis of compositional data.\n\nExample: Analysing chemical compositions of ceramics or soils using tesselle.\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in visualizing and analyzing compositional data in archaeological research.",
+    "title": "7  Compositional data",
+    "section": "7.3 Exploratory Data Analysis",
+    "text": "7.3 Exploratory Data Analysis\n\nPrincipal Component Analysis (PCA)\n\nIntroduction to PCA tailored for compositional data.\n\nExample: Performing PCA on compositional data using tesselle::nexus::pca.\n\nBiplots and screeplots\n\nExample: Plotting PCA results as a biplot and add visualisation aids using tesselle::dimensio functions.\n\n\nCluster Analysis\n\nOverview of clustering techniques for exploring groupings in compositional data.\n\nExample: Applying hierarchical clustering on transformed compositional data using tesselle.\n\nggplot2: dendrograms with ggraph\n\n\nCorrespondence Analysis\n\nCorrespondence Analysis for compositional data.\n\nExample: Performing Correspondence Analysis using tesselle::ca.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nCase Study: Analysis of Compositional Data from Archaeological Sites\n\nStep-by-step walkthrough of an exploratory analysis of compositional data.\n\nExample: Analysing chemical compositions of ceramics or soils using tesselle.\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in visualizing and analyzing compositional data in archaeological research.",
     "crumbs": [
       "Data Science in R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Compositional data</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Compositional data</span>"
     ]
   },
   {
     "objectID": "session-database-1.html",
     "href": "session-database-1.html",
-    "title": "7  Databases (I)",
+    "title": "8  Databases (I)",
     "section": "",
-    "text": "7.1 Introduction to Databases in Archaeology",
+    "text": "8.1 Introduction to Databases in Archaeology",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Databases (I)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (I)</span>"
     ]
   },
   {
     "objectID": "session-database-1.html#introduction-to-databases-in-archaeology",
     "href": "session-database-1.html#introduction-to-databases-in-archaeology",
-    "title": "7  Databases (I)",
+    "title": "8  Databases (I)",
     "section": "",
     "text": "What is a Database?\n\nDefinition and importance of databases in archaeology (data storage, retrieval, and management).\n\nExample: Common uses of databases for managing archaeological data (e.g., artifacts, excavation records).\n\n\nTypes of Databases\n\nOverview of relational vs. non-relational databases.\n\nExample: Advantages of relational databases for structured archaeological data.",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Databases (I)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (I)</span>"
     ]
   },
   {
     "objectID": "session-database-1.html#relational-database-concepts",
     "href": "session-database-1.html#relational-database-concepts",
-    "title": "7  Databases (I)",
-    "section": "7.2 Relational Database Concepts",
-    "text": "7.2 Relational Database Concepts\n\nBasic Concepts\n\nIntroduction to tables, records, fields, primary and foreign keys.\n\nExample: Organizing excavation data in relational tables (e.g., site locations, stratigraphy, finds).\n\n\nNormalization\n\nIntroduction to database normalization (avoiding redundancy, ensuring data integrity).\n\nExample: Structuring artifact data into normalized tables (e.g., artifact type, material, condition).\n\n\nEntity-Relationship (ER) Models\n\nCreating ER models to visualize relationships between archaeological datasets.\n\nExample: Designing an ER diagram for an archaeological database (e.g., site, context, finds).",
+    "title": "8  Databases (I)",
+    "section": "8.2 Relational Database Concepts",
+    "text": "8.2 Relational Database Concepts\n\nBasic Concepts\n\nIntroduction to tables, records, fields, primary and foreign keys.\n\nExample: Organizing excavation data in relational tables (e.g., site locations, stratigraphy, finds).\n\n\nNormalization\n\nIntroduction to database normalization (avoiding redundancy, ensuring data integrity).\n\nExample: Structuring artifact data into normalized tables (e.g., artifact type, material, condition).\n\n\nEntity-Relationship (ER) Models\n\nCreating ER models to visualize relationships between archaeological datasets.\n\nExample: Designing an ER diagram for an archaeological database (e.g., site, context, finds).",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Databases (I)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (I)</span>"
     ]
   },
   {
     "objectID": "session-database-1.html#introduction-to-sql-structured-query-language",
     "href": "session-database-1.html#introduction-to-sql-structured-query-language",
-    "title": "7  Databases (I)",
-    "section": "7.3 Introduction to SQL (Structured Query Language)",
-    "text": "7.3 Introduction to SQL (Structured Query Language)\n\nBasic SQL Commands\n\nOverview of SQL syntax and common commands (e.g., CREATE, INSERT, SELECT, UPDATE).\n\nExample: Creating tables for archaeological data and inserting records.\n\n\nCreating a Database with SQL\n\nStep-by-step process of building an archaeological database using SQL.\n\nExample: Creating an artifact catalogue with fields such as artifact ID, type, material, and context.\n\n\nIndexing and Keys\n\nExplanation of primary keys, foreign keys, and indexing for optimizing database performance.\n\nExample: Defining keys to link excavation sites to finds in different tables.\n\n\nBasic Querying with SQL\n\nWriting basic queries to retrieve data from a database.\n\nExample: Using SELECT statements to extract information about finds or excavation layers.\n\n\nFiltering and Sorting Data\n\nUsing WHERE, ORDER BY, and GROUP BY clauses to filter and sort data.\n\nExample: Querying artifacts by material type or sorting excavation records by date.\n\n\nJoining Tables\n\nUsing JOIN statements to combine related tables (e.g., linking artifact data with stratigraphy).\n\nExample: Writing queries to retrieve artifacts based on their excavation context.",
+    "title": "8  Databases (I)",
+    "section": "8.3 Introduction to SQL (Structured Query Language)",
+    "text": "8.3 Introduction to SQL (Structured Query Language)\n\nBasic SQL Commands\n\nOverview of SQL syntax and common commands (e.g., CREATE, INSERT, SELECT, UPDATE).\n\nExample: Creating tables for archaeological data and inserting records.\n\n\nCreating a Database with SQL\n\nStep-by-step process of building an archaeological database using SQL.\n\nExample: Creating an artifact catalogue with fields such as artifact ID, type, material, and context.\n\n\nIndexing and Keys\n\nExplanation of primary keys, foreign keys, and indexing for optimizing database performance.\n\nExample: Defining keys to link excavation sites to finds in different tables.\n\n\nBasic Querying with SQL\n\nWriting basic queries to retrieve data from a database.\n\nExample: Using SELECT statements to extract information about finds or excavation layers.\n\n\nFiltering and Sorting Data\n\nUsing WHERE, ORDER BY, and GROUP BY clauses to filter and sort data.\n\nExample: Querying artifacts by material type or sorting excavation records by date.\n\n\nJoining Tables\n\nUsing JOIN statements to combine related tables (e.g., linking artifact data with stratigraphy).\n\nExample: Writing queries to retrieve artifacts based on their excavation context.",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Databases (I)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (I)</span>"
     ]
   },
   {
     "objectID": "session-database-1.html#database-tools-for-archaeology",
     "href": "session-database-1.html#database-tools-for-archaeology",
-    "title": "7  Databases (I)",
-    "section": "7.4 Database Tools for Archaeology",
-    "text": "7.4 Database Tools for Archaeology\n\nAccessing Databases from R\n\nIntroduction to R packages (DBI, RSQLite, RPostgres) for interacting with databases.\n\nExample: Connecting to an SQLite or PostgreSQL database from R for archaeological data analysis.\n\n\nSQLite for small projects\n\nIntroduction to SQLite as a lightweight database solution for archaeological projects.\n\nExample: Creating a simple SQLite database for site data using R (RSQLite, e.g. https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html) or Python.\n\n\nPostgreSQL for larger projects\n\nOverview of PostgreSQL for larger archaeological datasets.\n\nExample: Setting up a PostgreSQL database in R for managing excavation records.\n\n\nQuerying Databases in R\n\nWriting SQL queries in R and retrieving data for further analysis.\n\nExample: Querying an excavation database from R and visualizing the results with ggplot2.\n\n\nData Wrangling and Cleaning\n\nUsing R to clean and manipulate database data for analysis.\n\nExample: Using dplyr in R to filter and transform queried data.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nBuilding a Small Archaeological Database\n\nStep-by-step walkthrough of creating a database schema for a hypothetical excavation project (using RSQLite).\n\nExample: Creating tables for stratigraphy, finds, and context.\n\n\nInserting and Managing Data\n\nPractical examples of adding and managing archaeological data.\n\nExample: Inserting excavation records into the database using SQL.\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in database design and SQL queries.",
+    "title": "8  Databases (I)",
+    "section": "8.4 Database Tools for Archaeology",
+    "text": "8.4 Database Tools for Archaeology\n\nAccessing Databases from R\n\nIntroduction to R packages (DBI, RSQLite, RPostgres) for interacting with databases.\n\nExample: Connecting to an SQLite or PostgreSQL database from R for archaeological data analysis.\n\n\nSQLite for small projects\n\nIntroduction to SQLite as a lightweight database solution for archaeological projects.\n\nExample: Creating a simple SQLite database for site data using R (RSQLite, e.g. https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html) or Python.\n\n\nPostgreSQL for larger projects\n\nOverview of PostgreSQL for larger archaeological datasets.\n\nExample: Setting up a PostgreSQL database in R for managing excavation records.\n\n\nQuerying Databases in R\n\nWriting SQL queries in R and retrieving data for further analysis.\n\nExample: Querying an excavation database from R and visualizing the results with ggplot2.\n\n\nData Wrangling and Cleaning\n\nUsing R to clean and manipulate database data for analysis.\n\nExample: Using dplyr in R to filter and transform queried data.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nBuilding a Small Archaeological Database\n\nStep-by-step walkthrough of creating a database schema for a hypothetical excavation project (using RSQLite).\n\nExample: Creating tables for stratigraphy, finds, and context.\n\n\nInserting and Managing Data\n\nPractical examples of adding and managing archaeological data.\n\nExample: Inserting excavation records into the database using SQL.\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in database design and SQL queries.",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Databases (I)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (I)</span>"
     ]
   },
   {
     "objectID": "session-database-2.html",
     "href": "session-database-2.html",
-    "title": "8  Databases (II)",
+    "title": "9  Databases (II)",
     "section": "",
-    "text": "8.1 Using GIS Databases for Archaeology",
+    "text": "9.1 Using GIS Databases for Archaeology",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (II)</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Databases (II)</span>"
     ]
   },
   {
     "objectID": "session-database-2.html#using-gis-databases-for-archaeology",
     "href": "session-database-2.html#using-gis-databases-for-archaeology",
-    "title": "8  Databases (II)",
+    "title": "9  Databases (II)",
     "section": "",
     "text": "Introduction to Spatial Databases\n\nOverview of spatial databases and their use in archaeology (e.g., storing geospatial excavation data).\n\nExample: Introduction to PostGIS for spatial data management in PostgreSQL.\n\n\nLinking GIS Data to Databases\n\nUsing databases to manage spatial data for archaeological analysis.\n\nExample: Storing site coordinates and linking them to excavation records in a spatial database.\n\n\nQuerying Spatial Data\n\nWriting spatial queries to retrieve geospatial data from a database.\n\nExample: Querying sites within a specific radius or extracting artifact distributions across layers.\n\n\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\nQuerying and Analyzing Archaeological Data\n\nWalkthrough of writing SQL queries to extract meaningful insights from archaeological data.\n\nExample: Retrieving and analyzing artifact distributions based on context and stratigraphy.\n\n\nCombining Database and Spatial Data\n\nPractical examples of integrating database queries with GIS data for archaeological site analysis.\n\nExample: Using a database to visualize the spatial distribution of artifacts across an excavation site.\n\n\nQ&A and Troubleshooting\n\nAddressing challenges in querying and analyzing archaeological databases.",
     "crumbs": [
       "Databases",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Databases (II)</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Databases (II)</span>"
     ]
   },
   {
     "objectID": "session-gis-1.html",
     "href": "session-gis-1.html",
-    "title": "9  GIS (I)",
+    "title": "10  GIS (I)",
     "section": "",
     "text": "(Basic concepts, installation and setting up, loading files)\n\nCool archive video about ARCInfo (1988): https://youtu.be/7xqNyUOIRCs?si=FulmlUVzaThGE9BU\n\n(Dooley n.d.)\n\n\n\n\n\n\nHands-on Practice\n\n\n\n\n\n\n\n\n\n\nDooley, Andy MacLachlan, Adam Dennett and Claire. n.d. CASA0005 Geographic Information Systems and Science. Accessed October 9, 2024. https://andrewmaclachlan.github.io/CASA0005repo/index.html.",
     "crumbs": [
       "GIS",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>GIS (I)</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>GIS (I)</span>"
     ]
   },
   {
     "objectID": "session-gis-2.html",
     "href": "session-gis-2.html",
-    "title": "10  GIS (II)",
+    "title": "11  GIS (II)",
     "section": "",
     "text": "(get a map image displaying data from shape and raster files)\n\n\n\n\n\n\nHands-on Practice",
     "crumbs": [
       "GIS",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>GIS (II)</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>GIS (II)</span>"
     ]
   },
   {

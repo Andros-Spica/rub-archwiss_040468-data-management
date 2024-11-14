@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; GIS (II) – Data Management and Digital Archaeology</title>
+<title>5&nbsp; Data Science Workflow – Data Management and Digital Archaeology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./session-gis-1.html" rel="prev">
+<link href="./session-count-and-seriation.html" rel="next">
+<link href="./session-r-programming.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-gis-1.html">GIS</a></li><li class="breadcrumb-item"><a href="./session-gis-2.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GIS (II)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-data-science-workflow.html">Data Science in R</a></li><li class="breadcrumb-item"><a href="./session-data-science-workflow.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Science Workflow</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -213,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session-data-science-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="./session-data-science-workflow.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Science Workflow</span></span></a>
   </div>
 </li>
@@ -271,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session-gis-2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./session-gis-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GIS (II)</span></span></a>
   </div>
 </li>
@@ -288,15 +288,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-data-science-workflow" id="toc-introduction-to-data-science-workflow" class="nav-link active" data-scroll-target="#introduction-to-data-science-workflow"><span class="header-section-number">5.1</span> Introduction to Data Science Workflow</a></li>
+  <li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">5.2</span> Data Import and Preparation</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5.3</span> Exploratory Data Analysis</a></li>
+  <li><a href="#extrabasic-machine-learning-concepts" id="toc-extrabasic-machine-learning-concepts" class="nav-link" data-scroll-target="#extrabasic-machine-learning-concepts"><span class="header-section-number">5.4</span> (EXTRA)Basic Machine Learning Concepts</a></li>
+  <li><a href="#extramodel-evaluation" id="toc-extramodel-evaluation" class="nav-link" data-scroll-target="#extramodel-evaluation"><span class="header-section-number">5.5</span> (EXTRA)Model Evaluation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-data-science-workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-gis-1.html">GIS</a></li><li class="breadcrumb-item"><a href="./session-gis-2.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GIS (II)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./session-data-science-workflow.html">Data Science in R</a></li><li class="breadcrumb-item"><a href="./session-data-science-workflow.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Science Workflow</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-gis-2" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GIS (II)</span></span></h1>
+<h1 class="title"><span id="sec-data-science-workflow" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Science Workflow</span></span></h1>
 </div>
 
 
@@ -313,7 +323,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>(get a map image displaying data from shape and raster files)</p>
+<section id="introduction-to-data-science-workflow" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction-to-data-science-workflow"><span class="header-section-number">5.1</span> Introduction to Data Science Workflow</h2>
+<ul>
+<li>Overview of the data science process: data collection, cleaning, exploration, modelling, and communication.<br>
+</li>
+<li>Example: Walk through of a simple data science project in R.</li>
+</ul>
+</section>
+<section id="data-import-and-preparation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="data-import-and-preparation"><span class="header-section-number">5.2</span> Data Import and Preparation</h2>
+<ul>
+<li><strong>Importing Data</strong>
+<ul>
+<li>Reading data from various sources (CSV, Excel, databases).<br>
+</li>
+<li>Example: Using <code>read.csv</code>, <code>read_excel</code>, and <code>DBI</code> package for data import.<br>
+</li>
+</ul></li>
+<li><strong>Data Cleaning</strong>
+<ul>
+<li>Handling missing values, duplicates, and inconsistent data.<br>
+</li>
+<li>Example: Using <code>tidyr</code> and <code>dplyr</code> for cleaning data (e.g., <code>fill</code>, <code>drop_na</code>, <code>distinct, separate</code>).<br>
+</li>
+</ul></li>
+<li><strong>Data Transformation</strong>
+<ul>
+<li>Filtering, selecting, and transforming variables.<br>
+</li>
+<li>Example: Using <code>dplyr</code> functions (<code>filter</code>, <code>select</code>, <code>mutate,pivot_longer,pivot_wider</code>) for data manipulation.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exploratory-data-analysis" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">5.3</span> Exploratory Data Analysis</h2>
+<ul>
+<li><strong>Univariate statistics</strong>
+<ul>
+<li>Creating basic plots to explore distribution in a single variable.<br>
+</li>
+<li>Example: Using <code>ggplot2</code> for histograms.<br>
+</li>
+<li>Finding the range of a variable distribution<br>
+</li>
+<li>Calculating central tendency and dispersal measurements: mean, median, mode, variance, standard deviation.<br>
+</li>
+<li>Example: Using <code>summary</code>, <code>mean</code>, <code>sd</code>, and <code>quantile</code> functions in R.<br>
+</li>
+<li>Example: Plotting a histogram and marking the mean of the distribution.<br>
+</li>
+</ul></li>
+<li><strong>Bivariate statistics</strong>
+<ul>
+<li>Creating basic plots to explore bivariate data relationships.<br>
+</li>
+<li>Example: Using <code>ggplot2</code> for scatter plots, box plots, and bar plots.<br>
+</li>
+<li>Contingency in two categorical variables: using <code>table, mosaicplot</code><br>
+</li>
+<li>Correlation coefficient and linear regression.<br>
+</li>
+<li>Example: Example: Fitting a simple linear regression model using <code>lm</code>, projecting it on a scatter plot using base R and <code>ggplot2,</code>and interpreting the results.<br>
+</li>
+<li>Example: Calculating and visualizing correlations with <code>cor</code> and <code>corrplot</code>.<br>
+</li>
+<li>Introduction to hypothesis testing: t-tests, Chi-Square tests, ANOVA and Fisher test.<br>
+</li>
+<li>Example: Conducting a t-test using <code>t.test</code> and a chi-square test using <code>chisq.test</code>.<br>
+</li>
+<li>Creating faceted plots to explore multivariate data relationships<br>
+</li>
+<li>Example: Using <code>ggplot2</code> to create a grid of scatter plots separated by category.<br>
+</li>
+</ul></li>
+<li><strong>(EXTRA)Classification</strong>
+<ul>
+<li>Introduction to basic classification methods (e.g., logistic regression).<br>
+</li>
+<li>Example: Building a logistic regression model using <code>glm</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="extrabasic-machine-learning-concepts" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="extrabasic-machine-learning-concepts"><span class="header-section-number">5.4</span> (EXTRA)Basic Machine Learning Concepts</h2>
+<ul>
+<li><strong>Introduction to Machine Learning</strong>
+<ul>
+<li>Overview of supervised and unsupervised learning.<br>
+</li>
+<li>Example: Differentiating between regression and classification tasks.<br>
+</li>
+</ul></li>
+<li><strong>K-Nearest Neighbors (KNN)</strong>
+<ul>
+<li>Understanding KNN for classification.<br>
+</li>
+<li>Example: Implementing KNN using <code>class</code> package.<br>
+</li>
+</ul></li>
+<li><strong>Clustering</strong>
+<ul>
+<li>Introduction to clustering techniques (e.g., k-means clustering).<br>
+</li>
+<li>Example: Performing k-means clustering with <code>kmeans</code> and visualizing clusters.</li>
+</ul></li>
+</ul>
+</section>
+<section id="extramodel-evaluation" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="extramodel-evaluation"><span class="header-section-number">5.5</span> (EXTRA)Model Evaluation</h2>
+<ul>
+<li><strong>Train/Test Split</strong>
+<ul>
+<li>Splitting data into training and testing sets.<br>
+</li>
+<li>Example: Using <code>caret</code> package to split data and train models.<br>
+</li>
+</ul></li>
+<li><strong>Model Performance Metrics</strong>
+<ul>
+<li>Evaluating model performance: accuracy, confusion matrix, ROC curve.<br>
+</li>
+<li>Example: Calculating and interpreting metrics using <code>caret</code> and <code>pROC</code>.</li>
+</ul></li>
+</ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,11 +457,22 @@ Hands-on Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<ul>
+<li><strong>Building a Simple Data Science Workflow</strong>
+<ul>
+<li>End-to-end example: data import, cleaning, exploration (modelling, and evaluation).<br>
+</li>
+</ul></li>
+<li><strong>Q&amp;A and Troubleshooting</strong>
+<ul>
+<li>Addressing challenges in implementing basic data science methods in R.</li>
+</ul></li>
+</ul>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -753,13 +897,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./session-gis-1.html" class="pagination-link" aria-label="GIS (I)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GIS (I)</span></span>
+      <a href="./session-r-programming.html" class="pagination-link" aria-label="Best practices in programming">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Best practices in programming</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./session-count-and-seriation.html" class="pagination-link" aria-label="Count data and seriation">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Count data and seriation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -768,4 +912,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-gis-2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Andros-Spica/rub-archwiss_040468-data-management/edit/main/session-data-science-workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
