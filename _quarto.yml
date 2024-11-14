@@ -47,6 +47,7 @@ book:
       - session-r-programming.qmd
     - part: "Data Science in R"
       chapters:
+        - session-data-science-workflow.qmd
         - session-count-and-seriation.qmd
         - session-compositional-data.qmd
     - part: "Databases"
