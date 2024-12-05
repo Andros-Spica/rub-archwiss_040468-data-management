@@ -16,7 +16,13 @@ Archaeologists rely heavily on careful documentation to preserve as much informa
 
 ### Open Science
 
-Open Science promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, this can involve sharing excavation reports, datasets, and analysis methods to facilitate broader understanding and scrutiny of findings.
+Open Science is a general framework that promotes transparency and collaboration in research by making methodologies, data, and findings accessible to the public and other researchers. In archaeology, it involves strong encouragements to share excavation reports, datasets, and analysis methods to facilitate broader understanding and scrutiny of findings and interpretations.
+
+The Open Science agenda, widely agreed and recognised by national and international organisations, includes **open research data** and **open source** as main areas of practice and policy.
+
+<a title="UNESCO.org, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:UNESCO-Open_science-pillars-en.png"><img width="256" alt="Pillars of Open Science, [[:en:UNESCO|]] (2021)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/256px-UNESCO-Open_science-pillars-en.png?20230407113230"></a>
+
+<a title="Petr Knoth and Nancy Pontika, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Os_taxonomy.png"><img width="512" alt="Os taxonomy.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Os_taxonomy.png/512px-Os_taxonomy.png?20170718103054"></a>
 
 ### FAIR Principles
 
