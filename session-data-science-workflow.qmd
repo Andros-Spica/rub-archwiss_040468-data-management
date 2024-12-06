@@ -436,7 +436,7 @@ table(DartPoints$Haft.Sh, DartPoints$Should.Sh)
 
 * **Mosaic Plots**: 
 
-```{r, fig.height=500px}
+```{r, fig.height=6}
 mosaicplot(table(DartPoints$Haft.Sh, DartPoints$Should.Sh),
            xlab = "Shape lateral haft element",
            ylab = "Shoulder shape",
@@ -505,7 +505,7 @@ DartPoints_IandS <- subset(DartPoints, Blade.Sh == "E" | Blade.Sh == "S")
 # apply test for Weight between the blade shape two categories
 t.test(Weight ~ Blade.Sh, data = DartPoints_IandS)
 ```
-In this case, the evidence is insufficient (`r cat(paste("p-value =", t.test(Weight ~ Blade.Sh, data = DartPoints_IandS)$p.value)``) for demonstrating that there is a consistent difference in weight between dart points with excurvate and straight blades.
+In this case, the evidence is insufficient for demonstrating that there is a consistent difference in weight between dart points with excurvate and straight blades.
 
 **Chi-Square Test**: Test independence between **categorical variables**. Conventionally, P-value < 0.05 means that the null hypothesis (the variables *are* independent) is very unlikely.
 
