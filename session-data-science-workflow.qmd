@@ -2,44 +2,593 @@
 
 ## Introduction to Data Science Workflow
 
-* Overview of the data science process: data collection, cleaning, exploration, modelling, and communication.  
-* Example: Walk through of a simple data science project in R.
+In a typical data science workflow, we move through five primary stages: **data collection**, **data cleaning**, **exploration**, **modeling**, and **communication**. These steps collectively transform raw data into actionable insights driven by research questions.
 
-## Data Import and Preparation
+1. **Data Collection**: This is the first step, where data is gathered from various sources, such as databases, APIs, or web scraping. In R, packages like `readr` and `httr` facilitate efficient data import from structured files (e.g., CSV, Excel) and web sources.
 
-* **Importing Data**  
-  * Reading data from various sources (CSV, Excel, databases).  
-  * Example: Using `read.csv`, `read_excel`, and `DBI` package for data import.  
-* **Data Cleaning**  
-  * Handling missing values, duplicates, and inconsistent data.  
-  * Example: Using `tidyr` and `dplyr` for cleaning data (e.g., `fill`, `drop_na`, `distinct, separate`).  
-* **Data Transformation**  
-  * Filtering, selecting, and transforming variables.  
-  * Example: Using `dplyr` functions (`filter`, `select`, `mutate,pivot_longer,pivot_wider`) for data manipulation.
+2. **Data Cleaning**: Data cleaning involves preparing raw data for analysis, handling missing values, correcting data types, and dealing with outliers. Tools like `dplyr` and `tidyr` are often used in R to perform these operations, enabling tasks like removing duplicates, imputing missing data, and restructuring data into a “tidy” format suitable for analysis.
+
+3. **Data Exploration**: Exploratory Data Analysis (EDA) is the phase where we examine the data's characteristics, uncover patterns, and form hypotheses. Visualizations (using `pairs()` or a wide range of plot types available in Base R and `ggplot2`) and summary statistics (`summary()`, `skimr`) help in understanding the data distribution, relationships between variables, and identifying any anomalies.
+
+4. **Modeling**: At this stage, statistical or machine learning models are developed to predict or explain outcomes. In R, packages like `caret` and `tidymodels` streamline the modelling process, from splitting data and selecting models to tuning hyperparameters and evaluating performance.
+
+5. **Communication**: The final stage focuses on presenting findings clearly, often through reports, dashboards, or interactive applications. Using R Markdown for reports or Shiny for interactive applications enables data scientists to effectively communicate insights to stakeholders.
+
+### Example: Simple Data Science Project in R
+Let’s consider a simple example of a data science project where we predict house prices based on available features:
+
+- **Data Collection**: Load a dataset such as `house_prices.csv` using `read_csv()`.
+- **Data Cleaning**: Use `dplyr` to handle missing values (e.g., `mutate_if(is.na, median)` to replace with median values) and convert categorical variables to factors.
+- **Data Exploration**: Visualize relationships between features like square footage and price using `ggplot(data = houses) + geom_point(aes(x = sqft, y = price))`.
+- **Modeling**: Create a linear model with `lm(price ~ sqft + num_bedrooms, data = houses)`.
+- **Communication**: Report results in an R Markdown document, showing model coefficients, predictions, and visualizations to explain findings.
+
+This structured workflow, using R tools tailored to each step, enables efficient and reproducible data science practices.
+
+Here’s a version tailored to archaeology students, using the built-in R dataset `USArrests` to represent hypothetical archaeological data. This dataset can help illustrate each stage in a data science workflow, from cleaning and exploration to modelling and communication.
+
+---
+
+Let’s consider a simple example of a data science project. Suppose we aim to determine main factors in criminality using the canonical dataset **`USArrests`**.
+
+1. **Data Collection**: Load the dataset directly from R’s built-in datasets.
+   ```{r}
+   data("USArrests")
+   df <- USArrests
+   ```
+
+2. **Data Cleaning**: Check for any missing values or potential outliers that might represent data entry errors.
+   ```{r}
+   # Check for missing values
+   any(is.na(df))
+   # Inspect the dataset structure and summary
+   str(df)
+   summary(df)
+   ```
+   Although `USArrests` doesn’t contain missing values, this step reminds us to handle such cases in real-world data.
+
+3. **Data Exploration**: Visualize and summarize data to understand patterns. For instance, we might be interested in the value distribution of murder arrests.
+   ```{r}
+   # Quick summary of the data distribution
+   summary(df)
+   
+   # Visualize the distribution of artifact "types" (represented by variables like 'Murder' here)
+   boxplot(df$Murder, main="Distribution of 'Artifact Type A' Count by Region")
+   ```
+   This boxplot would give a quick view of the central tendencies and spread of murder arrests across the dataset.
+
+4. **Modeling**: Create a simple model to analyze relationships between variables. For instance, let’s assume we’re exploring how `UrbanPop` (population percentage in urban areas) might relate to `Murder`.
+   ```{r}
+   model <- lm(Murder ~ UrbanPop, data = df)
+   summary(model)
+   ```
+   This provides an understanding of how urban population percentage might be related to murder arrests in our dataset.
+
+5. **Communication**: Present findings in an R Markdown document, incorporating both visualizations and model summaries. You can interpret results to suggest whether certain types of artifacts are more commonly found in highly populated regions.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @hazzan_data_2023  
+- @tjohannsen_data_2023  
+- @saltz_what_2020  
+
+:::
+
+## Data Science Workflow in R: Data Import and Preparation
+
+### Importing Data
+
+A critical step in any data science workflow is importing data from external sources. R provides robust tools for importing data from a variety of formats:
+
+- **CSV files:** Use the `read.csv()` function from base R.  
+- **Excel files:** Leverage the `readxl` package with `read_excel()`.  
+- **Databases:** Employ the `DBI` package to connect to relational databases and fetch data using SQL queries.  
+
+#### Examples using base R, `readxl` and `DBI`+`RSQLite` {.unnumbered}
+
+```{r}
+#| eval: false
+# Load necessary libraries
+library(readxl)
+library(DBI)
+library(RSQLite)
+
+# Read a CSV file
+csv_data <- read.csv("data.csv")
+
+# Read an Excel file
+excel_data <- readxl::read_excel("data.xlsx")
+
+# Connect to a SQLite database and fetch data
+con <- DBI::dbConnect(RSQLite::SQLite(), "data.db")
+db_data <- DBI::dbGetQuery(con, "SELECT * FROM table_name")
+DBI::dbDisconnect(con)
+```
+
+### Data Cleaning
+
+Before analysis, raw data often requires cleaning to address issues like missing values, duplicates, and inconsistencies.
+
+#### Example using Base R {.unnumbered}
+
+* **Removing Missing Values**  
+Use `na.omit()` to remove rows with missing values or `is.na()` to identify them.
+
+```{r}
+# Example data
+data <- data.frame(A = c(1, 2, NA, 4), B = c("x", NA, "y", "z"))
+
+print("Before:")
+print(data)
+
+# Remove rows with NA
+clean_data <- na.omit(data)
+
+print("After:")
+print(clean_data)
+```
+
+* **Handling Duplicates**  
+Use `duplicated()` to identify duplicate rows or `unique()` to retain only unique rows.
+
+```{r}
+data <- data.frame(A = c(1, 2, 2, 4), B = c("x", "y", "y", "z"))
+
+print("Before:")
+print(data)
+
+# Remove duplicate rows
+data_unique <- data[!duplicated(data), ]
+
+print("After:")
+print(data_unique)
+```
+
+* **Replacing Values**  
+Replace specific values with `ifelse()` or direct indexing.
+
+```{r}
+data <- data.frame(A = c(1, 2, 999, 4), B = c("x", "y", "z", "999"))
+
+print("Before:")
+print(data)
+
+# Replace 999 with NA
+data[data == 999] <- NA
+
+print("After:")
+print(data)
+```
+
+#### Example using `tidyverse` {.unnumbered}
+
+Key functions include:  
+- **`tidyr`:** Tools like `fill()` (fill missing values) and `drop_na()` (remove rows with NAs).  
+- **`dplyr`:** Functions like `distinct()` to remove duplicates and `mutate()` to fix inconsistencies. 
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+# Example dataset
+data <- data.frame(id = c(1, 2, 2, 3, NA), value = c(NA, "A", "A", "B", "C"))
+
+print("Before:")
+print(data)
+
+# Clean the data
+cleaned_data <- data %>%
+  drop_na(id) %>% # Remove rows with missing IDs
+  distinct() %>%  # Remove duplicates
+  fill(value, .direction = "down") # Fill missing values downward
+
+print("After:")
+print(cleaned_data)
+```
+
+### Data Transformation
+
+Transforming data is essential for reshaping and preparing it for analysis. 
+
+#### Example using Base R {.unnumbered}
+
+Base R provides versatile and efficient tools for cleaning and transforming data.
+
+A few example operations common in data science workflows are:
+
+* **Filtering Rows**  
+Subset data using logical conditions.
+
+```{r}
+data <- data.frame(A = 1:5, B = letters[1:5])
+
+print("Before:")
+print(data)
+
+# Filter rows where A > 3
+filtered_data <- data[data$A > 3, ]
+
+print("After:")
+print(filtered_data)
+```
+
+* **Selecting Columns**  
+Use indexing to select specific columns.
+
+```{r}
+# Select column A
+selected_columns <- data[, "A", drop = FALSE]
+
+print(selected_columns)
+```
+
+* **Adding or Modifying Columns**  
+Use the `$` operator or indexing to create or modify columns.
+
+```{r}
+data$new_col <- data$A * 2
+
+print(data)
+```
+
+* **Reshaping Data**  
+Use `reshape()` to pivot data between wide and long formats.
+
+```{r}
+# Example wide format
+data <- data.frame(id = 1:2, Q1 = c(10, 20), Q2 = c(30, 40))
+
+# Convert to long format
+long_data <- reshape(data, direction = "long", varying = list(c("Q1", "Q2")), v.names = "value", timevar = "quarter")
+print(long_data)
+```
+
+#### Example using `tidyverse` {.unnumbered}
+
+Use `dplyr` for:
+- **Filtering and selecting rows/columns:** `filter()`, `select()`.
+- **Creating new variables:** `mutate()`.
+- **Reshaping:** `pivot_longer()` and `pivot_wider()`.
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+# Example dataset
+data <- data.frame(
+  id = 1:3,
+  Q1 = c(10, 20, 30),
+  Q2 = c(15, 25, 35)
+)
+
+print("Before:")
+print(data)
+
+# Transform the data
+transformed_data <- data %>%
+  pivot_longer(cols = starts_with("Q"), names_to = "quarter", values_to = "value") %>%
+  filter(value > 15) %>%  # Filter rows where value > 15
+  mutate(value_scaled = value / max(value))  # Add a new scaled column
+
+print("After:")
+print(transformed_data)
+```
+
+By mastering these data preparation steps, you ensure a clean and well-structured dataset, setting the stage for effective analysis and visualization.
+
+::: {.callout-note collapse="true"}
+#### See also {.unnumbered}
+
+- @knoxville_2_nodate  
+- @rapp_6_2024  
+- @kopra_r_2024  
+
+:::
 
 ## Exploratory Data Analysis
 
-* **Univariate statistics**  
-  * Creating basic plots to explore distribution in a single variable.  
-  * Example: Using `ggplot2` for histograms.  
-  * Finding the range of a variable distribution  
-  * Calculating central tendency and dispersal measurements: mean, median, mode, variance, standard deviation.  
-  * Example: Using `summary`, `mean`, `sd`, and `quantile` functions in R.  
-  * Example: Plotting a histogram and marking the mean of the distribution.  
-* **Bivariate statistics**  
-  * Creating basic plots to explore bivariate data relationships.  
-  * Example: Using `ggplot2` for scatter plots, box plots, and bar plots.  
-  * Contingency in two categorical variables: using `table, mosaicplot`  
-  * Correlation coefficient and linear regression.  
-  * Example: Example: Fitting a simple linear regression model using `lm`, projecting it on a scatter plot using base R and `ggplot2,`and interpreting the results.  
-  * Example: Calculating and visualizing correlations with `cor` and `corrplot`.  
-  * Introduction to hypothesis testing: t-tests, Chi-Square tests,  ANOVA and Fisher test.  
-  * Example: Conducting a t-test using `t.test` and a chi-square test using `chisq.test`.  
-  * Creating faceted plots to explore multivariate data relationships  
-  * Example: Using `ggplot2` to create a grid of scatter plots separated by category.  
-* **(EXTRA)Classification**  
-  * Introduction to basic classification methods (e.g., logistic regression).  
-  * Example: Building a logistic regression model using `glm`.
+### Univariate Statistics
+
+#### Numeric variables {.unnumbered}
+
+This section equips you to explore univariate distributions of numeric variables, uncovering insights from centrality to variability with both statistical and visual techniques.
+
+* **Histograms**: Exploring a single variable involves visualizing its distribution to identify patterns such as central tendency, spread, and outliers. Histograms are one of the most effective tools for this.  
+
+#### Example: Using `ggplot2` for histograms {.unnumbered}
+
+```{r}
+library(ggplot2)
+
+# Example dataset - variable with normal distribution
+data <- data.frame(value = rnorm(1000, mean = 50, sd = 10))
+
+# Create a histogram
+ggplot(data, aes(x = value)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Values", x = "Value", y = "Frequency")
+```
+
+* **Range**: The range of a variable provides a simple measure of the spread of the data. It is calculated as the difference between the maximum and minimum values. Base R already has a function named `range()` to handle this calculation: 
+
+```{r}
+cat("Min:", min(data$value), "Max:", max(data$value))
+
+range_val <- range(data$value)
+
+cat("Range (Max - Min):", range_val)
+```
+
+* **Central tendency measures**: the mean, median, and mode describe the centre of the distribution.  
+* **Dispersion measures**: variance and standard deviation describe the spread of the data.  
+
+```{r}
+mean_val <- mean(data$value)
+median_val <- median(data$value)
+variance <- var(data$value)
+std_dev <- sd(data$value)
+
+# Print results
+cat("Mean:", mean_val, "Median:", median_val, "Variance:", variance, "SD:", std_dev)
+```
+
+#### Example: Plotting a Histogram and Marking the Mean {.unnumbered}
+
+Overlay the mean on a histogram to visualize its position relative to the distribution.  
+
+```{r}
+ggplot(data, aes(x = value)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  geom_vline(aes(xintercept = mean_val), color = "red", linetype = "dashed", size = 1) +
+  labs(title = "Histogram with Mean Marked", x = "Value", y = "Frequency")
+```
+
+#### Non-numeric variables {.unnumbered}
+
+These approaches allow for comprehensive exploration of univariate statistics for categorical variables, emphasizing both numeric summaries and visual insights.
+
+Univariate statistics for non-numeric (categorical) variables focus on summarizing and visualizing the distribution of categories. Here’s a breakdown with examples:
+
+* **Frequency Tables**: A frequency table lists the counts of each category, helping to understand the distribution.
+
+```{r}
+# Example Dataset
+data <- data.frame(category = sample(c("A", "B", "C"), size = 100, replace = TRUE))
+
+# Frequency Table
+table(data$category)
+```
+
+* **Bar Plots**: Bar plots visually represent the frequency distribution of categories.
+
+```{r}
+library(ggplot2)
+
+# Bar Plot
+ggplot(data, aes(x = category)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Category Distribution", x = "Category", y = "Count")
+```
+
+* **Proportion Visualization**: Proportions provide relative frequencies, useful for comparing categorical data.
+
+```{r}
+# Proportion Table
+prop_table <- prop.table(table(data$category))
+
+# Pie Chart
+ggplot(data, aes(x = "", fill = category)) +
+  geom_bar(width = 1) +
+  coord_polar("y") +
+  labs(title = "Category Proportions")
+```
+
+* **Mode**: The mode is the most frequently occurring category.
+
+```{r}
+# Mode Calculation
+mode_category <- names(which.max(table(data$category)))
+cat("Mode:", mode_category)
+```
+
+### Bivariate statistics
+
+Loading `DartPoints` dataset from `archdata`:
+
+```{r}
+library(archdata)
+data(DartPoints)
+```
+
+* **Scatter Plots**: Visualize relationships between two **numerical variables**.
+  
+```{r}
+ggplot(DartPoints, aes(x = H.Length, y = Weight)) +
+   geom_point() +
+   labs(x = "Haft element length (mm)", y = "Weight (gm)")
+```
+
+* **Box Plots**: Compare a **numerical variable** across categories of a **categorical variable**.
+  
+```{r}
+ggplot(DartPoints, aes(x = Haft.Sh, y = H.Length)) +
+   geom_boxplot() +
+   scale_x_discrete(labels = c("Angular", "Excurvate", "Incurvate", "Recurvate", "Straight")) +
+   labs(x = "Shape lateral haft element", y = "Haft element length (mm)")
+```
+
+* **Bar Plots with two variables (stacked)**: Compare counts or proportions of **categorical variables**.
+
+```{r}
+ggplot(DartPoints, aes(x = Haft.Sh, fill = Should.Sh)) +
+   geom_bar() +
+   scale_x_discrete(labels = c("Angular", "Excurvate", "Incurvate", "Recurvate", "Straight")) +
+   scale_fill_discrete(labels = c("Excurvate", "Incurvate", "Straight", "None")) +
+   labs(x = "Shape lateral haft element", y = "Count", fill = "Shoulder shape")
+```
+
+* **Contingency Tables**: Quick assessment of the distribution of counts among two **categorical variables**.
+
+```{r}
+table(DartPoints$Haft.Sh, DartPoints$Should.Sh)
+```
+
+* **Mosaic Plots**: 
+
+```{r, fig.height=500px}
+mosaicplot(table(DartPoints$Haft.Sh, DartPoints$Should.Sh),
+           xlab = "Shape lateral haft element",
+           ylab = "Shoulder shape",
+           shade = TRUE)
+```
+
+* **Correlation**: Measure linear relationships between **numerical variables**.
+
+```{r}
+cor(DartPoints$H.Length, DartPoints$Weight)
+```
+
+* [**Simple linear Regression**](https://en.wikipedia.org/wiki/Simple_linear_regression): Calculate the parameters (intercept, slope) for a linear model with the minimum distance towards data points in two numerical variables. Geometrically, such model is equivalent to a line in a two-dimensional plane.
+
+With Base R:
+```{r}
+model <- lm(Weight ~ H.Length, data = DartPoints,)
+model
+plot(DartPoints$H.Length, DartPoints$Weight,
+     xlab = "Haft element length (mm)", 
+     ylab = "Weight (gm)")
+abline(model, col = "red", lwd = 5)
+# or
+abline(a = model$coefficients["(Intercept)"], 
+       b = model$coefficients["H.Length"],
+       col = "blue", lty = 3, lwd = 5)
+```
+
+With `ggplot2`, a linear model can be added directly to a plot with `geom_smooth(method = "lm")`:
+```{r}
+ggplot(DartPoints, aes(x = H.Length, y = Weight)) +
+   geom_point() +
+   geom_smooth(method = "lm", color = "red")
+```
+
+The function `geom_smooth()` will add by default a shaded area around the line, representing the confidence interval (see argument `se` and `level` in `?geom_smooth()`).
+
+* **Visualizing multiple correlation pairs**
+
+Quick visualisation of a correlation matrix using `cor()`
+```{r}
+cor(DartPoints[, c("Length", "Width", "Thickness")])
+```
+
+Build a larger correlation matrix (only numerical variables and excluding cases with missing values) and plot it using `corrplot()` from the `corrplot` package:
+
+```{r}
+library(corrplot)
+
+selected_variables <- c("Length", "Width", "Thickness", "B.Width", "J.Width", "H.Length", "Weight")
+
+corr_matrix <- cor(DartPoints[, selected_variables],
+                   use = "complete.obs")
+
+corrplot(corr_matrix, method = "circle")
+```
+
+* **Hypothesis Testing**:
+
+**t-Test**: Compare means of **numerical variables** across two **categories**. Conventionally, P-value < 0.05 means that the null hypothesis (there are *no differences between the means* of these variables) is very unlikely.
+
+```{r}
+# consider only cases in blade shape categories "E" (excurvate) and "S" (straight)
+DartPoints_IandS <- subset(DartPoints, Blade.Sh == "E" | Blade.Sh == "S")
+
+# apply test for Weight between the blade shape two categories
+t.test(Weight ~ Blade.Sh, data = DartPoints_IandS)
+```
+In this case, the evidence is insufficient (`r cat(paste("p-value =", t.test(Weight ~ Blade.Sh, data = DartPoints_IandS)$p.value)``) for demonstrating that there is a consistent difference in weight between dart points with excurvate and straight blades.
+
+**Chi-Square Test**: Test independence between **categorical variables**. Conventionally, P-value < 0.05 means that the null hypothesis (the variables *are* independent) is very unlikely.
+
+```{r}
+chisq.test(table(DartPoints$Haft.Sh, DartPoints$Haft.Or))
+```
+
+In this case, the evidence supports, with 95% confidence, that haft shape and orientation are not independent.
+
+* **Quasi-multivariate approaches**: 
+
+Visualise **multiple subsets of a bivariate relationship** by splitting plots by a **categorical variable**.
+
+"Faceting" **scatter plots** with `ggplot2`:
+```{r}
+ggplot(DartPoints, aes(x = Thickness, y = Weight)) +
+   geom_point() +
+   facet_wrap(~ Blade.Sh)
+```
+
+Visualise **multiple pairwise bivariate relationships** with `pairs()` (only numeric variables):
+```{r}
+selected_variables <- c("Length", "Width", "Thickness", "B.Width", "J.Width", "H.Length", "Weight")
+
+pairs(DartPoints[, selected_variables])
+```
+Example of further customisation:
+```{r, warning=FALSE}
+reg <- function(x, y, ...) {
+  points(x,y, ...)
+  abline(lm(y~x)) 
+ }
+
+panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...) {
+ usr <- par("usr"); on.exit(par(usr))
+ par(usr = c(0, 1, 0, 1))
+ r <- abs(cor(x, y, use = "complete.obs"))
+ txt <- format(c(r, 0.123456789), digits = digits)[1]
+ txt <- paste0(prefix, txt)
+ text(0.5, 0.5, txt, cex = 1.1, font = 4)
+}
+
+pairs(DartPoints[, selected_variables], 
+      upper.panel = reg, 
+      lower.panel = panel.cor,
+      cex = 1.5, pch = 19, col = adjustcolor(4, .4))
+```
+
+* [**Logistic Regression**](https://en.wikipedia.org/wiki/Logistic_regression): a statistical method used for binary classification problems. It estimates the probability of an observation being in one or another category (*binary variable* or categorical variable with two possible values) based on one or more independent (explanatory) variables. As the linear regression, the analysis involves calculating the parameters of a equation corresponding to a geometric object, in this case a sigmoid or logistic curve. 
+
+```{r}
+# consider only cases in blade shape categories "E" (excurvate) and "S" (straight)
+DartPoints_IandS <- subset(DartPoints, Blade.Sh == "E" | Blade.Sh == "S")
+
+model <- glm(Blade.Sh ~ Length + Width + J.Width, data = DartPoints_IandS, family = "binomial")
+summary(model)
+```
+A logistic regression model with significant coefficients (p-values < 0.05) can be considered good classifiers, and could help us predict or infer the binary classification from additional combinations of explanatory variables. However, a truly good predictor will normally require a higher number of cases when building up the model.
+
+To visualize a logistic regression model in R, you can use `ggplot2` to create a curve showing the predicted probabilities alongside the observed binary outcomes in relation to one explanatory variable (e.g., `Length`).
+
+```{r}
+# Prepare data for visualization
+# Generate a sequence of Length values and keep Width and J.Width fixed at their mean
+new_data <- data.frame(
+  Length = seq(min(DartPoints_IandS$Length), max(DartPoints_IandS$Length), length.out = 100),
+  Width = mean(DartPoints_IandS$Width, na.rm = TRUE),
+  J.Width = mean(DartPoints_IandS$J.Width, na.rm = TRUE)
+)
+
+# Add predicted probabilities
+new_data$predicted_prob <- predict(model, newdata = new_data, type = "response")
+
+# Plot the predicted probabilities
+ggplot(new_data, aes(x = Length, y = predicted_prob)) +
+   geom_line(color = "blue") +
+   labs(
+      title = "Predicted Probability of Blade Shape 'E' by Length",
+      x = "Length",
+      y = "Predicted Probability"
+   ) +
+   theme_minimal()
+```
 
 ## (EXTRA)Basic Machine Learning Concepts
 
