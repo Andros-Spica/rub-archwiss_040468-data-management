@@ -436,7 +436,7 @@ table(DartPoints$Haft.Sh, DartPoints$Should.Sh)
 
 * **Mosaic Plots**: 
 
-```{r, fig.height=500px}
+```{r, fig.height=6}
 mosaicplot(table(DartPoints$Haft.Sh, DartPoints$Should.Sh),
            xlab = "Shape lateral haft element",
            ylab = "Shoulder shape",
