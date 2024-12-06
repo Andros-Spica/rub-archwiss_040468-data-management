@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -37,10 +91,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e848d10fc971b9a5fe7043dc20162b3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -293,9 +347,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-data-science-workflow" id="toc-introduction-to-data-science-workflow" class="nav-link active" data-scroll-target="#introduction-to-data-science-workflow"><span class="header-section-number">5.1</span> Introduction to Data Science Workflow</a></li>
-  <li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">5.2</span> Data Import and Preparation</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5.3</span> Exploratory Data Analysis</a></li>
+  <li><a href="#introduction-to-data-science-workflow" id="toc-introduction-to-data-science-workflow" class="nav-link active" data-scroll-target="#introduction-to-data-science-workflow"><span class="header-section-number">5.1</span> Introduction to Data Science Workflow</a>
+  <ul class="collapse">
+  <li><a href="#example-simple-data-science-project-in-r" id="toc-example-simple-data-science-project-in-r" class="nav-link" data-scroll-target="#example-simple-data-science-project-in-r"><span class="header-section-number">5.1.1</span> Example: Simple Data Science Project in R</a></li>
+  </ul></li>
+  <li><a href="#data-science-workflow-in-r-data-import-and-preparation" id="toc-data-science-workflow-in-r-data-import-and-preparation" class="nav-link" data-scroll-target="#data-science-workflow-in-r-data-import-and-preparation"><span class="header-section-number">5.2</span> Data Science Workflow in R: Data Import and Preparation</a>
+  <ul class="collapse">
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data"><span class="header-section-number">5.2.1</span> Importing Data</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">5.2.2</span> Data Cleaning</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">5.2.3</span> Data Transformation</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5.3</span> Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#univariate-statistics" id="toc-univariate-statistics" class="nav-link" data-scroll-target="#univariate-statistics"><span class="header-section-number">5.3.1</span> Univariate Statistics</a></li>
+  <li><a href="#bivariate-statistics" id="toc-bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"><span class="header-section-number">5.3.2</span> Bivariate statistics</a></li>
+  </ul></li>
   <li><a href="#extrabasic-machine-learning-concepts" id="toc-extrabasic-machine-learning-concepts" class="nav-link" data-scroll-target="#extrabasic-machine-learning-concepts"><span class="header-section-number">5.4</span> (EXTRA)Basic Machine Learning Concepts</a></li>
   <li><a href="#extramodel-evaluation" id="toc-extramodel-evaluation" class="nav-link" data-scroll-target="#extramodel-evaluation"><span class="header-section-number">5.5</span> (EXTRA)Model Evaluation</a></li>
   </ul>
@@ -325,85 +391,1003 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction-to-data-science-workflow" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="introduction-to-data-science-workflow"><span class="header-section-number">5.1</span> Introduction to Data Science Workflow</h2>
+<p>In a typical data science workflow, we move through five primary stages: <strong>data collection</strong>, <strong>data cleaning</strong>, <strong>exploration</strong>, <strong>modeling</strong>, and <strong>communication</strong>. These steps collectively transform raw data into actionable insights driven by research questions.</p>
+<ol type="1">
+<li><p><strong>Data Collection</strong>: This is the first step, where data is gathered from various sources, such as databases, APIs, or web scraping. In R, packages like <code>readr</code> and <code>httr</code> facilitate efficient data import from structured files (e.g., CSV, Excel) and web sources.</p></li>
+<li><p><strong>Data Cleaning</strong>: Data cleaning involves preparing raw data for analysis, handling missing values, correcting data types, and dealing with outliers. Tools like <code>dplyr</code> and <code>tidyr</code> are often used in R to perform these operations, enabling tasks like removing duplicates, imputing missing data, and restructuring data into a “tidy” format suitable for analysis.</p></li>
+<li><p><strong>Data Exploration</strong>: Exploratory Data Analysis (EDA) is the phase where we examine the data’s characteristics, uncover patterns, and form hypotheses. Visualizations (using <code>pairs()</code> or a wide range of plot types available in Base R and <code>ggplot2</code>) and summary statistics (<code>summary()</code>, <code>skimr</code>) help in understanding the data distribution, relationships between variables, and identifying any anomalies.</p></li>
+<li><p><strong>Modeling</strong>: At this stage, statistical or machine learning models are developed to predict or explain outcomes. In R, packages like <code>caret</code> and <code>tidymodels</code> streamline the modelling process, from splitting data and selecting models to tuning hyperparameters and evaluating performance.</p></li>
+<li><p><strong>Communication</strong>: The final stage focuses on presenting findings clearly, often through reports, dashboards, or interactive applications. Using R Markdown for reports or Shiny for interactive applications enables data scientists to effectively communicate insights to stakeholders.</p></li>
+</ol>
+<section id="example-simple-data-science-project-in-r" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="example-simple-data-science-project-in-r"><span class="header-section-number">5.1.1</span> Example: Simple Data Science Project in R</h3>
+<p>Let’s consider a simple example of a data science project where we predict house prices based on available features:</p>
 <ul>
-<li>Overview of the data science process: data collection, cleaning, exploration, modelling, and communication.<br>
-</li>
-<li>Example: Walk through of a simple data science project in R.</li>
+<li><strong>Data Collection</strong>: Load a dataset such as <code>house_prices.csv</code> using <code>read_csv()</code>.</li>
+<li><strong>Data Cleaning</strong>: Use <code>dplyr</code> to handle missing values (e.g., <code>mutate_if(is.na, median)</code> to replace with median values) and convert categorical variables to factors.</li>
+<li><strong>Data Exploration</strong>: Visualize relationships between features like square footage and price using <code>ggplot(data = houses) + geom_point(aes(x = sqft, y = price))</code>.</li>
+<li><strong>Modeling</strong>: Create a linear model with <code>lm(price ~ sqft + num_bedrooms, data = houses)</code>.</li>
+<li><strong>Communication</strong>: Report results in an R Markdown document, showing model coefficients, predictions, and visualizations to explain findings.</li>
 </ul>
+<p>This structured workflow, using R tools tailored to each step, enables efficient and reproducible data science practices.</p>
+<p>Here’s a version tailored to archaeology students, using the built-in R dataset <code>USArrests</code> to represent hypothetical archaeological data. This dataset can help illustrate each stage in a data science workflow, from cleaning and exploration to modelling and communication.</p>
+<hr>
+<p>Let’s consider a simple example of a data science project. Suppose we aim to determine main factors in criminality using the canonical dataset <strong><code>USArrests</code></strong>.</p>
+<ol type="1">
+<li><p><strong>Data Collection</strong>: Load the dataset directly from R’s built-in datasets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"USArrests"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> USArrests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Data Cleaning</strong>: Check for any missing values or potential outliers that might represent data entry errors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the dataset structure and summary</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':    50 obs. of  4 variables:
+ $ Murder  : num  13.2 10 8.1 8.8 9 7.9 3.3 5.9 15.4 17.4 ...
+ $ Assault : int  236 263 294 190 276 204 110 238 335 211 ...
+ $ UrbanPop: int  58 48 80 50 91 78 77 72 80 60 ...
+ $ Rape    : num  21.2 44.5 31 19.5 40.6 38.7 11.1 15.8 31.9 25.8 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Murder          Assault         UrbanPop          Rape      
+ Min.   : 0.800   Min.   : 45.0   Min.   :32.00   Min.   : 7.30  
+ 1st Qu.: 4.075   1st Qu.:109.0   1st Qu.:54.50   1st Qu.:15.07  
+ Median : 7.250   Median :159.0   Median :66.00   Median :20.10  
+ Mean   : 7.788   Mean   :170.8   Mean   :65.54   Mean   :21.23  
+ 3rd Qu.:11.250   3rd Qu.:249.0   3rd Qu.:77.75   3rd Qu.:26.18  
+ Max.   :17.400   Max.   :337.0   Max.   :91.00   Max.   :46.00  </code></pre>
+</div>
+</div>
+<p>Although <code>USArrests</code> doesn’t contain missing values, this step reminds us to handle such cases in real-world data.</p></li>
+<li><p><strong>Data Exploration</strong>: Visualize and summarize data to understand patterns. For instance, we might be interested in the value distribution of murder arrests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick summary of the data distribution</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Murder          Assault         UrbanPop          Rape      
+ Min.   : 0.800   Min.   : 45.0   Min.   :32.00   Min.   : 7.30  
+ 1st Qu.: 4.075   1st Qu.:109.0   1st Qu.:54.50   1st Qu.:15.07  
+ Median : 7.250   Median :159.0   Median :66.00   Median :20.10  
+ Mean   : 7.788   Mean   :170.8   Mean   :65.54   Mean   :21.23  
+ 3rd Qu.:11.250   3rd Qu.:249.0   3rd Qu.:77.75   3rd Qu.:26.18  
+ Max.   :17.400   Max.   :337.0   Max.   :91.00   Max.   :46.00  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of artifact "types" (represented by variables like 'Murder' here)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(df<span class="sc">$</span>Murder, <span class="at">main=</span><span class="st">"Distribution of 'Artifact Type A' Count by Region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-3-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This boxplot would give a quick view of the central tendencies and spread of murder arrests across the dataset.</p></li>
+<li><p><strong>Modeling</strong>: Create a simple model to analyze relationships between variables. For instance, let’s assume we’re exploring how <code>UrbanPop</code> (population percentage in urban areas) might relate to <code>Murder</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Murder <span class="sc">~</span> UrbanPop, <span class="at">data =</span> df)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Murder ~ UrbanPop, data = df)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-6.537 -3.736 -0.779  3.332  9.728 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  6.41594    2.90669   2.207   0.0321 *
+UrbanPop     0.02093    0.04333   0.483   0.6312  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.39 on 48 degrees of freedom
+Multiple R-squared:  0.00484,    Adjusted R-squared:  -0.01589 
+F-statistic: 0.2335 on 1 and 48 DF,  p-value: 0.6312</code></pre>
+</div>
+</div>
+<p>This provides an understanding of how urban population percentage might be related to murder arrests in our dataset.</p></li>
+<li><p><strong>Communication</strong>: Present findings in an R Markdown document, incorporating both visualizations and model summaries. You can interpret results to suggest whether certain types of artifacts are more commonly found in highly populated regions.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="hazzan_data_2023">Hazzan and Mike (<a href="references.html#ref-hazzan_data_2023" role="doc-biblioref">2023</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="tjohannsen_data_2023">tjohannsen (<a href="references.html#ref-tjohannsen_data_2023" role="doc-biblioref">2023</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="saltz_what_2020">Saltz (<a href="references.html#ref-saltz_what_2020" role="doc-biblioref">2020</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-<section id="data-import-and-preparation" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="data-import-and-preparation"><span class="header-section-number">5.2</span> Data Import and Preparation</h2>
+</section>
+<section id="data-science-workflow-in-r-data-import-and-preparation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="data-science-workflow-in-r-data-import-and-preparation"><span class="header-section-number">5.2</span> Data Science Workflow in R: Data Import and Preparation</h2>
+<section id="importing-data" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="importing-data"><span class="header-section-number">5.2.1</span> Importing Data</h3>
+<p>A critical step in any data science workflow is importing data from external sources. R provides robust tools for importing data from a variety of formats:</p>
 <ul>
-<li><strong>Importing Data</strong>
-<ul>
-<li>Reading data from various sources (CSV, Excel, databases).<br>
+<li><strong>CSV files:</strong> Use the <code>read.csv()</code> function from base R.<br>
 </li>
-<li>Example: Using <code>read.csv</code>, <code>read_excel</code>, and <code>DBI</code> package for data import.<br>
+<li><strong>Excel files:</strong> Leverage the <code>readxl</code> package with <code>read_excel()</code>.<br>
 </li>
-</ul></li>
-<li><strong>Data Cleaning</strong>
-<ul>
-<li>Handling missing values, duplicates, and inconsistent data.<br>
-</li>
-<li>Example: Using <code>tidyr</code> and <code>dplyr</code> for cleaning data (e.g., <code>fill</code>, <code>drop_na</code>, <code>distinct, separate</code>).<br>
-</li>
-</ul></li>
-<li><strong>Data Transformation</strong>
-<ul>
-<li>Filtering, selecting, and transforming variables.<br>
-</li>
-<li>Example: Using <code>dplyr</code> functions (<code>filter</code>, <code>select</code>, <code>mutate,pivot_longer,pivot_wider</code>) for data manipulation.</li>
-</ul></li>
+<li><strong>Databases:</strong> Employ the <code>DBI</code> package to connect to relational databases and fetch data using SQL queries.</li>
 </ul>
+<section id="examples-using-base-r-readxl-and-dbirsqlite" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="examples-using-base-r-readxl-and-dbirsqlite">Examples using base R, <code>readxl</code> and <code>DBI</code>+<code>RSQLite</code></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read a CSV file</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>csv_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Read an Excel file</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>excel_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to a SQLite database and fetch data</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"data.db"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>db_data <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM table_name"</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-cleaning" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">5.2.2</span> Data Cleaning</h3>
+<p>Before analysis, raw data often requires cleaning to address issues like missing values, duplicates, and inconsistencies.</p>
+<section id="example-using-base-r" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-using-base-r">Example using Base R</h4>
+<ul>
+<li><strong>Removing Missing Values</strong><br>
+Use <code>na.omit()</code> to remove rows with missing values or <code>is.na()</code> to identify them.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">B =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="cn">NA</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   A    B
+1  1    x
+2  2 &lt;NA&gt;
+3 NA    y
+4  4    z</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove rows with NA</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(clean_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B
+1 1 x
+4 4 z</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Handling Duplicates</strong><br>
+Use <code>duplicated()</code> to identify duplicate rows or <code>unique()</code> to retain only unique rows.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">B =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B
+1 1 x
+2 2 y
+3 2 y
+4 4 z</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate rows</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data_unique <span class="ot">&lt;-</span> data[<span class="sc">!</span><span class="fu">duplicated</span>(data), ]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data_unique)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B
+1 1 x
+2 2 y
+4 4 z</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Replacing Values</strong><br>
+Replace specific values with <code>ifelse()</code> or direct indexing.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">999</span>, <span class="dv">4</span>), <span class="at">B =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>, <span class="st">"999"</span>))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    A   B
+1   1   x
+2   2   y
+3 999   z
+4   4 999</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 999 with NA</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>data[data <span class="sc">==</span> <span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   A    B
+1  1    x
+2  2    y
+3 NA    z
+4  4 &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="example-using-tidyverse" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-using-tidyverse">Example using <code>tidyverse</code></h4>
+<p>Key functions include:<br>
+- <strong><code>tidyr</code>:</strong> Tools like <code>fill()</code> (fill missing values) and <code>drop_na()</code> (remove rows with NAs).<br>
+- <strong><code>dplyr</code>:</strong> Functions like <code>distinct()</code> to remove duplicates and <code>mutate()</code> to fix inconsistencies.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example dataset</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>), <span class="at">value =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id value
+1  1  &lt;NA&gt;
+2  2     A
+3  2     A
+4  3     B
+5 NA     C</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the data</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(id) <span class="sc">%&gt;%</span> <span class="co"># Remove rows with missing IDs</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span>  <span class="co"># Remove duplicates</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(value, <span class="at">.direction =</span> <span class="st">"down"</span>) <span class="co"># Fill missing values downward</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cleaned_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id value
+1  1  &lt;NA&gt;
+2  2     A
+3  3     B</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-transformation" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">5.2.3</span> Data Transformation</h3>
+<p>Transforming data is essential for reshaping and preparing it for analysis.</p>
+<section id="example-using-base-r-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-using-base-r-1">Example using Base R</h4>
+<p>Base R provides versatile and efficient tools for cleaning and transforming data.</p>
+<p>A few example operations common in data science workflows are:</p>
+<ul>
+<li><strong>Filtering Rows</strong><br>
+Subset data using logical conditions.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">B =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B
+1 1 a
+2 2 b
+3 3 c
+4 4 d
+5 5 e</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows where A &gt; 3</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>A <span class="sc">&gt;</span> <span class="dv">3</span>, ]</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(filtered_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B
+4 4 d
+5 5 e</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Selecting Columns</strong><br>
+Use indexing to select specific columns.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select column A</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>selected_columns <span class="ot">&lt;-</span> data[, <span class="st">"A"</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(selected_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A
+1 1
+2 2
+3 3
+4 4
+5 5</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Adding or Modifying Columns</strong><br>
+Use the <code>$</code> operator or indexing to create or modify columns.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>new_col <span class="ot">&lt;-</span> data<span class="sc">$</span>A <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B new_col
+1 1 a       2
+2 2 b       4
+3 3 c       6
+4 4 d       8
+5 5 e      10</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Reshaping Data</strong><br>
+Use <code>reshape()</code> to pivot data between wide and long formats.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example wide format</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">Q1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>), <span class="at">Q2 =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>))</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long format</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> <span class="fu">reshape</span>(data, <span class="at">direction =</span> <span class="st">"long"</span>, <span class="at">varying =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Q1"</span>, <span class="st">"Q2"</span>)), <span class="at">v.names =</span> <span class="st">"value"</span>, <span class="at">timevar =</span> <span class="st">"quarter"</span>)</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(long_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id quarter value
+1.1  1       1    10
+2.1  2       1    20
+1.2  1       2    30
+2.2  2       2    40</code></pre>
+</div>
+</div>
+</section>
+<section id="example-using-tidyverse-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-using-tidyverse-1">Example using <code>tidyverse</code></h4>
+<p>Use <code>dplyr</code> for: - <strong>Filtering and selecting rows/columns:</strong> <code>filter()</code>, <code>select()</code>. - <strong>Creating new variables:</strong> <code>mutate()</code>. - <strong>Reshaping:</strong> <code>pivot_longer()</code> and <code>pivot_wider()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example dataset</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Q1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>),</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Q2 =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">35</span>)</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Before:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Before:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id Q1 Q2
+1  1 10 15
+2  2 20 25
+3  3 30 35</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>transformed_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Q"</span>), <span class="at">names_to =</span> <span class="st">"quarter"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filter rows where value &gt; 15</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">value_scaled =</span> value <span class="sc">/</span> <span class="fu">max</span>(value))  <span class="co"># Add a new scaled column</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"After:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "After:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(transformed_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+     id quarter value value_scaled
+  &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;        &lt;dbl&gt;
+1     2 Q1         20        0.571
+2     2 Q2         25        0.714
+3     3 Q1         30        0.857
+4     3 Q2         35        1    </code></pre>
+</div>
+</div>
+<p>By mastering these data preparation steps, you ensure a clean and well-structured dataset, setting the stage for effective analysis and visualization.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+See also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="knoxville_2_nodate">Knoxville (<a href="references.html#ref-knoxville_2_nodate" role="doc-biblioref">n.d.</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="rapp_6_2024">Rapp (<a href="references.html#ref-rapp_6_2024" role="doc-biblioref">2024</a>)</span><br>
+</li>
+<li><span class="citation" data-cites="kopra_r_2024">Kopra et al. (<a href="references.html#ref-kopra_r_2024" role="doc-biblioref">2024</a>)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="exploratory-data-analysis" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">5.3</span> Exploratory Data Analysis</h2>
+<section id="univariate-statistics" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="univariate-statistics"><span class="header-section-number">5.3.1</span> Univariate Statistics</h3>
+<section id="numeric-variables" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="numeric-variables">Numeric variables</h4>
+<p>This section equips you to explore univariate distributions of numeric variables, uncovering insights from centrality to variability with both statistical and visual techniques.</p>
 <ul>
-<li><strong>Univariate statistics</strong>
-<ul>
-<li>Creating basic plots to explore distribution in a single variable.<br>
-</li>
-<li>Example: Using <code>ggplot2</code> for histograms.<br>
-</li>
-<li>Finding the range of a variable distribution<br>
-</li>
-<li>Calculating central tendency and dispersal measurements: mean, median, mode, variance, standard deviation.<br>
-</li>
-<li>Example: Using <code>summary</code>, <code>mean</code>, <code>sd</code>, and <code>quantile</code> functions in R.<br>
-</li>
-<li>Example: Plotting a histogram and marking the mean of the distribution.<br>
-</li>
-</ul></li>
-<li><strong>Bivariate statistics</strong>
-<ul>
-<li>Creating basic plots to explore bivariate data relationships.<br>
-</li>
-<li>Example: Using <code>ggplot2</code> for scatter plots, box plots, and bar plots.<br>
-</li>
-<li>Contingency in two categorical variables: using <code>table, mosaicplot</code><br>
-</li>
-<li>Correlation coefficient and linear regression.<br>
-</li>
-<li>Example: Example: Fitting a simple linear regression model using <code>lm</code>, projecting it on a scatter plot using base R and <code>ggplot2,</code>and interpreting the results.<br>
-</li>
-<li>Example: Calculating and visualizing correlations with <code>cor</code> and <code>corrplot</code>.<br>
-</li>
-<li>Introduction to hypothesis testing: t-tests, Chi-Square tests, ANOVA and Fisher test.<br>
-</li>
-<li>Example: Conducting a t-test using <code>t.test</code> and a chi-square test using <code>chisq.test</code>.<br>
-</li>
-<li>Creating faceted plots to explore multivariate data relationships<br>
-</li>
-<li>Example: Using <code>ggplot2</code> to create a grid of scatter plots separated by category.<br>
-</li>
-</ul></li>
-<li><strong>(EXTRA)Classification</strong>
-<ul>
-<li>Introduction to basic classification methods (e.g., logistic regression).<br>
-</li>
-<li>Example: Building a logistic regression model using <code>glm</code>.</li>
-</ul></li>
+<li><strong>Histograms</strong>: Exploring a single variable involves visualizing its distribution to identify patterns such as central tendency, spread, and outliers. Histograms are one of the most effective tools for this.</li>
 </ul>
+</section>
+<section id="example-using-ggplot2-for-histograms" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-using-ggplot2-for-histograms">Example: Using <code>ggplot2</code> for histograms</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example dataset - variable with normal distribution</span></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>))</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram</span></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Values"</span>, <span class="at">x =</span> <span class="st">"Value"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-15-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Range</strong>: The range of a variable provides a simple measure of the spread of the data. It is calculated as the difference between the maximum and minimum values. Base R already has a function named <code>range()</code> to handle this calculation:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Min:"</span>, <span class="fu">min</span>(data<span class="sc">$</span>value), <span class="st">"Max:"</span>, <span class="fu">max</span>(data<span class="sc">$</span>value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Min: 18.69771 Max: 82.09568</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>range_val <span class="ot">&lt;-</span> <span class="fu">range</span>(data<span class="sc">$</span>value)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Range (Max - Min):"</span>, range_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Range (Max - Min): 18.69771 82.09568</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Central tendency measures</strong>: the mean, median, and mode describe the centre of the distribution.<br>
+</li>
+<li><strong>Dispersion measures</strong>: variance and standard deviation describe the spread of the data.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>mean_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>value)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>median_val <span class="ot">&lt;-</span> <span class="fu">median</span>(data<span class="sc">$</span>value)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>variance <span class="ot">&lt;-</span> <span class="fu">var</span>(data<span class="sc">$</span>value)</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>std_dev <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>value)</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean:"</span>, mean_val, <span class="st">"Median:"</span>, median_val, <span class="st">"Variance:"</span>, variance, <span class="st">"SD:"</span>, std_dev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean: 49.89559 Median: 49.92348 Variance: 96.13229 SD: 9.804707</code></pre>
+</div>
+</div>
+</section>
+<section id="example-plotting-a-histogram-and-marking-the-mean" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-plotting-a-histogram-and-marking-the-mean">Example: Plotting a Histogram and Marking the Mean</h4>
+<p>Overlay the mean on a histogram to visualize its position relative to the distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> mean_val), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram with Mean Marked"</span>, <span class="at">x =</span> <span class="st">"Value"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-18-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="non-numeric-variables" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="non-numeric-variables">Non-numeric variables</h4>
+<p>These approaches allow for comprehensive exploration of univariate statistics for categorical variables, emphasizing both numeric summaries and visual insights.</p>
+<p>Univariate statistics for non-numeric (categorical) variables focus on summarizing and visualizing the distribution of categories. Here’s a breakdown with examples:</p>
+<ul>
+<li><strong>Frequency Tables</strong>: A frequency table lists the counts of each category, helping to understand the distribution.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example Dataset</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">category =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency Table</span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ A  B  C 
+42 33 25 </code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Bar Plots</strong>: Bar plots visually represent the frequency distribution of categories.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Plot</span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> category)) <span class="sc">+</span></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Category Distribution"</span>, <span class="at">x =</span> <span class="st">"Category"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-20-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Proportion Visualization</strong>: Proportions provide relative frequencies, useful for comparing categorical data.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion Table</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>prop_table <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(data<span class="sc">$</span>category))</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Category Proportions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-21-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Mode</strong>: The mode is the most frequently occurring category.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mode Calculation</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>mode_category <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(data<span class="sc">$</span>category)))</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mode:"</span>, mode_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mode: A</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="bivariate-statistics" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="bivariate-statistics"><span class="header-section-number">5.3.2</span> Bivariate statistics</h3>
+<p>Loading <code>DartPoints</code> dataset from <code>archdata</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DartPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Scatter Plots</strong>: Visualize relationships between two <strong>numerical variables</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> H.Length, <span class="at">y =</span> Weight)) <span class="sc">+</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Haft element length (mm)"</span>, <span class="at">y =</span> <span class="st">"Weight (gm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-24-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Box Plots</strong>: Compare a <strong>numerical variable</strong> across categories of a <strong>categorical variable</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Haft.Sh, <span class="at">y =</span> H.Length)) <span class="sc">+</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Angular"</span>, <span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Shape lateral haft element"</span>, <span class="at">y =</span> <span class="st">"Haft element length (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-25-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Bar Plots with two variables (stacked)</strong>: Compare counts or proportions of <strong>categorical variables</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Haft.Sh, <span class="at">fill =</span> Should.Sh)) <span class="sc">+</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Angular"</span>, <span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Recurvate"</span>, <span class="st">"Straight"</span>)) <span class="sc">+</span></span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Excurvate"</span>, <span class="st">"Incurvate"</span>, <span class="st">"Straight"</span>, <span class="st">"None"</span>)) <span class="sc">+</span></span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Shape lateral haft element"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"Shoulder shape"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-26-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Contingency Tables</strong>: Quick assessment of the distribution of counts among two <strong>categorical variables</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(DartPoints<span class="sc">$</span>Haft.Sh, DartPoints<span class="sc">$</span>Should.Sh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+     E  I  S  X
+  A  0  2  0  0
+  E  0  3  6  0
+  I  0 16  4  2
+  R  0  0  1  0
+  S  3 16 35  1</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Mosaic Plots</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(<span class="fu">table</span>(DartPoints<span class="sc">$</span>Haft.Sh, DartPoints<span class="sc">$</span>Should.Sh),</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">xlab =</span> <span class="st">"Shape lateral haft element"</span>,</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">ylab =</span> <span class="st">"Shoulder shape"</span>,</span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">shade =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-28-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Correlation</strong>: Measure linear relationships between <strong>numerical variables</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(DartPoints<span class="sc">$</span>H.Length, DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.486397</code></pre>
+</div>
+</div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Simple_linear_regression"><strong>Simple linear Regression</strong></a>: Calculate the parameters (intercept, slope) for a linear model with the minimum distance towards data points in two numerical variables. Geometrically, such model is equivalent to a line in a two-dimensional plane.</li>
+</ul>
+<p>With Base R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Weight <span class="sc">~</span> H.Length, <span class="at">data =</span> DartPoints,)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Weight ~ H.Length, data = DartPoints)
+
+Coefficients:
+(Intercept)     H.Length  
+     0.8013       0.5102  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DartPoints<span class="sc">$</span>H.Length, DartPoints<span class="sc">$</span>Weight,</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Haft element length (mm)"</span>, </span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Weight (gm)"</span>)</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> model<span class="sc">$</span>coefficients[<span class="st">"(Intercept)"</span>], </span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> model<span class="sc">$</span>coefficients[<span class="st">"H.Length"</span>],</span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-30-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With <code>ggplot2</code>, a linear model can be added directly to a plot with <code>geom_smooth(method = "lm")</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> H.Length, <span class="at">y =</span> Weight)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-31-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The function <code>geom_smooth()</code> will add by default a shaded area around the line, representing the confidence interval (see argument <code>se</code> and <code>level</code> in <code>?geom_smooth()</code>).</p>
+<ul>
+<li><strong>Visualizing multiple correlation pairs</strong></li>
+</ul>
+<p>Quick visualisation of a correlation matrix using <code>cor()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(DartPoints[, <span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Length     Width Thickness
+Length    1.0000000 0.7689932 0.5890989
+Width     0.7689932 1.0000000 0.5459291
+Thickness 0.5890989 0.5459291 1.0000000</code></pre>
+</div>
+</div>
+<p>Build a larger correlation matrix (only numerical variables and excluding cases with missing values) and plot it using <code>corrplot()</code> from the <code>corrplot</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.95 loaded</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>selected_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"B.Width"</span>, <span class="st">"J.Width"</span>, <span class="st">"H.Length"</span>, <span class="st">"Weight"</span>)</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(DartPoints[, selected_variables],</span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(corr_matrix, <span class="at">method =</span> <span class="st">"circle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-33-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Hypothesis Testing</strong>:</li>
+</ul>
+<p><strong>t-Test</strong>: Compare means of <strong>numerical variables</strong> across two <strong>categories</strong>. Conventionally, P-value &lt; 0.05 means that the null hypothesis (there are <em>no differences between the means</em> of these variables) is very unlikely.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># consider only cases in blade shape categories "E" (excurvate) and "S" (straight)</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>DartPoints_IandS <span class="ot">&lt;-</span> <span class="fu">subset</span>(DartPoints, Blade.Sh <span class="sc">==</span> <span class="st">"E"</span> <span class="sc">|</span> Blade.Sh <span class="sc">==</span> <span class="st">"S"</span>)</span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="co"># apply test for Weight between the blade shape two categories</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Weight <span class="sc">~</span> Blade.Sh, <span class="at">data =</span> DartPoints_IandS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Weight by Blade.Sh
+t = 1.6009, df = 72.799, p-value = 0.1137
+alternative hypothesis: true difference in means between group E and group S is not equal to 0
+95 percent confidence interval:
+ -0.3652556  3.3471603
+sample estimates:
+mean in group E mean in group S 
+       8.530952        7.040000 </code></pre>
+</div>
+</div>
+<p>In this case, the evidence is insufficient for demonstrating that there is a consistent difference in weight between dart points with excurvate and straight blades.</p>
+<p><strong>Chi-Square Test</strong>: Test independence between <strong>categorical variables</strong>. Conventionally, P-value &lt; 0.05 means that the null hypothesis (the variables <em>are</em> independent) is very unlikely.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(DartPoints<span class="sc">$</span>Haft.Sh, DartPoints<span class="sc">$</span>Haft.Or))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(table(DartPoints$Haft.Sh, DartPoints$Haft.Or)):
+Chi-squared approximation may be incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  table(DartPoints$Haft.Sh, DartPoints$Haft.Or)
+X-squared = 101.85, df = 16, p-value = 1.556e-14</code></pre>
+</div>
+</div>
+<p>In this case, the evidence supports, with 95% confidence, that haft shape and orientation are not independent.</p>
+<ul>
+<li><strong>Quasi-multivariate approaches</strong>:</li>
+</ul>
+<p>Visualise <strong>multiple subsets of a bivariate relationship</strong> by splitting plots by a <strong>categorical variable</strong>.</p>
+<p>“Faceting” <strong>scatter plots</strong> with <code>ggplot2</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DartPoints, <span class="fu">aes</span>(<span class="at">x =</span> Thickness, <span class="at">y =</span> Weight)) <span class="sc">+</span></span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> Blade.Sh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-36-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Visualise <strong>multiple pairwise bivariate relationships</strong> with <code>pairs()</code> (only numeric variables):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>selected_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"B.Width"</span>, <span class="st">"J.Width"</span>, <span class="st">"H.Length"</span>, <span class="st">"Weight"</span>)</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(DartPoints[, selected_variables])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-37-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Example of further customisation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, ...) {</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(x,y, ...)</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x)) </span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>panel.cor <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">prefix =</span> <span class="st">""</span>, cex.cor, ...) {</span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a> usr <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">"usr"</span>); <span class="fu">on.exit</span>(<span class="fu">par</span>(usr))</span>
+<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a> <span class="fu">par</span>(<span class="at">usr =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a> r <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">cor</span>(x, y, <span class="at">use =</span> <span class="st">"complete.obs"</span>))</span>
+<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a> txt <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">c</span>(r, <span class="fl">0.123456789</span>), <span class="at">digits =</span> digits)[<span class="dv">1</span>]</span>
+<span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a> txt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(prefix, txt)</span>
+<span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="at">cex =</span> <span class="fl">1.1</span>, <span class="at">font =</span> <span class="dv">4</span>)</span>
+<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(DartPoints[, selected_variables], </span>
+<span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">upper.panel =</span> reg, </span>
+<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">lower.panel =</span> panel.cor,</span>
+<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="fu">adjustcolor</span>(<span class="dv">4</span>, .<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-38-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Logistic_regression"><strong>Logistic Regression</strong></a>: a statistical method used for binary classification problems. It estimates the probability of an observation being in one or another category (<em>binary variable</em> or categorical variable with two possible values) based on one or more independent (explanatory) variables. As the linear regression, the analysis involves calculating the parameters of a equation corresponding to a geometric object, in this case a sigmoid or logistic curve.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># consider only cases in blade shape categories "E" (excurvate) and "S" (straight)</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>DartPoints_IandS <span class="ot">&lt;-</span> <span class="fu">subset</span>(DartPoints, Blade.Sh <span class="sc">==</span> <span class="st">"E"</span> <span class="sc">|</span> Blade.Sh <span class="sc">==</span> <span class="st">"S"</span>)</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Blade.Sh <span class="sc">~</span> Length <span class="sc">+</span> Width <span class="sc">+</span> J.Width, <span class="at">data =</span> DartPoints_IandS, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Blade.Sh ~ Length + Width + J.Width, family = "binomial", 
+    data = DartPoints_IandS)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)  2.71823    1.49160   1.822   0.0684 .
+Length      -0.08122    0.03421  -2.374   0.0176 *
+Width        0.23553    0.09825   2.397   0.0165 *
+J.Width     -0.25868    0.13064  -1.980   0.0477 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 113.63  on 81  degrees of freedom
+Residual deviance: 104.02  on 78  degrees of freedom
+AIC: 112.02
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>A logistic regression model with significant coefficients (p-values &lt; 0.05) can be considered good classifiers, and could help us predict or infer the binary classification from additional combinations of explanatory variables. However, a truly good predictor will normally require a higher number of cases when building up the model.</p>
+<p>To visualize a logistic regression model in R, you can use <code>ggplot2</code> to create a curve showing the predicted probabilities alongside the observed binary outcomes in relation to one explanatory variable (e.g., <code>Length</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for visualization</span></span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a sequence of Length values and keep Width and J.Width fixed at their mean</span></span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Length =</span> <span class="fu">seq</span>(<span class="fu">min</span>(DartPoints_IandS<span class="sc">$</span>Length), <span class="fu">max</span>(DartPoints_IandS<span class="sc">$</span>Length), <span class="at">length.out =</span> <span class="dv">100</span>),</span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Width =</span> <span class="fu">mean</span>(DartPoints_IandS<span class="sc">$</span>Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">J.Width =</span> <span class="fu">mean</span>(DartPoints_IandS<span class="sc">$</span>J.Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb116-7"><a href="#cb116-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb116-8"><a href="#cb116-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-9"><a href="#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add predicted probabilities</span></span>
+<span id="cb116-10"><a href="#cb116-10" aria-hidden="true" tabindex="-1"></a>new_data<span class="sc">$</span>predicted_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> new_data, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb116-11"><a href="#cb116-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-12"><a href="#cb116-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the predicted probabilities</span></span>
+<span id="cb116-13"><a href="#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(new_data, <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">y =</span> predicted_prob)) <span class="sc">+</span></span>
+<span id="cb116-14"><a href="#cb116-14" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb116-15"><a href="#cb116-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb116-16"><a href="#cb116-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Predicted Probability of Blade Shape 'E' by Length"</span>,</span>
+<span id="cb116-17"><a href="#cb116-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">"Length"</span>,</span>
+<span id="cb116-18"><a href="#cb116-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">"Predicted Probability"</span></span>
+<span id="cb116-19"><a href="#cb116-19" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">+</span></span>
+<span id="cb116-20"><a href="#cb116-20" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="session-data-science-workflow_files/figure-html/unnamed-chunk-40-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="extrabasic-machine-learning-concepts" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="extrabasic-machine-learning-concepts"><span class="header-section-number">5.4</span> (EXTRA)Basic Machine Learning Concepts</h2>
@@ -472,6 +1456,26 @@ Hands-on Practice
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-hazzan_data_2023" class="csl-entry" role="listitem">
+Hazzan, Orit, and Koby Mike. 2023. <span>“The <span>Data</span> <span>Science</span> <span>Workflow</span>.”</span> In <em>Guide to <span>Teaching</span> <span>Data</span> <span>Science</span>: <span>An</span> <span>Interdisciplinary</span> <span>Approach</span></em>, edited by Orit Hazzan and Koby Mike, 151–63. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-031-24758-3_10">https://doi.org/10.1007/978-3-031-24758-3_10</a>.
+</div>
+<div id="ref-knoxville_2_nodate" class="csl-entry" role="listitem">
+Knoxville, and Methodology-University of Tennessee, Statistics. n.d. <em>2 <span>Data</span> <span>Preparation</span> and <span>Cleaning</span> in <span>R</span> <span></span> <span>R</span> <span>Software</span> <span>Handbook</span></em>. Accessed November 29, 2024. <a href="https://bookdown.org/aschmi11/RESMHandbook/data-preparation-and-cleaning-in-r.html">https://bookdown.org/aschmi11/RESMHandbook/data-preparation-and-cleaning-in-r.html</a>.
+</div>
+<div id="ref-kopra_r_2024" class="csl-entry" role="listitem">
+Kopra, Juho, Santtu Tikka, Merja Heinäniemi, Sonsoles López-Pernas, and Mohammed Saqr. 2024. <span>“An <span>R</span> <span>Approach</span> to <span>Data</span> <span>Cleaning</span> and <span>Wrangling</span> for <span>Education</span> <span>Research</span>.”</span> In <em>Learning <span>Analytics</span> <span>Methods</span> and <span>Tutorials</span>: <span>A</span> <span>Practical</span> <span>Guide</span> <span>Using</span> <span>R</span></em>, edited by Mohammed Saqr and Sonsoles López-Pernas, 95–119. Cham: Springer Nature Switzerland. <a href="https://doi.org/10.1007/978-3-031-54464-4_4">https://doi.org/10.1007/978-3-031-54464-4_4</a>.
+</div>
+<div id="ref-rapp_6_2024" class="csl-entry" role="listitem">
+Rapp, Albert. 2024. <span>“The 6 <span>Most</span> <span>Fundamental</span> <span>Functions</span> for <span>Data</span> <span>Cleaning</span> with <span>R</span> <span></span> <span>R</span>-Bloggers.”</span> <a href="https://www.r-bloggers.com/2024/06/the-6-most-fundamental-functions-for-data-cleaning-with-r/">https://www.r-bloggers.com/2024/06/the-6-most-fundamental-functions-for-data-cleaning-with-r/</a>.
+</div>
+<div id="ref-saltz_what_2020" class="csl-entry" role="listitem">
+Saltz, Jeff. 2020. <span>“What Is a <span>Data</span> <span>Science</span> <span>Workflow</span>?”</span> <em>Data Science Process Alliance</em>. <a href="https://www.datascience-pm.com/data-science-workflow/">https://www.datascience-pm.com/data-science-workflow/</a>.
+</div>
+<div id="ref-tjohannsen_data_2023" class="csl-entry" role="listitem">
+tjohannsen. 2023. <span>“Data <span>Science</span> Mit <span>R</span>.”</span> <em>R-Coding</em>. <a href="https://r-coding.de/blog/data-science-mit-r/">https://r-coding.de/blog/data-science-mit-r/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -557,8 +1561,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -669,7 +1671,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
