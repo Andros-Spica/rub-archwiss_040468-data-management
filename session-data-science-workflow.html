@@ -929,13 +929,13 @@ See also
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Min:"</span>, <span class="fu">min</span>(data<span class="sc">$</span>value), <span class="st">"Max:"</span>, <span class="fu">max</span>(data<span class="sc">$</span>value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Min: 18.69771 Max: 82.09568</code></pre>
+<pre><code>Min: 10.6038 Max: 90.53116</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>range_val <span class="ot">&lt;-</span> <span class="fu">range</span>(data<span class="sc">$</span>value)</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Range (Max - Min):"</span>, range_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Range (Max - Min): 18.69771 82.09568</code></pre>
+<pre><code>Range (Max - Min): 10.6038 90.53116</code></pre>
 </div>
 </div>
 <ul>
@@ -952,7 +952,7 @@ See also
 <span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
 <span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean:"</span>, mean_val, <span class="st">"Median:"</span>, median_val, <span class="st">"Variance:"</span>, variance, <span class="st">"SD:"</span>, std_dev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean: 49.89559 Median: 49.92348 Variance: 96.13229 SD: 9.804707</code></pre>
+<pre><code>Mean: 50.29678 Median: 50.69206 Variance: 104.3537 SD: 10.21537</code></pre>
 </div>
 </div>
 </section>
@@ -993,7 +993,7 @@ See also
 <div class="cell-output cell-output-stdout">
 <pre><code>
  A  B  C 
-42 33 25 </code></pre>
+33 30 37 </code></pre>
 </div>
 </div>
 <ul>
@@ -1042,7 +1042,7 @@ See also
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>mode_category <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(data<span class="sc">$</span>category)))</span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mode:"</span>, mode_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mode: A</code></pre>
+<pre><code>Mode: C</code></pre>
 </div>
 </div>
 </section>
@@ -1442,11 +1442,14 @@ Hands-on Practice
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Building a Simple Data Science Workflow</strong>
-<ul>
-<li>End-to-end example: data import, cleaning, exploration (modelling, and evaluation).<br>
+<li><strong>Building a Simple Data Science Workflow</strong>: data import, cleaning, exploration, and basic regression and hypothesis testing.
+<ol type="1">
+<li>Import a dataset of your choosing. Consider the ones included in the <code>archdata</code> package (install and load the package, then consult <code>?archdata</code>).</li>
+<li>Check if the given dataset has any missing values, normally appearing as <code>NA</code> in R. Notice that some databases might use specific conventions, such as coding missing values as an odd extreme number (e.g., <code>-999</code>) or a specific text (e.g., <code>indeterminate</code>).<br>
 </li>
-</ul></li>
+<li>Get a general overview of the data using one or more options shown above, depending on the dataset structure and variable types. For example, using <code>pairs()</code> with numeric variables or applying <code>table()</code> to categorical variables.</li>
+<li>Consider visualising and testing the relationships between the most interesting variables. For example, does the distribution of the numerical variable A varies along the categories of the categorical variable B? Use a combination of plots, pair-wise simple linear regression models, and T tests or Chi-Square tests.</li>
+</ol></li>
 <li><strong>Q&amp;A and Troubleshooting</strong>
 <ul>
 <li>Addressing challenges in implementing basic data science methods in R.</li>
