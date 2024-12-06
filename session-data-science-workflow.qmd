@@ -614,9 +614,13 @@ ggplot(new_data, aes(x = Length, y = predicted_prob)) +
 ::: {.callout-note icon=false}
 ## Hands-on Practice {.unnumbered}
 
-* **Building a Simple Data Science Workflow**  
-  * End-to-end example: data import, cleaning, exploration (modelling, and evaluation).  
+* **Building a Simple Data Science Workflow**: data import, cleaning, exploration, and basic regression and hypothesis testing.  
+   1. Import a dataset of your choosing. Consider the ones included in the `archdata` package (install and load the package, then consult `?archdata`).
+   2. Check if the given dataset has any missing values, normally appearing as `NA` in R. Notice that some databases might use specific conventions, such as coding missing values as an odd extreme number (e.g., `-999`) or a specific text (e.g., `indeterminate`).  
+   3. Get a general overview of the data using one or more options shown above, depending on the dataset structure and variable types. For example, using `pairs()` with numeric variables or applying `table()` to categorical variables.
+   4. Consider visualising and testing the relationships between the most interesting variables. For example, does the distribution of the numerical variable A varies along the categories of the categorical variable B? Use a combination of plots, pair-wise simple linear regression models, and T tests or Chi-Square tests. 
+
 * **Q\&A and Troubleshooting**  
-  * Addressing challenges in implementing basic data science methods in R.
+   * Addressing challenges in implementing basic data science methods in R.
 
 :::
