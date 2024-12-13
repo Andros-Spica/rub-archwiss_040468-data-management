@@ -2,7 +2,7 @@
 
 ## Introduction to Data Science Workflow
 
-In a typical data science workflow, we move through five primary stages: **data collection**, **data cleaning**, **exploration**, **modeling**, and **communication**. These steps collectively transform raw data into actionable insights driven by research questions.
+In a typical data science workflow, we move through five primary stages: **data collection**, **data cleaning**, **exploration**, **modeling**, and **communication**. These steps collectively transform raw data into actionable insights driven by research questions while also enabling efficient and reproducible data science practices.
 
 1. **Data Collection**: This is the first step, where data is gathered from various sources, such as databases, APIs, or web scraping. In R, packages like `readr` and `httr` facilitate efficient data import from structured files (e.g., CSV, Excel) and web sources.
 
@@ -14,7 +14,8 @@ In a typical data science workflow, we move through five primary stages: **data 
 
 5. **Communication**: The final stage focuses on presenting findings clearly, often through reports, dashboards, or interactive applications. Using R Markdown for reports or Shiny for interactive applications enables data scientists to effectively communicate insights to stakeholders.
 
-### Example: Simple Data Science Project in R
+### Quick example in R: hypothetical local dataset "house_prices.csv" {.unnumbered}
+
 Let’s consider a simple example of a data science project where we predict house prices based on available features:
 
 - **Data Collection**: Load a dataset such as `house_prices.csv` using `read_csv()`.
@@ -23,48 +24,49 @@ Let’s consider a simple example of a data science project where we predict hou
 - **Modeling**: Create a linear model with `lm(price ~ sqft + num_bedrooms, data = houses)`.
 - **Communication**: Report results in an R Markdown document, showing model coefficients, predictions, and visualizations to explain findings.
 
-This structured workflow, using R tools tailored to each step, enables efficient and reproducible data science practices.
+### Quick example in R: canonical dataset `USArrests` {.unnumbered}
 
-Here’s a version tailored to archaeology students, using the built-in R dataset `USArrests` to represent hypothetical archaeological data. This dataset can help illustrate each stage in a data science workflow, from cleaning and exploration to modelling and communication.
-
----
-
-Let’s consider a simple example of a data science project. Suppose we aim to determine main factors in criminality using the canonical dataset **`USArrests`**.
+Let’s consider a simple example of a data science project. Suppose we aim to determine main factors in criminality using the canonical dataset `USArrests`.
 
 1. **Data Collection**: Load the dataset directly from R’s built-in datasets.
-   ```{r}
-   data("USArrests")
-   df <- USArrests
-   ```
+```{r}
+data("USArrests")
+```
 
 2. **Data Cleaning**: Check for any missing values or potential outliers that might represent data entry errors.
-   ```{r}
-   # Check for missing values
-   any(is.na(df))
-   # Inspect the dataset structure and summary
-   str(df)
-   summary(df)
-   ```
-   Although `USArrests` doesn’t contain missing values, this step reminds us to handle such cases in real-world data.
+```{r}
+# Adding a missing value at row 1, column 1
+USArrests[1, 1] <- NA
 
-3. **Data Exploration**: Visualize and summarize data to understand patterns. For instance, we might be interested in the value distribution of murder arrests.
-   ```{r}
-   # Quick summary of the data distribution
-   summary(df)
+# Check for missing values
+any(is.na(USArrests))
+
+# remove missing value
+USArrests_clean <- na.omit(USArrests)
+```
    
-   # Visualize the distribution of artifact "types" (represented by variables like 'Murder' here)
-   boxplot(df$Murder, main="Distribution of 'Artifact Type A' Count by Region")
-   ```
-   This boxplot would give a quick view of the central tendencies and spread of murder arrests across the dataset.
+3. **Data Exploration**: Visualize and summarize data to understand patterns. For instance, we might be interested in the value distribution of murder arrests.
+```{r}
+# Quick summary of the data distribution
+summary(USArrests_clean)
 
-4. **Modeling**: Create a simple model to analyze relationships between variables. For instance, let’s assume we’re exploring how `UrbanPop` (population percentage in urban areas) might relate to `Murder`.
-   ```{r}
-   model <- lm(Murder ~ UrbanPop, data = df)
-   summary(model)
-   ```
-   This provides an understanding of how urban population percentage might be related to murder arrests in our dataset.
+# Visualize the distribution of artefact "types" (represented by variables like 'Murder' here)
+layout(matrix(1:2, nrow = 2), heights = c(2, 1.5))
+par(mar = c(0, 4, 4, 2) + 0.1)
+hist(USArrests_clean$Murder, main="Distribution of counts of murder arrests in 'USArrests'", xaxt = "n")
+par(mar = c(2, 4, 0, 2) + 0.1)
+boxplot(USArrests_clean$Murder, horizontal = TRUE)
+```
+   This combined histogram and box plot would give a quick view of the central tendencies and spread of murder arrests across the dataset. For example, we can already observe that the mean and median of the distribution (`r mean(USArrests_clean$Murder)` and `r median(USArrests_clean$Murder)`, respectively) are on the lower half of the range (`r range(USArrests_clean$Murder)`), which also imply a longer right tail of the distribution (i.e., the difference between maximum and mean is greater than the one between mean and minimum).
 
-5. **Communication**: Present findings in an R Markdown document, incorporating both visualizations and model summaries. You can interpret results to suggest whether certain types of artifacts are more commonly found in highly populated regions.
+4. **Modelling**: Create a simple model to analyse relationships between variables. For instance, let’s assume we’re exploring how `UrbanPop` (population percentage in urban areas) might relate to `Murder`.
+```{r}
+model <- lm(Murder ~ UrbanPop, data = USArrests_clean)
+summary(model)
+```
+The results of a simple linear regression analysis provides a basic understanding of how one variable might be related on another, interpreted also as *dependent*, presumably causal relationship. In this case, there is **no statistically significant evidence** that urban population percentage is a relevant factor in murder arrests in our dataset. 
+
+5. **Communication**: Present findings in an R Markdown document, incorporating both visualizations and model summaries. You can interpret results to suggest whether murder arrests are more common in highly populated regions.
 
 ::: {.callout-note collapse="true"}
 #### See also {.unnumbered}
@@ -118,14 +120,10 @@ Use `na.omit()` to remove rows with missing values or `is.na()` to identify them
 ```{r}
 # Example data
 data <- data.frame(A = c(1, 2, NA, 4), B = c("x", NA, "y", "z"))
-
-print("Before:")
 print(data)
 
 # Remove rows with NA
 clean_data <- na.omit(data)
-
-print("After:")
 print(clean_data)
 ```
 
@@ -134,14 +132,10 @@ Use `duplicated()` to identify duplicate rows or `unique()` to retain only uniqu
 
 ```{r}
 data <- data.frame(A = c(1, 2, 2, 4), B = c("x", "y", "y", "z"))
-
-print("Before:")
 print(data)
 
 # Remove duplicate rows
 data_unique <- data[!duplicated(data), ]
-
-print("After:")
 print(data_unique)
 ```
 
@@ -150,14 +144,10 @@ Replace specific values with `ifelse()` or direct indexing.
 
 ```{r}
 data <- data.frame(A = c(1, 2, 999, 4), B = c("x", "y", "z", "999"))
-
-print("Before:")
 print(data)
 
 # Replace 999 with NA
 data[data == 999] <- NA
-
-print("After:")
 print(data)
 ```
 
@@ -167,14 +157,12 @@ Key functions include:
 - **`tidyr`:** Tools like `fill()` (fill missing values) and `drop_na()` (remove rows with NAs).  
 - **`dplyr`:** Functions like `distinct()` to remove duplicates and `mutate()` to fix inconsistencies. 
 
-```{r}
+```{r, warning=FALSE}
 library(dplyr)
 library(tidyr)
 
 # Example dataset
 data <- data.frame(id = c(1, 2, 2, 3, NA), value = c(NA, "A", "A", "B", "C"))
-
-print("Before:")
 print(data)
 
 # Clean the data
@@ -182,8 +170,6 @@ cleaned_data <- data %>%
   drop_na(id) %>% # Remove rows with missing IDs
   distinct() %>%  # Remove duplicates
   fill(value, .direction = "down") # Fill missing values downward
-
-print("After:")
 print(cleaned_data)
 ```
 
@@ -202,14 +188,10 @@ Subset data using logical conditions.
 
 ```{r}
 data <- data.frame(A = 1:5, B = letters[1:5])
-
-print("Before:")
 print(data)
 
 # Filter rows where A > 3
 filtered_data <- data[data$A > 3, ]
-
-print("After:")
 print(filtered_data)
 ```
 
@@ -219,21 +201,21 @@ Use indexing to select specific columns.
 ```{r}
 # Select column A
 selected_columns <- data[, "A", drop = FALSE]
-
 print(selected_columns)
 ```
+
+NOTE: the argument `drop = FALSE` ensures that the original data frame structure is not lost in the process (run `data[, "A"]` to compare).
 
 * **Adding or Modifying Columns**  
 Use the `$` operator or indexing to create or modify columns.
 
 ```{r}
 data$new_col <- data$A * 2
-
 print(data)
 ```
 
 * **Reshaping Data**  
-Use `reshape()` to pivot data between wide and long formats.
+Use `reshape()` to pivot data between wide and long formats. The wide format is where each variable corresponds to a column (table format) while the long format assign variable-value pairs to different rows, retaining one or more variables in the wide format. 
 
 ```{r}
 # Example wide format
@@ -246,12 +228,12 @@ print(long_data)
 
 #### Example using `tidyverse` {.unnumbered}
 
-Use `dplyr` for:
-- **Filtering and selecting rows/columns:** `filter()`, `select()`.
-- **Creating new variables:** `mutate()`.
-- **Reshaping:** `pivot_longer()` and `pivot_wider()`.
+Use `dplyr` for:  
+* **Filtering and selecting rows/columns:** `filter()`, `select()`.  
+* **Creating new variables:** `mutate()`.  
+* **Reshaping:** `pivot_longer()` and `pivot_wider()`.  
 
-```{r}
+```{r, warning=FALSE}
 library(dplyr)
 library(tidyr)
 
@@ -261,17 +243,13 @@ data <- data.frame(
   Q1 = c(10, 20, 30),
   Q2 = c(15, 25, 35)
 )
-
-print("Before:")
 print(data)
 
-# Transform the data
+# Perform all operations sequentially in a single step 
 transformed_data <- data %>%
   pivot_longer(cols = starts_with("Q"), names_to = "quarter", values_to = "value") %>%
   filter(value > 15) %>%  # Filter rows where value > 15
   mutate(value_scaled = value / max(value))  # Add a new scaled column
-
-print("After:")
 print(transformed_data)
 ```
 
@@ -344,6 +322,22 @@ ggplot(data, aes(x = value)) +
   labs(title = "Histogram with Mean Marked", x = "Value", y = "Frequency")
 ```
 
+* **Box plots**: A box plot of a single variable can be useful to visualise central tendency and dispersion measures at the same time. It offers the same information of an histogram, though in a more analytical form, by default plotting the median (strong line), the 1st and 3rd or interquartile range (box), the (pseudo)range or 1.5-interquartile range (lines), and *outliers* (points outside the 1.5x interquartile range).
+
+#### Example: Using `ggplot2` for an univariate box plot {.unnumbered}
+
+```{r}
+library(ggplot2)
+
+# Example dataset - variable with normal distribution
+data <- data.frame(value = rnorm(1000, mean = 50, sd = 20))
+
+# Create a histogram
+ggplot(data, aes(x = value)) +
+  geom_boxplot(fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Values", x = "Value", y = "Frequency")
+```
+
 #### Non-numeric variables {.unnumbered}
 
 These approaches allow for comprehensive exploration of univariate statistics for categorical variables, emphasizing both numeric summaries and visual insights.
@@ -409,7 +403,7 @@ ggplot(DartPoints, aes(x = H.Length, y = Weight)) +
    labs(x = "Haft element length (mm)", y = "Weight (gm)")
 ```
 
-* **Box Plots**: Compare a **numerical variable** across categories of a **categorical variable**.
+* **Box Plots**: Compare a **numerical variable** across categories of a **categorical variable**. Ideal for comparing central tendency and dispersal measurements between groups or categories.
   
 ```{r}
 ggplot(DartPoints, aes(x = Haft.Sh, y = H.Length)) +
@@ -434,16 +428,17 @@ ggplot(DartPoints, aes(x = Haft.Sh, fill = Should.Sh)) +
 table(DartPoints$Haft.Sh, DartPoints$Should.Sh)
 ```
 
-* **Mosaic Plots**: 
+* **Mosaic Plots**: A hybrid between contingency tables and stacked bar plots, mosaic plots are useful especially when counts in cross-category groups (i.e. cells in contingency table) are greater than 0. A mosaic plot represents the conditional relative frequency for a cell in the contingency table as the area of rectangular tiles. Adding a shaded color, it can also be used to visualise the deviation from the expected frequency (residual) from a Pearson Chi-square or Likelihood Ratio G^2 test.
 
 ```{r, fig.height=6}
 mosaicplot(table(DartPoints$Haft.Sh, DartPoints$Should.Sh),
            xlab = "Shape lateral haft element",
            ylab = "Shoulder shape",
+           main = "",
            shade = TRUE)
 ```
 
-* **Correlation**: Measure linear relationships between **numerical variables**.
+* **Correlation**: Measure the direction and strength of linear relationships between **numerical variables**. In base R, the function `cor()` will return the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) by default.
 
 ```{r}
 cor(DartPoints$H.Length, DartPoints$Weight)
@@ -454,7 +449,8 @@ cor(DartPoints$H.Length, DartPoints$Weight)
 With Base R:
 ```{r}
 model <- lm(Weight ~ H.Length, data = DartPoints,)
-model
+summary(model)
+
 plot(DartPoints$H.Length, DartPoints$Weight,
      xlab = "Haft element length (mm)", 
      ylab = "Weight (gm)")
