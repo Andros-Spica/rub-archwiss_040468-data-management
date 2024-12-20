@@ -868,13 +868,13 @@ See also
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Min:"</span>, <span class="fu">min</span>(data<span class="sc">$</span>value), <span class="st">"Max:"</span>, <span class="fu">max</span>(data<span class="sc">$</span>value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Min: 17.46823 Max: 80.38028</code></pre>
+<pre><code>Min: 18.25599 Max: 82.13318</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>range_val <span class="ot">&lt;-</span> <span class="fu">range</span>(data<span class="sc">$</span>value)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Range (Max - Min):"</span>, range_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Range (Max - Min): 17.46823 80.38028</code></pre>
+<pre><code>Range (Max - Min): 18.25599 82.13318</code></pre>
 </div>
 </div>
 <ul>
@@ -891,7 +891,7 @@ See also
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean:"</span>, mean_val, <span class="st">"Median:"</span>, median_val, <span class="st">"Variance:"</span>, variance, <span class="st">"SD:"</span>, std_dev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean: 50.85889 Median: 50.84929 Variance: 103.5405 SD: 10.17549</code></pre>
+<pre><code>Mean: 49.47998 Median: 49.14122 Variance: 94.70789 SD: 9.731798</code></pre>
 </div>
 </div>
 </section>
@@ -956,7 +956,7 @@ See also
 <div class="cell-output cell-output-stdout">
 <pre><code>
  A  B  C 
-34 30 36 </code></pre>
+38 36 26 </code></pre>
 </div>
 </div>
 <ul>
@@ -1005,7 +1005,7 @@ See also
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>mode_category <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(data<span class="sc">$</span>category)))</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mode:"</span>, mode_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mode: C</code></pre>
+<pre><code>Mode: A</code></pre>
 </div>
 </div>
 </section>

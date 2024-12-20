@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -325,90 +359,318 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction-to-databases-in-archaeology" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="introduction-to-databases-in-archaeology"><span class="header-section-number">8.1</span> Introduction to Databases in Archaeology</h2>
 <ul>
-<li><strong>What is a Database?</strong>
+<li><p><strong>What is a Database?</strong></p>
 <ul>
-<li>Definition and importance of databases in archaeology (data storage, retrieval, and management).<br>
-</li>
-<li>Example: Common uses of databases for managing archaeological data (e.g., artifacts, excavation records).<br>
-</li>
+<li><p>Definition and importance of databases in archaeology.</p>
+<ul>
+<li><p>A database is an organized collection of data that is stored and accessed electronically. In archaeology, databases are crucial for storing, retrieving, and managing vast amounts of data collected during excavations and research. They help archaeologists efficiently organize and analyze information, ensuring that valuable data is preserved and easily accessible for future studies.</p></li>
+<li><p>Importance of Databases in Archaeology:</p>
+<ol type="1">
+<li><strong><em>Data Organization</em></strong>: Databases allow archaeologists to systematically organize data, making it easier to manage and retrieve information. This is essential for maintaining detailed records of archaeological findings.</li>
+<li><strong><em>Data Preservation</em></strong>: Databases ensure that archaeological data is preserved in a digital format, protecting it from physical degradation and loss. This is particularly important for long-term research projects</li>
+<li><strong><em>Data Sharing</em></strong>: Databases facilitate data sharing among researchers, enabling collaboration and the exchange of information. This enhances the overall quality of archaeological research.</li>
+<li><strong><em>Data Analysis</em></strong>: Databases support complex data analysis, allowing archaeologists to identify patterns, trends, and relationships within the data. This aids in the interpretation of archaeological findings.</li>
+</ol></li>
+<li><p>Example: Common Uses of Databases for Managing Archaeological Data:</p>
+<ol type="1">
+<li><strong><em>Artifacts</em></strong>: Databases can store detailed information about artifacts, including descriptions, photographs, dimensions, materials, and provenance. This allows archaeologists to catalog and track artifacts systematically. For example, an artifact database might include fields for the artifact’s type, material, date of discovery, and associated excavation site.</li>
+<li><strong><em>Excavation Records</em></strong>: Databases can manage excavation records, such as site plans, stratigraphic layers, context sheets, and field notes. This helps in documenting the excavation process and maintaining a comprehensive record of findings. For example, an excavation database might include fields for the site name, excavation date, stratigraphic unit, and associated artifacts.</li>
+<li><strong><em>Research Data</em></strong>: Databases can store research data, including radiocarbon dates, chemical analyses, and spatial data from Geographic Information Systems (GIS). This facilitates data analysis and interpretation. For example, a research database might include fields for sample ID, analysis type, date, and results.</li>
+<li><strong><em>Bibliographic References</em></strong>: Databases can manage bibliographic references and literature reviews, helping archaeologists keep track of relevant publications and sources. For example, a bibliographic database might include fields for the author, title, publication year, and abstract.</li>
+</ol></li>
 </ul></li>
-<li><strong>Types of Databases</strong>
+</ul></li>
+<li><p><strong>Types of Databases</strong></p>
 <ul>
-<li>Overview of relational vs.&nbsp;non-relational databases.<br>
-</li>
-<li>Example: Advantages of relational databases for structured archaeological data.</li>
+<li><p><strong>Overview of relational vs.&nbsp;non-relational databases.</strong></p>
+<ol type="1">
+<li><p><strong><em>Relational Databases</em></strong>: Relational databases use tables to store data and relationships between data. They follow the relational model, where data is organized into tables with rows and columns. Each table represents a specific entity, and relationships between tables are established using keys (primary and foreign keys). Relational databases use SQL (Structured Query Language) for querying and managing data. Examples include MySQL, PostgreSQL, Oracle, and Microsoft SQL Server.</p>
+<ul>
+<li><em>Advantages</em>:
+<ol type="a">
+<li>Data Integrity: Relational databases enforce data integrity through constraints and relationships between tables. This ensures that data is consistent and accurate.</li>
+<li>Structured Data: Relational databases are well-suited for structured data, such as artifact catalogs and excavation records. Complex Queries: Relational databases support complex queries using SQL, enabling detailed searches and analyses.</li>
+<li>Scalability: Relational databases can handle large datasets and support concurrent access by multiple users.</li>
+<li>Data Security: Relational databases provide robust security features, including user authentication, access controls, and encryption.</li>
+</ol></li>
+</ul></li>
+<li><p><strong><em>Non-Relational Databases</em></strong>: Non-relational databases, also known as NoSQL databases, are designed for unstructured or semi-structured data. They can handle large volumes of diverse data types and are often used for big data and real-time web applications. NoSQL databases include various types, such as document stores (e.g., MongoDB), key-value stores (e.g., Redis), column-family stores (e.g., Cassandra), and graph databases (e.g., Neo4j).</p>
+<ul>
+<li><em>Advantages</em>:
+<ol type="a">
+<li>Flexibility: Non-relational databases can store unstructured and semi-structured data, making them suitable for diverse data types.</li>
+<li>Scalability: Non-relational databases are designed to scale horizontally, handling large volumes of data across distributed systems.</li>
+<li>Performance: Non-relational databases can provide high performance for specific use cases, such as real-time data processing and big data analytics.</li>
+<li>Schema-less Design: Non-relational databases do not require a fixed schema, allowing for more flexible data modeling.</li>
+</ol></li>
+</ul></li>
+</ol></li>
+<li><p><strong>Example: Advantages of Relational Databases for Structured Archaeological Data:</strong></p>
+<ol type="1">
+<li><strong><em>Data Integrity</em></strong>: Relational databases enforce data integrity through constraints and relationships between tables. This ensures that data is consistent and accurate, which is essential for maintaining reliable archaeological records. For example, a relational database can enforce referential integrity by ensuring that every artifact record references a valid excavation site.</li>
+<li><strong><em>Structured Data</em></strong>: Relational databases are well-suited for structured data, such as artifact catalogs and excavation records. The tabular format allows for easy organization and retrieval of data. For example, an artifact table can have columns for artifact ID, type, material, and date of discovery.</li>
+<li><strong><em>Complex Queries</em></strong>: Relational databases support complex queries using SQL, enabling archaeologists to perform detailed searches and analyses. For example, an archaeologist can query the database to find all artifacts made of a specific material from a particular excavation layer or to calculate the average age of artifacts from a specific site.</li>
+<li><strong><em>Scalability</em></strong>: Relational databases can handle large datasets and support concurrent access by multiple users. This is important for collaborative archaeological projects where multiple researchers need to access and update the database simultaneously. For example, a relational database can support multiple archaeologists entering data from different excavation sites in real-time.</li>
+<li><strong><em>Data Security</em></strong>: Relational databases provide robust security features, including user authentication, access controls, and encryption. This ensures that sensitive archaeological data is protected from unauthorized access. For example, a relational database can restrict access to certain tables or fields based on user roles, ensuring that only authorized personnel can view or modify sensitive data.</li>
+</ol></li>
 </ul></li>
 </ul>
+<p>In summary, databases are essential tools in archaeology for managing and analyzing data. Relational databases, in particular, offer significant advantages for handling structured archaeological data, ensuring data integrity, and supporting complex queries. Non-relational databases provide flexibility and scalability for handling diverse and large volumes of data, making them suitable for specific use cases in archaeology.</p>
 </section>
 <section id="relational-database-concepts" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="relational-database-concepts"><span class="header-section-number">8.2</span> Relational Database Concepts</h2>
 <ul>
-<li><strong>Basic Concepts</strong>
+<li><p><strong>Basic Concepts</strong></p>
 <ul>
-<li>Introduction to tables, records, fields, primary and foreign keys.<br>
-</li>
-<li>Example: Organizing excavation data in relational tables (e.g., site locations, stratigraphy, finds).<br>
-</li>
-</ul></li>
-<li><strong>Normalization</strong>
+<li><p>Introduction to Tables, Records, Fields, Primary and Foreign Keys:</p>
 <ul>
-<li>Introduction to database normalization (avoiding redundancy, ensuring data integrity).<br>
-</li>
-<li>Example: Structuring artifact data into normalized tables (e.g., artifact type, material, condition).<br>
-</li>
+<li><strong><em>Tables</em></strong>: In a relational database, data is organized into tables. Each table represents a specific entity, such as artifacts, excavation sites, or researchers. Tables consist of rows and columns.</li>
+<li><strong><em>Records</em></strong>: A record (or row) in a table represents a single instance of the entity. For example, a record in an artifacts table might represent a single artifact.</li>
+<li><strong><em>Fields</em></strong>: A field (or column) in a table represents a specific attribute of the entity. For example, fields in an artifacts table might include artifact ID, type, material, and date of discovery.</li>
+<li><strong><em>Primary Keys</em></strong>: A primary key is a unique identifier for each record in a table. It ensures that each record can be uniquely identified. For example, an artifact ID can serve as the primary key in an artifacts table.</li>
+<li><strong><em>Foreign Keys</em></strong>: A foreign key is a field in one table that links to the primary key in another table. It establishes a relationship between the two tables. For example, a site ID in an artifacts table can serve as a foreign key linking to the primary key in a sites table.</li>
 </ul></li>
-<li><strong>Entity-Relationship (ER) Models</strong>
+<li><p>Example: Organizing Excavation Data in Relational Tables:</p>
+<ol type="1">
+<li>Site Locations Table:
 <ul>
-<li>Creating ER models to visualize relationships between archaeological datasets.<br>
-</li>
-<li>Example: Designing an ER diagram for an archaeological database (e.g., site, context, finds).</li>
+<li>Fields: Site ID (Primary Key), Site Name, Location, Excavation Date</li>
+<li>Example Record: (1, “Site A”, “Location A”, “2023-01-01”)</li>
 </ul></li>
+<li>Stratigraphy Table:
+<ul>
+<li>Fields: Stratigraphy ID (Primary Key), Site ID (Foreign Key), Layer, Description</li>
+<li>Example Record: (1, 1, “Layer 1”, “Topsoil layer”)</li>
+</ul></li>
+<li>Finds Table:
+<ul>
+<li>Fields: Find ID (Primary Key), Site ID (Foreign Key), Stratigraphy ID (Foreign Key), Artifact Type, Material, Date of Discovery</li>
+<li>Example Record: (1, 1, 1, “Pottery”, “Clay”, “2023-01-02”)</li>
+</ul></li>
+</ol></li>
+</ul>
+<p>By organizing excavation data into relational tables, archaeologists can efficiently manage and retrieve information about sites, stratigraphy, and finds.<br>
+</p></li>
+<li><p><strong>Normalization</strong></p>
+<ul>
+<li><p>Introduction to Database Normalization: Database normalization is the process of organizing data in a database to avoid redundancy and ensure data integrity. The goal is to structure the data in such a way that each piece of information is stored only once, reducing the risk of inconsistencies and improving data accuracy.</p>
+<ul>
+<li><p>Normalization Principles:</p>
+<ol type="a">
+<li>First Normal Form (1NF): Ensures that each field contains only atomic (indivisible) values and that each record is unique.</li>
+<li>Second Normal Form (2NF): Ensures that all non-key fields are fully dependent on the primary key.</li>
+<li>Third Normal Form (3NF): Ensures that all non-key fields are not only dependent on the primary key but also independent of each other.</li>
+</ol></li>
+</ul></li>
+</ul>
+<p><strong>Example: Structuring Artifact Data into Normalized Tables:</strong></p>
+<ol type="1">
+<li><strong><em>Artifacts Table</em></strong>:
+<ul>
+<li>Fields: Artifact ID (Primary Key), Artifact Type ID (Foreign Key), Material ID (Foreign Key), Condition ID (Foreign Key), Date of Discovery</li>
+<li>Example Record: (1, 1, 1, 1, “2023-01-02”)</li>
+</ul></li>
+<li><strong><em>Artifact Types Table</em></strong>:
+<ul>
+<li>Fields: Artifact Type ID (Primary Key), Artifact Type</li>
+<li>Example Record: (1, “Pottery”)</li>
+</ul></li>
+<li><strong><em>Materials Table</em></strong>:
+<ul>
+<li>Fields: Material ID (Primary Key), Material</li>
+<li>Example Record: (1, “Clay”)</li>
+</ul></li>
+<li><strong><em>Conditions Table</em></strong>:
+<ul>
+<li>Fields: Condition ID (Primary Key), Condition</li>
+<li>Example Record: (1, “Intact”)</li>
+</ul></li>
+</ol>
+<p>By normalizing artifact data into separate tables for artifact types, materials, and conditions, archaeologists can avoid redundancy and ensure data integrity.</p></li>
+<li><p><strong>Entity-Relationship (ER) Models</strong><br>
+An Entity-Relationship (ER) model is a visual representation of the relationships between different entities in a database. It helps in designing the database structure by illustrating how entities are connected and how data flows between them.</p>
+<p><strong>Components of an ER Model:</strong></p>
+<ol type="1">
+<li><p><strong><em>Entities</em></strong>: Represented by rectangles, entities are objects or concepts that have data stored about them. For example, “Site,” “Stratigraphy,” and “Finds” are entities.</p></li>
+<li><p><strong><em>Attributes</em></strong>: Represented by ovals, attributes are properties or characteristics of entities. For example, “Site Name” and “Location” are attributes of the “Site” entity.</p></li>
+<li><p><strong><em>Relationships</em></strong>: Represented by diamonds, relationships show how entities are connected. For example, a “Finds” entity might have a relationship with both the “Site” and “Stratigraphy” entities.</p></li>
+</ol>
+<p><strong>Example: Designing an ER Diagram for an Archaeological Database:</strong></p>
+<ol type="1">
+<li><strong><em>Entities</em></strong>:
+<ul>
+<li>Site (Attributes: Site ID, Site Name, Location, Excavation Date)</li>
+<li>Stratigraphy (Attributes: Stratigraphy ID, Site ID, Layer, Description)</li>
+<li>Finds (Attributes: Find ID, Site ID, Stratigraphy ID, Artifact Type, Material, Date of Discovery)</li>
+</ul></li>
+<li><strong><em>Relationships</em></strong>:
+<ul>
+<li>A “Site” can have multiple “Stratigraphy” layers (One-to-Many relationship).</li>
+<li>A “Stratigraphy” layer can have multiple “Finds” (One-to-Many relationship).</li>
+<li>A “Find” is associated with one “Site” and one “Stratigraphy” layer (Many-to-One relationship).</li>
+</ul></li>
+</ol>
+<p><strong>ER Diagram:</strong></p>
+<p>+—————-+ +—————-+ +—————-+<br>
+| Site | | Stratigraphy | | Finds |<br>
+|—————-| |—————-| |—————-|<br>
+| Site ID (PK) |&lt;——–&gt;| Site ID (FK) |&lt;——–&gt;| Site ID (FK) |<br>
+| Site Name | | Stratigraphy ID| | Stratigraphy ID|<br>
+| Location | | Layer | | Find ID (PK) |<br>
+| Excavation Date| | Description | | Artifact Type |<br>
++—————-+ +—————-+ | Material |<br>
+| Date of Discovery|<br>
++—————-+</p>
+<p>In this ER diagram, the “Site” entity is related to the “Stratigraphy” entity through the “Site ID” field, and the “Stratigraphy” entity is related to the “Finds” entity through the “Stratigraphy ID” field. This visual representation helps in understanding the relationships between different archaeological datasets and designing a well-structured database.</p></li>
 </ul>
 </section>
 <section id="introduction-to-sql-structured-query-language" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="introduction-to-sql-structured-query-language"><span class="header-section-number">8.3</span> Introduction to SQL (Structured Query Language)</h2>
 <ul>
-<li><strong>Basic SQL Commands</strong>
+<li><p><strong>Basic SQL Commands</strong></p>
 <ul>
-<li>Overview of SQL syntax and common commands (e.g., <code>CREATE</code>, <code>INSERT</code>, <code>SELECT</code>, <code>UPDATE</code>).<br>
+<li><ul>
+<li>Overview of SQL Syntax and Common Commands:</li>
+</ul>
+<ol type="1">
+<li><code>CREATE</code>: Used to create a new table or database. Syntax: “CREATE TABLE table_name (column1 datatype, column2 datatype, …);”</li>
+<li><code>INSERT</code>: Used to insert new records into a table. Syntax: “INSERT INTO table_name (column1, column2, …) VALUES (value1, value2, …);”</li>
+<li><code>SELECT</code>: Used to retrieve data from a table. Syntax: “SELECT column1, column2, … FROM table_name;”</li>
+<li><code>UPDATE</code>: Used to modify existing records in a table. Syntax: “UPDATE table_name SET column1 = value1, column2 = value2, … WHERE condition;”</li>
+<li><code>DELETE</code>: Used to delete records from a table. Syntax: “DELETE FROM table_name WHERE condition;”</li>
+</ol></li>
+<li><p><em>Example: Creating tables for archaeological data and inserting records.</em></p>
+<ol type="1">
+<li>Creating a Table for Sites:<br>
+<code>CREATE TABLE</code> Sites ( SiteID <code>INT</code> <code>PRIMARY KEY</code>, SiteName <code>VARCHAR</code>(<code>100</code>), Location <code>VARCHAR</code>(<code>100</code>), ExcavationDate <code>DATE</code> );</li>
+<li>Inserting Records into the Sites Table: <code>INSERT INTO</code> Sites (SiteID, SiteName, Location, ExcavationDate) <code>VALUES</code> (1, ‘Site A’, ‘Location A’, ‘2023-01-01’); .<br>
 </li>
-<li>Example: Creating tables for archaeological data and inserting records.<br>
-</li>
+</ol></li>
 </ul></li>
-<li><strong>Creating a Database with SQL</strong>
+<li><p><strong>Creating a Database with SQL</strong></p>
+<ol type="1">
+<li>Create the Database:</li>
+</ol>
+<p><code>CREATE DATABASE</code> ArchaeologyDB;</p>
+<ol start="2" type="1">
+<li>Use the Database:</li>
+</ol>
+<p><code>USE</code> ArchaeologyDB;</p>
+<ol start="3" type="1">
+<li>Create different Tables:</li>
+</ol>
+<ol type="a">
+<li><p><em>Artifact Table</em></p>
+<p><code>CREATE TABLE</code> Artifacts ( ArtifactID <code>INT</code> <code>PRIMARY KEY</code>, ArtifactType <code>VARCHAR</code>(<code>50</code>), Material <code>VARCHAR</code>(<code>50</code>), Context <code>VARCHAR</code>(<code>100</code>) );</p></li>
+<li><p><em>Sites Table</em></p>
+<p><code>CREATE TABLE</code> Sites ( SiteID <code>INT</code> <code>PRIMARY KEY</code>, SiteName <code>VARCHAR</code>(<code>100</code>), Location <code>VARCHAR</code>(<code>100</code>), ExcavationDate <code>DATE</code> );</p></li>
+</ol>
+<ol start="4" type="1">
+<li>Insert Records:</li>
+</ol>
+<ol type="a">
+<li><p><em>Insert into Artifacts Table:</em> <code>INSERT INTO</code> Artifacts ( ArtifactID, ArtifactType, Material, Context) <code>VALUES</code> (1, ‘Pottery’, ‘Clay’, ‘Layer 1’);</p></li>
+<li><p><em>Insert in Sites Table:</em></p>
+<p><code>INSERT INTO</code> Sites (SiteID, SiteName, Location, ExcavationDate) <code>VALUES</code> (1, ‘Site A’, ‘Location A’, ‘2023-01-01’);</p></li>
+</ol></li>
+<li><p><strong>Indexing and Keys</strong></p>
 <ul>
-<li>Step-by-step process of building an archaeological database using SQL.<br>
-</li>
-<li>Example: Creating an artifact catalogue with fields such as artifact ID, type, material, and context.<br>
-</li>
-</ul></li>
-<li><strong>Indexing and Keys</strong>
+<li><p>Explanation of Primary Keys, Foreign Keys, and Indexing for Optimizing Database Performance:</p>
+<ol type="1">
+<li>Primary Keys: A primary key is a unique identifier for each record in a table. It ensures that each record can be uniquely identified.
 <ul>
-<li>Explanation of primary keys, foreign keys, and indexing for optimizing database performance.<br>
-</li>
-<li>Example: Defining keys to link excavation sites to finds in different tables.<br>
-</li>
+<li>Example: ArtifactID in the Artifacts table.</li>
 </ul></li>
-<li><strong>Basic Querying with SQL</strong>
+<li>Foreign Keys: A foreign key is a field in one table that links to the primary key in another table. It establishes a relationship between the two tables.
 <ul>
-<li>Writing basic queries to retrieve data from a database.<br>
-</li>
-<li>Example: Using <code>SELECT</code> statements to extract information about finds or excavation layers.<br>
-</li>
+<li>Example: SiteID in the Artifacts table linking to SiteID in the Sites table.</li>
 </ul></li>
-<li><strong>Filtering and Sorting Data</strong>
+<li>Indexing: Indexes are used to speed up the retrieval of data. They create a data structure that allows for faster searches.
 <ul>
-<li>Using <code>WHERE</code>, <code>ORDER BY</code>, and <code>GROUP BY</code> clauses to filter and sort data.<br>
-</li>
-<li>Example: Querying artifacts by material type or sorting excavation records by date.<br>
-</li>
+<li>Example: Creating an index on the ArtifactType field in the Artifacts table.</li>
 </ul></li>
-<li><strong>Joining Tables</strong>
+</ol></li>
+<li><p><strong>Defining keys to link excavation sites to finds in different tables:</strong></p>
+<ol type="1">
+<li>Creating Foreign Key Relationship: <code>ALTER TABLE</code> Artifacts <code>ADD</code> SiteID <code>INT</code>m <code>ADD CONSTRAINT</code> FK_Site, <code>FOREIGN</code> Key (SiteID) <code>REFERENCES</code> Sites(SiteID);</li>
+<li>Creating an Index: <code>CREATE</code> Index idx_ArtifactType <code>ON</code> Artifacts (ArtifactType);</li>
+</ol></li>
+</ul></li>
+<li><p><strong>Basic Querying with SQL</strong></p>
+<p><strong>Writing Basic Queries to Retrieve Data from a Database:</strong></p>
+<ol type="1">
+<li><p><strong>Select All Records</strong>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Select Specific Columns</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p><strong>Example: Using SELECT Statements to Extract Information About Finds or Excavation Layers:</strong></p>
+<ol type="1">
+<li><p><strong>Retrieve All Artifacts</strong>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Retrieve Artifacts of a Specific Type</strong>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ArtifactType <span class="op">=</span> <span class="st">'Pottery'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol></li>
+<li><p><strong>Filtering and Sorting Data</strong></p>
+<p><em>Using <code>WHERE</code>, <code>ORDER BY</code>, and <code>GROUP BY</code> Clauses to Filter and Sort Data:</em></p>
+<ol type="1">
+<li><p><strong><em>WHERE Clause</em></strong>: Used to filter records based on a condition.</p>
 <ul>
-<li>Using <code>JOIN</code> statements to combine related tables (e.g., linking artifact data with stratigraphy).<br>
-</li>
-<li>Example: Writing queries to retrieve artifacts based on their excavation context.</li>
+<li><p>Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
+<li><p><strong><em>ORDER BY Clause</em></strong>: Used to sort the result set by one or more columns.</p>
+<ul>
+<li><p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">ORDER</span> <span class="kw">BY</span> DateOfDiscovery <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><p><strong><em>GROUP BY Clause</em></strong>: Used to group records that have the same values in specified columns.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Material, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Artifacts <span class="kw">GROUP</span> <span class="kw">BY</span> Material</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p><em>Querying Artifacts by Material Type or Sorting Excavation Records by Date:</em></p>
+<ol type="1">
+<li><p><strong><em>Filter Artifacts by Material Type</em></strong>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong><em>Sort Excavation Records by Date</em></strong>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Sites</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ExcavationDate <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol></li>
+<li><p><strong>Joining Tables</strong></p>
+<p><em>Using JOIN Statements to Combine Related Tables:</em></p>
+<ol type="1">
+<li><strong><em>INNER JOIN</em></strong>: Combines records from two tables where there is a match in both tables.
+<ul>
+<li><p>Syntax:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">INNER</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong><em>LEFT JOIN</em></strong>: Returns all records from the left table and matched records from the right table.
+<ul>
+<li><p>Syntax:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong><em>RIGHT JOIN</em></strong>: Returns all records from the right table and matched records from the left table.
+<ul>
+<li><p>Syntax:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+<p><strong>Writing Queries to Retrieve Artifacts Based on Their Excavation Context:</strong></p>
+<ol type="1">
+<li><p><strong><em>Join Artifacts with Sites</em></strong>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Sites.SiteName, Sites.Location</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Sites <span class="kw">ON</span> Artifacts.SiteID <span class="op">=</span> Sites.SiteID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong><em>Join Artifacts with Stratigraphy</em></strong>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Stratigraphy.<span class="kw">Layer</span>, Stratigraphy.Description</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Stratigraphy <span class="kw">ON</span> Artifacts.StratigraphyID <span class="op">=</span> Stratigraphy.StratigraphyID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol></li>
 </ul>
 </section>
 <section id="database-tools-for-archaeology" class="level2" data-number="8.4">
