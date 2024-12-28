@@ -361,13 +361,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p><strong>What is a Database?</strong></p>
 <ul>
-<li><p>Definition and importance of databases in archaeology.</p>
+<li><p>Definition of databases in archaeology.</p>
 <ul>
-<li><p>A database is an organized collection of data that is stored and accessed electronically. In archaeology, databases are crucial for storing, retrieving, and managing vast amounts of data collected during excavations and research. They help archaeologists efficiently organize and analyze information, ensuring that valuable data is preserved and easily accessible for future studies.</p></li>
+<li>A database is an organized collection of data that is stored and accessed electronically. In archaeology, databases are crucial for storing, retrieving, and managing vast amounts of data collected during excavations and research. They help archaeologists efficiently organize and analyze information, ensuring that valuable data is preserved and easily accessible for future studies.</li>
+</ul></li>
 <li><p>Importance of Databases in Archaeology:</p>
 <ol type="1">
 <li><strong><em>Data Organization</em></strong>: Databases allow archaeologists to systematically organize data, making it easier to manage and retrieve information. This is essential for maintaining detailed records of archaeological findings.</li>
-<li><strong><em>Data Preservation</em></strong>: Databases ensure that archaeological data is preserved in a digital format, protecting it from physical degradation and loss. This is particularly important for long-term research projects</li>
+<li><strong><em>Data Preservation</em></strong>: Databases ensure that archaeological data is preserved in a digital format, protecting it from physical degradation and loss. This is particularly important for long-term research projects.</li>
 <li><strong><em>Data Sharing</em></strong>: Databases facilitate data sharing among researchers, enabling collaboration and the exchange of information. This enhances the overall quality of archaeological research.</li>
 <li><strong><em>Data Analysis</em></strong>: Databases support complex data analysis, allowing archaeologists to identify patterns, trends, and relationships within the data. This aids in the interpretation of archaeological findings.</li>
 </ol></li>
@@ -379,7 +380,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong><em>Bibliographic References</em></strong>: Databases can manage bibliographic references and literature reviews, helping archaeologists keep track of relevant publications and sources. For example, a bibliographic database might include fields for the author, title, publication year, and abstract.</li>
 </ol></li>
 </ul></li>
-</ul></li>
 <li><p><strong>Types of Databases</strong></p>
 <ul>
 <li><p><strong>Overview of relational vs.&nbsp;non-relational databases.</strong></p>
@@ -389,7 +389,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><em>Advantages</em>:
 <ol type="a">
 <li>Data Integrity: Relational databases enforce data integrity through constraints and relationships between tables. This ensures that data is consistent and accurate.</li>
-<li>Structured Data: Relational databases are well-suited for structured data, such as artifact catalogs and excavation records. Complex Queries: Relational databases support complex queries using SQL, enabling detailed searches and analyses.</li>
+<li>Structured Data: Relational databases are well-suited for structured data, such as artifact catalogs and excavation records.</li>
+<li>Complex Queries: Relational databases support complex queries using SQL, enabling detailed searches and analyses.</li>
 <li>Scalability: Relational databases can handle large datasets and support concurrent access by multiple users.</li>
 <li>Data Security: Relational databases provide robust security features, including user authentication, access controls, and encryption.</li>
 </ol></li>
@@ -449,8 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol></li>
 </ul>
-<p>By organizing excavation data into relational tables, archaeologists can efficiently manage and retrieve information about sites, stratigraphy, and finds.<br>
-</p></li>
+<p>By organizing excavation data into relational tables, archaeologists can efficiently manage and retrieve information about sites, stratigraphy, and finds.</p></li>
 <li><p><strong>Normalization</strong></p>
 <ul>
 <li><p>Introduction to Database Normalization: Database normalization is the process of organizing data in a database to avoid redundancy and ensure data integrity. The goal is to structure the data in such a way that each piece of information is stored only once, reducing the risk of inconsistencies and improving data accuracy.</p>
@@ -511,16 +511,16 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 </ul></li>
 </ol>
 <p><strong>ER Diagram:</strong></p>
-<p>+—————-+ +—————-+ +—————-+<br>
-| Site | | Stratigraphy | | Finds |<br>
-|—————-| |—————-| |—————-|<br>
-| Site ID (PK) |&lt;——–&gt;| Site ID (FK) |&lt;——–&gt;| Site ID (FK) |<br>
-| Site Name | | Stratigraphy ID| | Stratigraphy ID|<br>
-| Location | | Layer | | Find ID (PK) |<br>
-| Excavation Date| | Description | | Artifact Type |<br>
-+—————-+ +—————-+ | Material |<br>
-| Date of Discovery|<br>
-+—————-+</p>
+<pre><code>+----------------+          +----------------+          +------------------+  
+|      Site      |          |  Stratigraphy  |          |       Finds      |  
+|----------------|          |----------------|          |------------------|  
+| Site ID (PK)   |&lt;--------&gt;| Site ID (FK)   |&lt;--------&gt;| Site ID (FK)     |  
+| Site Name      |          | Stratigraphy ID|          | Stratigraphy ID  |  
+| Location       |          | Layer          |          | Find ID (PK)     |  
+| Excavation Date|          | Description    |          | Artifact Type    |  
++----------------+          +----------------+          | Material         |  
+                                                        | Date of Discovery|  
+                                                        +------------------+  </code></pre>
 <p>In this ER diagram, the “Site” entity is related to the “Stratigraphy” entity through the “Site ID” field, and the “Stratigraphy” entity is related to the “Finds” entity through the “Stratigraphy ID” field. This visual representation helps in understanding the relationships between different archaeological datasets and designing a well-structured database.</p></li>
 </ul>
 </section>
@@ -530,7 +530,7 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 <li><p><strong>Basic SQL Commands</strong></p>
 <ul>
 <li><ul>
-<li>Overview of SQL Syntax and Common Commands:</li>
+<li>Overview of SQL syntax and common commands:</li>
 </ul>
 <ol type="1">
 <li><code>CREATE</code>: Used to create a new table or database. Syntax: “CREATE TABLE table_name (column1 datatype, column2 datatype, …);”</li>
@@ -541,10 +541,18 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 </ol></li>
 <li><p><em>Example: Creating tables for archaeological data and inserting records.</em></p>
 <ol type="1">
-<li>Creating a Table for Sites:<br>
-<code>CREATE TABLE</code> Sites ( SiteID <code>INT</code> <code>PRIMARY KEY</code>, SiteName <code>VARCHAR</code>(<code>100</code>), Location <code>VARCHAR</code>(<code>100</code>), ExcavationDate <code>DATE</code> );</li>
-<li>Inserting Records into the Sites Table: <code>INSERT INTO</code> Sites (SiteID, SiteName, Location, ExcavationDate) <code>VALUES</code> (1, ‘Site A’, ‘Location A’, ‘2023-01-01’); .<br>
-</li>
+<li><p>Creating a Table for Sites:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Sites (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  SiteID <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  SiteName <span class="dt">VARCHAR</span>(<span class="dv">100</span>), </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  Location <span class="dt">VARCHAR</span>(<span class="dv">100</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  ExcavationDate <span class="dt">DATE</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Inserting Records into the Sites Table:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Sites (SiteID, SiteName, Location, ExcavationDate)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">'Site A'</span>, <span class="st">'Location A'</span>, <span class="st">'2023-01-01'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>.<br>
+</p></li>
 </ol></li>
 </ul></li>
 <li><p><strong>Creating a Database with SQL</strong></p>
@@ -561,17 +569,33 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 </ol>
 <ol type="a">
 <li><p><em>Artifact Table</em></p>
-<p><code>CREATE TABLE</code> Artifacts ( ArtifactID <code>INT</code> <code>PRIMARY KEY</code>, ArtifactType <code>VARCHAR</code>(<code>50</code>), Material <code>VARCHAR</code>(<code>50</code>), Context <code>VARCHAR</code>(<code>100</code>) );</p></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Artifacts (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  ArtifactID <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  ArtifactType <span class="dt">VARCHAR</span>(<span class="dv">50</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  Material <span class="dt">VARCHAR</span>(<span class="dv">5</span>`),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">Context</span> <span class="dt">VARCHAR</span>(<span class="dv">100</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><em>Sites Table</em></p>
-<p><code>CREATE TABLE</code> Sites ( SiteID <code>INT</code> <code>PRIMARY KEY</code>, SiteName <code>VARCHAR</code>(<code>100</code>), Location <code>VARCHAR</code>(<code>100</code>), ExcavationDate <code>DATE</code> );</p></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Sites (</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  SiteID <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  SiteName <span class="dt">VARCHAR</span>(<span class="dv">100</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  Location <span class="dt">VARCHAR</span>(<span class="dv">100</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  ExcavationDate <span class="dt">DATE</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <ol start="4" type="1">
 <li>Insert Records:</li>
 </ol>
 <ol type="a">
-<li><p><em>Insert into Artifacts Table:</em> <code>INSERT INTO</code> Artifacts ( ArtifactID, ArtifactType, Material, Context) <code>VALUES</code> (1, ‘Pottery’, ‘Clay’, ‘Layer 1’);</p></li>
+<li><p><em>Insert into Artifacts Table:</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Artifacts (</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  ArtifactID, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  ArtifactType,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  Material, <span class="kw">Context</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">'Pottery'</span>, <span class="st">'Clay'</span>, <span class="st">'Layer 1'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><em>Insert in Sites Table:</em></p>
-<p><code>INSERT INTO</code> Sites (SiteID, SiteName, Location, ExcavationDate) <code>VALUES</code> (1, ‘Site A’, ‘Location A’, ‘2023-01-01’);</p></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Sites (SiteID, SiteName, Location, ExcavationDate)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">'Site A'</span>, <span class="st">'Location A'</span>, <span class="st">'2023-01-01'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol></li>
 <li><p><strong>Indexing and Keys</strong></p>
 <ul>
@@ -592,26 +616,32 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 </ol></li>
 <li><p><strong>Defining keys to link excavation sites to finds in different tables:</strong></p>
 <ol type="1">
-<li>Creating Foreign Key Relationship: <code>ALTER TABLE</code> Artifacts <code>ADD</code> SiteID <code>INT</code>m <code>ADD CONSTRAINT</code> FK_Site, <code>FOREIGN</code> Key (SiteID) <code>REFERENCES</code> Sites(SiteID);</li>
-<li>Creating an Index: <code>CREATE</code> Index idx_ArtifactType <code>ON</code> Artifacts (ArtifactType);</li>
+<li><p>Creating Foreign Key Relationship:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> Artifacts </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> SiteID <span class="dt">INT</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> <span class="kw">CONSTRAINT</span> FK_Site,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FOREIGN</span> <span class="kw">KEY</span> (SiteID) <span class="kw">REFERENCES</span> Sites(SiteID);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Creating an Index:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">Index</span> idx_ArtifactType</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> Artifacts (ArtifactType);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol></li>
 </ul></li>
 <li><p><strong>Basic Querying with SQL</strong></p>
 <p><strong>Writing Basic Queries to Retrieve Data from a Database:</strong></p>
 <ol type="1">
 <li><p><strong>Select All Records</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Select Specific Columns</strong>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p><strong>Example: Using SELECT Statements to Extract Information About Finds or Excavation Layers:</strong></p>
+<p><strong>Example: Using SELECT statements to extract information about finds or excavation layers:</strong></p>
 <ol type="1">
 <li><p><strong>Retrieve All Artifacts</strong>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Retrieve Artifacts of a Specific Type</strong>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ArtifactType <span class="op">=</span> <span class="st">'Pottery'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ArtifactID, ArtifactType, Material</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ArtifactType <span class="op">=</span> <span class="st">'Pottery'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol></li>
 <li><p><strong>Filtering and Sorting Data</strong></p>
 <p><em>Using <code>WHERE</code>, <code>ORDER BY</code>, and <code>GROUP BY</code> Clauses to Filter and Sort Data:</em></p>
@@ -619,27 +649,27 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 <li><p><strong><em>WHERE Clause</em></strong>: Used to filter records based on a condition.</p>
 <ul>
 <li><p>Example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li><p><strong><em>ORDER BY Clause</em></strong>: Used to sort the result set by one or more columns.</p>
 <ul>
 <li><p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">ORDER</span> <span class="kw">BY</span> DateOfDiscovery <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts <span class="kw">ORDER</span> <span class="kw">BY</span> DateOfDiscovery <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li><p><strong><em>GROUP BY Clause</em></strong>: Used to group records that have the same values in specified columns.</p>
 <ul>
 <li>Example:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Material, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Artifacts <span class="kw">GROUP</span> <span class="kw">BY</span> Material</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Material, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Artifacts <span class="kw">GROUP</span> <span class="kw">BY</span> Material</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <p><em>Querying Artifacts by Material Type or Sorting Excavation Records by Date:</em></p>
 <ol type="1">
 <li><p><strong><em>Filter Artifacts by Material Type</em></strong>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Artifacts</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Material <span class="op">=</span> <span class="st">'Clay'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong><em>Sort Excavation Records by Date</em></strong>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Sites</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ExcavationDate <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Sites</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ExcavationDate <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol></li>
 <li><p><strong>Joining Tables</strong></p>
 <p><em>Using JOIN Statements to Combine Related Tables:</em></p>
@@ -647,29 +677,29 @@ An Entity-Relationship (ER) model is a visual representation of the relationship
 <li><strong><em>INNER JOIN</em></strong>: Combines records from two tables where there is a match in both tables.
 <ul>
 <li><p>Syntax:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">INNER</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">INNER</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li><strong><em>LEFT JOIN</em></strong>: Returns all records from the left table and matched records from the right table.
 <ul>
 <li><p>Syntax:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li><strong><em>RIGHT JOIN</em></strong>: Returns all records from the right table and matched records from the left table.
 <ul>
 <li><p>Syntax:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> table1 <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">column</span> <span class="op">=</span> table2.<span class="kw">column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 </ol>
 <p><strong>Writing Queries to Retrieve Artifacts Based on Their Excavation Context:</strong></p>
 <ol type="1">
 <li><p><strong><em>Join Artifacts with Sites</em></strong>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Sites.SiteName, Sites.Location</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Sites <span class="kw">ON</span> Artifacts.SiteID <span class="op">=</span> Sites.SiteID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Sites.SiteName, Sites.Location</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Sites <span class="kw">ON</span> Artifacts.SiteID <span class="op">=</span> Sites.SiteID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong><em>Join Artifacts with Stratigraphy</em></strong>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Stratigraphy.<span class="kw">Layer</span>, Stratigraphy.Description</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Stratigraphy <span class="kw">ON</span> Artifacts.StratigraphyID <span class="op">=</span> Stratigraphy.StratigraphyID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Artifacts.ArtifactID, Artifacts.ArtifactType, Stratigraphy.<span class="kw">Layer</span>, Stratigraphy.Description</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Artifacts</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> Stratigraphy <span class="kw">ON</span> Artifacts.StratigraphyID <span class="op">=</span> Stratigraphy.StratigraphyID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol></li>
 </ul>
 </section>
