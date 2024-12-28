@@ -5,22 +5,22 @@
 
 * **What is a Database?**
 
-  - Definition and importance of databases in archaeology.
+  * Definition of databases in archaeology.
   
     * A database is an organized collection of data that is stored and accessed electronically. In archaeology, databases are crucial for   storing, retrieving, and managing vast amounts of data collected during excavations and research. They help archaeologists efficiently organize and analyze information, ensuring that valuable data is preserved and easily accessible for future studies.
     
-    * Importance of Databases in Archaeology:
+  * Importance of Databases in Archaeology:
       
       1) ***Data Organization***: 
       Databases allow archaeologists to systematically organize data, making it easier to manage and retrieve information. This is essential for maintaining detailed records of archaeological findings.
       2) ***Data Preservation***: 
-      Databases ensure that archaeological data is preserved in a digital format, protecting it from physical degradation and loss. This is particularly important for long-term research projects
+      Databases ensure that archaeological data is preserved in a digital format, protecting it from physical degradation and loss. This is particularly important for long-term research projects.
       3) ***Data Sharing***: 
       Databases facilitate data sharing among researchers, enabling collaboration and the exchange of information. This enhances the overall quality of archaeological research.
       4) ***Data Analysis***: 
       Databases support complex data analysis, allowing archaeologists to identify patterns, trends, and relationships within the data. This aids in the interpretation of archaeological findings.
       
-    * Example: Common Uses of Databases for Managing Archaeological Data:
+  * Example: Common Uses of Databases for Managing Archaeological Data:
     
       1) ***Artifacts***: 
       Databases can store detailed information about artifacts, including descriptions, photographs, dimensions, materials, and provenance. This allows archaeologists to catalog and track artifacts systematically. For example, an artifact database might include fields for the artifact’s type, material, date of discovery, and associated excavation site.
@@ -43,9 +43,10 @@
         * *Advantages*:
             a) Data Integrity: Relational databases enforce data integrity through constraints and relationships between tables. This ensures that data is consistent and accurate.
             b) Structured Data: Relational databases are well-suited for structured data, such as artifact catalogs and excavation records.
-            Complex Queries: Relational databases support complex queries using SQL, enabling detailed searches and analyses.
-            c) Scalability: Relational databases can handle large datasets and support concurrent access by multiple users.
-            d) Data Security: Relational databases provide robust security features, including user authentication, access controls, and encryption.
+            c) Complex Queries: Relational databases support complex queries using SQL, enabling detailed searches and analyses.
+            d) Scalability: Relational databases can handle large datasets and support concurrent access by multiple users.
+            e) Data Security: Relational databases provide robust security features, including user authentication, access controls, and encryption.
+            
     2) ***Non-Relational Databases***: 
    Non-relational databases, also known as NoSQL databases, are designed for unstructured or semi-structured data. They can handle large volumes of diverse data types and are often used for big data and real-time web applications. NoSQL databases include various types, such as document stores (e.g., MongoDB), key-value stores (e.g., Redis), column-family stores (e.g., Cassandra), and graph databases (e.g., Neo4j).
         * *Advantages*:
@@ -54,8 +55,6 @@
             c) Performance: Non-relational databases can provide high performance for specific use cases, such as real-time data processing and big data analytics.
             d) Schema-less Design: Non-relational databases do not require a fixed schema, allowing for more flexible data modeling.
 
-  
-  
   * **Example: Advantages of Relational Databases for Structured Archaeological Data:**
     
       1) ***Data Integrity***: Relational databases enforce data integrity through constraints and relationships between tables. This ensures that data is consistent and accurate, which is essential for maintaining reliable archaeological records. For example, a relational database can enforce referential integrity by ensuring that every artifact record references a valid excavation site.
@@ -90,6 +89,7 @@ In summary, databases are essential tools in archaeology for managing and analyz
         * Example Record: (1, 1, 1, “Pottery”, “Clay”, “2023-01-02”)
 
   By organizing excavation data into relational tables, archaeologists can efficiently manage and retrieve information about sites, stratigraphy, and finds.  
+  
 * **Normalization**  
 
   * Introduction to Database Normalization: Database normalization is the process of organizing data in a database to avoid redundancy and ensure data integrity. The goal is to structure the data in such a way that each piece of information is stored only once, reducing the risk of inconsistencies and improving data accuracy.
@@ -139,24 +139,25 @@ In summary, databases are essential tools in archaeology for managing and analyz
         * A “Find” is associated with one “Site” and one “Stratigraphy” layer (Many-to-One relationship).
 
   **ER Diagram:**
-
-  +----------------+          +----------------+          +----------------+  
-  |      Site      |          |  Stratigraphy  |          |      Finds     |  
-  |----------------|          |----------------|          |----------------|  
-  | Site ID (PK)   |<-------->| Site ID (FK)   |<-------->| Site ID (FK)   |  
-  | Site Name      |          | Stratigraphy ID|          | Stratigraphy ID|  
-  | Location       |          | Layer          |          | Find ID (PK)   |  
-  | Excavation Date|          | Description    |          | Artifact Type  |  
-  +----------------+          +----------------+          | Material       |  
+```
+  +----------------+          +----------------+          +------------------+  
+  |      Site      |          |  Stratigraphy  |          |       Finds      |  
+  |----------------|          |----------------|          |------------------|  
+  | Site ID (PK)   |<-------->| Site ID (FK)   |<-------->| Site ID (FK)     |  
+  | Site Name      |          | Stratigraphy ID|          | Stratigraphy ID  |  
+  | Location       |          | Layer          |          | Find ID (PK)     |  
+  | Excavation Date|          | Description    |          | Artifact Type    |  
+  +----------------+          +----------------+          | Material         |  
                                                           | Date of Discovery|  
-                                                         +----------------+  
+                                                          +------------------+  
+```
 
   In this ER diagram, the “Site” entity is related to the “Stratigraphy” entity through the “Site ID” field, and the “Stratigraphy” entity is related to the “Finds” entity through the “Stratigraphy ID” field. This visual representation helps in understanding the relationships between different archaeological datasets and designing a well-structured database.
 
 ## Introduction to SQL (Structured Query Language)
 
 * **Basic SQL Commands**  
-  * * Overview of SQL Syntax and Common Commands:
+  * * Overview of SQL syntax and common commands:
 
     1) `CREATE`: Used to create a new table or database.
         Syntax: "CREATE TABLE table_name (column1 datatype, column2 datatype, ...);"
@@ -172,15 +173,19 @@ In summary, databases are essential tools in archaeology for managing and analyz
   * *Example: Creating tables for archaeological data and inserting records.*
 
     1) Creating a Table for Sites:  
-      `CREATE TABLE` Sites (
-      SiteID `INT` `PRIMARY KEY`,
-      SiteName `VARCHAR`(`100`),
-      Location `VARCHAR`(`100`),
-      ExcavationDate `DATE`
-      );
+       ```sql 
+       CREATE TABLE Sites (
+         SiteID INT PRIMARY KEY, 
+         SiteName VARCHAR(100), 
+         Location VARCHAR(100), 
+         ExcavationDate DATE
+       );
+       ```
     2) Inserting Records into the Sites Table:
-      `INSERT INTO` Sites (SiteID, SiteName, Location, ExcavationDate)
-      `VALUES` (1, 'Site A', 'Location A', '2023-01-01');
+       ```sql
+       INSERT INTO Sites (SiteID, SiteName, Location, ExcavationDate)
+       VALUES (1, 'Site A', 'Location A', '2023-01-01');
+       ```
 .  
 * **Creating a Database with SQL**  
   1) Create the Database:
@@ -195,36 +200,46 @@ In summary, databases are essential tools in archaeology for managing and analyz
 
     a) *Artifact Table*
 
-        `CREATE TABLE` Artifacts (
-          ArtifactID `INT` `PRIMARY KEY`,
-          ArtifactType `VARCHAR`(`50`),
-          Material `VARCHAR`(`50`),
-          Context `VARCHAR`(`100`)
-      );
+        ```sql
+        CREATE TABLE Artifacts (
+          ArtifactID INT PRIMARY KEY,
+          ArtifactType VARCHAR(50),
+          Material VARCHAR(5`),
+          Context VARCHAR(100)
+        );
+        ```
 
     b) *Sites Table*
 
-        `CREATE TABLE` Sites (
-          SiteID `INT` `PRIMARY KEY`,
-          SiteName `VARCHAR`(`100`),
-          Location `VARCHAR`(`100`),
-          ExcavationDate `DATE`
-      );
+        ```sql
+        CREATE TABLE Sites (
+          SiteID INT PRIMARY KEY,
+          SiteName VARCHAR(100),
+          Location VARCHAR(100),
+          ExcavationDate DATE
+        );
+        ```
 
 
   4) Insert Records:
 
     a) *Insert into Artifacts Table:*
-      `INSERT INTO` Artifacts (
-        ArtifactID, 
-        ArtifactType,
-        Material, Context)
-      `VALUES` (1, 'Pottery', 'Clay', 'Layer 1');
+       
+       ```sql
+       INSERT INTO Artifacts (
+         ArtifactID, 
+         ArtifactType,
+         Material, Context)
+       VALUES (1, 'Pottery', 'Clay', 'Layer 1');
+       ```
 
     b) *Insert in Sites Table:*
 
-       `INSERT INTO` Sites (SiteID, SiteName, Location, ExcavationDate)
-       `VALUES` (1, 'Site A', 'Location A', '2023-01-01'); 
+       ```sql
+       INSERT INTO Sites (SiteID, SiteName, Location, ExcavationDate)
+       VALUES (1, 'Site A', 'Location A', '2023-01-01');
+       ```
+       
 * **Indexing and Keys**  
   * Explanation of Primary Keys, Foreign Keys, and Indexing for Optimizing Database Performance:
 
@@ -237,14 +252,20 @@ In summary, databases are essential tools in archaeology for managing and analyz
  
   * **Defining keys to link excavation sites to finds in different tables:**
     1) Creating Foreign Key Relationship:
-        `ALTER TABLE` Artifacts 
-        `ADD` SiteID `INT`m
-        `ADD CONSTRAINT` FK_Site,
-        `FOREIGN` Key (SiteID) `REFERENCES` Sites(SiteID);
+       
+       ```sql
+       ALTER TABLE Artifacts 
+       ADD SiteID INT,
+       ADD CONSTRAINT FK_Site,
+       FOREIGN KEY (SiteID) REFERENCES Sites(SiteID);
+       ```
+       
     2) Creating an Index:
-        `CREATE` Index idx_ArtifactType
-        `ON` Artifacts (ArtifactType);
-        
+       
+       ```sql
+       CREATE Index idx_ArtifactType
+       ON Artifacts (ArtifactType);
+        ```
         
 * **Basic Querying with SQL**  
   
@@ -262,7 +283,7 @@ In summary, databases are essential tools in archaeology for managing and analyz
         SELECT ArtifactID, ArtifactType, Material FROM Artifacts
         ```
     
-    **Example: Using SELECT Statements to Extract Information About Finds or Excavation Layers:**
+    **Example: Using SELECT statements to extract information about finds or excavation layers:**
     
     1) **Retrieve All Artifacts**:
     
@@ -358,9 +379,6 @@ In summary, databases are essential tools in archaeology for managing and analyz
           FROM Artifacts
           INNER JOIN Stratigraphy ON Artifacts.StratigraphyID = Stratigraphy.StratigraphyID
           ```
-
-
-
 
 ## Database Tools for Archaeology
 
